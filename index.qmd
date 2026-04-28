@@ -1,0 +1,5 @@
+# Het portfolio
+
+Dit is een template voor het portfolio Computationele Biologie binnen de eerste drie semesters van de bachelor Biologie aan de Universiteit Leiden.
+
+## Instructies

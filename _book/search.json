@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Portfolio Computationele Biologie",
+    "section": "",
+    "text": "1 Het portfolio\nDit is een template voor het portfolio Computationele Biologie binnen de eerste drie semesters van de bachelor Biologie aan de Universiteit Leiden.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Het portfolio</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#instructies",
+    "href": "index.html#instructies",
+    "title": "Portfolio Computationele Biologie",
+    "section": "1.1 Instructies",
+    "text": "1.1 Instructies",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Het portfolio</span>"
+    ]
+  },
+  {
+    "objectID": "log_pH.html",
+    "href": "log_pH.html",
+    "title": "2  Logaritmes en exponenten",
+    "section": "",
+    "text": "3 Logaritmes en exponenten\nBij het vak Chemie van het leven leer je pH-berekeningen uit te voeren. In deze portfolio-opdracht zul je kennis maken met logaritmische berekeningen. Daarbij verken je meerdere contexten waarin de logaritme verschijnt.\nJe werkt hierbij aan de onderstaande leerdoelen. Kruis deze voor jezelf af als je ze denkt te beheersen.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Logaritmes en exponenten</span>"
+    ]
+  },
+  {
+    "objectID": "log_pH.html#ph-berekeningen",
+    "href": "log_pH.html#ph-berekeningen",
+    "title": "2  Logaritmes en exponenten",
+    "section": "3.1 pH berekeningen",
+    "text": "3.1 pH berekeningen\nDe zuurgraad van een oplossing wordt bepaald door de concentratie protonen (\\([\\text{H}^+]\\)). Deze kan sterk verschillen tussen oplossingen. Het is niet handig om met extreem grote of kleine concentraties te werken. In de praktijk wordt deze concetratie daarom op een logaritmische schaal geplaatst.\nDe pH van een oplossing wordt als volgt gedefinieerd: \\[\\text{pH} = -\\log_{10}[\\text{H}^+]\\] Hiermee wordt een enorm concentratiebereik teruggebracht tot een schaal van ongeveer 0 tot 14.\nOm uit de pH de concentratie te bepalen, gebruiken we de exponentiële functie: \\[[\\text{H}^+] = 10^{-\\text{pH}}\\]\n\n3.1.1 Voorbeeld: pH metingen\nStel dat een oplossing pH 3 heeft. Dan geldt: \\[[\\text{H}^+] = 10^{-3} = 0.001 ~\\text{mol/L}.\\] Als de pH daalt naar 2, volgt: \\[[\\text{H}^+] = 10^{-2} = 0.01 ~\\text{mol/L}.\\] De concentratie wordt dus 10× groter, precies omdat exponentiële en logaritmische functies elkaars inverse zijn.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Logaritmes en exponenten</span>"
+    ]
+  },
+  {
+    "objectID": "log_pH.html#vooropdracht",
+    "href": "log_pH.html#vooropdracht",
+    "title": "2  Logaritmes en exponenten",
+    "section": "3.2 Vooropdracht",
+    "text": "3.2 Vooropdracht\nTest je begrip door de volgende vragen te beantwoorden.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Logaritmes en exponenten</span>"
+    ]
+  },
+  {
+    "objectID": "log_pH.html#practicumopdracht",
+    "href": "log_pH.html#practicumopdracht",
+    "title": "2  Logaritmes en exponenten",
+    "section": "3.3 Practicumopdracht",
+    "text": "3.3 Practicumopdracht\nZoals in de introductie beschreven, zullen onderdelen uit dit portfolio gekoppeld worden aan practicumopdrachten. Voor het eerste portfolio-onderdeel hoef je nog niet zelf een hoofdstuk toe te voegen aan het portfoliobestand, zoals dat later wel zal moeten. Met deze app oefen je op een laagdrempelige manier met de logica achter coderen. Je kunt de berekeningen die je hierbij uitvoert ook gebruiken bij het schrijven van je labjournaal.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Logaritmes en exponenten</span>"
+    ]
+  },
+  {
+    "objectID": "log_pH.html#evo-devo-allometrische-schaling",
+    "href": "log_pH.html#evo-devo-allometrische-schaling",
+    "title": "2  Logaritmes en exponenten",
+    "section": "3.4 Evo-devo: Allometrische schaling",
+    "text": "3.4 Evo-devo: Allometrische schaling\nWe gaan nu kijken naar een andere context waarin logaritmes en exponenten helpen bij het begrijpen van biologische fenomenen. We duiken hierbij voor het eerst het vakgebied Evo-Devo in. Je kunt de bijbehorende vragen in R maken door dit bestand te downloaden.\nEen interessant fenomeen binnen de evolutie is allometrische schaling. Dit beschrijft hoe biologische eigenschappen systematisch veranderen als de lichaamsgrootte toeneemt van soort tot soort. Wat opvalt, is dat veel kenmerken, zoals metabolismesnelheid, levensduur, loopsnelheid en breingrootte, niet linear toenemen, maar volgens een bepaalde machtswet. Deze kunnen we als volgt schrijven:\n\\[Y = aM^b.\\]\nHierbij staat \\(Y\\) voor de variabele die gemeten wordt en \\(M\\) voor de massa. De coëfficiënt \\(a\\) is soortspecifiek en \\(b\\) is de allometrische exponent.\n\n3.4.1 Voorbeeld: metabolismesnelheid\nOm meer inzicht te krijgen in hoe deze machtsrelatie werkt, gaan we de volgende afbeelding analyseren:\n!Data_schaling\nWe zien dat we een verband zoeken tussen de massa van een soort in kilogram en de metabolismesnelheid in mL zuurstofverbruik per gram per uur. Uit deze figuur kunnen we (ongeveer) de datapunten bepalen:\n\nmassa = c(0.002, 0.008, 0.015, 0.02, 0.025, 0.08, 0.4, \n          2.5, 3, 14, 45, 72,700, 2500)  \nmetabolisme = c(7.15, 2.2, 1.85, 1.7, 1.65, 1.05, 0.75, \n                0.45, 0.4,0.2, 0.15, 0.1, 0.75, 0.05) \n\n\n3.4.1.1 Plot hieronder de datapunten aan de hand van de vectoren die gegeven zijn. Waarom ziet het er anders uit dan de gegeven figuur?\n\n# dit zou je zelf moeten doen \nplot(massa, metabolisme)\n\n\n\n\n\n\n\n\n\n\n3.4.1.2 Los het probleem op: hoe zou je ervoor kunnen zorgen dat de data goed leesbaar wordt? Wat voor verband kunnen we nu afleiden?\n\n# dit zou je zelf moeten doen \nplot(log10(massa), log10(metabolisme),      \n     pch = 19, xlab = \"log10(Massa)\", \n     ylab = \"log10(Metabolisme)\")  \nabline(lm(log10(metabolisme) ~ log10(massa)), col = \"red\")\n\n\n\n\n\n\n\n\n\n\n3.4.1.3 Leg nu in woorden uit waarom de gebruikte methode werkt, en relateer dat aan de machtsformule.\n[vul hier in]\nWe gaan nu iets beter kijken naar de betekenis van het aangetone verband. We hebben gekeken naar de massa-specifieke metabole snelheid, ook wel metabole intensiteit, die aangeeft hoe snel metabolisme verloopt per eenheid massa van een bepaald weefsel. Dit meten we bijvoorbeeld als de hoeveelheid \\(\\text{O}_2\\) die verbruikt wordt per uur. Aan deze eenheid zien we dat we dit kunnen berekenen door de totale metabole intensiteit te delen door de massa.\n\n\n3.4.1.4 Vul dit in bij de machtsformule, waarbij de gemeten variabele het totale metabolisme is. Maak gebruik van de rekenregels van de logaritme om een uitdrukking te krijgen voor de totale metabole intensiteit.\n[vul hier in]\nOm terug te gaan naar het totale metabolisme in een dier, vermenigvuldigen we de massa en het massa-specifieke metabolisme.\n\nmassa_metabolisme &lt;- massa*metabolisme\n\n\n\n3.4.1.5 Probeer nu een relatie te vinden tussen de massa en het totale metabolisme.\n\n# dit zou je zelf doen \nplot(log10(massa), \n     log10(massa_metabolisme)) \nabline(lm(log10(massa_metabolisme) ~ log10(massa)), col = \"red\")\n\n\n\n\n\n\n\n\n\n\n3.4.1.6 Wat kun je opmerken over het effect van een grotere massa op de totale metabole snelheid? En op de massa-specifieke metabole snelheid?\n[vul hier in]\n\n\n3.4.1.7 Gebruik de rekenregels van de logaritme en je eerdere antwoorden om een waarde voor de exponent \\(b\\) te vinden. Hint: gebruik de functie om een relevante waarde te vinden. Met vind je hoe je deze kunt gebruiken.\n[vul hier in]\n\n\n\n3.4.2 Optioneel: Fractale structuren\nGeïnteresseerden worden uitgenodigd om hier meer te lezen over fractale structuren.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Logaritmes en exponenten</span>"
+    ]
+  }
+]

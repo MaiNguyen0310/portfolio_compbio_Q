@@ -1,0 +1,73 @@
+/* Hide common sidebar/TOC classes */
+.tutorial-sidebar,
+.sidebar,
+.tocify,
+.toc-content,
+.aside,
+nav.toc,
+nav.tocify,
+.bs-docs-sidenav,
+.rmd-sidebar,
+.rmd-toc {
+  display: none !important;
+}
+
+/* Hide elements with role complementary/navigation */
+[role="complementary"],
+[role="navigation"],
+[aria-label*="Table of contents"],
+[aria-label*="Contents"] {
+  display: none !important;
+}
+
+/* Hide narrow left columns (Bootstrap grid) */
+.col-xs-3,
+.col-sm-3,
+.col-md-3,
+.col-lg-3,
+.col-xs-4,
+.col-sm-4,
+.col-md-4,
+.col-lg-4 {
+  display: none !important;
+}
+
+/* If the sidebar is the first column in a row, hide it */
+div.row > div[class*="col-"]:first-child {
+  display: none !important;
+}
+
+/* Force remaining columns to full width */
+div.row > div[class*="col-"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: 0 0 100% !important;
+}
+
+/* Remove header/navbar/footer/progress */
+.tutorial-navbar,
+.navbar,
+.navbar-default,
+.navbar-fixed-top,
+.tutorial-title,
+.tutorial-header,
+.page-header,
+h1.title,
+.tutorial-footer,
+footer,
+.tutorial-progress {
+  display: none !important;
+}
+
+/* Remove margins/padding so content fills iframe */
+body, .container, .container-fluid, .tutorial-content, .main-content, .content {
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Safety: hide any element that looks like a left column by position */
+body > div, body > main, body > section {
+  /* no-op; kept for specificity if needed */
+}

@@ -1,0 +1,83 @@
+---
+title: "-"
+output:
+  learnr::tutorial:
+    theme: null
+runtime: shiny_prerendered
+---
+
+
+
+```{r setup, include=FALSE}
+library(learnr)
+```
+
+
+## Practicumopdracht
+
+### Oplossingen maken
+
+Tijdens het practicum heb je twee oplossingen gemaakt, die je A en B hebt genoemd. Het was de bedoeling dat oplossing A een 150 mL 0.20 M Na-acetaatoplossing was. Hierbij heb je handmatig bepaald hoeveel natriumacetaat je moest afwegen (MW = 136.08). Vul onderstaand in hoe je dit hebt berekend. Gebruik hiervoor de namen vóór de pijl. Klik op *Solution* voor een voorbeelduitwerking.
+
+```{r massa_nodig, exercise=TRUE}
+vol_gewenst <- 150 # Gewenst volume in milliliter
+conc_gewenst <- 0.20 # Gewenste concentratie in mol per liter
+MW <- 136.08 # Moleculair gewicht in gram per mol
+```
+
+```{r massa_nodig-solution}
+massa_nodig <- (vol_gewenst/1000 * conc_gewenst)*MW
+massa_nodig
+```
+
+In de praktijk heb je deze massa waarschijnlijk niet exact kunnen afwegen. Vul hieronder in wat het precieze afgewogen gewicht was. Stel dast dit 4.03 mg was:
+
+```{r}
+massa_gewogen <- 4.03
+```
+
+Hoe heb je het volume demiwater geschaald om alsnog de juiste concentratie te verkrijgen?
+
+```{r vol_aangepast, exercise=TRUE}
+# vul aan hoe je vol_aangepast berekent
+
+round(vol_aangepast,2) # het toegevoegde volume, afgerond op 2 decimalen
+```
+
+```{r vol_aangepast-solution}
+vol_aangepast <- vol_gewenst * (massa_gewogen/massa_nodig)
+round(vol_aangepast,2) # het toegevoegde volume, afgerond op 2 decimalen
+```
+Bovenstaande berekening kun je in de Methode-sectie van je labjournaal plaatsen.
+
+### pKz bepalen
+
+Vervolgens heb je de pKz van oplossingen A en B berekend.Hierbij heb je gebruik gemaakt van de volgende algemene formule:
+
+$$\text{pH} = \text{pKz} + \log_{10}\left(\frac{[\text{Z}^-]}{[\text{HZ}]} \right),$$
+waarbij het zuur wordt aangeduid met $\text{Z}^-$ en de geconjugeerde base met $\text{HZ}$.
+
+Je hebt tabellen gemaakt waarin je de gemeten pH-waarde rapporteert na het toevoegen van 1 mL 1.25 M $\text{HCl}$. Gebruik de tabel voor oplossing A om de pKz van acetaat te bepalen.
+
+```{r pKz, exercise=TRUE}
+Z_A <- 0.2
+pH_A <- 7.60
+HZ_A <- 10^(-(14-pH_A))
+
+# vul hier aan!
+pKz_A <- 
+pKz_A
+```
+
+```{r pKz-solution}
+Z_A <- 0.2
+pH_A <- 7.60
+HZ_A <- 10^(-(14-pH_A))
+
+pKz_A <- 7.60 - log(Z_A/HZ_A,10)
+pKz_A
+```
+
+Voor oplossing B waren de concentraties van $\text{CH}_3\text{COO}^-$ en  $\text{CH}_3\text{COOH}$ gelijk. Wat betekent dat voor de bepaling van de pKz?
+
+

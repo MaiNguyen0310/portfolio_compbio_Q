@@ -1,0 +1,81 @@
+---
+title: "schaling"
+output: 
+  html_document:
+    self_containd: false
+    css: styles.css
+---
+
+# Evo-devo: fractale structuren
+
+Een kernidee achter moderne verklaringen voor machtswetten in biologie is dat vertakte, ruimtevullende netwerken (fractale distributienetwerken) zorgen voor de aanvoer van hulpstoffen en de afvoer van excretieproducten. Als zo’n netwerk bepaalde aannames volgt, waaronder ruimtevullend, zelfgelijkend, en met terminale eenheden die onafhankelijk van grootte zijn, dan volgt uit eenvoudige rekenregels dat globale eigenschappen (zoals totaal metabolisme $Y$) een machtswet in massa $M$ moet volgen. Immers, stel dat elk klein eindstukje (capillair, alveolus) ongeveer hetzelfde doet ongeacht de grootte van het dier. Het totale aantal eindstukjes moet dan schalen met de massa, maar door de manier waarop het netwerk vertakt en de lengte/doorsnede van takken verandert, groeit de totale capaciteit niet lineair met massa.
+
+Wiskundig: fractale zelfgelijkheid betekent dat een schaaltransformatie van de structuur resulteert in een eenvoudige vermenigvuldiging van relevante grootheden. Dat is precies de eigenschap die machtswetten hebben: bij schaling van $M$ met een factor verandert $T$ met een vaste macht van die factor. Logaritmisch uitgedrukt wordt zo’n machtsrelatie lineair, wat verklaart waarom log‑log regressies zo goed werken voor allometrie.
+
+Voorbeeld: Als een netwerk ruimtevullend is en de lengte‑ en doorsnedeverhoudingen tussen opeenvolgende takniveaus constant zijn, dan is de totale doorstroomcapaciteit proportioneel aan $M^b$ met $b$ bepaald door de vertakkingsexponenten en de fractale dimensie van het netwerk.
+
+In praktische termen betekent dit dat je twee dingen tegelijk kunt begrijpen. Ten eerste verklaart de fractale structuur waarom simpele geometrische redeneringen niet altijd volstaan: een oppervlak‑tegen‑volume‑argument geeft zoals beschreven $b=2/3$, maar als het transport via vertakkende netwerken verloopt en optimalisatie van stroomkosten een rol speelt, kan een andere exponent zoals $3/4$ logisch volgen. Ten tweede verklaart het waarom empirische data variatie tonen: echte netwerken wijken af van ideale fractalen, terminale eenheden verschillen tussen weefsels en soorten, en evolutionaire aanpassingen en meetfouten verschuiven de geschatte exponenten.
+
+TODO voeg bron toe voor literatuur.
+
+TODO bepalen wat hiermee te doen.
+
+```{r}
+# Recursieve tekenfunctie
+draw_branch <- function(x0, y0, angle, length, depth, k = 2, scale = 0.85) {
+  if (depth == 0) return(NULL)
+  x1 <- x0 + length * cos(angle)
+  y1 <- y0 + length * sin(angle)
+  segments(x0, y0, x1, y1, lwd = pmax(0.5, length*2))
+  spread <- pi/6
+  angles <- seq(angle - spread, angle + spread, length.out = k)
+  for (a in angles) draw_branch(x1, y1, a, length * scale, depth - 1, k, scale)
+}
+
+# Samenvatting (analytisch, geen coördinaten nodig)
+summarize_tree <- function(k = 2, depth = 5, length0 = 1, radius0 = 0.04, scale = 0.85) {
+  counts <- sapply(0:depth, function(d) if (d==0) 1 else k^d)
+  lengths <- sapply(0:depth, function(d) length0 * scale^d)
+  radii   <- sapply(0:depth, function(d) radius0 * scale^d)
+  total_volume <- sum(pi * (radii^2) * lengths * counts)
+  n_terminal <- counts[length(counts)]
+  list(total_volume = total_volume, n_terminal = n_terminal)
+}
+
+# Parameters: kies s zodat k * s^3 > 1
+k <- 2
+scale <- 0.85   # 2 * 0.85^3 ≈ 1.23 > 1
+length0 <- 1
+radius0 <- 0.04
+
+# Twee tijdstippen (schematisch)
+depth_early <- 3
+depth_late  <- 6
+
+par(mfrow = c(1,2), mar = c(1.5,1.5,2,1))
+plot(NULL, xlim = c(-1.5,1.5), ylim = c(0,5), xaxt='n', yaxt='n', xlab='', ylab='', main = paste("Vroeg (d =", depth_early, ")"))
+draw_branch(0, 0, pi/2, length0, depth_early, k = k, scale = scale)
+plot(NULL, xlim = c(-1.5,1.5), ylim = c(0,6), xaxt='n', yaxt='n', xlab='', ylab='', main = paste("Later (d =", depth_late, ")"))
+draw_branch(0, 0, pi/2, length0, depth_late, k = k, scale = scale)
+par(mfrow = c(1,1))
+
+# Bereken proxies over dieptes 
+depths <- 2:12
+mass <- numeric(length(depths))
+total_met <- numeric(length(depths))
+for (i in seq_along(depths)) {
+  s <- summarize_tree(k = k, depth = depths[i], length0 = length0, radius0 = radius0, scale = scale)
+  mass[i] <- s$total_volume
+  total_met[i] <- s$n_terminal
+}
+
+# Log-log plot en regressie
+plot(log10(mass), log10(total_met), pch = 19, col = "steelblue",
+     xlab = "log10(totaal volume)", ylab = "log10(aantal terminale eenheden)",
+     main = "Log-log relatie over dieptes")
+text(log10(mass), log10(total_met), labels = depths, pos = 3, cex = 0.8)
+fit <- lm(log10(total_met) ~ log10(mass))
+abline(fit, col = "red", lwd = 2)
+legend("bottomright", legend = paste0("slope = ", round(coef(fit)[2], 3)), bty = "n")
+
+```

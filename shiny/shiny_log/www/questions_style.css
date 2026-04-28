@@ -1,0 +1,55 @@
+/* ---------- Global Page Styling ---------- */
+
+body {
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #f5f6f7;
+  line-height: 1.6;
+  font-size: 16px;
+  color: #333;
+}
+
+/* ---------- Question Card ---------- */
+
+.question-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  margin: 25px auto;
+  max-width: 800px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  border-left: 6px solid #001158;
+}
+
+.question-card h4 {
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn-primary {
+  background-color: #001158 !important;
+  border-color: #001158 !important;
+  font-weight: 600;
+  color: white !important;
+}
+
+.btn-secondary {
+  background-color: #adb5bd !important;
+  border-color: #adb5bd !important;
+  color: white !important;
+}
+
+/* ---------- Feedback Messages ---------- */
+
+.correct {
+  color: #0a8f3b;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.incorrect {
+  color: #c92a2a;
+  font-weight: bold;
+  font-size: 1.1em;
+}
