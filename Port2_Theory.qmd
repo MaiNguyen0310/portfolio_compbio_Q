@@ -1,0 +1,150 @@
+---
+title: "Stochastische variabelen, kansverdelingen en entropie"
+author: ""
+format: html
+editor: visual
+---
+
+## Pagina 11 -- Stochastische variabelen en kansverdelingen
+
+Om de variabiliteit van uitkomsten binnen een populatie formeel te beschrijven, introduceren we het concept van een **toevalsvariabele** of **stochastische variabele**. Een stochastische variabele is een functie die aan elke mogelijke uitkomst van een experiment een numerieke waarde toekent.
+
+Er kan onderscheid worden gemaakt tussen twee benaderingen.
+
+### Empirische benadering
+
+Bij een empirische benadering wordt de verdeling afgeleid uit waargenomen data, verkregen via steekproeven of experimenten.
+
+Voorbeelden hiervan zijn:
+
+-   het aantal ogen bij een worp met een dobbelsteen;
+-   de lengte van een willekeurig geselecteerde student;
+-   de categorie waartoe een willekeurig gekozen object behoort.
+
+### Theoretische benadering
+
+Bij een theoretische benadering wordt de kansverdeling vooraf gespecificeerd op basis van een wiskundig model.
+
+Voorbeelden hiervan zijn:
+
+-   de uniforme verdeling op een interval;
+-   de normale verdeling voor continue variabelen;
+-   discrete verdelingen zoals de binomiale of Poissonverdeling.
+
+In beide gevallen staat de **kansverdeling** centraal. Deze beschrijft de waarschijnlijkheid van de mogelijke uitkomsten.
+
+### Eigenschappen van stochastische variabelen
+
+Stochastische variabelen hebben enkele algemene eigenschappen:
+
+1.  ze worden gekarakteriseerd door een kansverdeling;
+2.  hun concrete waarde, of realisatie, is pas bekend na uitvoering van een experiment of meting;
+3.  ze drukken inherente onzekerheid uit.
+
+## Pagina 12 -- Functies van stochastische variabelen
+
+Niet alleen individuele observaties, maar ook functies van observaties kunnen als stochastische variabelen worden beschouwd.
+
+Een belangrijk voorbeeld is het **steekproefgemiddelde**. Gegeven een steekproef $S_1, S_2, \dots, S_N$ definiëren we het gemiddelde als:
+
+$$
+\mu = \frac{1}{N}\sum_{i=1}^{N} S_i
+$$
+
+Aangezien de waarden $S_i$ zelf stochastische variabelen zijn, volgt dat ook het gemiddelde $\mu$ een stochastische variabele is.
+
+Dit principe generaliseert naar andere grootheden, zoals:
+
+-   aantallen, bijvoorbeeld het aantal mannen en vrouwen;
+-   proporties;
+-   samengestelde statistieken.
+
+### Empirische verificatie
+
+Theoretische verdelingen kunnen worden vergeleken met empirische data via simulaties. In R kan dit bijvoorbeeld als volgt:
+
+```{r}
+# Simuleer 50 waarden uit een chi-kwadraatverdeling met 1 vrijheidsgraad
+x <- rchisq(n = 50, df = 1)
+
+# Toon de empirische verdeling
+hist(x, breaks = 15, freq = FALSE,
+     main = "Empirische en theoretische chi-kwadraatverdeling",
+     xlab = "Waarde")
+
+# Voeg de theoretische dichtheidsfunctie toe
+curve(dchisq(x, df = 1), from = 0, to = 20, add = TRUE)
+```
+
+In deze code wordt een empirische verdeling, weergegeven door het histogram, vergeleken met de theoretische dichtheidsfunctie van de chi-kwadraatverdeling.
+
+## Pagina 13 -- Opdrachten en interpretatie
+
+### Opdracht 1
+
+Formuleer een verbale beschrijving van de gegeven code.
+
+### Opdracht 2
+
+Voer de code meerdere malen uit en analyseer de variatie in de uitkomsten. Verklaar deze variatie in termen van steekproefvariabiliteit.
+
+De procedure illustreert dat herhaalde steekproeven uit dezelfde verdeling verschillende realisaties opleveren, terwijl de onderliggende theoretische verdeling constant blijft.
+
+### Opdracht 3
+
+Evalueer of de empirische verdeling overeenkomt met de theoretische verwachting.
+
+### Opdracht 4
+
+Voer een analoge analyse uit voor p-waarden en verklaar het verschil in interpretatie.
+
+Onder de nulhypothese geldt dat p-waarden uniform verdeeld zijn op het interval $[0,1]$. Dit betekent dat alle waarden binnen dit interval even waarschijnlijk zijn, mits de nulhypothese correct is.
+
+```{r}
+# Simuleer p-waarden onder de nulhypothese
+p_values <- runif(n = 1000, min = 0, max = 1)
+
+# Histogram van de p-waarden
+hist(p_values, breaks = 20, freq = FALSE,
+     main = "Verdeling van p-waarden onder de nulhypothese",
+     xlab = "p-waarde")
+
+# Theoretische uniforme dichtheid
+curve(dunif(x, min = 0, max = 1), from = 0, to = 1, add = TRUE)
+```
+
+## Pagina 14 -- Entropie en onzekerheid
+
+Een centraal concept in zowel statistiek als informatietheorie is **entropie**. Entropie kan worden opgevat als een maat voor onzekerheid, spreiding of wanorde.
+
+De entropie van een discrete kansverdeling wordt gedefinieerd als:
+
+$$
+H = -\sum_i p_i \log(p_i)
+$$
+
+waarbij $p_i$ de kans is op uitkomst $i$.
+
+### Interpretatie
+
+Een hoge entropie wijst op grote onzekerheid. Dit treedt op wanneer de kansen relatief gelijk verdeeld zijn over de mogelijke uitkomsten.
+
+Een lage entropie wijst op minder onzekerheid. Dit treedt op wanneer de kansmassa geconcentreerd is rond één of enkele uitkomsten.
+
+### Contextafhankelijkheid
+
+De betekenis van entropie hangt af van het toepassingsgebied:
+
+-   in de **informatietheorie** is entropie een maat voor informatie-inhoud;
+-   in de **natuurkunde**, met name de thermodynamica, is entropie een maat voor wanorde;
+-   in de **sociale wetenschappen** en economie kan entropie worden gebruikt als maat voor ongelijkheid of spreiding.
+
+### Voorbeelden
+
+Een willekeurige tekenreeks heeft doorgaans een hoge entropie, omdat de volgende uitkomst moeilijk voorspelbaar is. Een sterk gestructureerde tekst heeft daarentegen een lagere entropie, omdat de volgorde van symbolen minder willekeurig is.
+
+Een eerlijke dobbelsteen maximaliseert de entropie binnen zijn uitkomstenruimte, omdat alle zes uitkomsten dezelfde kans hebben.
+
+### Relatie tot structuur
+
+Hoewel natuurlijke systemen vaak evolueren naar toestanden met hogere entropie, kunnen lokaal structuren ontstaan. De totale entropie van een gesloten systeem neemt echter niet af.

@@ -1,5 +1,72 @@
-# Het portfolio
+# Het portfolio {.unnumbered}
 
-Dit is een template voor het portfolio Computationele Biologie binnen de eerste drie semesters van de bachelor Biologie aan de Universiteit Leiden.
+Welkom aan de universiteit. Jullie stappen een nieuwe fase binnen, een omgeving waarin kennis niet alleen wordt overgedragen, maar voortdurend wordt bevraagd, verdiept, vernieuwd en uitgebreid. Hier gaat het niet alleen om leren wat bekend is, zoals op de middelbare school, maar om zelfstandig denken, vragen stellen en nieuwe verbanden leggen. Je ontwikkelt niet alleen kennis, maar ook een manier van kijken: kritisch, analytisch en onderzoekend.
 
-## Instructies
+Dat maakt deze fase zowel inspirerend als uitdagend. Je krijgt meer vrijheid om je eigen pad te vormen, je interesses te volgen en je stem te ontwikkelen binnen een vakgebied. Tegelijk vraagt dat iets van je: nieuwsgierigheid, discipline, zelfstandigheid en verantwoordelijkheid voor je eigen leerproces en je medestudenten.
+
+Zie deze periode niet alleen als een studie, maar als het begin van een academische houding, een manier van denken en werken die je vormt, ongeacht waar je daarna terechtkomt.
+
+De opdrachten in deze wiskunde, informatica en statistiek portfolio vormen een essentieel fundament binnen die academische vorming. Wiskunde, statistiek en informatica zijn daarbij geen bijzaken, maar basis instrumenten van de moderne biologie. Ze stellen je in staat data te analyseren, patronen te herkennen en onderliggende structuren te doorgronden. Wie deze vaardigheden ontwikkelt, legt de basis om niet alleen kennis te volgen, maar ook nieuwe inzichten te ontdekken en bij te dragen aan de wetenschap en maatschappij.
+
+## Waarom dit belangrijk is
+
+Binnen de levenswetenschappen spelen kwantitatieve en computationele methoden een steeds belangrijkere rol. Denk bijvoorbeeld aan:
+
+-   Statistische analyse van experimentele data: het ontwerpen, analyseren en kritisch interpreteren van experimenten, zodat resultaten betrouwbaar zijn en betekenisvolle conclusies kunnen worden getrokken.
+-   Bio-informatica voor het analyseren van grootschalige biologische datasets (zoals DNA, RNA en eiwitten), waarbij met behulp van computationele methoden patronen en verbanden in complexe gegevens worden onderzocht.
+-   Systeembiologie voor het integreren van complexe biologische processen: het modelleren en begrijpen van interacties tussen componenten op verschillende afstand en tijdschalen binnen de biologie om het gedrag van het geheel te doorgronden.
+
+Dit zijn precies de domeinen waarin hedendaagse doorbraken plaatsvinden.
+
+## Werken met echte complexiteit
+
+In de bio-informatica worden grote hoeveelheden data geanalyseerd, zoals genomische en metabolomische datasets. Dit vereist niet alleen technische vaardigheden, maar ook een analytische manier van denken.
+
+Daarnaast worden ook ecologische en evolutionaire systemen bestudeerd, vaak met behulp van computationele modellen. Jullie leren dus niet alleen technieken, maar ook hoe je complexe systemen begrijpt en beschrijft.
+
+## Systeembiologie en modellering
+
+Systeembiologie probeert verschillende informatieniveaus te integreren in formele modellen. Dit vraagt:
+
+-   Abstract en logisch denken
+-   Het kunnen werken met wiskundige structuren
+-   Het interpreteren van modellen en simulaties
+
+Dit zijn vaardigheden die kenmerkend zijn voor het moderne academisch denken.
+
+## Hoe jullie dit gaan leren
+
+We zijn ons ervan bewust dat deze overgang uitdagend is. Daarom is het curriculum bewust opgebouwd in stappen, waarbij herhaling en stapsgewijze verdieping centraal staan.
+
+In deze contact bestaat de opbouw van het eerste jaar bestaat uit:
+
+-   Portfolio-opdrachten (eerste semester)
+-   Het vak Statistiek 1\
+-   Portfolio-opdrachten (tweede semester)
+-   Het vak Computationele Biologie
+
+Door deze structuur krijgen jullie de tijd om concepten te analyseren, doorgronden en begrijpen, toe te passen en uiteindelijk te beheersen.
+
+## Wat er van jullie verwacht wordt
+
+Dit traject vraagt actieve deelname. Verwacht wordt dat jullie:
+
+-   Regelmatig oefenen en zelfstandig of in groepen werken
+-   Concepten niet alleen begrijpen, maar ook kunnen toepassen
+-   Verantwoordelijkheid nemen voor jullie eigen leerproces en eventueel van je groep.
+
+Dit is geen passieve studie: het is een actieve ontwikkeling richting academisch niveau.
+
+## Wil je meer weten?
+
+Binnen de beschikbare tijd kunnen we deze onderwerpen maar tot een bepaalde diepgang behandelen. Merk je dat je nieuwsgierig bent naar meer, of dat een onderwerp je echt heeft gegrepen? Dan nodigen we je van harte uit om deel te nemen aan het portfolio-ontwikkelproject.
+
+In dit project gaan we samen de diepte in: er is ruimte om verder te verkennen, vragen te stellen en ideeën uit te wisselen. We organiseren hiervoor bijeenkomsten van één à twee uur, voorafgaande aan de LBC-tabbeurt in de fusie. Na afloop is er ruimte om informeel door te praten.
+
+Voor dit project worden geen studiepunten toegekend, deelname komt dus volledig voort uit je eigen interesse en motivatie om je verder te verdiepen.
+
+Lijkt je dit interessant? Meld je dan aan via: …
+
+
+
+

@@ -8,7 +8,12 @@ book:
   chapters:
     - index.qmd
     - log_pH.qmd
+    - Port2_Theory.qmd
     - references.qmd
+  appendices:
+    - Port2_Pract.qmd
+    - Sepia_Mantel.qmd  
+
     
 format: 
   html:

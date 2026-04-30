@@ -1,0 +1,240 @@
+---
+title: "Sepia Mantel en de t-test."
+author: "Portfolio Statistiek"
+format:
+  html:
+    toc: true
+    number-sections: true
+editor: visual
+---
+
+## Introductie:
+
+Vandaag onderzoeken we een fundamentele relatie tussen de betrouwbaarheid van een schatting van het gemiddelde, de p-waarde die we gebruiken om een hypothese te verwerpen, en de kwaliteit van een experimentele opzet.
+
+Allereerst is het belangrijk te realiseren dat **steekproefdata** afkomstig zijn uit een grotere verzameling gegevens, de **populatie.** Met een steekproef beschikken we dus slechts over een deel van alle informatie uit de populatie waarin we geïnteresseerd zijn. Het doel van statistiek is daarom niet de steekproef zelf te beschrijven, maar om op basis van onvolledige informatie uitspraken te doen over de populatie waaruit de steekproef afkomstig is.Er zit dus onzekerheid in.
+
+Wat is de logica van statistisch hypothesetoetsen?
+
+1.  **Null-hypothese (**$H_0$): er is geen verschil tussen de gemiddelde mantellengte van mannelijke en vrouwelijke Sepia.
+2.  Dus: $\overline{Man} - \overline{Vrouw} = 0$
+3.  De t-waarde is dan
+
+$$
+\frac{\overline{Man} - \overline{Vrouw}}{SE} = 0
+$$
+
+4.  Als de t-waarde 0 is, dan is de p-waarde 1; de **kans** dat we dit verschil (of een groter verschil) vinden, puur op basis van **toeval**
+
+Laat dit even bezinken. De gemiddelden kennen we, maar wat is **SE**? Dat is de focus van vandaag. SE vormt de link tussen het gemiddelde, de p-waarde en de betrouwbaarheid van het experiment.
+
+Wat we nu alvast kunnen zeggen is dat de **SE** een functie is van de standaarddeviatie (**SD**), een maat voor de spreiding in de steekproef, en van de steekproefgrootte (**n**). Hieronder beginnen we met het begrip SE te onderzoeken en proberen we met een aantal eenvoudige vragen een complexere vraag te begrijpen.
+
+## Het probleem.
+
+**Vraag 1**: Waarom nemen we een spreiding waar in de mantellengte van Sepia?
+
+Antwoord:
+
+De spreiding wordt beschreven met de **variantie**. Bekijk de volgende formules voor het gemiddelde en voor een maat van spreiding $s^2$.
+
+$$
+\overline{Lengte} = \frac{\sum Lengte_i}{n}
+$$
+
+$$
+s^2 = \frac{\sum (Lengte_i - \overline{Lengte})^2}{n-1}
+$$
+
+**Vraag 2:** Wat is de overeenkomst tussen beide vergelijkingen?
+
+Antwoord 2:
+
+We gaan ervan uit dat deze data afkomstig zijn uit een populatie die een bepaalde verdeling volgt: de **normale verdeling** (of Gauss-verdeling). Dit is één, van de vele aannames die we in de wetenschap maken. De normale verdeling wordt volledig bepaald door twee parameters: het gemiddelde en de variantie.
+
+**Vraag 3:** Elke tafel meet een eigen steekproef van mannelijke en vrouwelijke Sepia, afkomstig uit dezelfde grote populatie van de Noordzee. Verwacht je dat de steekproefgemiddelden van alle tafels exact hetzelfde getal zullen opleveren? Motiveer je antwoord.
+
+Antwoord 3:
+
+**Vraag 4:** De SE is een maat die de observatie uit vraag 3 kwantitatief beschrijft. Wat beschrijft de SE dan precies en hoe hangen de SE, de steekproefgrootte en $s^2$ met elkaar samen?
+
+Antwoord 4:
+
+Onder vrij algemene omstandigheden is de (deels heuristische) relatie:
+
+$$
+SE =
+$$
+
+**Vraag 5:** Verwacht je dat de t-waarden van alle tafels exact hetzelfde getal zullen zijn? Hoe zou je deze t-waarden kunnen interpreteren? Motiveer je antwoord.
+
+Antwoord 5:
+
+In de laatste vraag komen we bij het inzicht waar we naartoe werken. Jullie weten al uit de portfolio-opdrachten van het eerste semester dat wanneer de p-waarde \< 0.05 is, de nulhypothese onvoldoende wordt ondersteund en we deze verwerpen. We zeggen dan dat we statistisch een verschil hebben aangetoond.
+
+Hoe meer de t-waarde afwijkt van 0, hoe kleiner de p-waarde wordt. Bijvoorbeeld: een t-waarde van ongeveer 2 komt overeen met een p-waarde van ongeveer 0.05.
+
+**Vraag 6**: Gegeven de relatie tussen het verschil van de gemiddelden, de SE, de t-waarde en de p-waarde: kunnen we uit de vergelijking voor de t-waarde afleiden hoe groot onze steekproef moet zijn?
+
+Antwoord 6:
+
+## Kansuitspraken en wetenschap
+
+Hier komen we bij de volgende observaties:
+
+-   Als we een meting doen waarvan de uitkomst niet van tevoren met absolute precisie bekend is, spreken we van een **random variabele**.
+-   De mantellengte van een Sepia kennen we pas op het moment van meten en is dus een random variabele.
+-   Random variabelen hebben een verdeling; de gemeten mantellengtes van Sepia vormen dus een verdeling.
+-   Functies van random variabelen zijn zelf ook random variabelen. De gemeten lengte met 10 vermenigvuldigen kunnen we bijvoorbeeld pas na de meting doen.
+-   Het gemiddelde van de Sepia-mantellengtes is een functie van random variabelen en heeft dus ook een verdeling. De spreiding van die verdeling is de **SE**.
+-   De t-waarde en de p-waarde zijn eveneens functies van random variabelen (namelijk van de steekproefgemiddelden) en zijn dus zelf ook random variabelen; de verdeling van de t-waarde noemen we de t-verdeling of t-distributie.
+
+Daarom zijn al onze uitspraken in de statistiek gebaseerd op **kansen die voortkomen uit een verdeling**, en nooit op een absoluut bewijs.
+
+# Analyse van jullie data
+
+## Inlezen van de data:
+
+> Wees gerust we verwachten nog niet dat je deze code kent
+
+Eerst hebben we data nodig. Je kan per groepje de data invoeren met het volgende formulier: https://forms.gle/6YANtfcktkhzKRhp6.
+
+Deze data kunnen inlezen in R door deze code te runnen:
+
+```{r}
+library(googlesheets4)
+
+sheet_id <- "https://docs.google.com/spreadsheets/d/1E7XdnQFziU1n-Oso3dk0ds_cG6aiA3WN6AfnsyB9MMA/edit?resourcekey=&gid=135478951#gid=135478951"
+
+gs4_deauth()
+Sepia_Mantel <- read_sheet(sheet_id)
+```
+
+We zien dat de kolomnamen vrij lang zijn. We maken deze eenvoudiger en zetten Titelnummer en Geslacht tegelijkertijd om naar factoren:
+
+```{r}
+colnames(Sepia_Mantel) <- c("Tijd", "Student_Num", "Tafel_Num", "Lengte", "Breedte", "Geslacht", "Plastinaat")
+Sepia_Mantel$Tafel_Num <- factor(Sepia_Mantel$Tafel_Num)
+Sepia_Mantel$Geslacht <- factor(Sepia_Mantel$Geslacht)
+```
+
+Dit is makkelijker met coderen.
+
+Zijn alle decimalen punten?
+
+```{r}
+library(dplyr)
+
+Sepia_Mantel <- Sepia_Mantel %>%
+  mutate(
+    # 1. Vervang de komma door een punt
+    # 2. Zet om naar numeriek
+    Lengte = as.numeric(gsub(",", ".", Lengte)),
+    Breedte = as.numeric(gsub(",", ".", Breedte))
+  )
+```
+
+## Data Kwaliteit
+
+Voor we verder kunnen kijken we eerst naar de kwaliteit van de data.
+
+**Extreme waarden**:
+
+```{r}
+plot(Breedte ~ Geslacht, Sepia_Mantel)
+points(Breedte ~ Geslacht, Sepia_Mantel)
+
+Z_score_M <- scale(Sepia_Mantel$Breedte[Sepia_Mantel$Geslacht == "Mannelijk"])
+which(abs(Z_score_M) > 3)
+
+Z_score_V <- scale(Sepia_Mantel$Breedte[Sepia_Mantel$Geslacht == "Vrouwlijk"])
+which(abs(Z_score_V) > 3)
+```
+
+Opmerkingen: Er zijn ...
+
+Hebben alle tafels evenveel mannelijke of vrouwelijke Sepia's?
+
+```{r}
+library(dplyr)
+
+aantallen <- Sepia_Mantel %>%
+  count(Tafel_Num, Geslacht)
+
+print(aantallen)
+```
+
+Opmerkingen:
+
+## De Hypothese test.
+
+We willen weten of het waargenomen verschil tussen de gemiddelde door toeval komt of structureel is. Is er een verschil tussen de gemiddelde?
+
+```{r}
+# Kwantitatief
+by(Sepia_Mantel$Lengte, Sepia_Mantel$Geslacht, mean)
+
+# Visueel
+plot(Breedte ~ Geslacht, Sepia_Mantel)
+points(Breedte ~ Geslacht, Sepia_Mantel)
+```
+
+Antwoord:
+
+Dit is voor alle data, laten we nu ook kijken naar één tafel.
+
+```{r}
+# Subset data tafel 1
+
+Tafel_1 <- Sepia_Mantel[Sepia_Mantel$Tafel_Num == "1",]
+# Kwantitatief
+by(Tafel_1$Lengte, Tafel_1$Geslacht, mean)
+
+plot(Breedte ~ Geslacht, Tafel_1)
+points(Breedte ~ Geslacht, Tafel_1)
+```
+
+Opmerking:
+
+```{r}
+t.test(Lengte ~ Geslacht, data = Sepia_Mantel)
+```
+
+## Spreiding gemiddelde en test - statistieken
+
+Zoals we eerder hadden besproken verwachten we niet dat alle gemiddelden, t en p-waarden gelijk zijn per tafel. Hieronder gaan we alle gemiddelde
+
+```{r}
+nTafel <- 7
+Gemiddelde <- numeric(nTafel)
+t_waarden <- numeric(nTafel)
+p_waarden <- numeric(nTafel)
+
+for(i in 1:nTafel){
+  Gemiddelde[i]<- mean(Sepia_Mantel$Lengte[Sepia_Mantel$Tafel_Num == i & Sepia_Mantel$Geslacht == "Mannelijk" ])
+  t_waarden[i]<- t.test(Lengte ~ Geslacht, data = Sepia_Mantel[Sepia_Mantel$Tafel_Num == i,])$statistic
+  p_waarden[i]<- t.test(Lengte ~ Geslacht, data = Sepia_Mantel[Sepia_Mantel$Tafel_Num == i,])$p.value
+}
+Gemiddelde
+sd(Gemiddelde)
+t_waarden
+p_waarden
+```
+
+Opmerking:
+
+## T-test je eigen tafel.
+
+Hieronder kan je testen het resultaat van je eigen tafel. Dat kan je ook doen voor de breedte. Pas hiervoor de code zelf aan.
+
+```{r}
+# Subset data tafel 1
+Tafel_1 <- Sepia_Mantel[Sepia_Mantel$Tafel_Num == "1",]
+
+t.test(Lengte ~ Geslacht, data = Tafel_1)
+plot(Lengte ~ Geslacht, data = Tafel_1)
+```
+
+Deze [Shiny-app](https://mai-nguyen0310.shinyapps.io/ttest/){target="_blank"} illustreert het principe goed.
+
+**Opdracht**: Beschrijf in maximaal 200 woorden de relatie tussen het gemiddelde, de t-waarde, de p-waarde en de steekproefgrootte. Interpreteer daarnaast het resultaat van je eigen tabel. Upload dit bestand, liefst als html via de daarvoor bestemde link op Brightspace.

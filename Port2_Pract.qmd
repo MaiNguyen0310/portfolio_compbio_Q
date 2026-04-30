@@ -1,0 +1,144 @@
+# Maiszaden practicum.
+
+In de vorige portfolio-opdracht hebben we gekeken naar het veelvuldig voorkomen van logaritme als we de natuur analyseren. Vandaag starten we met een nieuwe portfolio-opdracht waarin we de basis van de statistiek gaan onderzoeken en waar we in de portfolio opdracht een link leggen met logaritmen en Evo-Devo.
+
+We gaan testen of de overerving van heterozygote genen volgens de wetten van Mendel verloopt. Concreet: Komt de theoretisch verwachte verdeling van de kleuren van zaden overeen met de waargenomen verdeling in jullie waarnemen? We gaan dus een theoretische verdeling vergelijken met een waargenomen of empirische verdeling van een steekproef.
+
+Volgens de Mendeliaanse genetica verwachten we, als beide ouders heterozygoot zijn voor één gen dat de kleur bepaalt, een 3:1 verhouding van zaden met de dominante eigenschap ten opzichte van de recessieve eigenschap. Beschouw bijvoorbeeld heterozygote ouders voor het gen $R$ dat de rode kleur veroorzaakt:
+
+**Tabel 3.1: Kruising van twee heterozygote ouders.**
+
+|     |                $R$                |                 $r$                  |
+|:----------------:|:-------------------------:|:-------------------------:|
+| $R$ | $RR$ ([rood]{style="color:red;"}) |  $Rr$ ([rood]{style="color:red;"})   |
+| $r$ | $rR$ ([rood]{style="color:red;"}) | $rr$ ([geel]{style="color:yellow;"}) |
+
+Als beide ouders daadwerkelijk $Rr$ zijn, dan verwachten we in de nakomelingen een verhouding van rood : geel = 3:1; dus drie rode voor elke gele dus een **proportie van (3/4, 1/4)**.
+
+::: aside
+Deze verhoudingen zijn veelvouden van 1/4, omdat er vier mogelijke combinaties zijn van R en r($2^2$)
+:::
+
+Een statistische toets vertrekt vanuit de aanname dat er geen verschil is (de Null-hypothese) en onderzoekt vervolgens of er voldoende bewijs is om deze aanname te **verwerpen** (Nullify -\> to Null). Voor de $\chi^2$-kwadraattoets (spreek uit als chi-kwadraat) betekent dit dat we de waargenomen verdeling vergelijken met de verdeling die we zouden verwachten bij een 3:1-verhouding.
+
+Je kunt deze verwachte frequenties eenvoudig berekenen door het totale aantal getelde zaden te vermenigvuldigen met de verwachte proportie van (3/4, 1/4).
+
+## Het concept: Toeval of Systematische Afwijking?
+
+Laten we als voorbeeld de *sex ratio* (geslachtsverhouding) van een soort onderzoeken. Stel, we verwachten een ratio van 1:1 (**proportie (1/2,1/2)**), evenveel mannetjes als vrouwtjes.
+
+Als we een steekproef nemen van 80 individuen, verwachten we 40 vrouwtjes en 40 mannetjes. In de praktijk zien we echter zelden precies deze verhouding.
+
+Dit komt door toeval bij het willenjkeurig trekken van de steekproef: er is altijd een kans dat er iets meer of iets minder mannetjes worden geselecteerd, bijvoorbeeld 42 mannetjes en 38 vrouwtjes.
+
+Dit roept een belangrijke vraag op:
+
+**Wanneer is de afwijking van de 1:1 ratio zó groot, dat de hypothese van 1:1, niet meer houdbaar is en deze verwerpen?**
+
+-   Komt de afwijking puur door toeval bij het selecteren van de steekproef?
+    -   Bewijs voor de hypothese
+-   Of is de afwijking systematisch, en kan het verschil niet meer verklaard worden door toeval alleen?
+    -   Bewijs **tegen** de hypothese. Dit is wat we gaan doen !!!
+
+Dit is precies de vraag waar de statistiek zich mee bezighoudt.
+
+## De Chi-kwadraat Toets ($\chi^2$)
+
+Om te bepalen of een afwijking op toeval berust, gebruiken we de $\chi^2$-kwadraat toets. De toetsingsgrootheid ($\chi^2$) berekenen we met de volgende formule:
+
+$$\chi^2 = \sum_{i=1}^{N} \frac{(O_i - E_i)^2}{E_i}$$
+
+Hierbij staan de letters voor:
+
+-   $O =$ Waargenomen waarde (*Observed*)
+-   $E =$ Verwachte waarde (*Expected*)
+
+Voor ons sex ratio voorbeeld ziet de vergelijking er als volgt uit:
+
+$$X^2 = \frac{(O_m - E_m)^2}{E_m} + \frac{(O_v - E_v)^2}{E_v}$$
+
+**Vraag 1:** Leg uit dat deze formule het verschil meet tussen de verdeling van de verwachte waarden (E) en de geobserveerde waarden (O) en welke waarde $\chi^2$ aanneemt als de hypothese exact overeenkomt met de meeting. Leg uit waarom deze waarde logisch is.
+
+> jouw antwoord:
+
+**Vraag 2:** Wat gebeurt er met $\chi^2$ als we een veel grotere steekproef nemen maar de proporties gelijk houden (bijv. 1000 in plaats van 80)?
+
+> jouw antwoord:
+
+## Voorbeeld in R: Sex ratio berekenen
+
+Onze nulhypothese ($H_0$) is dat de sex ratio 1:1 is. We nemen een steekproef en meten: **42 mannetjes** en **38 vrouwtjes**. Volgens de theorie hadden we 40 mannetjes en 40 vrouwtjes verwacht.
+
+We kunnen $\chi^2$ eerst met de hand invullen en berekenen in R:
+
+$$X^2 = \frac{(42-40)^2}{40} + \frac{(38-40)^2}{40} = 0.2$$
+
+Dit voeren we als volgt uit in R:
+
+::: aside
+We gebruiken R hier als een rekenmachine. Nu is de code gegeven maar later moet je die zelf gaan invoeren.
+:::
+
+```{r}
+# Berekening met de hand in R
+Chi <- (42-40)^2/40 + (38-40)^2/40
+print(Chi)
+```
+
+R beschikt over een ingebouwde functie om de $\chi^2$-kwadraattoets direct uit te voeren: chisq.test(). Deze gebruik je voor deze data als volgt:
+
+`chisq.test(c(42, 38), p = c(1/2, 1/2))`
+
+**Vraag 3:** Vertaal deze code naar de context van het experiment en leg in je eigen woorden uit wat elk onderdeel van de code betekent.
+
+> jouw antwoord
+
+```{r}
+chisq.test(c(42, 38), p = c(1/2, 1/2))
+```
+
+Output Interpreteren (p-waarde)
+
+Als je bovenstaande code uitvoert, vind je naast de $\chi^2$-squared waarde (0,2) ook de p-value (0,6547) en de vrijheidsgraden (df = 1); over deze laatste zullen we in de `Plus klas` nog veel te vertellen hebben.
+
+De p-waarde moeten we als volgt lezen:
+
+::: {.callout-important title = "Belangrijk"} De p-waarde is de kans dat we déze specifieke data vinden, onder de voorwaarde dat de nulhypothese klopt; $P(Data|H_0)$ :::
+
+In formulevorm:
+
+$$p\text{-waarde} = P(\text{Data} \mid H_0)$$
+
+De Nulhypothese ($H_0$) stelt in dit geval dat er géén verschil is tussen de waargenomen verdeling en de theoretisch verwachte verdeling van (1/2, 1/2).
+
+De algemene statistische regel is:
+
+-   Als $p < 0,05$, verwerpen we de nulhypothese: de waargenomen afwijking is dan te groot om aannemelijk door toeval alleen te worden verklaard; *de kans dat we deze data waarnemen als de nulhypothese waar is is klein*.
+-   Als $p \ge 0,05$, hebben we onvoldoende bewijs om de nulhypothese te verwerpen; de waargenomen afwijking kan dan aannemelijk door toeval worden verklaard; *we hebben onvoldoende statistische bewijs gevonden tegen de nulhypothese*.
+
+In ons voorbeeld is de p-waarde 0,6547. Dit is groter dan 0,05. We hebben dus geen bewijs gevonden **tegen** $H_0$: *we kunnen de 1:1 verhouding niet uitsluiten*. Het waargenomen verschil (gekwantificeerd in $\chi^2$) is hoogstwaarschijnlijk het gevolg van toeval en dus niet systematisch.
+
+## $\chi^2$ test op de mais zaden data
+
+Bereken, gebruik makend van de informatie in deze portfolio en je eigen mais data, de p-waarden van je $\chi^2$ -test en trek je conclusie aangedaan je hypothese van de verwachte 3:1 verhouding.
+
+```{r}
+# gebruike de code van de sex ratio als template.
+
+```
+
+::: column-margin
+**Opmerking:** Hoe de code in te voeren:
+
+-   Doe niet copy/past maar type de code met de hand.
+-   Let op hoofdletter of kleinen letters zijn verschillende voor r.
+    -   `Chisq.test()` zal niet werken `chisq.test()` weer wel
+:::
+
+Let op: Neem deze bevindingen en berekeningen netjes op in je labjournaal!
+
+Als laatste actie kunnen jullie de gevonden $\chi^2$ waarden en p-waarden invoeren in dit formulier. Het resultaat daarvan zullen we gebruiken in het volgende theoretische deel.
+
+In het theoretische deel van het portfolio gaan we dieper in op het concept van een kansverdeling, en in het bijzonder de daarmee verbonden unzekerheid. Vervolgens leggen we een verband tussen het concept onzekerheid en Evo-Devo.
+
+Voor `plusstudenten` een uitdagende verdieping, waarin de relatie tussen de logfunctie, statistiek en Evo-Devo wordt verkend evenals het illustere begrip van vrijheidsgraden welke een interessante en misschien een onverwachte relatie heeft met de biologie en andere natuurwetenschappen en sociale wetenschappen.

@@ -1,0 +1,31 @@
+---
+title: "Mais zaden"
+---
+
+In het practicum van vandaag hebben jullie zaden geteld. De uitkomsten van deze metingen, het aantal gele of rode zaden, noemen we **stochastische** variabelen (of kortweg: stochasten).
+
+In het practicum hebben we gezien dat je twee manieren kunt onderscheiden om hiermee om te gaan:
+
+-   Empirisch: Dit zijn stochastische variabelen die ontstaan uit aselecte steekproef. `Voorbeelden` zijn:
+    -   Het `aantal gele en rode zaden` in een maiskolf
+    -   Het `aantal ogen` bij het gooien van een dobbelsteen
+    -   Het `aantal dieren` van een soort in een gebied (biodiversiteit)
+    -   De `lengte` van studenten in deze zaal
+    -   De `bloeddruk` van een patiënt
+    -   …
+-   **Theoretisch**: Dit zijn stochastische variabelen binnen een wiskundig model, waarbij we kansen toekennen aan mogelijke uitkomsten. Voorbeelden zijn:
+    -   De kansverdeling bij een verhouding van 3:1 (bijv. Mendel)
+    -   De kans om een bepaalde uitkomst te trekken uit een uniforme verdeling (Dobbelsteen)
+    -   De kans dat een waarde kleiner is dan een bepaalde grens (Studenten kleiner dan 1.75).
+
+Dus empirisch is hoe je het meet en theoretisch hoe je het omzet naar kansen. Beiden begrippen werken in de statistiek samen.
+
+Empirische stochastische variabelen hebben de volgende eigenschappen:
+
+-   De uitkomst is vooraf onzeker en wordt pas bekend na een meting of experiment.
+-   De uitkomsten komen uit een aselecte steekproef (toeval speelt dus een belangrijke een rol).
+-   Als je het experiment vaak herhaalt, ontstaat er een (empirische) verdeling van de uitkomsten.
+
+Theoretische stochastische variabelen hebben de volgende eigenschappen:
+
+Ze horen bij een wiskundig model van een toevalsproces. De mogelijke uitkomsten en hun kansen zijn vooraf (theoretisch) vastgelegd. Ze hebben een kansverdeling die exact bekend is (bijv. binomiaal, uniform).
