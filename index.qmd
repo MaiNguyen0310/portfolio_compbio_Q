@@ -12,9 +12,9 @@ De opdrachten in deze wiskunde, informatica en statistiek portfolio vormen een e
 
 Binnen de levenswetenschappen spelen kwantitatieve en computationele methoden een steeds belangrijkere rol. Denk bijvoorbeeld aan:
 
--   Statistische analyse van experimentele data: het ontwerpen, analyseren en kritisch interpreteren van experimenten, zodat resultaten betrouwbaar zijn en betekenisvolle conclusies kunnen worden getrokken.
--   Bio-informatica voor het analyseren van grootschalige biologische datasets (zoals DNA, RNA en eiwitten), waarbij met behulp van computationele methoden patronen en verbanden in complexe gegevens worden onderzocht.
--   Systeembiologie voor het integreren van complexe biologische processen: het modelleren en begrijpen van interacties tussen componenten op verschillende afstand en tijdschalen binnen de biologie om het gedrag van het geheel te doorgronden.
+- Statistische analyse van experimentele data: het ontwerpen, analyseren en kritisch interpreteren van experimenten, zodat resultaten betrouwbaar zijn en betekenisvolle conclusies kunnen worden getrokken.
+- Bio-informatica voor het analyseren van grootschalige biologische datasets (zoals DNA, RNA en eiwitten), waarbij met behulp van computationele methoden patronen en verbanden in complexe gegevens worden onderzocht.
+- Systeembiologie voor het integreren van complexe biologische processen: het modelleren en begrijpen van interacties tussen componenten op verschillende afstand en tijdschalen binnen de biologie om het gedrag van het geheel te doorgronden.
 
 Dit zijn precies de domeinen waarin hedendaagse doorbraken plaatsvinden.
 
@@ -28,9 +28,9 @@ Daarnaast worden ook ecologische en evolutionaire systemen bestudeerd, vaak met 
 
 Systeembiologie probeert verschillende informatieniveaus te integreren in formele modellen. Dit vraagt:
 
--   Abstract en logisch denken
--   Het kunnen werken met wiskundige structuren
--   Het interpreteren van modellen en simulaties
+- Abstract en logisch denken
+- Het kunnen werken met wiskundige structuren
+- Het interpreteren van modellen en simulaties
 
 Dit zijn vaardigheden die kenmerkend zijn voor het moderne academisch denken.
 
@@ -40,10 +40,10 @@ We zijn ons ervan bewust dat deze overgang uitdagend is. Daarom is het curriculu
 
 In deze contact bestaat de opbouw van het eerste jaar bestaat uit:
 
--   Portfolio-opdrachten (eerste semester)
--   Het vak Statistiek 1\
--   Portfolio-opdrachten (tweede semester)
--   Het vak Computationele Biologie
+- Portfolio-opdrachten (eerste semester)
+- Het vak Statistiek 1\
+- Portfolio-opdrachten (tweede semester)
+- Het vak Computationele Biologie
 
 Door deze structuur krijgen jullie de tijd om concepten te analyseren, doorgronden en begrijpen, toe te passen en uiteindelijk te beheersen.
 
@@ -51,9 +51,9 @@ Door deze structuur krijgen jullie de tijd om concepten te analyseren, doorgrond
 
 Dit traject vraagt actieve deelname. Verwacht wordt dat jullie:
 
--   Regelmatig oefenen en zelfstandig of in groepen werken
--   Concepten niet alleen begrijpen, maar ook kunnen toepassen
--   Verantwoordelijkheid nemen voor jullie eigen leerproces en eventueel van je groep.
+- Regelmatig oefenen en zelfstandig of in groepen werken
+- Concepten niet alleen begrijpen, maar ook kunnen toepassen
+- Verantwoordelijkheid nemen voor jullie eigen leerproces en eventueel van je groep.
 
 Dit is geen passieve studie: het is een actieve ontwikkeling richting academisch niveau.
 
@@ -66,7 +66,3 @@ In dit project gaan we samen de diepte in: er is ruimte om verder te verkennen, 
 Voor dit project worden geen studiepunten toegekend, deelname komt dus volledig voort uit je eigen interesse en motivatie om je verder te verdiepen.
 
 Lijkt je dit interessant? Meld je dan aan via: …
-
-
-
-

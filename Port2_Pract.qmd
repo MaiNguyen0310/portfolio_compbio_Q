@@ -9,7 +9,7 @@ Volgens de Mendeliaanse genetica verwachten we, als beide ouders heterozygoot zi
 **Tabel 3.1: Kruising van twee heterozygote ouders.**
 
 |     |                $R$                |                 $r$                  |
-|:----------------:|:-------------------------:|:-------------------------:|
+|:------------:|:--------------------------:|:----------------------------:|
 | $R$ | $RR$ ([rood]{style="color:red;"}) |  $Rr$ ([rood]{style="color:red;"})   |
 | $r$ | $rR$ ([rood]{style="color:red;"}) | $rr$ ([geel]{style="color:yellow;"}) |
 

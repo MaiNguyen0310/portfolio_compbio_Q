@@ -4,7 +4,7 @@ title: "Logaritmes en exponenten"
 
 # Logaritmes en exponenten
 
-Bij het vak *Chemie van het leven* leer je pH-berekeningen uit te voeren. In deze portfolio-opdracht zul je kennis maken met logaritmische berekeningen. Daarbij verken je meerdere contexten waarin de logaritme verschijnt.
+Bij het vak *Chemie van het leven* leer je pH-berekeningen uit te voeren. Hierbij zul je in de logaritmische schaal werken. In deze portfolio-opdracht zullen we kennis maken met logaritmische berekeningen. Daarbij verken je meerdere contexten waarin de logaritme verschijnt.
 
 Je werkt hierbij aan de onderstaande leerdoelen. Kruis deze voor jezelf af als je ze denkt te beheersen.
 
@@ -45,10 +45,8 @@ Hierbij staat elke stap dus voor een factor 10. Als je een logaritme bepaalt, be
 
 We kunnen ook een ander grondgetal (en dus een andere vermenigvuldigingsfactor) gebruiken dan 10. In onderstaande rekenregels gebruiken we de algemene notatie $a$ en $b$ als grondgetallen, en $p$ en $q$ als machten.
 
-:::: note
-::: note-header
+::: note
 Rekenregels voor machten
-:::
 
 Vermenigvuldiging wordt optelling
 
@@ -67,14 +65,11 @@ Machtsverheffen wordt vermenigvuldigen
 De nulde macht is altijd 1
 
 :   $a^0 = 1$
-::::
+:::
 
 Hieruit volgen direct de rekenregels voor de logaritme.
 
-:::: note
-::: note-header
 Rekenregels voor logaritmen
-:::
 
 Vermenigvuldiging wordt optelling
 
@@ -89,7 +84,6 @@ Machtsverheffen wordt vermenigvuldigen
 De logaritme van 1 is altijd 0
 
 :   $\log_a(1)=0$
-::::
 
 ## pH berekeningen
 
@@ -101,9 +95,9 @@ Om uit de pH de concentratie te bepalen, gebruiken we de exponentiële functie: 
 
 ### Voorbeeld: pH metingen
 
-Stel dat een oplossing pH 3 heeft. Dan geldt: $$[\text{H}^+] = 10^{-3} = 0.001 ~\text{mol/L}.$$ Als de pH daalt naar 2, volgt: $$[\text{H}^+] = 10^{-2} = 0.01 ~\text{mol/L}.$$ De concentratie wordt dus 10× groter, precies omdat exponentiële en logaritmische functies elkaars inverse zijn.
+Stel dat een oplossing pH 3 heeft. Dan geldt: $$[\text{H}^+] = 10^{-3} = 0.001 ~\text{mol/L}.$$ Als de pH daalt naar 2, volgt: $$[\text{H}^+] = 10^{-2} = 0.01 ~\text{mol/L}.$$ De concentratie wordt dus 10× groter, omdat exponentiële en logaritmische functies elkaars inverse zijn.
 
-## Vooropdracht
+## Quizvragen
 
 Test je begrip door de volgende vragen te beantwoorden.
 
@@ -133,7 +127,7 @@ $$Y = aM^b.$$
 
 Hierbij staat $Y$ voor de variabele die gemeten wordt en $M$ voor de massa. De coëfficiënt $a$ is soortspecifiek en $b$ is de allometrische exponent.
 
-### Voorbeeld: metabolismesnelheid
+### Voorbeeld en opdrachten: metabolismesnelheid
 
 Om meer inzicht te krijgen in hoe deze machtsrelatie werkt, gaan we de volgende afbeelding analyseren:
 

@@ -9,6 +9,7 @@ book:
     - index.qmd
     - log_pH.qmd
     - Port2_Theory.qmd
+    - Differentiaalvergelijkingen_theorie.qmd
     - references.qmd
   appendices:
     - Port2_Pract.qmd
