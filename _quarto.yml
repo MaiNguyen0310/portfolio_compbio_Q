@@ -7,12 +7,13 @@ book:
   date: "September 2027 - Februari 2028"
   chapters:
     - index.qmd
-    - log_pH.qmd
     - Port2_Theory.qmd
+    - log_pH.qmd
     - Differentiaalvergelijkingen_theorie.qmd
     - references.qmd
   appendices:
     - Port2_Pract.qmd
+    - bradford_statistiek.qmd
     - Sepia_Mantel.qmd  
 
     
