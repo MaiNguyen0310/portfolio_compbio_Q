@@ -7,18 +7,21 @@ book:
   date: "September 2027 - Februari 2028"
   chapters:
     - index.qmd
-    - log_pH.qmd
     - Port2_Theory.qmd
+    - Port_logpH_Theory.qmd
     - Differentiaalvergelijkingen_theorie.qmd
     - references.qmd
   appendices:
     - Port2_Pract.qmd
+    - Port_logpH_Pract.qmd
     - Sepia_Mantel.qmd  
 
     
-format: 
-  html:
+format:
+  live-html:
     css: styles.css
+
+engine: knitr
 
 bibliography: references.bib
 
@@ -31,6 +34,7 @@ language:
     
 resources:
   - evo-devo/
-
-
+  
+filters:
+  - webr
 

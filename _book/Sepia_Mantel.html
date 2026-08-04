@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Portfolio Statistiek">
+
+<title>Appendix B — Sepia Mantel en de t-test. – Portfolio Computationele Biologie</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Port2_Pract.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-12eeb4b20e9f5a2b0bfc604bfaf942bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Port2_Pract.html">Appendices</a></li><li class="breadcrumb-item"><a href="./Sepia_Mantel.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Sepia Mantel en de t-test.</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Portfolio Computationele Biologie</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Het portfolio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./log_pH.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Logaritmes en exponenten</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Port2_Theory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Stochastische variabelen, kansverdelingen en entropie</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Differentiaalvergelijkingen_theorie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Differentiaalvergelijkingen</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Port2_Pract.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Maiszaden practicum</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Sepia_Mantel.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Sepia Mantel en de t-test.</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introductie" id="toc-introductie" class="nav-link active" data-scroll-target="#introductie"><span class="header-section-number">B.1</span> Introductie:</a></li>
+  <li><a href="#het-probleem." id="toc-het-probleem." class="nav-link" data-scroll-target="#het-probleem."><span class="header-section-number">B.2</span> Het probleem.</a></li>
+  <li><a href="#kansuitspraken-en-wetenschap" id="toc-kansuitspraken-en-wetenschap" class="nav-link" data-scroll-target="#kansuitspraken-en-wetenschap"><span class="header-section-number">B.3</span> Kansuitspraken en wetenschap</a></li>
+  <li><a href="#analyse-van-jullie-data" id="toc-analyse-van-jullie-data" class="nav-link" data-scroll-target="#analyse-van-jullie-data"><span class="header-section-number">C</span> Analyse van jullie data</a>
+  <ul class="collapse">
+  <li><a href="#inlezen-van-de-data" id="toc-inlezen-van-de-data" class="nav-link" data-scroll-target="#inlezen-van-de-data"><span class="header-section-number">C.1</span> Inlezen van de data:</a></li>
+  <li><a href="#data-kwaliteit" id="toc-data-kwaliteit" class="nav-link" data-scroll-target="#data-kwaliteit"><span class="header-section-number">C.2</span> Data Kwaliteit</a></li>
+  <li><a href="#de-hypothese-test." id="toc-de-hypothese-test." class="nav-link" data-scroll-target="#de-hypothese-test."><span class="header-section-number">C.3</span> De Hypothese test.</a></li>
+  <li><a href="#spreiding-gemiddelde-en-test---statistieken" id="toc-spreiding-gemiddelde-en-test---statistieken" class="nav-link" data-scroll-target="#spreiding-gemiddelde-en-test---statistieken"><span class="header-section-number">C.4</span> Spreiding gemiddelde en test - statistieken</a></li>
+  <li><a href="#t-test-je-eigen-tafel." id="toc-t-test-je-eigen-tafel." class="nav-link" data-scroll-target="#t-test-je-eigen-tafel."><span class="header-section-number">C.5</span> T-test je eigen tafel.</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Port2_Pract.html">Appendices</a></li><li class="breadcrumb-item"><a href="./Sepia_Mantel.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Sepia Mantel en de t-test.</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Appendix B — Sepia Mantel en de t-test.</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Portfolio Statistiek </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introductie" class="level2" data-number="B.1">
+<h2 data-number="B.1" class="anchored" data-anchor-id="introductie"><span class="header-section-number">B.1</span> Introductie:</h2>
+<p>Vandaag onderzoeken we een fundamentele relatie tussen de betrouwbaarheid van een schatting van het gemiddelde, de p-waarde die we gebruiken om een hypothese te verwerpen, en de kwaliteit van een experimentele opzet.</p>
+<p>Allereerst is het belangrijk te realiseren dat <strong>steekproefdata</strong> afkomstig zijn uit een grotere verzameling gegevens, de <strong>populatie.</strong> Met een steekproef beschikken we dus slechts over een deel van alle informatie uit de populatie waarin we geïnteresseerd zijn. Het doel van statistiek is daarom niet de steekproef zelf te beschrijven, maar om op basis van onvolledige informatie uitspraken te doen over de populatie waaruit de steekproef afkomstig is.Er zit dus onzekerheid in.</p>
+<p>Wat is de logica van statistisch hypothesetoetsen?</p>
+<ol type="1">
+<li><strong>Null-hypothese (</strong><span class="math inline">\(H_0\)</span>): er is geen verschil tussen de gemiddelde mantellengte van mannelijke en vrouwelijke Sepia.</li>
+<li>Dus: <span class="math inline">\(\overline{Man} - \overline{Vrouw} = 0\)</span></li>
+<li>De t-waarde is dan</li>
+</ol>
+<p><span class="math display">\[
+\frac{\overline{Man} - \overline{Vrouw}}{SE} = 0
+\]</span></p>
+<ol start="4" type="1">
+<li>Als de t-waarde 0 is, dan is de p-waarde 1; de <strong>kans</strong> dat we dit verschil (of een groter verschil) vinden, puur op basis van <strong>toeval</strong></li>
+</ol>
+<p>Laat dit even bezinken. De gemiddelden kennen we, maar wat is <strong>SE</strong>? Dat is de focus van vandaag. SE vormt de link tussen het gemiddelde, de p-waarde en de betrouwbaarheid van het experiment.</p>
+<p>Wat we nu alvast kunnen zeggen is dat de <strong>SE</strong> een functie is van de standaarddeviatie (<strong>SD</strong>), een maat voor de spreiding in de steekproef, en van de steekproefgrootte (<strong>n</strong>). Hieronder beginnen we met het begrip SE te onderzoeken en proberen we met een aantal eenvoudige vragen een complexere vraag te begrijpen.</p>
+</section>
+<section id="het-probleem." class="level2" data-number="B.2">
+<h2 data-number="B.2" class="anchored" data-anchor-id="het-probleem."><span class="header-section-number">B.2</span> Het probleem.</h2>
+<p><strong>Vraag 1</strong>: Waarom nemen we een spreiding waar in de mantellengte van Sepia?</p>
+<p>Antwoord:</p>
+<p>De spreiding wordt beschreven met de <strong>variantie</strong>. Bekijk de volgende formules voor het gemiddelde en voor een maat van spreiding <span class="math inline">\(s^2\)</span>.</p>
+<p><span class="math display">\[
+\overline{Lengte} = \frac{\sum Lengte_i}{n}
+\]</span></p>
+<p><span class="math display">\[
+s^2 = \frac{\sum (Lengte_i - \overline{Lengte})^2}{n-1}
+\]</span></p>
+<p><strong>Vraag 2:</strong> Wat is de overeenkomst tussen beide vergelijkingen?</p>
+<p>Antwoord 2:</p>
+<p>We gaan ervan uit dat deze data afkomstig zijn uit een populatie die een bepaalde verdeling volgt: de <strong>normale verdeling</strong> (of Gauss-verdeling). Dit is één, van de vele aannames die we in de wetenschap maken. De normale verdeling wordt volledig bepaald door twee parameters: het gemiddelde en de variantie.</p>
+<p><strong>Vraag 3:</strong> Elke tafel meet een eigen steekproef van mannelijke en vrouwelijke Sepia, afkomstig uit dezelfde grote populatie van de Noordzee. Verwacht je dat de steekproefgemiddelden van alle tafels exact hetzelfde getal zullen opleveren? Motiveer je antwoord.</p>
+<p>Antwoord 3:</p>
+<p><strong>Vraag 4:</strong> De SE is een maat die de observatie uit vraag 3 kwantitatief beschrijft. Wat beschrijft de SE dan precies en hoe hangen de SE, de steekproefgrootte en <span class="math inline">\(s^2\)</span> met elkaar samen?</p>
+<p>Antwoord 4:</p>
+<p>Onder vrij algemene omstandigheden is de (deels heuristische) relatie:</p>
+<p><span class="math display">\[
+SE =
+\]</span></p>
+<p><strong>Vraag 5:</strong> Verwacht je dat de t-waarden van alle tafels exact hetzelfde getal zullen zijn? Hoe zou je deze t-waarden kunnen interpreteren? Motiveer je antwoord.</p>
+<p>Antwoord 5:</p>
+<p>In de laatste vraag komen we bij het inzicht waar we naartoe werken. Jullie weten al uit de portfolio-opdrachten van het eerste semester dat wanneer de p-waarde &lt; 0.05 is, de nulhypothese onvoldoende wordt ondersteund en we deze verwerpen. We zeggen dan dat we statistisch een verschil hebben aangetoond.</p>
+<p>Hoe meer de t-waarde afwijkt van 0, hoe kleiner de p-waarde wordt. Bijvoorbeeld: een t-waarde van ongeveer 2 komt overeen met een p-waarde van ongeveer 0.05.</p>
+<p><strong>Vraag 6</strong>: Gegeven de relatie tussen het verschil van de gemiddelden, de SE, de t-waarde en de p-waarde: kunnen we uit de vergelijking voor de t-waarde afleiden hoe groot onze steekproef moet zijn?</p>
+<p>Antwoord 6:</p>
+</section>
+<section id="kansuitspraken-en-wetenschap" class="level2" data-number="B.3">
+<h2 data-number="B.3" class="anchored" data-anchor-id="kansuitspraken-en-wetenschap"><span class="header-section-number">B.3</span> Kansuitspraken en wetenschap</h2>
+<p>Hier komen we bij de volgende observaties:</p>
+<ul>
+<li>Als we een meting doen waarvan de uitkomst niet van tevoren met absolute precisie bekend is, spreken we van een <strong>random variabele</strong>.</li>
+<li>De mantellengte van een Sepia kennen we pas op het moment van meten en is dus een random variabele.</li>
+<li>Random variabelen hebben een verdeling; de gemeten mantellengtes van Sepia vormen dus een verdeling.</li>
+<li>Functies van random variabelen zijn zelf ook random variabelen. De gemeten lengte met 10 vermenigvuldigen kunnen we bijvoorbeeld pas na de meting doen.</li>
+<li>Het gemiddelde van de Sepia-mantellengtes is een functie van random variabelen en heeft dus ook een verdeling. De spreiding van die verdeling is de <strong>SE</strong>.</li>
+<li>De t-waarde en de p-waarde zijn eveneens functies van random variabelen (namelijk van de steekproefgemiddelden) en zijn dus zelf ook random variabelen; de verdeling van de t-waarde noemen we de t-verdeling of t-distributie.</li>
+</ul>
+<p>Daarom zijn al onze uitspraken in de statistiek gebaseerd op <strong>kansen die voortkomen uit een verdeling</strong>, en nooit op een absoluut bewijs.</p>
+</section>
+<section id="analyse-van-jullie-data" class="level1" data-number="C">
+<h1 data-number="C"><span class="header-section-number">C</span> Analyse van jullie data</h1>
+<section id="inlezen-van-de-data" class="level2" data-number="C.1">
+<h2 data-number="C.1" class="anchored" data-anchor-id="inlezen-van-de-data"><span class="header-section-number">C.1</span> Inlezen van de data:</h2>
+<blockquote class="blockquote">
+<p>Wees gerust we verwachten nog niet dat je deze code kent</p>
+</blockquote>
+<p>Eerst hebben we data nodig. Je kan per groepje de data invoeren met het volgende formulier: https://forms.gle/6YANtfcktkhzKRhp6.</p>
+<p>Deze data kunnen inlezen in R door deze code te runnen:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(googlesheets4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'googlesheets4' was built under R version 4.4.3</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sheet_id <span class="ot">&lt;-</span> <span class="st">"https://docs.google.com/spreadsheets/d/1E7XdnQFziU1n-Oso3dk0ds_cG6aiA3WN6AfnsyB9MMA/edit?resourcekey=&amp;gid=135478951#gid=135478951"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">gs4_deauth</span>()</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>Sepia_Mantel <span class="ot">&lt;-</span> <span class="fu">read_sheet</span>(sheet_id)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>✔ Reading from "Sepia meetingen Data".</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>✔ Range 'Formulierreacties 1'.</code></pre>
+</div>
+</div>
+<p>We zien dat de kolomnamen vrij lang zijn. We maken deze eenvoudiger en zetten Titelnummer en Geslacht tegelijkertijd om naar factoren:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Sepia_Mantel) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Tijd"</span>, <span class="st">"Student_Num"</span>, <span class="st">"Tafel_Num"</span>, <span class="st">"Lengte"</span>, <span class="st">"Breedte"</span>, <span class="st">"Geslacht"</span>, <span class="st">"Plastinaat"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>Sepia_Mantel<span class="sc">$</span>Tafel_Num <span class="ot">&lt;-</span> <span class="fu">factor</span>(Sepia_Mantel<span class="sc">$</span>Tafel_Num)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Sepia_Mantel<span class="sc">$</span>Geslacht <span class="ot">&lt;-</span> <span class="fu">factor</span>(Sepia_Mantel<span class="sc">$</span>Geslacht)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Dit is makkelijker met coderen.</p>
+<p>Zijn alle decimalen punten?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Sepia_Mantel <span class="ot">&lt;-</span> Sepia_Mantel <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1. Vervang de komma door een punt</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2. Zet om naar numeriek</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Lengte =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">"."</span>, Lengte)),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Breedte =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">"."</span>, Breedte))</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="data-kwaliteit" class="level2" data-number="C.2">
+<h2 data-number="C.2" class="anchored" data-anchor-id="data-kwaliteit"><span class="header-section-number">C.2</span> Data Kwaliteit</h2>
+<p>Voor we verder kunnen kijken we eerst naar de kwaliteit van de data.</p>
+<p><strong>Extreme waarden</strong>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Breedte <span class="sc">~</span> Geslacht, Sepia_Mantel)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(Breedte <span class="sc">~</span> Geslacht, Sepia_Mantel)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Sepia_Mantel_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>Z_score_M <span class="ot">&lt;-</span> <span class="fu">scale</span>(Sepia_Mantel<span class="sc">$</span>Breedte[Sepia_Mantel<span class="sc">$</span>Geslacht <span class="sc">==</span> <span class="st">"Mannelijk"</span>])</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">abs</span>(Z_score_M) <span class="sc">&gt;</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Z_score_V <span class="ot">&lt;-</span> <span class="fu">scale</span>(Sepia_Mantel<span class="sc">$</span>Breedte[Sepia_Mantel<span class="sc">$</span>Geslacht <span class="sc">==</span> <span class="st">"Vrouwlijk"</span>])</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">abs</span>(Z_score_V) <span class="sc">&gt;</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>integer(0)</code></pre>
+</div>
+</div>
+<p>Opmerkingen: Er zijn …</p>
+<p>Hebben alle tafels evenveel mannelijke of vrouwelijke Sepia’s?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>aantallen <span class="ot">&lt;-</span> Sepia_Mantel <span class="sc">%&gt;%</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Tafel_Num, Geslacht)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(aantallen)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 14 × 3
+   Tafel_Num Geslacht      n
+   &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;
+ 1 1         Mannelijk     4
+ 2 1         Vrouwlijk     7
+ 3 2         Mannelijk     4
+ 4 2         Vrouwlijk     8
+ 5 3         Mannelijk     5
+ 6 3         Vrouwlijk     7
+ 7 4         Mannelijk     5
+ 8 4         Vrouwlijk     6
+ 9 5         Mannelijk     5
+10 5         Vrouwlijk     6
+11 6         Mannelijk     5
+12 6         Vrouwlijk     6
+13 7         Mannelijk     7
+14 7         Vrouwlijk     7</code></pre>
+</div>
+</div>
+<p>Opmerkingen:</p>
+</section>
+<section id="de-hypothese-test." class="level2" data-number="C.3">
+<h2 data-number="C.3" class="anchored" data-anchor-id="de-hypothese-test."><span class="header-section-number">C.3</span> De Hypothese test.</h2>
+<p>We willen weten of het waargenomen verschil tussen de gemiddelde door toeval komt of structureel is. Is er een verschil tussen de gemiddelde?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kwantitatief</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">by</span>(Sepia_Mantel<span class="sc">$</span>Lengte, Sepia_Mantel<span class="sc">$</span>Geslacht, mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Sepia_Mantel$Geslacht: Mannelijk
+[1] 16.20629
+------------------------------------------------------------ 
+Sepia_Mantel$Geslacht: Vrouwlijk
+[1] 16.82447</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visueel</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Breedte <span class="sc">~</span> Geslacht, Sepia_Mantel)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(Breedte <span class="sc">~</span> Geslacht, Sepia_Mantel)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Sepia_Mantel_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Antwoord:</p>
+<p>Dit is voor alle data, laten we nu ook kijken naar één tafel.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset data tafel 1</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>Tafel_1 <span class="ot">&lt;-</span> Sepia_Mantel[Sepia_Mantel<span class="sc">$</span>Tafel_Num <span class="sc">==</span> <span class="st">"1"</span>,]</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Kwantitatief</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">by</span>(Tafel_1<span class="sc">$</span>Lengte, Tafel_1<span class="sc">$</span>Geslacht, mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tafel_1$Geslacht: Mannelijk
+[1] 16.25
+------------------------------------------------------------ 
+Tafel_1$Geslacht: Vrouwlijk
+[1] 14.58571</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Breedte <span class="sc">~</span> Geslacht, Tafel_1)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(Breedte <span class="sc">~</span> Geslacht, Tafel_1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Sepia_Mantel_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Opmerking:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Lengte <span class="sc">~</span> Geslacht, <span class="at">data =</span> Sepia_Mantel)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  Lengte by Geslacht
+t = -0.50635, df = 67.807, p-value = 0.6143
+alternative hypothesis: true difference in means between group Mannelijk and group Vrouwlijk is not equal to 0
+95 percent confidence interval:
+ -3.054513  1.818148
+sample estimates:
+mean in group Mannelijk mean in group Vrouwlijk 
+               16.20629                16.82447 </code></pre>
+</div>
+</div>
+</section>
+<section id="spreiding-gemiddelde-en-test---statistieken" class="level2" data-number="C.4">
+<h2 data-number="C.4" class="anchored" data-anchor-id="spreiding-gemiddelde-en-test---statistieken"><span class="header-section-number">C.4</span> Spreiding gemiddelde en test - statistieken</h2>
+<p>Zoals we eerder hadden besproken verwachten we niet dat alle gemiddelden, t en p-waarden gelijk zijn per tafel. Hieronder gaan we alle gemiddelde</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>nTafel <span class="ot">&lt;-</span> <span class="dv">7</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>Gemiddelde <span class="ot">&lt;-</span> <span class="fu">numeric</span>(nTafel)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>t_waarden <span class="ot">&lt;-</span> <span class="fu">numeric</span>(nTafel)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>p_waarden <span class="ot">&lt;-</span> <span class="fu">numeric</span>(nTafel)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nTafel){</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  Gemiddelde[i]<span class="ot">&lt;-</span> <span class="fu">mean</span>(Sepia_Mantel<span class="sc">$</span>Lengte[Sepia_Mantel<span class="sc">$</span>Tafel_Num <span class="sc">==</span> i <span class="sc">&amp;</span> Sepia_Mantel<span class="sc">$</span>Geslacht <span class="sc">==</span> <span class="st">"Mannelijk"</span> ])</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  t_waarden[i]<span class="ot">&lt;-</span> <span class="fu">t.test</span>(Lengte <span class="sc">~</span> Geslacht, <span class="at">data =</span> Sepia_Mantel[Sepia_Mantel<span class="sc">$</span>Tafel_Num <span class="sc">==</span> i,])<span class="sc">$</span>statistic</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  p_waarden[i]<span class="ot">&lt;-</span> <span class="fu">t.test</span>(Lengte <span class="sc">~</span> Geslacht, <span class="at">data =</span> Sepia_Mantel[Sepia_Mantel<span class="sc">$</span>Tafel_Num <span class="sc">==</span> i,])<span class="sc">$</span>p.value</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>Gemiddelde</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16.25000 24.75000 16.60000 11.16400 18.68000 12.74000 15.32857</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(Gemiddelde)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.413429</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>t_waarden</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  0.6818221  4.8411790  0.4236996 -3.4175185  2.4987223 -2.0383294 -1.7760783</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>p_waarden</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.53355436 0.00070244 0.68304151 0.01693639 0.04876643 0.08233639 0.10625897</code></pre>
+</div>
+</div>
+<p>Opmerking:</p>
+</section>
+<section id="t-test-je-eigen-tafel." class="level2" data-number="C.5">
+<h2 data-number="C.5" class="anchored" data-anchor-id="t-test-je-eigen-tafel."><span class="header-section-number">C.5</span> T-test je eigen tafel.</h2>
+<p>Hieronder kan je testen het resultaat van je eigen tafel. Dat kan je ook doen voor de breedte. Pas hiervoor de code zelf aan.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset data tafel 1</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>Tafel_1 <span class="ot">&lt;-</span> Sepia_Mantel[Sepia_Mantel<span class="sc">$</span>Tafel_Num <span class="sc">==</span> <span class="st">"1"</span>,]</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Lengte <span class="sc">~</span> Geslacht, <span class="at">data =</span> Tafel_1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  Lengte by Geslacht
+t = 0.68182, df = 3.9144, p-value = 0.5336
+alternative hypothesis: true difference in means between group Mannelijk and group Vrouwlijk is not equal to 0
+95 percent confidence interval:
+ -5.171692  8.500263
+sample estimates:
+mean in group Mannelijk mean in group Vrouwlijk 
+               16.25000                14.58571 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Lengte <span class="sc">~</span> Geslacht, <span class="at">data =</span> Tafel_1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Sepia_Mantel_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Deze <a href="https://mai-nguyen0310.shinyapps.io/ttest/" target="_blank">Shiny-app</a> illustreert het principe goed.</p>
+<p><strong>Opdracht</strong>: Beschrijf in maximaal 200 woorden de relatie tussen het gemiddelde, de t-waarde, de p-waarde en de steekproefgrootte. Interpreteer daarnaast het resultaat van je eigen tabel. Upload dit bestand, liefst als html via de daarvoor bestemde link op Brightspace.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Port2_Pract.html" class="pagination-link" aria-label="Maiszaden practicum">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Maiszaden practicum</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

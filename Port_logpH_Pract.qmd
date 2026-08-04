@@ -1,0 +1,149 @@
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+# pH-berekeningen: logaritmen en exponenten
+
+Dit portfolio-onderdeel is gekoppeld aan het vak *Chemie van het leven*, waarbij je veel met pH-waarden werkt. Hierbij heb je ongetwijfeld al gerekend met de logaritme, maar dat is niet de eerste keer dat je deze functie bent tegengekomen in de studie. In de vorige portfolio-opdracht kwam deze naar voren bij het bespreken van entropie. Dit is geen toeval: de logaritme is een belangrijke functie, die toepassingen heeft in meerdere contexten. In deze opdracht zullen we verder kennis maken met eigenschappen van de logaritme en zullen we interessante toepassingen verkennen.
+
+Net als bij de vorige portfolio-opdracht, volgt een theoretisch deel.
+
+## Waarom werken we eigenlijk met een logaritmische maat?
+
+De concentratie van $\ce{H^+}$ in waterige oplossingen varieert van ongeveer 1 mol/L (sterk zuur) tot $10^{-14}$ mol/L (sterk basisch). Dit is een enorm bereik van veertien ordes van grootte. Op een lineaire schaal zouden kleine verschillen volledig wegvallen tegen de uitschieters, terwijl we weten dat het verschil tussen bijvoorbeeld pH 6 en pH 8 biologisch erg relevant is.
+
+
+De logaritme lost dit op door een vermenigvuldigingsverhouding om te zetten in een optelbaar verschil: $$\log(a \cdot b) = \log a + \log b.$$ 
+
+We hebben eerder gezien dat dit een gunstige eigenschap is! Eerder ging het om het optellen van entropie; nu gaat het om het schalen van data met een groot bereik.
+
+De definitie van de pH is dankzij deze eigenschap als volgt:
+
+$$\text{pH} = -\log_{10}[\text{H}^+]$$
+
+::: aside
+Vergelijk dit met de $\chi^2$-toets: ook daar schalen we een verschil (O − E) naar een begrensd interval, waardoor we waarden kunnen vergelijken, onafhankelijk van de grootte van de absolute aantallen.
+:::
+
+**Vraag 1:** Als de H⁺-concentratie met een factor 10 daalt, wat gebeurt er dan met de pH? En als de concentratie halveert (bijvoorbeeld door verdunning)? Reken beide gevallen uit en leg intuïtief uit waarom een verschil van "1 pH-eenheid" een heel andere betekenis heeft dan een verschil van "1 eenheid concentratie".
+
+> Jouw antwoord
+
+## Practicumopdracht
+
+### Oplossingen maken
+
+Bij het eerste practicum van *Chemie van het leven* ga je twee oplossingen maken, die we A en B noemen. Hierbij moet oplossing A een 150 mL 0.20 M Na-acetaatoplossing zijn. Voor de voorbereidende opdracht in Labbuddy heb je bepaald hoeveel natriumacetaat je moest afwegen (of als je dit nog niet gedaan hebt, kun je de komende berekeningen overnemen in Labbuddy). In deze opdracht oefen je op een laagdrempelige manier met de logica achter coderen. Je kunt de berekeningen die je hierbij uitvoert ook gebruiken bij het schrijven van je labjournaal.
+
+
+```{webr}
+#| setup: true
+#| exercise: massa
+
+vol_gewenst <- 150
+conc_gewenst <- 0.20
+MW <- 136.08
+```
+
+Bereken de benodigde massa.
+
+```{webr}
+#| exercise: massa
+
+massa_nodig <- ______ # vul de berekening in
+massa_nodig
+```
+
+
+
+::: {.callout-tip collapse="true"}
+## Oplossing
+
+```r
+massa_nodig <- (vol_gewenst / 1000 * conc_gewenst) * MW
+massa_nodig
+```
+:::
+
+
+
+In de praktijk is het lastig om een massa zo precies af te wegen. De massa die je afweegt zit er waarschijnlijk wel bij in de buurt, maar is het niet helemaal. In het vervolg van deze opgave gaan we ervanuit dat het afwegen niet perfect heeft plaatsgevonden, en we nemen aan dat de afgewogen massa afkomstig is uit een normaalverdeling met als gemiddelde de echte massa en een kleine standaarddeviatie.
+
+```{webr}
+massa_gewogen <- rnorm(1, mean = massa_nodig, sd = 0.05)
+massa_gewogen
+```
+
+**Vraag 2:** Denk terug aan de vorige portfolio-opdracht over verdelingen. Leg voor jezelf uit waarom bovenstaande benadering van de afgewogen massa redelijk is.
+
+> Jouw antwoord
+
+Hoe kun je het volume demiwater schalen om alsnog de juiste concentratie te verkrijgen?
+
+```{webr}
+#| setup: true
+#| exercise: volume
+# vul aan hoe je vol_aangepast berekent
+vol_aangepast <- ______
+round(vol_aangepast, 2)
+```
+
+
+::: {.callout-tip collapse="true"}
+## Oplossing
+
+```r
+vol_aangepast <- vol_gewenst * (massa_gewogen / massa_nodig)
+round(vol_aangepast, 2)
+```
+:::
+
+Bovenstaande berekening kun je in de Methode-sectie van je labjournaal plaatsen.
+
+### pKz bepalen
+
+Vervolgens ga je de pKz van oplossingen A en B berekend, met behulp van de algemene formule:
+
+$$\text{pH} = \text{pKz} + \log_{10}\left(\frac{[\text{Z}^-]}{[\text{HZ}]}\right),$$
+
+waarbij het zuur wordt aangeduid met $\text{HZ}$ en de geconjugeerde base met $\text{Z}^-$.
+
+Stel je voor dat de pH van oplossing A gelijk is aan 7. Neem verder aan dat de concentratie van het zuur 0.2 is.
+
+```{webr}
+pH_A <- 7
+Z_A <- 0.2
+```
+
+De concentratie van de geconjugeerde base kan dan worden bepaald via
+
+$$[HZ]=[OH^-]=10^{-(14-pH)}.$$
+Deze algemene formule kunnen we als volgt coderen:
+```{webr}
+HZ_A <- 10^(-(14 - pH_A))
+```
+
+Codeer nu zelf de algemene uitdrukking die je gebruikt om de pKz van oplossing A te bepalen.
+
+```{webr}
+#| setup: true
+#| exercise: massa
+
+pKz_A <- # vul hier aan!
+pKz_A
+```
+
+::: {.callout-tip collapse="true"}
+## Oplossing
+```r
+pKz_A <- pH_A - log(Z_A / HZ_A, 10)
+pKz_A
+```
+:::
+
+<!-- Zoals in de introductie van dit portfolio beschreven, zullen onderdelen uit dit portfolio gekoppeld worden aan practicumopdrachten. Voor dit portfolio-onderdeel hoef je nog niet zelf een hoofdstuk toe te voegen aan het portfoliobestand, zoals dat later wel zal moeten. Met deze app oefen je op een laagdrempelige manier met de logica achter coderen. Je kunt de berekeningen die je hierbij uitvoert ook gebruiken bij het schrijven van je labjournaal. -->
+
+<!-- # ```{r, echo = FALSE} -->
+<!-- # # Verander hier niks aan! -->
+<!-- # htmltools::tags$iframe(src = "https://mai-nguyen0310.shinyapps.io/log_practicum_vragen/", -->
+<!-- #                        width = "100%", height = "300", frameborder = "0") -->
+<!-- # ``` -->
+

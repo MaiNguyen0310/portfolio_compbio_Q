@@ -7,12 +7,12 @@ editor: visual
 
 ## Onzekerheid.
 
-In het praktische gedeelte bij deze opdracht wordt de stelling geponeerd dat in de empirische wetenschap we geen zekerheid ten aanzien van een hypothese kunnen krijgen. Dit is niet volledig correct. Denk aan het bekende voorbeeld van de zwarte zwaan. Stel dat we uitsluitend witte zwanen waarnemen. Daaruit kunnen we **niet** afleiden dat álle zwanen wit zijn; er kan immers een anders gekleurde zwaan bestaan die we simpelweg nog niet hebben gezien. De hypothese blijft dus onzeker, hoeveel witte zwanen we ook tellen. Maar één enkele niet-witte zwaan volstaat om haar te weerleggen, en de onzekerheid ten aanzien van de hypothese verdwijnt.Dit is het geval voor, logische hypotheses. 
+In het praktische gedeelte bij deze opdracht wordt de stelling geponeerd dat in de empirische wetenschap we geen zekerheid ten aanzien van een hypothese kunnen krijgen. Dit is niet volledig correct. Denk aan het bekende voorbeeld van de zwarte zwaan. Stel dat we uitsluitend witte zwanen waarnemen. Daaruit kunnen we **niet** afleiden dat álle zwanen wit zijn; er kan immers een anders gekleurde zwaan bestaan die we simpelweg nog niet hebben gezien. De hypothese blijft dus onzeker, hoeveel witte zwanen we ook tellen. Maar één enkele niet-witte zwaan volstaat om haar te weerleggen, en de onzekerheid ten aanzien van de hypothese verdwijnt. Dit is het geval voor logische hypotheses.
 
-Het maïs experiment is fundamenteel anders, omdat de hypothese zelf een kansuitspraak is; een 3:1-kansverdeling verbiedt geen enkele uitkomst, maar maakt sommige aannemelijker dan andere. Zelfs als de hypothese klopt, is de waargenomen verhouding door toeval bijna nooit exact 3:1 zoals we zagen. Eén afwijking weerlegt hier dus niets; de vraag is of de afwijking groter is dan we redelijkerwijs aan toeval kunnen toeschrijven. De logica verschuift van zekerheid naar kans en waarschijnlijkheid, en de onzekerheid blijft altijd bestaan.
+Het maïsexperiment is fundamenteel anders, omdat de hypothese zelf een kansuitspraak is; een 3:1-kansverdeling verbiedt geen enkele uitkomst, maar maakt sommige aannemelijker dan andere. Zelfs als de hypothese klopt, is de waargenomen verhouding door toeval bijna nooit exact 3:1, zoals we zagen. Eén afwijking weerlegt hier dus niets; de vraag is of de afwijking groter is dan we redelijkerwijs aan toeval kunnen toeschrijven. De logica verschuift van zekerheid naar kans en waarschijnlijkheid, en de onzekerheid blijft altijd bestaan.
 
 ::: aside
-In het dagelijks leven gebruiken we kans en waarschijnlijkheid vaak door elkaar. In de wiskunde (kansrekening) bestaat er echter een subtiel verschil, dat we later dit jaar bespreken. 
+In het dagelijks leven gebruiken we kans en waarschijnlijkheid vaak door elkaar. In de wiskunde (kansrekening) bestaat er echter een subtiel verschil, dat we later dit jaar bespreken.
 :::
 
 ## De toetsgrootheid is zelf een stochastische variabele
@@ -20,9 +20,8 @@ In het dagelijks leven gebruiken we kans en waarschijnlijkheid vaak door elkaar.
 Jullie hebben de resultaten van jullie metingen ingevoerd in het online formulier. Hieronder zie je de verdeling van de berekende $\chi^2$-waarden op basis van jullie individuele metingen.
 
 ```{r}
-# code die een histrogram geeft van de chi^2 waarden
+# code die een histogram geeft van de chi^2 waarden
 ```
-
 
 **Vraag 1:** Leg uit waarom niet alle $\chi^2$-waarden dezelfde waarde hebben.
 
@@ -30,13 +29,13 @@ Jullie hebben de resultaten van jullie metingen ingevoerd in het online formulie
 
 Wat deze verdeling laat zien, is een voorbeeld van een stochastische variabele: een grootheid waarvan de waarde door toeval wordt bepaald. Ze heeft drie kenmerkende eigenschappen:
 
-* ze wordt gekarakteriseerd door een kansverdeling;
-* haar concrete waarde, of realisatie, is pas bekend na uitvoering van een experiment of meting;
-* ze drukt inherente onzekerheid uit.
+- ze wordt gekarakteriseerd door een kansverdeling;
+- haar concrete waarde, of realisatie, is pas bekend na uitvoering van een experiment of meting;
+- ze drukt inherente onzekerheid uit.
 
 De $\chi^2$-waarde voldoet aan alle drie: ze ligt pas vast na het tellen en berekenen (2), verschilt van student tot student door toeval in de steekproef (3), en volgt daarmee een kansverdeling (1). Er is dus onzekerheid over welke $\chi^2$-waarde een meting oplevert.
 
-Dit is bovendien geen toeval, maar een noodzakelijk gevolg: $\chi^2$is een functie van stochastische variabelen, zoals het aantal zaden, en is daardoor zelf ook een stochastische variabele, die dus per definitie een eigen kansverdeling bezit. Wiskundigen hebben die  $\chi^2$-verdeling onder bepaalde aannamen kunnen afleiden:
+Dit is bovendien geen toeval, maar een noodzakelijk gevolg: $\chi^2$is een functie van stochastische variabelen, zoals het aantal zaden, en is daardoor zelf ook een stochastische variabele, die dus per definitie een eigen kansverdeling bezit. Wiskundigen hebben die $\chi^2$-verdeling onder bepaalde aannamen kunnen afleiden:
 
 $$f(x; k) = \frac{1}{2^{k/2}\,\Gamma(k/2)}\, x^{k/2 - 1} e^{-x/2}, \quad x > 0$$
 
@@ -52,18 +51,15 @@ Deze onzekerheid wordt nog beter voelbaar bij de p-waarde, die op haar beurt een
 # code die een histrogram geeft van de p waarden
 ```
 
-Nemen we een kritieke waarde van 0,05 om de nulhypothese te verwerpen, dan blijkt iets opmerkelijks: ook de conclusie, verwerpen of niet, wordt bepaald door een stochastische variabele. Of een student de nulhypothese verwerpt, hangt af van een p-waarde die zelf door toeval varieert. Daarmee erft ook de uitspraak over de hypothese die onzekerheid. 
-Een tweede opmerkelijk gevolg is dat zelfs wanneer de 3:1-hypothese correct is, sommige groepen haar toch zal verwerpen, puur door toeval in de steekproef; bv als ze teveel rode of gele hebben gemeten. Dit noemen we later een type-I-fout; voor nu is het genoeg om te zien dat de onzekerheid zich overerft tot in de conclusie zelf. 
+Nemen we een kritieke waarde van 0.05 om de nulhypothese te verwerpen, dan blijkt iets opmerkelijks: ook de conclusie, verwerpen of niet, wordt bepaald door een stochastische variabele. Of een student de nulhypothese verwerpt, hangt af van een p-waarde die zelf door toeval varieert. Daarmee erft ook de uitspraak over de hypothese die onzekerheid. Een tweede opmerkelijk gevolg is dat zelfs wanneer de 3:1-hypothese correct is, sommige groepen haar toch zal verwerpen, puur door toeval in de steekproef; bv als ze teveel rode of gele hebben gemeten. Dit noemen we later een type-I-fout; voor nu is het genoeg om te zien dat de onzekerheid zich overerft tot in de conclusie zelf.
 
-## Maat voor onzekerheid: Entropie. 
+## Maat voor onzekerheid: Entropie.
 
-Er bestaan verschillen maten in de statistiek welke de hoeveelheid onzekerheid kunnen duiden. Later in het jaar komen we bijvoorbeeld de standaard fout (SE) tegen. Nu wil ik kijken naar een zeer belangrijke wetenschappelijke maat, namelijk `entropy.` Entropie kan worden opgevat als een maat voor onzekerheid, willekeurigheid of wanorde en zoals we zullen zien ook biodiversiteit en positie-specifieke entropie in moleculaire biologie, is alleen gebaseerd op de kansverdeling. 
+Er bestaan verschillen maten in de statistiek welke de hoeveelheid onzekerheid kunnen duiden. Later in het jaar komen we bijvoorbeeld de standaard fout (SE) tegen. Nu wil ik kijken naar een zeer belangrijke wetenschappelijke maat, namelijk `entropie.` Entropie kan worden opgevat als een maat voor onzekerheid, willekeurigheid of wanorde en zoals we zullen zien ook biodiversiteit en positie-specifieke entropie in moleculaire biologie, is alleen gebaseerd op de kansverdeling.
 
 De entropie van een discrete kansverdeling zoals voor biodiversiteit en positie-specifieke entropie wordt gedefinieerd als:
 
-$$
-H(p) = -\sum_i p_i \log(p_i)
-$$
+$$H(p) = -\sum_i p_i \log(p_i)$$
 
 waarbij $p_i$ de kans is op uitkomst $i$.
 
@@ -73,19 +69,19 @@ Een hoge entropie wijst op grote onzekerheid. Dit treedt op wanneer de kansen re
 
 Een lage entropie wijst op minder onzekerheid. Dit treedt op wanneer kansen geconcentreerd zijn rond één of enkele uitkomsten. Bijvoorbeeld een oneerlijke dobbelsteen met een grotere kans op een 6.
 
-**Vraag 2:**: Leg uit dat we voor concepten als maten van verrast zijn of onverwacht, entropie als maat zou kunnen fungeren.
+**Vraag 2:** Leg uit dat we voor concepten als maten van verrast zijn of onverwacht, entropie als maat zou kunnen fungeren.
 
-**Jouw antwoord:** 
+**Jouw antwoord:**
 
 ### Contextafhankelijkheid
 
 De betekenis van entropie hangt af van het toepassingsgebied:
 
-1.   in de **informatietheorie** is entropie een maat voor informatie-inhoud;
-2.   in de **natuurkunde**, met name de thermodynamica, is entropie een maat voor wanorde en bepaald daarme via de weten van de tgheormdynamica de richting van een process;
-3.   in de **sociale wetenschappen** en economie kan entropie worden gebruikt als maat voor economische of sociale ongelijkheid.
+1.  in de **informatietheorie** is entropie een maat voor informatie-inhoud;
+2.  in de **natuurkunde**, met name de thermodynamica, is entropie een maat voor wanorde en bepaald daarme via de weten van de tgheormdynamica de richting van een process;
+3.  in de **sociale wetenschappen** en economie kan entropie worden gebruikt als maat voor economische of sociale ongelijkheid.
 
-**Vraag 23:** Leg uit waarom zou entropie een maat zijn voor kunnen zijn voor ongelijkheid in punt 3. Wordt de waarden van de entropie groter of kleiner bij ongelijkheid? 
+**Vraag 3:** Leg uit waarom zou entropie een maat zijn voor kunnen zijn voor ongelijkheid in punt 3. Wordt de waarden van de entropie groter of kleiner bij ongelijkheid?
 
 **Jouw antwoord:**
 
@@ -93,9 +89,9 @@ De betekenis van entropie hangt af van het toepassingsgebied:
 
 **Jouw antwoord:**
 
-## Opdrachten 
+## Opdrachten
 
-### positie-specifieke entropie
+### Positie-specifieke entropie
 
 We hebben entropie leren kennen als een maat voor onzekerheid of verrassing: hoe moeilijker de uitkomst vooraf te voorspellen is, hoe hoger de entropie. Diezelfde gedachte kunnen we toepassen op DNA.
 
@@ -139,9 +135,7 @@ Er is iets vreemds aan de levende wereld. Aan de ene kant wordt ze steeds comple
 
 Om die schijnbare tegenspraak te ontleden, gebruiken we een belangrijke eigenschap van de logaritme:
 
-$$
-\log(A \times B) = \log(A) + \log(B)
-$$
+$$\log(A \times B) = \log(A) + \log(B)$$
 
 De logaritme maakt van een vermenigvuldiging een optelling. Dat is precies wat we nodig hebben, want kansen worden vermenigvuldigd, terwijl entropie een *som* is. De logaritme is de brug tussen die twee: hij vertaalt het vermenigvuldigen van kansen naar het optellen van termen, en maakt zo het somteken ($\sum$) in de entropie mogelijk.
 
@@ -149,9 +143,7 @@ De logaritme maakt van een vermenigvuldiging een optelling. Dat is precies wat w
 
 De grootheid $-\log(p)$ heeft een eigen naam: *informatie*, ook wel *surprisal* (verrassing). Een onwaarschijnlijke uitkomst (kleine $p$) levert veel informatie op; een vrijwel zekere uitkomst (grote $p$) weinig. De entropie
 
-$$
-H(X) = -\sum_i p_i \log(p_i)
-$$
+$$H(X) = -\sum_i p_i \log(p_i)$$
 
 is dan niets anders dan het gemiddelde van die informatie over alle uitkomsten, de *verwachtingswaarde* van de surprisal. Vandaar de naam *informatie-entropie*, of kortweg weer *informatie*.
 
@@ -163,9 +155,7 @@ Dat één begrip zowel "surprisal" als "informatie" als "entropie" heet, is een 
 
 Dankzij de logaritme kunnen we de entropie *ontleden*. Meet je de vorm van een willekeurig organisme in de biosfeer, dan valt de onzekerheid over die vorm uiteen in twee vragen: *welke soort is dit?* en *hoe ziet dit individu eruit, gegeven die soort?* In formulevorm:
 
-$$
-H(\text{fenotype}) = H(\text{soort}) + H(\text{fenotype} \mid \text{soort})
-$$
+$$H(\text{fenotype}) = H(\text{soort}) + H(\text{fenotype} \mid \text{soort})$$
 
 Deze opsplitsing lost de schijnbare tegenspraak op.
 
@@ -177,7 +167,7 @@ Er is dus geen paradox: het gaat om twee verschillende termen, die onafhankelijk
 
 **Canalisatie** is het vermogen van de ontwikkeling om, ondanks variatie in genotype of omgeving, steeds hetzelfde fenotype voort te brengen.
 
-Vraag 10: Welke van de twee termen wordt beïnvloed door canalisatie, en welke door het ontstaan van nieuwe soorten? Kan $𝐻(fenotype)=𝐻(soort)+𝐻(fenotype∣soort)$ gelijk blijven terwijl beide termen veranderen?
+**Vraag 10:** Welke van de twee termen wordt beïnvloed door canalisatie, en welke door het ontstaan van nieuwe soorten? Kan $𝐻(fenotype)=𝐻(soort)+𝐻(fenotype∣soort)$ gelijk blijven terwijl beide termen veranderen?
 
 **Jouw antwoord:**
 
@@ -185,7 +175,7 @@ Vraag 10: Welke van de twee termen wordt beïnvloed door canalisatie, en welke d
 
 Deze laatste opdracht is anders dan de vorige. Er is geen goed of fout antwoord, mogelijk alleen slecht geformuleerd, en je hoeft niets te berekenen. We vragen je om terug te kijken op alles wat in deze portfolio-opdracht langskwam, zowel het practicum als het theoretische deel, en er in je eigen woorden een samenhangend verhaal van te maken.
 
-Belangrijk: dit is een *momentopname*. De hypothesen en verbanden die je nu formuleert, mag je gedurende het jaar vrij aanpassen, verwerpen of uitbreiden naarmate je nieuwe onderwerpen tegenkomt,  bijvoorbeeld na nieuwe inzichten met allometrische schaling in de komende colleges. Je legt hier dus geen eindantwoord vast, maar je huidige denken. Durf daarom te speculeren.
+Belangrijk: dit is een *momentopname*. De hypothesen en verbanden die je nu formuleert, mag je gedurende het jaar vrij aanpassen, verwerpen of uitbreiden naarmate je nieuwe onderwerpen tegenkomt, bijvoorbeeld na nieuwe inzichten met allometrische schaling in de komende colleges. Je legt hier dus geen eindantwoord vast, maar je huidige denken. Durf daarom te speculeren.
 
 **Vraag 1 — Rode draad.** Vat in je eigen woorden samen welke theoretische elementen vandaag zijn langsgekomen, en hoe ze met elkaar samenhangen. Denk aan de begrippen die telkens terugkeerden: de nulhypothese en het verwerpen daarvan, de $\chi^2$-toets en de p-waarde, stochastische variabelen en hun verdeling, surprisal en entropie, en de opsplitsing van entropie in canalisatie en biodiversiteit. Probeer niet elk begrip los te beschrijven, maar te laten zien hoe ze in elkaar grijpen.
 
@@ -199,11 +189,10 @@ Belangrijk: dit is een *momentopname*. De hypothesen en verbanden die je nu form
 
 > jouw antwoord:
 
-**Vraag 4 — Jouw hypothese.** Formuleer ten slotte één of meer eigen hypothesen over hoe de begrippen uit deze opdrachtn, entropie, onzekerheid, canalisatie, informatie, zouden kunnen samenhangen met onderwerpen die je later dit jaar verwacht tegen te komen. Dit is bewust open en speculatief; niemand verwacht dat het al klopt. Het doel is dat je leert je eigen denken vast te leggen en er later op terug te komen.
+**Vraag 4 — Jouw hypothese.** Formuleer ten slotte één of meer eigen hypothesen over hoe de begrippen uit deze opdrachten, entropie, onzekerheid, canalisatie, informatie, zouden kunnen samenhangen met onderwerpen die je later dit jaar verwacht tegen te komen. Dit is bewust open en speculatief; niemand verwacht dat het al klopt. Het doel is dat je leert je eigen denken vast te leggen en er later op terug te komen.
 
 > jouw antwoord:
 
 ::: aside
 Bewaar je antwoorden goed. Aan het eind van het jaar kijk je hierop terug en zie je hoe je denken zich heeft ontwikkeld.
 :::
-

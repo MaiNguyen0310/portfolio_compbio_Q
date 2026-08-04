@@ -1,6 +1,3 @@
----
-title: "Logaritmes en exponenten"
----
 
 # Logaritmes en exponenten
 
@@ -8,9 +5,9 @@ Bij het vak *Chemie van het leven* leer je pH-berekeningen uit te voeren. Hierbi
 
 Je werkt hierbij aan de onderstaande leerdoelen. Kruis deze voor jezelf af als je ze denkt te beheersen.
 
--   [ ] Leerdoel X
--   [ ] Leerdoel Y
--   [ ] Leerdoel Z
+- [ ] Leerdoel X
+- [ ] Leerdoel Y
+- [ ] Leerdoel Z
 
 ### De exponentiële functie
 
@@ -36,10 +33,10 @@ $$a^{\log_a(x)} = x \quad \text{en} \quad \log_a(a^x)=x $$
 
 Machten en logaritmen zijn praktisch, omdat ze verschijnselen kwantitatief beschrijven die snel toe- of afnemen, of over een enorme schaal variëren. Een macht is namelijk een compacte manier om een herhaaldelijke vermenigvuldiging te noteren.
 
--   $10^1$ is één stap omhoog in een schaal
--   $10^2$ is twee stappen omhoog
--   $10^3$ is drie stappen omhoog in een schaal
--   $\vdots$
+- $10^1$ is één stap omhoog in een schaal
+- $10^2$ is twee stappen omhoog
+- $10^3$ is drie stappen omhoog in een schaal
+- $\vdots$
 
 Hierbij staat elke stap dus voor een factor 10. Als je een logaritme bepaalt, bereken je hoeveel stappen je omhoog bent gegaan. We kunnen de notatie $\log_{10}(1000)$ dus lezen als: "Hoeveel stappen moet ik vanaf 10 omhoog om bij 1000 te komen?". Hierdoor weten we dat $\log_{10}(1000) = 3.$
 
@@ -105,16 +102,6 @@ Test je begrip door de volgende vragen te beantwoorden.
 # Verander hier niks aan!
 htmltools::tags$iframe(src = "https://mai-nguyen0310.shinyapps.io/shiny_log/",
                        width = "100%", height = "400", frameborder = "0")
-```
-
-## Practicumopdracht
-
-Zoals in de introductie beschreven, zullen onderdelen uit dit portfolio gekoppeld worden aan practicumopdrachten. Voor het eerste portfolio-onderdeel hoef je nog niet zelf een hoofdstuk toe te voegen aan het portfoliobestand, zoals dat later wel zal moeten. Met deze app oefen je op een laagdrempelige manier met de logica achter coderen. Je kunt de berekeningen die je hierbij uitvoert ook gebruiken bij het schrijven van je labjournaal.
-
-```{r, echo = FALSE}
-# Verander hier niks aan!
-htmltools::tags$iframe(src = "https://mai-nguyen0310.shinyapps.io/log_practicum_vragen/",
-                       width = "100%", height = "300", frameborder = "0")
 ```
 
 ## Evo-devo: Allometrische schaling

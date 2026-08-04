@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Appendix A — Maiszaden practicum – Portfolio Computationele Biologie</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Port_logpH_Pract.html" rel="next">
+<link href="./references.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-12eeb4b20e9f5a2b0bfc604bfaf942bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating slimcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Port2_Pract.html">Appendices</a></li><li class="breadcrumb-item"><a href="./Port2_Pract.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Maiszaden practicum</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Portfolio Computationele Biologie</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Het portfolio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Port2_Theory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Stochastische variabelen, kansverdelingen en entropie</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Port_logpH_Theory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Logaritmes en exponenten</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Differentiaalvergelijkingen_theorie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Differentiaalvergelijkingen</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Port2_Pract.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Maiszaden practicum</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Port_logpH_Pract.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">pH-berekeningen: logaritmen en exponenten</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Sepia_Mantel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Sepia Mantel en de t-test.</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introductie" id="toc-introductie" class="nav-link active" data-scroll-target="#introductie"><span class="header-section-number">A.1</span> Introductie</a></li>
+  <li><a href="#opdracht-van-vandaag" id="toc-opdracht-van-vandaag" class="nav-link" data-scroll-target="#opdracht-van-vandaag"><span class="header-section-number">A.2</span> Opdracht van vandaag:</a></li>
+  <li><a href="#het-concept-van-de-statistische-toets-toeval-of-systematische-afwijking" id="toc-het-concept-van-de-statistische-toets-toeval-of-systematische-afwijking" class="nav-link" data-scroll-target="#het-concept-van-de-statistische-toets-toeval-of-systematische-afwijking"><span class="header-section-number">A.3</span> Het concept van de statistische toets: Toeval of Systematische Afwijking?</a></li>
+  <li><a href="#de-chi-kwadraat-toets-chi2" id="toc-de-chi-kwadraat-toets-chi2" class="nav-link" data-scroll-target="#de-chi-kwadraat-toets-chi2"><span class="header-section-number">A.4</span> De Chi-kwadraat Toets (<span class="math inline">\(\chi^2\)</span>)</a></li>
+  <li><a href="#voorbeeld-in-r-sex-ratio-berekenen" id="toc-voorbeeld-in-r-sex-ratio-berekenen" class="nav-link" data-scroll-target="#voorbeeld-in-r-sex-ratio-berekenen"><span class="header-section-number">A.5</span> Voorbeeld in R: Sex ratio berekenen</a></li>
+  <li><a href="#de-p-waarde" id="toc-de-p-waarde" class="nav-link" data-scroll-target="#de-p-waarde"><span class="header-section-number">A.6</span> De p-waarde</a></li>
+  <li><a href="#chi2-test-op-de-maïszaden-data" id="toc-chi2-test-op-de-maïszaden-data" class="nav-link" data-scroll-target="#chi2-test-op-de-maïszaden-data"><span class="header-section-number">A.7</span> <span class="math inline">\(\chi^2\)</span> test op de maïszaden data</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Port2_Pract.html">Appendices</a></li><li class="breadcrumb-item"><a href="./Port2_Pract.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Maiszaden practicum</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Appendix A — Maiszaden practicum</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introductie" class="level2" data-number="A.1">
+<h2 data-number="A.1" class="anchored" data-anchor-id="introductie"><span class="header-section-number">A.1</span> Introductie</h2>
+<p>Dit is de eerste portfolio-opdracht, gekoppeld aan een specifieke cursus. We beginnen bij de statistiek: de berekeningen voeren jullie uit in R, zowel “met de hand” gecodeerd als met de ingebouwde R-functies. Zo doorgronden jullie niet alleen wat er onder de motorkap gebeurt, maar leren jullie ook hoe je dezelfde analyse efficiënt uitvoert met de functies die R al biedt.</p>
+<p>Na het practicum volgt het theoretische deel. Daarin onderzoeken we hoe wiskunde en statistiek binnen de biologie worden gebruikt, waarom dat zo is, en waarom dat ertoe doet.</p>
+<p>In dit theoretisch deel laten we expliciet zien dat de wiskunde achter de gebruikte statistische toets ook opduikt in heel andere contexten: biodiversiteit, onzekerheid, machine learning en AI; één wiskundige vorm, telkens opnieuw geïnterpreteerd. Daarmee willen we duidelijk maken dat uiteenlopende biologische concepten kunnen samenvallen in dezelfde onderliggende wiskunde.</p>
+<p>Dat geldt ook binnen de statistiek zelf die op de wiskunde is gebaseerd: verschillende methoden en toetsen die jullie als losse recepten leren, rusten vaak op één en dezelfde onderliggende redenering. Wat verandert is de context, niet de wiskunde. Het is ook jullie taak deze zelf te ontdekken, met behulp van ons natuurlijk.</p>
+</section>
+<section id="opdracht-van-vandaag" class="level2 page-columns page-full" data-number="A.2">
+<h2 data-number="A.2" class="anchored" data-anchor-id="opdracht-van-vandaag"><span class="header-section-number">A.2</span> Opdracht van vandaag:</h2>
+<p>We gaan testen of de overerving van heterozygote genen volgens de wetten van Mendel verloopt. Concreet: Komt de theoretisch verwachte verdeling van de kleuren van zaden overeen met de waargenomen verdeling in jullie waarnemen? We gaan dus een <code>theoretische</code> verdeling vergelijken met een waargenomen of <code>empirische</code> verdeling van een steekproef; <strong>statistiek brengt hier theorie en waarnemingen bij elkaar.</strong></p>
+<p>Volgens de Mendeliaanse genetica verwachten we, als beide ouders heterozygoot zijn voor één gen dat de kleur bepaalt, een 3:1 verhouding van zaden met de dominante eigenschap ten opzichte van de regressieve eigenschap. Beschouw bijvoorbeeld heterozygote ouders voor het gen <span class="math inline">\(R\)</span> dat de rode kleur veroorzaakt:</p>
+<p><strong>Tabel 3.1: Kruising van twee heterozygote ouders.</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 38%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span class="math inline">\(R\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(r\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(R\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(RR\)</span> (<span style="color:red;">rood</span>)</td>
+<td style="text-align: center;"><span class="math inline">\(Rr\)</span> (<span style="color:red;">rood</span>)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(r\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(rR\)</span> (<span style="color:red;">rood</span>)</td>
+<td style="text-align: center;"><span class="math inline">\(rr\)</span> (<span style="color:#e6cd10;">geel</span>)</td>
+</tr>
+</tbody>
+</table>
+<p>Als beide ouders daadwerkelijk <span class="math inline">\(Rr\)</span> zijn, dan verwachten we in de nakomelingen een verhouding van rood : geel = 3:1; dus drie rode voor elke gele dus een <strong>proportie van (3/4, 1/4)</strong>; de vier mogelijk genetische combinaties worden 2 fenotypen (rood en geel).</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p><strong>Opmerking</strong>: De verhouding is een veelvouden van 1/4; er vier mogelijke combinaties zijn van R en r(<span class="math inline">\(2^2\)</span>).</p>
+</div></div><p>Een statistische toets vertrekt vanuit de aanname dat er geen verschil is tussen de theoretische en waargenomen verdeling (de Null-hypothese) en onderzoekt vervolgens of het <code>aannemelijk</code> is om deze aanname te <strong>verwerpen</strong>. Voor de <span class="math inline">\(\chi^2\)</span>-kwadraattoets (spreek uit als chi-kwadraat) betekent dit dat we de waargenomen verdeling vergelijken met de verdeling die we zouden verwachten bij een 3:1-verhouding.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>(Nullify, to Null, betekend verwerpen)</p>
+</div></div><p>Je kunt deze verwachte frequenties eenvoudig berekenen door het totale aantal getelde zaden te vermenigvuldigen met de verwachte proportie van (3/4, 1/4); dus voor honderd zaden verwachten we 75 rood en 25 geel.</p>
+</section>
+<section id="het-concept-van-de-statistische-toets-toeval-of-systematische-afwijking" class="level2" data-number="A.3">
+<h2 data-number="A.3" class="anchored" data-anchor-id="het-concept-van-de-statistische-toets-toeval-of-systematische-afwijking"><span class="header-section-number">A.3</span> Het concept van de statistische toets: Toeval of Systematische Afwijking?</h2>
+<p>Laten we als voorbeeld de <em>sex ratio</em> (geslachtsverhouding) van een soort onderzoeken. Stel, we verwachten een ratio van 1:1 (<strong>proportie (1/2,1/2)</strong>), evenveel mannetjes als vrouwtjes.</p>
+<p>Als we een steekproef nemen van 80 individuen, verwachten we 40 vrouwtjes en 40 mannetjes. In de praktijk zien we echter zelden precies deze verhouding.</p>
+<p>Dit komt door toeval bij het willekeurig trekken van de steekproef: er bestaat altijd een kans dat er iets meer of iets minder mannetjes worden geselecteerd uit een populatie met evenveel mannetjes als vrouwtjes, bijvoorbeeld 42 mannetjes en 38 vrouwtjes.</p>
+<p>Dit roept vanuit de statistiek een belangrijke vraag op:</p>
+<p><strong>Wanneer is de afwijking van de 1:1 ratio zó groot, dat de hypothese van een 1:1 verhouding, niet meer houdbaar is en deze verworpen moet worden?</strong></p>
+<ul>
+<li><strong>A. Komt de afwijking puur door toeval bij het nemen van de steekproef?</strong>
+<ol type="1">
+<li>De hypothese van de 1:1 verhouding is <code>aannemelijk</code>.</li>
+<li>We verwerpen de nulhypothese niet we hebben geen effect aangetoond.</li>
+</ol></li>
+<li><strong>B. Of is de afwijking systematisch, en kan het verschil niet meer verklaard worden door toeval alleen?</strong>
+<ol type="1">
+<li>De hypothese van de 1:1 verhouding is <code>onaannemelijk</code>.</li>
+<li>We verwerpen de nulhypothese we hebben een effect aangetoond.</li>
+</ol></li>
+</ul>
+<p>Dit is precies de vraag waarmee de statistiek zich bezighoudt. Het is daarbij belangrijk om te beseffen dat we niet bewijzen dat de verdeling gelijk of ongelijk is. In plaats daarvan onderzoeken we of de metingen de nulhypothese ondersteunen of juist minder aannemelijk maken.</p>
+<p>Met andere woorden: statistiek levert geen absoluut bewijs, maar een maat voor hoe goed de waargenomen data passen bij een hypothese. Later komen we hierop terug wanneer we de p-waarde bespreken en uitleggen hoe deze helpt bij het beoordelen van de aannemelijkheid van de nulhypothese.</p>
+</section>
+<section id="de-chi-kwadraat-toets-chi2" class="level2" data-number="A.4">
+<h2 data-number="A.4" class="anchored" data-anchor-id="de-chi-kwadraat-toets-chi2"><span class="header-section-number">A.4</span> De Chi-kwadraat Toets (<span class="math inline">\(\chi^2\)</span>)</h2>
+<p>Om te bepalen of een afwijking op toeval berust, gebruiken we de <span class="math inline">\(\chi^2\)</span>-kwadraat toets. De toetsingsgrootheid (<span class="math inline">\(\chi^2\)</span>) berekenen we met de volgende formule:</p>
+<p><span class="math display">\[\chi^2 = \sum_{i=1}^{N} \frac{(O_i - E_i)^2}{E_i}\]</span></p>
+<p>Hierbij staan de letters voor:</p>
+<ul>
+<li><span class="math inline">\(O =\)</span> Waargenomen waarde (<em>Observed</em>)</li>
+<li><span class="math inline">\(E =\)</span> Verwachte waarde (<em>Expected</em>)</li>
+</ul>
+<p>Voor ons sex ratio voorbeeld ziet de vergelijking er als volgt uit:</p>
+<p><span class="math display">\[X^2 = \frac{(O_m - E_m)^2}{E_m} + \frac{(O_v - E_v)^2}{E_v}\]</span></p>
+<p><strong>Vraag 1:</strong> Leg uit dat deze formule het verschil meet tussen de verdeling van de verwachte waarden (E) en de geobserveerde waarden (O) en welke waarde <span class="math inline">\(\chi^2\)</span> aanneemt als de hypothese exact overeenkomt met de meeting. Leg uit waarom deze waarde logisch is in deze context.</p>
+<blockquote class="blockquote">
+<p>jouw antwoord:</p>
+</blockquote>
+<p><strong>Vraag 2:</strong> Beargumenteer en onderbouw wat er met de <span class="math inline">\(\chi^2\)</span>-waarde gebeurt naarmate de Null-hypothese steeds onaannemelijker wordt.</p>
+<blockquote class="blockquote">
+<p>jouw antwoord:</p>
+</blockquote>
+<p><strong>Vraag 3:</strong> Wat gebeurt er met <span class="math inline">\(\chi^2\)</span> als we een veel grotere steekproef nemen maar de verhoudingen (proporties) gelijk houden (bijv. 1000 in plaats van 80)?</p>
+<blockquote class="blockquote">
+<p>jouw antwoord:</p>
+</blockquote>
+<p>Deze laatste vraag is een mooi voorbeeld van hoe een eenvoudig wiskunde stap je automatisch het correcte inzicht geeft.</p>
+</section>
+<section id="voorbeeld-in-r-sex-ratio-berekenen" class="level2 page-columns page-full" data-number="A.5">
+<h2 data-number="A.5" class="anchored" data-anchor-id="voorbeeld-in-r-sex-ratio-berekenen"><span class="header-section-number">A.5</span> Voorbeeld in R: Sex ratio berekenen</h2>
+<p>Onze nulhypothese (<span class="math inline">\(H_0\)</span>) is dat de sex ratio 1:1 is. We nemen een steekproef en meten: <strong>45 mannetjes</strong> en <strong>35 vrouwtjes</strong>. Volgens de theorie hadden we 40 mannetjes en 40 vrouwtjes verwacht.</p>
+<p>We kunnen <span class="math inline">\(\chi^2\)</span> eerst met de hand invullen en berekenen in R:</p>
+<p><span class="math display">\[X^2 = \frac{(45-40)^2}{40} + \frac{(35-40)^2}{40} = 1.25\]</span></p>
+<p>Dit voeren we als volgt uit in R:</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>We gebruiken R hier als een rekenmachine. Nu is de code gegeven maar later moet je die zelf gaan invoeren.</p>
+</div></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Berekening met de hand in R</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Chi <span class="ot">&lt;-</span> (<span class="dv">45-40</span>)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">40</span> <span class="sc">+</span> (<span class="dv">35-40</span>)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">40</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Chi)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.25</code></pre>
+</div>
+</div>
+<p>R beschikt over een ingebouwde functie om de <span class="math inline">\(\chi^2\)</span>-kwadraattoets direct uit te voeren: chisq.test(). Deze gebruik je voor deze data als volgt:</p>
+<p><code>chisq.test(c(45, 35), p = c(1/2, 1/2))</code></p>
+<p><strong>Vraag 4:</strong> Vertaal deze code naar de context van het experiment en leg in je eigen woorden uit wat elk onderdeel van de code betekent.</p>
+<blockquote class="blockquote">
+<p>jouw antwoord</p>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">35</span>), <span class="at">p =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Chi-squared test for given probabilities
+
+data:  c(45, 35)
+X-squared = 1.25, df = 1, p-value = 0.2636</code></pre>
+</div>
+</div>
+</section>
+<section id="de-p-waarde" class="level2" data-number="A.6">
+<h2 data-number="A.6" class="anchored" data-anchor-id="de-p-waarde"><span class="header-section-number">A.6</span> De p-waarde</h2>
+<p>Als je bovenstaande code uitvoert, vind je naast de <span class="math inline">\(\chi^2\)</span>-squared waarde (1.25) en ook een p-value (0.2636).</p>
+<p>De p-waarde moeten we als volgt lezen:</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Belangrijk">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Belangrijk
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>De p-waarde is de kans om data te vinden die minstens zo sterk afwijkt van wat je verwachtte als de afwijking die je hebt gevonden, onder de aanname dat de nulhypothese klopt. <span class="math inline">\(p = P(\text{afwijking} \ge  \text{waargenomen afwijking} \mid H_0)\)</span>.</p>
+</div>
+</div>
+<p>Anders geïnterpreteerd geeft de p-waarde aan hoe verrast je bent dat je deze data hebt gevonden.</p>
+<p>De Nulhypothese (<span class="math inline">\(H_0\)</span>) stelt in dit geval dat er géén verschil is aangetoond tussen de waargenomen verdeling en de theoretisch verwachte verdeling van (1/2, 1/2).</p>
+<p>De algemene statistische stelregel is:</p>
+<ul>
+<li>Als <span class="math inline">\(p &lt; 0.05\)</span>, verwerpen we de nulhypothese: de waargenomen afwijking is dan te groot om door toeval alleen te worden verklaard; <em>de kans dat we deze data waarnemen als de nulhypothese correct is is klein</em>.</li>
+<li>Als <span class="math inline">\(p \ge 0.05\)</span>, is er onvoldoende grond om de nulhypothese te verwerpen; <em>toeval blijft dan een aannemelijke verklaring voor de waargenomen afwijking</em>.</li>
+</ul>
+<p>In ons voorbeeld is de p-waarde 0.263, dit is groter dan 0.05; is er onvoldoende grond om <span class="math inline">\(H_0\)</span> te verwerpen: <em>we kunnen de 1:1 verhouding niet uitsluiten</em>. Het waargenomen verschil (gekwantificeerd in <span class="math inline">\(\chi^2\)</span>) is hoogstwaarschijnlijk het gevolg van toeval en dus niet systematisch.</p>
+<p><strong>Vraag 5</strong>: Wat gebeurt er met de <span class="math inline">\(\chi ^{2}\)</span>-waarde en de p-waarde als onze steekproefomvang groter wordt (bijvoorbeeld van 350 naar 450)? Leid dit eerst theoretisch af, voer daarna de berekening uit in R en interpreteer ten slotte het resultaat.</p>
+<blockquote class="blockquote">
+<p>jouw antwoord.</p>
+</blockquote>
+<p>We zien hiermee dat we in de wetenschap altijd uitspraken doen onder <code>onzekerheid</code>. We hebben zelden absolute zekerheid op basis van een bewijs of een specifieke waarneming. Wetenschappelijke conclusies zijn daarom altijd gebaseerd op de mate waarin de gegevens een hypothese ondersteunen.</p>
+<p>Dit maakt wetenschappelijke uitspraken voor een niet-wetenschappelijk publiek soms moeilijk te plaatsen. Wanneer wetenschappers het met elkaar oneens zijn, weerspiegelt dat vaak de onzekerheid die nog in de gegevens of theorie aanwezig is. Naarmate er meer wetenschappelijke consensus ontstaat, neemt deze onzekerheid af. Helemaal verdwijnen doet zij echter nooit.</p>
+</section>
+<section id="chi2-test-op-de-maïszaden-data" class="level2 page-columns page-full" data-number="A.7">
+<h2 data-number="A.7" class="anchored" data-anchor-id="chi2-test-op-de-maïszaden-data"><span class="header-section-number">A.7</span> <span class="math inline">\(\chi^2\)</span> test op de maïszaden data</h2>
+<p>Bereken, gebruik makend van de informatie in deze portfolio en je eigen mais data, de p-waarden van je <span class="math inline">\(\chi^2\)</span> -test en trek je conclusie aangedaan je hypothese van de verwachte 3:1 verhouding.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gebruike de code van de sex ratio als template.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><strong>Opmerking:</strong> Hoe de code in te voeren:</p>
+<ul>
+<li>Doe niet copy/paste maar type de code met de hand.</li>
+<li>Let op hoofdletter of kleinen letters zijn verschillende voor R.
+<ul>
+<li><code>Chisq.test()</code> zal niet werken <code>chisq.test()</code> weer wel</li>
+</ul></li>
+</ul>
+</div></div><p>Let op: Neem deze bevindingen en berekeningen netjes op in je labjournaal!</p>
+<p>Als laatste actie kunnen jullie de gevonden <span class="math inline">\(\chi^2\)</span> waarden en p-waarden invoeren in dit formulier. Het resultaat daarvan zullen we gebruiken in het volgende theoretische deel.</p>
+<p>In het theoretische deel van het portfolio gaan we dieper in op het concept van een kansverdeling met name die van <span class="math inline">\(\chi^2\)</span>, en in het bijzonder de daarmee verbonden onzekerheid van je uiteindelijke uitspraak. Vervolgens leggen we een verband tussen het concept onzekerheid, biodiversiteit, en Evo-Devo.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">References</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Port_logpH_Pract.html" class="pagination-link" aria-label="pH-berekeningen: logaritmen en exponenten">
+        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">pH-berekeningen: logaritmen en exponenten</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

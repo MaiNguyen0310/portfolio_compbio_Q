@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Logaritmes en exponenten – Portfolio Computationele Biologie</title>
+<title>1&nbsp; Logaritmes en exponenten – Portfolio Computationele Biologie</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -65,19 +68,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./Port2_Theory.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d9ea66fcd6c317012447f26e9c021348.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-12eeb4b20e9f5a2b0bfc604bfaf942bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -107,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -148,7 +150,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./log_pH.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Logaritmes en exponenten</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./log_pH.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Logaritmes en exponenten</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -161,9 +163,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Portfolio Computationele Biologie</a> 
     </div>
@@ -178,13 +178,25 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Het portfolio</span></span></a>
+ <span class="menu-text">Het portfolio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./log_pH.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Logaritmes en exponenten</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Logaritmes en exponenten</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Port2_Theory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Stochastische variabelen, kansverdelingen en entropie</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Differentiaalvergelijkingen_theorie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Differentiaalvergelijkingen</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -193,6 +205,29 @@ window.Quarto = {
  <span class="menu-text">References</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Port2_Pract.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Maiszaden practicum</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Sepia_Mantel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Sepia Mantel en de t-test.</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -203,21 +238,21 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#logaritmes-en-exponenten" id="toc-logaritmes-en-exponenten" class="nav-link active" data-scroll-target="#logaritmes-en-exponenten"><span class="header-section-number">3</span> Logaritmes en exponenten</a>
+  <li><a href="#logaritmes-en-exponenten" id="toc-logaritmes-en-exponenten" class="nav-link active" data-scroll-target="#logaritmes-en-exponenten"><span class="header-section-number">2</span> Logaritmes en exponenten</a>
   <ul class="collapse">
-  <li><a href="#de-exponentiële-functie" id="toc-de-exponentiële-functie" class="nav-link" data-scroll-target="#de-exponentiële-functie"><span class="header-section-number">3.0.1</span> De exponentiële functie</a></li>
-  <li><a href="#de-logaritme" id="toc-de-logaritme" class="nav-link" data-scroll-target="#de-logaritme"><span class="header-section-number">3.0.2</span> De logaritme</a></li>
-  <li><a href="#regenregels-van-machten-en-logaritmen" id="toc-regenregels-van-machten-en-logaritmen" class="nav-link" data-scroll-target="#regenregels-van-machten-en-logaritmen"><span class="header-section-number">3.0.3</span> Regenregels van machten en logaritmen</a></li>
-  <li><a href="#ph-berekeningen" id="toc-ph-berekeningen" class="nav-link" data-scroll-target="#ph-berekeningen"><span class="header-section-number">3.1</span> pH berekeningen</a>
+  <li><a href="#de-exponentiële-functie" id="toc-de-exponentiële-functie" class="nav-link" data-scroll-target="#de-exponentiële-functie"><span class="header-section-number">2.0.1</span> De exponentiële functie</a></li>
+  <li><a href="#de-logaritme" id="toc-de-logaritme" class="nav-link" data-scroll-target="#de-logaritme"><span class="header-section-number">2.0.2</span> De logaritme</a></li>
+  <li><a href="#regenregels-van-machten-en-logaritmen" id="toc-regenregels-van-machten-en-logaritmen" class="nav-link" data-scroll-target="#regenregels-van-machten-en-logaritmen"><span class="header-section-number">2.0.3</span> Regenregels van machten en logaritmen</a></li>
+  <li><a href="#ph-berekeningen" id="toc-ph-berekeningen" class="nav-link" data-scroll-target="#ph-berekeningen"><span class="header-section-number">2.1</span> pH berekeningen</a>
   <ul class="collapse">
-  <li><a href="#voorbeeld-ph-metingen" id="toc-voorbeeld-ph-metingen" class="nav-link" data-scroll-target="#voorbeeld-ph-metingen"><span class="header-section-number">3.1.1</span> Voorbeeld: pH metingen</a></li>
+  <li><a href="#voorbeeld-ph-metingen" id="toc-voorbeeld-ph-metingen" class="nav-link" data-scroll-target="#voorbeeld-ph-metingen"><span class="header-section-number">2.1.1</span> Voorbeeld: pH metingen</a></li>
   </ul></li>
-  <li><a href="#vooropdracht" id="toc-vooropdracht" class="nav-link" data-scroll-target="#vooropdracht"><span class="header-section-number">3.2</span> Vooropdracht</a></li>
-  <li><a href="#practicumopdracht" id="toc-practicumopdracht" class="nav-link" data-scroll-target="#practicumopdracht"><span class="header-section-number">3.3</span> Practicumopdracht</a></li>
-  <li><a href="#evo-devo-allometrische-schaling" id="toc-evo-devo-allometrische-schaling" class="nav-link" data-scroll-target="#evo-devo-allometrische-schaling"><span class="header-section-number">3.4</span> Evo-devo: Allometrische schaling</a>
+  <li><a href="#quizvragen" id="toc-quizvragen" class="nav-link" data-scroll-target="#quizvragen"><span class="header-section-number">2.2</span> Quizvragen</a></li>
+  <li><a href="#practicumopdracht" id="toc-practicumopdracht" class="nav-link" data-scroll-target="#practicumopdracht"><span class="header-section-number">2.3</span> Practicumopdracht</a></li>
+  <li><a href="#evo-devo-allometrische-schaling" id="toc-evo-devo-allometrische-schaling" class="nav-link" data-scroll-target="#evo-devo-allometrische-schaling"><span class="header-section-number">2.4</span> Evo-devo: Allometrische schaling</a>
   <ul class="collapse">
-  <li><a href="#voorbeeld-metabolismesnelheid" id="toc-voorbeeld-metabolismesnelheid" class="nav-link" data-scroll-target="#voorbeeld-metabolismesnelheid"><span class="header-section-number">3.4.1</span> Voorbeeld: metabolismesnelheid</a></li>
-  <li><a href="#optioneel-fractale-structuren" id="toc-optioneel-fractale-structuren" class="nav-link" data-scroll-target="#optioneel-fractale-structuren"><span class="header-section-number">3.4.2</span> Optioneel: Fractale structuren</a></li>
+  <li><a href="#voorbeeld-en-opdrachten-metabolismesnelheid" id="toc-voorbeeld-en-opdrachten-metabolismesnelheid" class="nav-link" data-scroll-target="#voorbeeld-en-opdrachten-metabolismesnelheid"><span class="header-section-number">2.4.1</span> Voorbeeld en opdrachten: metabolismesnelheid</a></li>
+  <li><a href="#optioneel-fractale-structuren" id="toc-optioneel-fractale-structuren" class="nav-link" data-scroll-target="#optioneel-fractale-structuren"><span class="header-section-number">2.4.2</span> Optioneel: Fractale structuren</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -228,7 +263,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Logaritmes en exponenten</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Logaritmes en exponenten</span></h1>
 </div>
 
 
@@ -245,17 +280,17 @@ window.Quarto = {
 </header>
 
 
-<section id="logaritmes-en-exponenten" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Logaritmes en exponenten</h1>
-<p>Bij het vak <em>Chemie van het leven</em> leer je pH-berekeningen uit te voeren. In deze portfolio-opdracht zul je kennis maken met logaritmische berekeningen. Daarbij verken je meerdere contexten waarin de logaritme verschijnt.</p>
+<section id="logaritmes-en-exponenten" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Logaritmes en exponenten</h1>
+<p>Bij het vak <em>Chemie van het leven</em> leer je pH-berekeningen uit te voeren. Hierbij zul je in de logaritmische schaal werken. In deze portfolio-opdracht zullen we kennis maken met logaritmische berekeningen. Daarbij verken je meerdere contexten waarin de logaritme verschijnt.</p>
 <p>Je werkt hierbij aan de onderstaande leerdoelen. Kruis deze voor jezelf af als je ze denkt te beheersen.</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Leerdoel X</label></li>
 <li><label><input type="checkbox">Leerdoel Y</label></li>
 <li><label><input type="checkbox">Leerdoel Z</label></li>
 </ul>
-<section id="de-exponentiële-functie" class="level3" data-number="3.0.1">
-<h3 data-number="3.0.1" class="anchored" data-anchor-id="de-exponentiële-functie"><span class="header-section-number">3.0.1</span> De exponentiële functie</h3>
+<section id="de-exponentiële-functie" class="level3" data-number="2.0.1">
+<h3 data-number="2.0.1" class="anchored" data-anchor-id="de-exponentiële-functie"><span class="header-section-number">2.0.1</span> De exponentiële functie</h3>
 <p>We komen de exponentiële functie tegen als we naar vermenigvuldingsprocessen kijken. Als we het grondgetal <span class="math inline">\(a\)</span> noemen, en we willen weten wat er gebeurt als we dit <span class="math inline">\(x\)</span> keer met zichzelf vermenigvuldigen, kunnen we dit als volgt noteren: <span class="math display">\[f(x) = a^x.\]</span> Zo kunnen we bijvoorbeeld de derde macht van 10 noteren:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">^</span><span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -264,8 +299,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="de-logaritme" class="level3" data-number="3.0.2">
-<h3 data-number="3.0.2" class="anchored" data-anchor-id="de-logaritme"><span class="header-section-number">3.0.2</span> De logaritme</h3>
+<section id="de-logaritme" class="level3" data-number="2.0.2">
+<h3 data-number="2.0.2" class="anchored" data-anchor-id="de-logaritme"><span class="header-section-number">2.0.2</span> De logaritme</h3>
 <p>Een logaritme doet precies het omgekeerde: deze vertelt je hoeveel keer je een bepaald getal moet vermenigvuldigen om bij een ander getal uit te komen.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">1000</span>,<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -276,8 +311,8 @@ window.Quarto = {
 <p>Met dit voorbeeld kunnen we zien dat de genoemde functies elkaars inverse zijn. Als je eerst de exponent van een getal neemt en daarna de logaritme, kom je terug bij het getal waarmee je begon. Hetzelfde geldt voor wanneer je eerst de logaritme neemt en dan de exponent. Voor alle grondgetallen <span class="math inline">\(a\)</span> en machten <span class="math inline">\(x\)</span> geldt dus:</p>
 <p><span class="math display">\[a^{\log_a(x)} = x \quad \text{en} \quad \log_a(a^x)=x \]</span></p>
 </section>
-<section id="regenregels-van-machten-en-logaritmen" class="level3" data-number="3.0.3">
-<h3 data-number="3.0.3" class="anchored" data-anchor-id="regenregels-van-machten-en-logaritmen"><span class="header-section-number">3.0.3</span> Regenregels van machten en logaritmen</h3>
+<section id="regenregels-van-machten-en-logaritmen" class="level3" data-number="2.0.3">
+<h3 data-number="2.0.3" class="anchored" data-anchor-id="regenregels-van-machten-en-logaritmen"><span class="header-section-number">2.0.3</span> Regenregels van machten en logaritmen</h3>
 <p>Machten en logaritmen zijn praktisch, omdat ze verschijnselen kwantitatief beschrijven die snel toe- of afnemen, of over een enorme schaal variëren. Een macht is namelijk een compacte manier om een herhaaldelijke vermenigvuldiging te noteren.</p>
 <ul>
 <li><span class="math inline">\(10^1\)</span> is één stap omhoog in een schaal</li>
@@ -288,9 +323,7 @@ window.Quarto = {
 <p>Hierbij staat elke stap dus voor een factor 10. Als je een logaritme bepaalt, bereken je hoeveel stappen je omhoog bent gegaan. We kunnen de notatie <span class="math inline">\(\log_{10}(1000)\)</span> dus lezen als: “Hoeveel stappen moet ik vanaf 10 omhoog om bij 1000 te komen?”. Hierdoor weten we dat <span class="math inline">\(\log_{10}(1000) = 3.\)</span></p>
 <p>We kunnen ook een ander grondgetal (en dus een andere vermenigvuldigingsfactor) gebruiken dan 10. In onderstaande rekenregels gebruiken we de algemene notatie <span class="math inline">\(a\)</span> en <span class="math inline">\(b\)</span> als grondgetallen, en <span class="math inline">\(p\)</span> en <span class="math inline">\(q\)</span> als machten.</p>
 <div class="note">
-<div class="note-header">
 <p>Rekenregels voor machten</p>
-</div>
 <dl>
 <dt>Vermenigvuldiging wordt optelling</dt>
 <dd>
@@ -311,15 +344,12 @@ window.Quarto = {
 </dd>
 <dt>De nulde macht is altijd 1</dt>
 <dd>
-<p><span class="math inline">\(a^0 = 1\)</span></p>
+<span class="math inline">\(a^0 = 1\)</span>
 </dd>
 </dl>
 </div>
 <p>Hieruit volgen direct de rekenregels voor de logaritme.</p>
-<div class="note">
-<div class="note-header">
 <p>Rekenregels voor logaritmen</p>
-</div>
 <dl>
 <dt>Vermenigvuldiging wordt optelling</dt>
 <dd>
@@ -337,20 +367,19 @@ window.Quarto = {
 <p><span class="math inline">\(\log_a(1)=0\)</span></p>
 </dd>
 </dl>
-</div>
 </section>
-<section id="ph-berekeningen" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="ph-berekeningen"><span class="header-section-number">3.1</span> pH berekeningen</h2>
+<section id="ph-berekeningen" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="ph-berekeningen"><span class="header-section-number">2.1</span> pH berekeningen</h2>
 <p>De zuurgraad van een oplossing wordt bepaald door de concentratie protonen (<span class="math inline">\([\text{H}^+]\)</span>). Deze kan sterk verschillen tussen oplossingen. Het is niet handig om met extreem grote of kleine concentraties te werken. In de praktijk wordt deze concetratie daarom op een logaritmische schaal geplaatst.</p>
 <p>De pH van een oplossing wordt als volgt gedefinieerd: <span class="math display">\[\text{pH} = -\log_{10}[\text{H}^+]\]</span> Hiermee wordt een enorm concentratiebereik teruggebracht tot een schaal van ongeveer 0 tot 14.</p>
 <p>Om uit de pH de concentratie te bepalen, gebruiken we de exponentiële functie: <span class="math display">\[[\text{H}^+] = 10^{-\text{pH}}\]</span></p>
-<section id="voorbeeld-ph-metingen" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="voorbeeld-ph-metingen"><span class="header-section-number">3.1.1</span> Voorbeeld: pH metingen</h3>
-<p>Stel dat een oplossing pH 3 heeft. Dan geldt: <span class="math display">\[[\text{H}^+] = 10^{-3} = 0.001 ~\text{mol/L}.\]</span> Als de pH daalt naar 2, volgt: <span class="math display">\[[\text{H}^+] = 10^{-2} = 0.01 ~\text{mol/L}.\]</span> De concentratie wordt dus 10× groter, precies omdat exponentiële en logaritmische functies elkaars inverse zijn.</p>
+<section id="voorbeeld-ph-metingen" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="voorbeeld-ph-metingen"><span class="header-section-number">2.1.1</span> Voorbeeld: pH metingen</h3>
+<p>Stel dat een oplossing pH 3 heeft. Dan geldt: <span class="math display">\[[\text{H}^+] = 10^{-3} = 0.001 ~\text{mol/L}.\]</span> Als de pH daalt naar 2, volgt: <span class="math display">\[[\text{H}^+] = 10^{-2} = 0.01 ~\text{mol/L}.\]</span> De concentratie wordt dus 10× groter, omdat exponentiële en logaritmische functies elkaars inverse zijn.</p>
 </section>
 </section>
-<section id="vooropdracht" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="vooropdracht"><span class="header-section-number">3.2</span> Vooropdracht</h2>
+<section id="quizvragen" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="quizvragen"><span class="header-section-number">2.2</span> Quizvragen</h2>
 <p>Test je begrip door de volgende vragen te beantwoorden.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -358,8 +387,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="practicumopdracht" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="practicumopdracht"><span class="header-section-number">3.3</span> Practicumopdracht</h2>
+<section id="practicumopdracht" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="practicumopdracht"><span class="header-section-number">2.3</span> Practicumopdracht</h2>
 <p>Zoals in de introductie beschreven, zullen onderdelen uit dit portfolio gekoppeld worden aan practicumopdrachten. Voor het eerste portfolio-onderdeel hoef je nog niet zelf een hoofdstuk toe te voegen aan het portfoliobestand, zoals dat later wel zal moeten. Met deze app oefen je op een laagdrempelige manier met de logica achter coderen. Je kunt de berekeningen die je hierbij uitvoert ook gebruiken bij het schrijven van je labjournaal.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -367,14 +396,14 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="evo-devo-allometrische-schaling" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="evo-devo-allometrische-schaling"><span class="header-section-number">3.4</span> Evo-devo: Allometrische schaling</h2>
+<section id="evo-devo-allometrische-schaling" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="evo-devo-allometrische-schaling"><span class="header-section-number">2.4</span> Evo-devo: Allometrische schaling</h2>
 <p>We gaan nu kijken naar een andere context waarin logaritmes en exponenten helpen bij het begrijpen van biologische fenomenen. We duiken hierbij voor het eerst het vakgebied Evo-Devo in. Je kunt de bijbehorende vragen in R maken door <a href="evo-devo/schaling.qmd">dit bestand</a> te downloaden.</p>
 <p>Een interessant fenomeen binnen de evolutie is allometrische schaling. Dit beschrijft hoe biologische eigenschappen systematisch veranderen als de lichaamsgrootte toeneemt van soort tot soort. Wat opvalt, is dat veel kenmerken, zoals metabolismesnelheid, levensduur, loopsnelheid en breingrootte, niet linear toenemen, maar volgens een bepaalde machtswet. Deze kunnen we als volgt schrijven:</p>
 <p><span class="math display">\[Y = aM^b.\]</span></p>
 <p>Hierbij staat <span class="math inline">\(Y\)</span> voor de variabele die gemeten wordt en <span class="math inline">\(M\)</span> voor de massa. De coëfficiënt <span class="math inline">\(a\)</span> is soortspecifiek en <span class="math inline">\(b\)</span> is de allometrische exponent.</p>
-<section id="voorbeeld-metabolismesnelheid" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="voorbeeld-metabolismesnelheid"><span class="header-section-number">3.4.1</span> Voorbeeld: metabolismesnelheid</h3>
+<section id="voorbeeld-en-opdrachten-metabolismesnelheid" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="voorbeeld-en-opdrachten-metabolismesnelheid"><span class="header-section-number">2.4.1</span> Voorbeeld en opdrachten: metabolismesnelheid</h3>
 <p>Om meer inzicht te krijgen in hoe deze machtsrelatie werkt, gaan we de volgende afbeelding analyseren:</p>
 <p>!<a href="evo-devo/data_schaling.png">Data_schaling</a></p>
 <p>We zien dat we een verband zoeken tussen de massa van een soort in kilogram en de metabolismesnelheid in mL zuurstofverbruik per gram per uur. Uit deze figuur kunnen we (ongeveer) de datapunten bepalen:</p>
@@ -384,8 +413,8 @@ window.Quarto = {
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>metabolisme <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">7.15</span>, <span class="fl">2.2</span>, <span class="fl">1.85</span>, <span class="fl">1.7</span>, <span class="fl">1.65</span>, <span class="fl">1.05</span>, <span class="fl">0.75</span>, </span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.45</span>, <span class="fl">0.4</span>,<span class="fl">0.2</span>, <span class="fl">0.15</span>, <span class="fl">0.1</span>, <span class="fl">0.75</span>, <span class="fl">0.05</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="plot-hieronder-de-datapunten-aan-de-hand-van-de-vectoren-die-gegeven-zijn.-waarom-ziet-het-er-anders-uit-dan-de-gegeven-figuur" class="level4" data-number="3.4.1.1">
-<h4 data-number="3.4.1.1" class="anchored" data-anchor-id="plot-hieronder-de-datapunten-aan-de-hand-van-de-vectoren-die-gegeven-zijn.-waarom-ziet-het-er-anders-uit-dan-de-gegeven-figuur"><span class="header-section-number">3.4.1.1</span> Plot hieronder de datapunten aan de hand van de vectoren die gegeven zijn. Waarom ziet het er anders uit dan de gegeven figuur?</h4>
+<section id="plot-hieronder-de-datapunten-aan-de-hand-van-de-vectoren-die-gegeven-zijn.-waarom-ziet-het-er-anders-uit-dan-de-gegeven-figuur" class="level4" data-number="2.4.1.1">
+<h4 data-number="2.4.1.1" class="anchored" data-anchor-id="plot-hieronder-de-datapunten-aan-de-hand-van-de-vectoren-die-gegeven-zijn.-waarom-ziet-het-er-anders-uit-dan-de-gegeven-figuur"><span class="header-section-number">2.4.1.1</span> Plot hieronder de datapunten aan de hand van de vectoren die gegeven zijn. Waarom ziet het er anders uit dan de gegeven figuur?</h4>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dit zou je zelf moeten doen </span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(massa, metabolisme)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -398,8 +427,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="los-het-probleem-op-hoe-zou-je-ervoor-kunnen-zorgen-dat-de-data-goed-leesbaar-wordt-wat-voor-verband-kunnen-we-nu-afleiden" class="level4" data-number="3.4.1.2">
-<h4 data-number="3.4.1.2" class="anchored" data-anchor-id="los-het-probleem-op-hoe-zou-je-ervoor-kunnen-zorgen-dat-de-data-goed-leesbaar-wordt-wat-voor-verband-kunnen-we-nu-afleiden"><span class="header-section-number">3.4.1.2</span> Los het probleem op: hoe zou je ervoor kunnen zorgen dat de data goed leesbaar wordt? Wat voor verband kunnen we nu afleiden?</h4>
+<section id="los-het-probleem-op-hoe-zou-je-ervoor-kunnen-zorgen-dat-de-data-goed-leesbaar-wordt-wat-voor-verband-kunnen-we-nu-afleiden" class="level4" data-number="2.4.1.2">
+<h4 data-number="2.4.1.2" class="anchored" data-anchor-id="los-het-probleem-op-hoe-zou-je-ervoor-kunnen-zorgen-dat-de-data-goed-leesbaar-wordt-wat-voor-verband-kunnen-we-nu-afleiden"><span class="header-section-number">2.4.1.2</span> Los het probleem op: hoe zou je ervoor kunnen zorgen dat de data goed leesbaar wordt? Wat voor verband kunnen we nu afleiden?</h4>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dit zou je zelf moeten doen </span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log10</span>(massa), <span class="fu">log10</span>(metabolisme),      </span>
@@ -415,21 +444,21 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="leg-nu-in-woorden-uit-waarom-de-gebruikte-methode-werkt-en-relateer-dat-aan-de-machtsformule." class="level4" data-number="3.4.1.3">
-<h4 data-number="3.4.1.3" class="anchored" data-anchor-id="leg-nu-in-woorden-uit-waarom-de-gebruikte-methode-werkt-en-relateer-dat-aan-de-machtsformule."><span class="header-section-number">3.4.1.3</span> Leg nu in woorden uit waarom de gebruikte methode werkt, en relateer dat aan de machtsformule.</h4>
+<section id="leg-nu-in-woorden-uit-waarom-de-gebruikte-methode-werkt-en-relateer-dat-aan-de-machtsformule." class="level4" data-number="2.4.1.3">
+<h4 data-number="2.4.1.3" class="anchored" data-anchor-id="leg-nu-in-woorden-uit-waarom-de-gebruikte-methode-werkt-en-relateer-dat-aan-de-machtsformule."><span class="header-section-number">2.4.1.3</span> Leg nu in woorden uit waarom de gebruikte methode werkt, en relateer dat aan de machtsformule.</h4>
 <p>[vul hier in]</p>
 <p>We gaan nu iets beter kijken naar de betekenis van het aangetone verband. We hebben gekeken naar de massa-specifieke metabole snelheid, ook wel metabole intensiteit, die aangeeft hoe snel metabolisme verloopt per eenheid massa van een bepaald weefsel. Dit meten we bijvoorbeeld als de hoeveelheid <span class="math inline">\(\text{O}_2\)</span> die verbruikt wordt per uur. Aan deze eenheid zien we dat we dit kunnen berekenen door de totale metabole intensiteit te delen door de massa.</p>
 </section>
-<section id="vul-dit-in-bij-de-machtsformule-waarbij-de-gemeten-variabele-het-totale-metabolisme-is.-maak-gebruik-van-de-rekenregels-van-de-logaritme-om-een-uitdrukking-te-krijgen-voor-de-totale-metabole-intensiteit." class="level4" data-number="3.4.1.4">
-<h4 data-number="3.4.1.4" class="anchored" data-anchor-id="vul-dit-in-bij-de-machtsformule-waarbij-de-gemeten-variabele-het-totale-metabolisme-is.-maak-gebruik-van-de-rekenregels-van-de-logaritme-om-een-uitdrukking-te-krijgen-voor-de-totale-metabole-intensiteit."><span class="header-section-number">3.4.1.4</span> Vul dit in bij de machtsformule, waarbij de gemeten variabele het totale metabolisme is. Maak gebruik van de rekenregels van de logaritme om een uitdrukking te krijgen voor de totale metabole intensiteit.</h4>
+<section id="vul-dit-in-bij-de-machtsformule-waarbij-de-gemeten-variabele-het-totale-metabolisme-is.-maak-gebruik-van-de-rekenregels-van-de-logaritme-om-een-uitdrukking-te-krijgen-voor-de-totale-metabole-intensiteit." class="level4" data-number="2.4.1.4">
+<h4 data-number="2.4.1.4" class="anchored" data-anchor-id="vul-dit-in-bij-de-machtsformule-waarbij-de-gemeten-variabele-het-totale-metabolisme-is.-maak-gebruik-van-de-rekenregels-van-de-logaritme-om-een-uitdrukking-te-krijgen-voor-de-totale-metabole-intensiteit."><span class="header-section-number">2.4.1.4</span> Vul dit in bij de machtsformule, waarbij de gemeten variabele het totale metabolisme is. Maak gebruik van de rekenregels van de logaritme om een uitdrukking te krijgen voor de totale metabole intensiteit.</h4>
 <p>[vul hier in]</p>
 <p>Om terug te gaan naar het totale metabolisme in een dier, vermenigvuldigen we de massa en het massa-specifieke metabolisme.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>massa_metabolisme <span class="ot">&lt;-</span> massa<span class="sc">*</span>metabolisme</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="probeer-nu-een-relatie-te-vinden-tussen-de-massa-en-het-totale-metabolisme." class="level4" data-number="3.4.1.5">
-<h4 data-number="3.4.1.5" class="anchored" data-anchor-id="probeer-nu-een-relatie-te-vinden-tussen-de-massa-en-het-totale-metabolisme."><span class="header-section-number">3.4.1.5</span> Probeer nu een relatie te vinden tussen de massa en het totale metabolisme.</h4>
+<section id="probeer-nu-een-relatie-te-vinden-tussen-de-massa-en-het-totale-metabolisme." class="level4" data-number="2.4.1.5">
+<h4 data-number="2.4.1.5" class="anchored" data-anchor-id="probeer-nu-een-relatie-te-vinden-tussen-de-massa-en-het-totale-metabolisme."><span class="header-section-number">2.4.1.5</span> Probeer nu een relatie te vinden tussen de massa en het totale metabolisme.</h4>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dit zou je zelf doen </span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log10</span>(massa), </span>
@@ -444,17 +473,17 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="wat-kun-je-opmerken-over-het-effect-van-een-grotere-massa-op-de-totale-metabole-snelheid-en-op-de-massa-specifieke-metabole-snelheid" class="level4" data-number="3.4.1.6">
-<h4 data-number="3.4.1.6" class="anchored" data-anchor-id="wat-kun-je-opmerken-over-het-effect-van-een-grotere-massa-op-de-totale-metabole-snelheid-en-op-de-massa-specifieke-metabole-snelheid"><span class="header-section-number">3.4.1.6</span> Wat kun je opmerken over het effect van een grotere massa op de totale metabole snelheid? En op de massa-specifieke metabole snelheid?</h4>
+<section id="wat-kun-je-opmerken-over-het-effect-van-een-grotere-massa-op-de-totale-metabole-snelheid-en-op-de-massa-specifieke-metabole-snelheid" class="level4" data-number="2.4.1.6">
+<h4 data-number="2.4.1.6" class="anchored" data-anchor-id="wat-kun-je-opmerken-over-het-effect-van-een-grotere-massa-op-de-totale-metabole-snelheid-en-op-de-massa-specifieke-metabole-snelheid"><span class="header-section-number">2.4.1.6</span> Wat kun je opmerken over het effect van een grotere massa op de totale metabole snelheid? En op de massa-specifieke metabole snelheid?</h4>
 <p>[vul hier in]</p>
 </section>
-<section id="gebruik-de-rekenregels-van-de-logaritme-en-je-eerdere-antwoorden-om-een-waarde-voor-de-exponent-b-te-vinden.-hint-gebruik-de-functie-om-een-relevante-waarde-te-vinden.-met-vind-je-hoe-je-deze-kunt-gebruiken." class="level4" data-number="3.4.1.7">
-<h4 data-number="3.4.1.7" class="anchored" data-anchor-id="gebruik-de-rekenregels-van-de-logaritme-en-je-eerdere-antwoorden-om-een-waarde-voor-de-exponent-b-te-vinden.-hint-gebruik-de-functie-om-een-relevante-waarde-te-vinden.-met-vind-je-hoe-je-deze-kunt-gebruiken."><span class="header-section-number">3.4.1.7</span> Gebruik de rekenregels van de logaritme en je eerdere antwoorden om een waarde voor de exponent <span class="math inline">\(b\)</span> te vinden. Hint: gebruik de functie om een relevante waarde te vinden. Met vind je hoe je deze kunt gebruiken.</h4>
+<section id="gebruik-de-rekenregels-van-de-logaritme-en-je-eerdere-antwoorden-om-een-waarde-voor-de-exponent-b-te-vinden.-hint-gebruik-de-functie-om-een-relevante-waarde-te-vinden.-met-vind-je-hoe-je-deze-kunt-gebruiken." class="level4" data-number="2.4.1.7">
+<h4 data-number="2.4.1.7" class="anchored" data-anchor-id="gebruik-de-rekenregels-van-de-logaritme-en-je-eerdere-antwoorden-om-een-waarde-voor-de-exponent-b-te-vinden.-hint-gebruik-de-functie-om-een-relevante-waarde-te-vinden.-met-vind-je-hoe-je-deze-kunt-gebruiken."><span class="header-section-number">2.4.1.7</span> Gebruik de rekenregels van de logaritme en je eerdere antwoorden om een waarde voor de exponent <span class="math inline">\(b\)</span> te vinden. Hint: gebruik de functie om een relevante waarde te vinden. Met vind je hoe je deze kunt gebruiken.</h4>
 <p>[vul hier in]</p>
 </section>
 </section>
-<section id="optioneel-fractale-structuren" class="level3" data-number="3.4.2">
-<h3 data-number="3.4.2" class="anchored" data-anchor-id="optioneel-fractale-structuren"><span class="header-section-number">3.4.2</span> Optioneel: Fractale structuren</h3>
+<section id="optioneel-fractale-structuren" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="optioneel-fractale-structuren"><span class="header-section-number">2.4.2</span> Optioneel: Fractale structuren</h3>
 <p>Geïnteresseerden worden uitgenodigd om <a href="evo-devo/schaling.html">hier</a> meer te lezen over fractale structuren.</p>
 
 
@@ -866,12 +895,12 @@ window.Quarto = {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./index.html" class="pagination-link" aria-label="Het portfolio">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Het portfolio</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Het portfolio</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Port2_Theory.html" class="pagination-link" aria-label="Stochastische variabelen, kansverdelingen en entropie">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Stochastische variabelen, kansverdelingen en entropie</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

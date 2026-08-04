@@ -1,6 +1,6 @@
-# Maiszaden practicum.
+# Maiszaden practicum
 
-## Introductie.
+## Introductie
 
 Dit is de eerste portfolio-opdracht, gekoppeld aan een specifieke cursus. We beginnen bij de statistiek: de berekeningen voeren jullie uit in R, zowel "met de hand" gecodeerd als met de ingebouwde R-functies. Zo doorgronden jullie niet alleen wat er onder de motorkap gebeurt, maar leren jullie ook hoe je dezelfde analyse efficiënt uitvoert met de functies die R al biedt.
 
@@ -19,17 +19,17 @@ Volgens de Mendeliaanse genetica verwachten we, als beide ouders heterozygoot zi
 **Tabel 3.1: Kruising van twee heterozygote ouders.**
 
 |     |                $R$                |                 $r$                  |
-|:----------------:|:------------------------:|:-------------------------:|
+|:------------:|:--------------------------:|:----------------------------:|
 | $R$ | $RR$ ([rood]{style="color:red;"}) |  $Rr$ ([rood]{style="color:red;"})   |
-| $r$ | $rR$ ([rood]{style="color:red;"}) | $rr$ ([geel]{style="color:yellow;"}) |
+| $r$ | $rR$ ([rood]{style="color:red;"}) | $rr$ ([geel]{style="color:#e6cd10;"}) |
 
-Als beide ouders daadwerkelijk $Rr$ zijn, dan verwachten we in de nakomelingen een verhouding van rood : geel = 3:1; dus drie rode voor elke gele dus een **proportie van (3/4, 1/4)**; de vier mogelijk genetische combinaties worden 2 fenotypen (rood en geel). 
+Als beide ouders daadwerkelijk $Rr$ zijn, dan verwachten we in de nakomelingen een verhouding van rood : geel = 3:1; dus drie rode voor elke gele dus een **proportie van (3/4, 1/4)**; de vier mogelijk genetische combinaties worden 2 fenotypen (rood en geel).
 
 ::: aside
 **Opmerking**: De verhouding is een veelvouden van 1/4; er vier mogelijke combinaties zijn van R en r($2^2$).
 :::
 
-Een statistische toets vertrekt vanuit de aanname dat er geen verschil is tussen de theoretische en waargenomen verdeling (de Null-hypothese) en onderzoekt vervolgens of `aannemelijk` is om deze aanname te **verwerpen**. Voor de $\chi^2$-kwadraattoets (spreek uit als chi-kwadraat) betekent dit dat we de waargenomen verdeling vergelijken met de verdeling die we zouden verwachten bij een 3:1-verhouding.
+Een statistische toets vertrekt vanuit de aanname dat er geen verschil is tussen de theoretische en waargenomen verdeling (de Null-hypothese) en onderzoekt vervolgens of het `aannemelijk` is om deze aanname te **verwerpen**. Voor de $\chi^2$-kwadraattoets (spreek uit als chi-kwadraat) betekent dit dat we de waargenomen verdeling vergelijken met de verdeling die we zouden verwachten bij een 3:1-verhouding.
 
 ::: aside
 (Nullify, to Null, betekend verwerpen)
@@ -37,7 +37,7 @@ Een statistische toets vertrekt vanuit de aanname dat er geen verschil is tussen
 
 Je kunt deze verwachte frequenties eenvoudig berekenen door het totale aantal getelde zaden te vermenigvuldigen met de verwachte proportie van (3/4, 1/4); dus voor honderd zaden verwachten we 75 rood en 25 geel.
 
-## Het statistische toets concept: Toeval of Systematische Afwijking?
+## Het concept van de statistische toets: Toeval of Systematische Afwijking?
 
 Laten we als voorbeeld de *sex ratio* (geslachtsverhouding) van een soort onderzoeken. Stel, we verwachten een ratio van 1:1 (**proportie (1/2,1/2)**), evenveel mannetjes als vrouwtjes.
 
@@ -49,12 +49,12 @@ Dit roept vanuit de statistiek een belangrijke vraag op:
 
 **Wanneer is de afwijking van de 1:1 ratio zó groot, dat de hypothese van een 1:1 verhouding, niet meer houdbaar is en deze verworpen moet worden?**
 
--   **A. Komt de afwijking puur door toeval bij het nemen van de steekproef?**
-    1.  De hypothese van de 1:1 verhouding is `aannemelijk`.
-    2.  We verwerpen de nulhypothese niet we hebben geen effect aangetoond.
--   **B. Of is de afwijking systematisch, en kan het verschil niet meer verklaard worden door toeval alleen?**
-    1.  De hypothese van de 1:1 verhouding is `onaannemelijk`.
-    2.  We verwerpen de nulhypothese we hebben een effect aangetoond.
+- **A. Komt de afwijking puur door toeval bij het nemen van de steekproef?**
+  1.  De hypothese van de 1:1 verhouding is `aannemelijk`.
+  2.  We verwerpen de nulhypothese niet we hebben geen effect aangetoond.
+- **B. Of is de afwijking systematisch, en kan het verschil niet meer verklaard worden door toeval alleen?**
+  1.  De hypothese van de 1:1 verhouding is `onaannemelijk`.
+  2.  We verwerpen de nulhypothese we hebben een effect aangetoond.
 
 Dit is precies de vraag waarmee de statistiek zich bezighoudt. Het is daarbij belangrijk om te beseffen dat we niet bewijzen dat de verdeling gelijk of ongelijk is. In plaats daarvan onderzoeken we of de metingen de nulhypothese ondersteunen of juist minder aannemelijk maken.
 
@@ -68,8 +68,8 @@ $$\chi^2 = \sum_{i=1}^{N} \frac{(O_i - E_i)^2}{E_i}$$
 
 Hierbij staan de letters voor:
 
--   $O =$ Waargenomen waarde (*Observed*)
--   $E =$ Verwachte waarde (*Expected*)
+- $O =$ Waargenomen waarde (*Observed*)
+- $E =$ Verwachte waarde (*Expected*)
 
 Voor ons sex ratio voorbeeld ziet de vergelijking er als volgt uit:
 
@@ -87,7 +87,7 @@ $$X^2 = \frac{(O_m - E_m)^2}{E_m} + \frac{(O_v - E_v)^2}{E_v}$$
 
 > jouw antwoord:
 
-Deze laatste vraag is een mooi voorbeeld van hoe een eenvoudig wiskunde stap je automatisch het correcte inzicht geeft. 
+Deze laatste vraag is een mooi voorbeeld van hoe een eenvoudig wiskunde stap je automatisch het correcte inzicht geeft.
 
 ## Voorbeeld in R: Sex ratio berekenen
 
@@ -121,31 +121,30 @@ R beschikt over een ingebouwde functie om de $\chi^2$-kwadraattoets direct uit t
 chisq.test(c(45, 35), p = c(1/2, 1/2))
 ```
 
-## De p-waarde.
+## De p-waarde
 
-Als je bovenstaande code uitvoert, vind je naast de $\chi^2$-squared waarde (1.25) en ook een  p-value (0.2636). 
+Als je bovenstaande code uitvoert, vind je naast de $\chi^2$-squared waarde (1.25) en ook een p-value (0.2636).
 
 De p-waarde moeten we als volgt lezen:
 
 ::: {.callout-important title="Belangrijk"}
-De p-waarde is de kans om data te vinden die minstens zo sterk afwijkt van wat je verwachtte als de afwijking die je hebt gevonden, onder de aanname dat de nulhypothese klopt. $p = P(afwijking \ge  waargenomen afwijking \mid H_0)$.
+De p-waarde is de kans om data te vinden die minstens zo sterk afwijkt van wat je verwachtte als de afwijking die je hebt gevonden, onder de aanname dat de nulhypothese klopt. $p = P(\text{afwijking} \ge  \text{waargenomen afwijking} \mid H_0)$.
 :::
 
-Anders geïnterpreteerd geeft de p-waarde aan hoe verrast je bent dat je deze data hebt gevonden.  
+Anders geïnterpreteerd geeft de p-waarde aan hoe verrast je bent dat je deze data hebt gevonden.
 
 De Nulhypothese ($H_0$) stelt in dit geval dat er géén verschil is aangetoond tussen de waargenomen verdeling en de theoretisch verwachte verdeling van (1/2, 1/2).
 
 De algemene statistische stelregel is:
 
--   Als $p < 0,05$, verwerpen we de nulhypothese: de waargenomen afwijking is dan te groot om door toeval alleen te worden verklaard; *de kans dat we deze data waarnemen als de nulhypothese correct is is klein*.
--   Als $p \ge 0,05$, is er onvoldoende grond om de nulhypothese te verwerpen; *toeval blijft dan een aannemelijke verklaring voor de waargenomen afwijking*. 
+- Als $p < 0.05$, verwerpen we de nulhypothese: de waargenomen afwijking is dan te groot om door toeval alleen te worden verklaard; *de kans dat we deze data waarnemen als de nulhypothese correct is is klein*.
+- Als $p \ge 0.05$, is er onvoldoende grond om de nulhypothese te verwerpen; *toeval blijft dan een aannemelijke verklaring voor de waargenomen afwijking*.
 
-In ons voorbeeld is de p-waarde 0.263, dit is groter dan 0,05; is er onvoldoende grond om $H_0$ te verwerpen: *we kunnen de 1:1 verhouding niet uitsluiten*. Het waargenomen verschil (gekwantificeerd in $\chi^2$) is hoogstwaarschijnlijk het gevolg van toeval en dus niet systematisch.
+In ons voorbeeld is de p-waarde 0.263, dit is groter dan 0.05; is er onvoldoende grond om $H_0$ te verwerpen: *we kunnen de 1:1 verhouding niet uitsluiten*. Het waargenomen verschil (gekwantificeerd in $\chi^2$) is hoogstwaarschijnlijk het gevolg van toeval en dus niet systematisch.
 
-**Vraag 5**: Wat gebeurt er met de $\chi ^{2}$-waarde en de p-waarde als onze steekproefomvang groter wordt (bijvoorbeeld van 350 naar 450)? Leid dit eerst theoretisch af, voer daarna de berekening uit in R en interpreteer ten slotte het resultaat. 
+**Vraag 5**: Wat gebeurt er met de $\chi ^{2}$-waarde en de p-waarde als onze steekproefomvang groter wordt (bijvoorbeeld van 350 naar 450)? Leid dit eerst theoretisch af, voer daarna de berekening uit in R en interpreteer ten slotte het resultaat.
 
 > jouw antwoord.
-
 
 ```{r}
 
@@ -155,7 +154,7 @@ We zien hiermee dat we in de wetenschap altijd uitspraken doen onder `onzekerhei
 
 Dit maakt wetenschappelijke uitspraken voor een niet-wetenschappelijk publiek soms moeilijk te plaatsen. Wanneer wetenschappers het met elkaar oneens zijn, weerspiegelt dat vaak de onzekerheid die nog in de gegevens of theorie aanwezig is. Naarmate er meer wetenschappelijke consensus ontstaat, neemt deze onzekerheid af. Helemaal verdwijnen doet zij echter nooit.
 
-## $\chi^2$ test op de mais zaden data
+## $\chi^2$ test op de maïszaden data
 
 Bereken, gebruik makend van de informatie in deze portfolio en je eigen mais data, de p-waarden van je $\chi^2$ -test en trek je conclusie aangedaan je hypothese van de verwachte 3:1 verhouding.
 
@@ -167,13 +166,13 @@ Bereken, gebruik makend van de informatie in deze portfolio en je eigen mais dat
 ::: column-margin
 **Opmerking:** Hoe de code in te voeren:
 
--   Doe niet copy/past maar type de code met de hand.
--   Let op hoofdletter of kleinen letters zijn verschillende voor r.
-    -   `Chisq.test()` zal niet werken `chisq.test()` weer wel
+- Doe niet copy/paste maar type de code met de hand.
+- Let op hoofdletter of kleinen letters zijn verschillende voor R.
+  - `Chisq.test()` zal niet werken `chisq.test()` weer wel
 :::
 
 Let op: Neem deze bevindingen en berekeningen netjes op in je labjournaal!
 
 Als laatste actie kunnen jullie de gevonden $\chi^2$ waarden en p-waarden invoeren in dit formulier. Het resultaat daarvan zullen we gebruiken in het volgende theoretische deel.
 
-In het theoretische deel van het portfolio gaan we dieper in op het concept van een kansverdeling met name die van $\chi^2$, en in het bijzonder de daarmee verbonden onzekerheid van je uiteindelijke uitspraak. Vervolgens leggen we een verband tussen het concept onzekerheid , biodiversiteit, en Evo-Devo.
+In het theoretische deel van het portfolio gaan we dieper in op het concept van een kansverdeling met name die van $\chi^2$, en in het bijzonder de daarmee verbonden onzekerheid van je uiteindelijke uitspraak. Vervolgens leggen we een verband tussen het concept onzekerheid, biodiversiteit, en Evo-Devo.

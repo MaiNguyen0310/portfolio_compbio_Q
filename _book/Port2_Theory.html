@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="">
+
+<title>1&nbsp; Stochastische variabelen, kansverdelingen en entropie – Portfolio Computationele Biologie</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Port_logpH_Theory.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-12eeb4b20e9f5a2b0bfc604bfaf942bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating slimcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Port2_Theory.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Stochastische variabelen, kansverdelingen en entropie</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Portfolio Computationele Biologie</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Het portfolio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Port2_Theory.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Stochastische variabelen, kansverdelingen en entropie</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Port_logpH_Theory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Logaritmes en exponenten</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Differentiaalvergelijkingen_theorie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Differentiaalvergelijkingen</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Port2_Pract.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Maiszaden practicum</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Port_logpH_Pract.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">pH-berekeningen: logaritmen en exponenten</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Sepia_Mantel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Sepia Mantel en de t-test.</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#onzekerheid." id="toc-onzekerheid." class="nav-link active" data-scroll-target="#onzekerheid."><span class="header-section-number">1.1</span> Onzekerheid.</a></li>
+  <li><a href="#de-toetsgrootheid-is-zelf-een-stochastische-variabele" id="toc-de-toetsgrootheid-is-zelf-een-stochastische-variabele" class="nav-link" data-scroll-target="#de-toetsgrootheid-is-zelf-een-stochastische-variabele"><span class="header-section-number">1.2</span> De toetsgrootheid is zelf een stochastische variabele</a></li>
+  <li><a href="#maat-voor-onzekerheid-entropie." id="toc-maat-voor-onzekerheid-entropie." class="nav-link" data-scroll-target="#maat-voor-onzekerheid-entropie."><span class="header-section-number">1.3</span> Maat voor onzekerheid: Entropie.</a>
+  <ul class="collapse">
+  <li><a href="#interpretatie" id="toc-interpretatie" class="nav-link" data-scroll-target="#interpretatie"><span class="header-section-number">1.3.1</span> Interpretatie</a></li>
+  <li><a href="#contextafhankelijkheid" id="toc-contextafhankelijkheid" class="nav-link" data-scroll-target="#contextafhankelijkheid"><span class="header-section-number">1.3.2</span> Contextafhankelijkheid</a></li>
+  </ul></li>
+  <li><a href="#opdrachten" id="toc-opdrachten" class="nav-link" data-scroll-target="#opdrachten"><span class="header-section-number">1.4</span> Opdrachten</a>
+  <ul class="collapse">
+  <li><a href="#positie-specifieke-entropie" id="toc-positie-specifieke-entropie" class="nav-link" data-scroll-target="#positie-specifieke-entropie"><span class="header-section-number">1.4.1</span> Positie-specifieke entropie</a></li>
+  <li><a href="#entropie-is-optelbaar" id="toc-entropie-is-optelbaar" class="nav-link" data-scroll-target="#entropie-is-optelbaar"><span class="header-section-number">1.4.2</span> Entropie is optelbaar</a></li>
+  </ul></li>
+  <li><a href="#surprisal-informatie-als--logp" id="toc-surprisal-informatie-als--logp" class="nav-link" data-scroll-target="#surprisal-informatie-als--logp"><span class="header-section-number">1.5</span> Surprisal: informatie als <span class="math inline">\(-\log(p)\)</span></a>
+  <ul class="collapse">
+  <li><a href="#de-complexiteit-van-de-natuur-valt-uiteen-in-twee-vragen" id="toc-de-complexiteit-van-de-natuur-valt-uiteen-in-twee-vragen" class="nav-link" data-scroll-target="#de-complexiteit-van-de-natuur-valt-uiteen-in-twee-vragen"><span class="header-section-number">1.5.1</span> De Complexiteit van de natuur valt uiteen in twee vragen</a></li>
+  </ul></li>
+  <li><a href="#slotopdracht-jouw-eigen-synthese" id="toc-slotopdracht-jouw-eigen-synthese" class="nav-link" data-scroll-target="#slotopdracht-jouw-eigen-synthese"><span class="header-section-number">1.6</span> Slotopdracht: jouw eigen synthese</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Stochastische variabelen, kansverdelingen en entropie</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="onzekerheid." class="level2 page-columns page-full" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="onzekerheid."><span class="header-section-number">1.1</span> Onzekerheid.</h2>
+<p>In het praktische gedeelte bij deze opdracht wordt de stelling geponeerd dat in de empirische wetenschap we geen zekerheid ten aanzien van een hypothese kunnen krijgen. Dit is niet volledig correct. Denk aan het bekende voorbeeld van de zwarte zwaan. Stel dat we uitsluitend witte zwanen waarnemen. Daaruit kunnen we <strong>niet</strong> afleiden dat álle zwanen wit zijn; er kan immers een anders gekleurde zwaan bestaan die we simpelweg nog niet hebben gezien. De hypothese blijft dus onzeker, hoeveel witte zwanen we ook tellen. Maar één enkele niet-witte zwaan volstaat om haar te weerleggen, en de onzekerheid ten aanzien van de hypothese verdwijnt. Dit is het geval voor logische hypotheses.</p>
+<p>Het maïsexperiment is fundamenteel anders, omdat de hypothese zelf een kansuitspraak is; een 3:1-kansverdeling verbiedt geen enkele uitkomst, maar maakt sommige aannemelijker dan andere. Zelfs als de hypothese klopt, is de waargenomen verhouding door toeval bijna nooit exact 3:1, zoals we zagen. Eén afwijking weerlegt hier dus niets; de vraag is of de afwijking groter is dan we redelijkerwijs aan toeval kunnen toeschrijven. De logica verschuift van zekerheid naar kans en waarschijnlijkheid, en de onzekerheid blijft altijd bestaan.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>In het dagelijks leven gebruiken we kans en waarschijnlijkheid vaak door elkaar. In de wiskunde (kansrekening) bestaat er echter een subtiel verschil, dat we later dit jaar bespreken.</p>
+</div></div></section>
+<section id="de-toetsgrootheid-is-zelf-een-stochastische-variabele" class="level2 page-columns page-full" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="de-toetsgrootheid-is-zelf-een-stochastische-variabele"><span class="header-section-number">1.2</span> De toetsgrootheid is zelf een stochastische variabele</h2>
+<p>Jullie hebben de resultaten van jullie metingen ingevoerd in het online formulier. Hieronder zie je de verdeling van de berekende <span class="math inline">\(\chi^2\)</span>-waarden op basis van jullie individuele metingen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code die een histogram geeft van de chi^2 waarden</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Vraag 1:</strong> Leg uit waarom niet alle <span class="math inline">\(\chi^2\)</span>-waarden dezelfde waarde hebben.</p>
+<p><strong>Jouw antwoord:</strong></p>
+<p>Wat deze verdeling laat zien, is een voorbeeld van een stochastische variabele: een grootheid waarvan de waarde door toeval wordt bepaald. Ze heeft drie kenmerkende eigenschappen:</p>
+<ul>
+<li>ze wordt gekarakteriseerd door een kansverdeling;</li>
+<li>haar concrete waarde, of realisatie, is pas bekend na uitvoering van een experiment of meting;</li>
+<li>ze drukt inherente onzekerheid uit.</li>
+</ul>
+<p>De <span class="math inline">\(\chi^2\)</span>-waarde voldoet aan alle drie: ze ligt pas vast na het tellen en berekenen (2), verschilt van student tot student door toeval in de steekproef (3), en volgt daarmee een kansverdeling (1). Er is dus onzekerheid over welke <span class="math inline">\(\chi^2\)</span>-waarde een meting oplevert.</p>
+<p>Dit is bovendien geen toeval, maar een noodzakelijk gevolg: <span class="math inline">\(\chi^2\)</span>is een functie van stochastische variabelen, zoals het aantal zaden, en is daardoor zelf ook een stochastische variabele, die dus per definitie een eigen kansverdeling bezit. Wiskundigen hebben die <span class="math inline">\(\chi^2\)</span>-verdeling onder bepaalde aannamen kunnen afleiden:</p>
+<p><span class="math display">\[f(x; k) = \frac{1}{2^{k/2}\,\Gamma(k/2)}\, x^{k/2 - 1} e^{-x/2}, \quad x &gt; 0\]</span></p>
+<p>Dit is een ingewikkelde functie die jullie niet uit je hoofd hoeven te kennen. Het belangrijke deel is de zinsnede <code>onder bepaalde aannamen</code>. We zullen later zien dat we bij statistische toetsen en wiskundige modellen die aannamen expliciet moeten benoemen en controleren.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>De wetenschap kan niet zonder aannamen: alleen onder bepaalde condities kunnen we een theorie of model formuleren. Van die aannamen moet je je altijd bewust zijn.</p>
+</div></div><p>Deze onzekerheid wordt nog beter voelbaar bij de p-waarde, die op haar beurt een functie van de stochatische variabele <span class="math inline">\(\chi^2\)</span> is. Hieronder zie je de verdeling van de p-waarden over de groepen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code die een histrogram geeft van de p waarden</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Nemen we een kritieke waarde van 0.05 om de nulhypothese te verwerpen, dan blijkt iets opmerkelijks: ook de conclusie, verwerpen of niet, wordt bepaald door een stochastische variabele. Of een student de nulhypothese verwerpt, hangt af van een p-waarde die zelf door toeval varieert. Daarmee erft ook de uitspraak over de hypothese die onzekerheid. Een tweede opmerkelijk gevolg is dat zelfs wanneer de 3:1-hypothese correct is, sommige groepen haar toch zal verwerpen, puur door toeval in de steekproef; bv als ze teveel rode of gele hebben gemeten. Dit noemen we later een type-I-fout; voor nu is het genoeg om te zien dat de onzekerheid zich overerft tot in de conclusie zelf.</p>
+</section>
+<section id="maat-voor-onzekerheid-entropie." class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="maat-voor-onzekerheid-entropie."><span class="header-section-number">1.3</span> Maat voor onzekerheid: Entropie.</h2>
+<p>Er bestaan verschillen maten in de statistiek welke de hoeveelheid onzekerheid kunnen duiden. Later in het jaar komen we bijvoorbeeld de standaard fout (SE) tegen. Nu wil ik kijken naar een zeer belangrijke wetenschappelijke maat, namelijk <code>entropie.</code> Entropie kan worden opgevat als een maat voor onzekerheid, willekeurigheid of wanorde en zoals we zullen zien ook biodiversiteit en positie-specifieke entropie in moleculaire biologie, is alleen gebaseerd op de kansverdeling.</p>
+<p>De entropie van een discrete kansverdeling zoals voor biodiversiteit en positie-specifieke entropie wordt gedefinieerd als:</p>
+<p><span class="math display">\[H(p) = -\sum_i p_i \log(p_i)\]</span></p>
+<p>waarbij <span class="math inline">\(p_i\)</span> de kans is op uitkomst <span class="math inline">\(i\)</span>.</p>
+<section id="interpretatie" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="interpretatie"><span class="header-section-number">1.3.1</span> Interpretatie</h3>
+<p>Een hoge entropie wijst op grote onzekerheid. Dit treedt op wanneer de kansen relatief gelijk verdeeld zijn over de mogelijke uitkomsten zoals de eerlijk dobbelsteen.</p>
+<p>Een lage entropie wijst op minder onzekerheid. Dit treedt op wanneer kansen geconcentreerd zijn rond één of enkele uitkomsten. Bijvoorbeeld een oneerlijke dobbelsteen met een grotere kans op een 6.</p>
+<p><strong>Vraag 2:</strong> Leg uit dat we voor concepten als maten van verrast zijn of onverwacht, entropie als maat zou kunnen fungeren.</p>
+<p><strong>Jouw antwoord:</strong></p>
+</section>
+<section id="contextafhankelijkheid" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="contextafhankelijkheid"><span class="header-section-number">1.3.2</span> Contextafhankelijkheid</h3>
+<p>De betekenis van entropie hangt af van het toepassingsgebied:</p>
+<ol type="1">
+<li>in de <strong>informatietheorie</strong> is entropie een maat voor informatie-inhoud;</li>
+<li>in de <strong>natuurkunde</strong>, met name de thermodynamica, is entropie een maat voor wanorde en bepaald daarme via de weten van de tgheormdynamica de richting van een process;</li>
+<li>in de <strong>sociale wetenschappen</strong> en economie kan entropie worden gebruikt als maat voor economische of sociale ongelijkheid.</li>
+</ol>
+<p><strong>Vraag 3:</strong> Leg uit waarom zou entropie een maat zijn voor kunnen zijn voor ongelijkheid in punt 3. Wordt de waarden van de entropie groter of kleiner bij ongelijkheid?</p>
+<p><strong>Jouw antwoord:</strong></p>
+<p><strong>Vraag 4</strong>: Leg uit waarom zou entropie dan een maat zijn voor biodiversiteit? Heeft een hogere biodiversiteit een kleinere of grotere entropie?</p>
+<p><strong>Jouw antwoord:</strong></p>
+</section>
+</section>
+<section id="opdrachten" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="opdrachten"><span class="header-section-number">1.4</span> Opdrachten</h2>
+<section id="positie-specifieke-entropie" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="positie-specifieke-entropie"><span class="header-section-number">1.4.1</span> Positie-specifieke entropie</h3>
+<p>We hebben entropie leren kennen als een maat voor onzekerheid of verrassing: hoe moeilijker de uitkomst vooraf te voorspellen is, hoe hoger de entropie. Diezelfde gedachte kunnen we toepassen op DNA.</p>
+<p>Wanneer we hetzelfde gen van verschillende soorten onder elkaar leggen, ontstaat een <em>alignment</em>: overeenkomstige posities staan in dezelfde kolom. Hieronder staat een klein voorbeeld voor zes soorten en zeven posities.</p>
+<pre><code>positie:   1  2  3  4  5  6  7
+soort 1:   A  T  G  C  A  A  T
+soort 2:   A  T  G  T  A  G  T
+soort 3:   A  T  G  A  A  C  T
+soort 4:   A  T  G  G  A  A  T
+soort 5:   A  T  G  C  A  T  T
+soort 6:   A  T  G  A  A  G  T</code></pre>
+<p>Bekijk de kolommen (posities) van boven naar beneden, niet de rijen. Elke kolom vertelt hoe gevarieerd die positie is over de zes soorten.</p>
+<p><strong>Vraag 5:</strong> Op welke posities staat bij alle soorten dezelfde bouwsteen? En op welke positie verschillen de soorten het sterkst? Beschrijf in woorden.</p>
+<blockquote class="blockquote">
+<p>jouw antwoord:</p>
+</blockquote>
+<p><strong>Vraag 6:</strong> Stel je sluit je ogen en iemand wijst een willekeurige soort aan. Bij welke positie kun je met zekerheid voorspellen welke bouwsteen daar staat, nog vóór je kijkt? Bij welke positie is dat vrijwel onmogelijk? Koppel je antwoord aan het begrip <em>verrassing</em>.</p>
+<blockquote class="blockquote">
+<p>jouw antwoord:</p>
+</blockquote>
+<p><strong>Vraag 7:</strong> Leg uit welke positie de hoogste entropie heeft en welke de laagste. Gebruik daarbij dat entropie alleen afhangt van hoe de bouwstenen over de soorten verdeeld zijn — niet van wélke bouwsteen het is.</p>
+<blockquote class="blockquote">
+<p>jouw antwoord:</p>
+</blockquote>
+<p><strong>Vraag 8:</strong> Een positie die bij alle soorten identiek is, is door de evolutie heen nauwelijks veranderd. Bedenk een biologische reden waarom juist die posities niet mogen veranderen, terwijl andere posities vrij kunnen variëren.</p>
+<blockquote class="blockquote">
+<p>jouw antwoord:</p>
+</blockquote>
+<p><strong>Vraag 9 (evo-devo):</strong> De genen die de vroege ontwikkeling van een lichaam sturen, behoren tot de meest geconserveerde in het hele dierenrijk: dieren die honderden miljoenen jaren geleden een gemeenschappelijke voorouder deelden, hebben op die posities nog steeds dezelfde bouwstenen. Wat zegt lage entropie op die posities over het belang van die genen voor de ontwikkeling? En waarom is lage entropie hier een spoor van diepe verwantschap tussen soorten?</p>
+<blockquote class="blockquote">
+<p>jouw antwoord:</p>
+</blockquote>
+</section>
+<section id="entropie-is-optelbaar" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="entropie-is-optelbaar"><span class="header-section-number">1.4.2</span> Entropie is optelbaar</h3>
+<p>Er is iets vreemds aan de levende wereld. Aan de ene kant wordt ze steeds complexer, histories een groei in biodiversiteit, een rijkdom aan vorm en functie. Aan de andere kant herkennen we juist heldere structuur: soorten, genera en families laten zich netjes onderscheiden. Meer variatie en meer ordening tegelijk; dat lijkt een tegenspraak.</p>
+<p>Om die schijnbare tegenspraak te ontleden, gebruiken we een belangrijke eigenschap van de logaritme:</p>
+<p><span class="math display">\[\log(A \times B) = \log(A) + \log(B)\]</span></p>
+<p>De logaritme maakt van een vermenigvuldiging een optelling. Dat is precies wat we nodig hebben, want kansen worden vermenigvuldigd, terwijl entropie een <em>som</em> is. De logaritme is de brug tussen die twee: hij vertaalt het vermenigvuldigen van kansen naar het optellen van termen, en maakt zo het somteken (<span class="math inline">\(\sum\)</span>) in de entropie mogelijk.</p>
+</section>
+</section>
+<section id="surprisal-informatie-als--logp" class="level2 page-columns page-full" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="surprisal-informatie-als--logp"><span class="header-section-number">1.5</span> Surprisal: informatie als <span class="math inline">\(-\log(p)\)</span></h2>
+<p>De grootheid <span class="math inline">\(-\log(p)\)</span> heeft een eigen naam: <em>informatie</em>, ook wel <em>surprisal</em> (verrassing). Een onwaarschijnlijke uitkomst (kleine <span class="math inline">\(p\)</span>) levert veel informatie op; een vrijwel zekere uitkomst (grote <span class="math inline">\(p\)</span>) weinig. De entropie</p>
+<p><span class="math display">\[H(X) = -\sum_i p_i \log(p_i)\]</span></p>
+<p>is dan niets anders dan het gemiddelde van die informatie over alle uitkomsten, de <em>verwachtingswaarde</em> van de surprisal. Vandaar de naam <em>informatie-entropie</em>, of kortweg weer <em>informatie</em>.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Dat één begrip zowel “surprisal” als “informatie” als “entropie” heet, is een voorbeeld van hoe naamgeving in de wetenschap tot verwarring kan leiden. Toepasselijk genoeg gaat entropie hier nu juist over.</p>
+</div></div><section id="de-complexiteit-van-de-natuur-valt-uiteen-in-twee-vragen" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="de-complexiteit-van-de-natuur-valt-uiteen-in-twee-vragen"><span class="header-section-number">1.5.1</span> De Complexiteit van de natuur valt uiteen in twee vragen</h3>
+<p>Dankzij de logaritme kunnen we de entropie <em>ontleden</em>. Meet je de vorm van een willekeurig organisme in de biosfeer, dan valt de onzekerheid over die vorm uiteen in twee vragen: <em>welke soort is dit?</em> en <em>hoe ziet dit individu eruit, gegeven die soort?</em> In formulevorm:</p>
+<p><span class="math display">\[H(\text{fenotype}) = H(\text{soort}) + H(\text{fenotype} \mid \text{soort})\]</span></p>
+<p>Deze opsplitsing lost de schijnbare tegenspraak op.</p>
+<p><em>Binnen</em> een soort daalt de entropie. De ontwikkeling is gebufferd: veel verschillende genotypen leiden tot hetzelfde fenotype, zodat de vorm binnen een soort weinig varieert. De rechterterm, <span class="math inline">\(H(\text{fenotype} \mid \text{soort})\)</span>, wordt daardoor kleiner.</p>
+<p><em>Tussen</em> soorten stijgt de entropie. Er komen soorten bij, de biodiversiteit groeit, en de linkerterm <span class="math inline">\(H(\text{soort})\)</span> wordt groter.</p>
+<p>Er is dus geen paradox: het gaat om twee verschillende termen, die onafhankelijk van elkaar kunnen bewegen. Sterker nog, de twee versterken elkaar. Juist doordat de vorm binnen een soort strak gebufferd is, worden soorten scherpe, telbare eenheden — en pas over zulke eenheden kun je überhaupt sommeren om biodiversiteit te meten.</p>
+<p><strong>Canalisatie</strong> is het vermogen van de ontwikkeling om, ondanks variatie in genotype of omgeving, steeds hetzelfde fenotype voort te brengen.</p>
+<p><strong>Vraag 10:</strong> Welke van de twee termen wordt beïnvloed door canalisatie, en welke door het ontstaan van nieuwe soorten? Kan <span class="math inline">\(𝐻(fenotype)=𝐻(soort)+𝐻(fenotype∣soort)\)</span> gelijk blijven terwijl beide termen veranderen?</p>
+<p><strong>Jouw antwoord:</strong></p>
+</section>
+</section>
+<section id="slotopdracht-jouw-eigen-synthese" class="level2 page-columns page-full" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="slotopdracht-jouw-eigen-synthese"><span class="header-section-number">1.6</span> Slotopdracht: jouw eigen synthese</h2>
+<p>Deze laatste opdracht is anders dan de vorige. Er is geen goed of fout antwoord, mogelijk alleen slecht geformuleerd, en je hoeft niets te berekenen. We vragen je om terug te kijken op alles wat in deze portfolio-opdracht langskwam, zowel het practicum als het theoretische deel, en er in je eigen woorden een samenhangend verhaal van te maken.</p>
+<p>Belangrijk: dit is een <em>momentopname</em>. De hypothesen en verbanden die je nu formuleert, mag je gedurende het jaar vrij aanpassen, verwerpen of uitbreiden naarmate je nieuwe onderwerpen tegenkomt, bijvoorbeeld na nieuwe inzichten met allometrische schaling in de komende colleges. Je legt hier dus geen eindantwoord vast, maar je huidige denken. Durf daarom te speculeren.</p>
+<p><strong>Vraag 1 — Rode draad.</strong> Vat in je eigen woorden samen welke theoretische elementen vandaag zijn langsgekomen, en hoe ze met elkaar samenhangen. Denk aan de begrippen die telkens terugkeerden: de nulhypothese en het verwerpen daarvan, de <span class="math inline">\(\chi^2\)</span>-toets en de p-waarde, stochastische variabelen en hun verdeling, surprisal en entropie, en de opsplitsing van entropie in canalisatie en biodiversiteit. Probeer niet elk begrip los te beschrijven, maar te laten zien hoe ze in elkaar grijpen.</p>
+<blockquote class="blockquote">
+<p>jouw antwoord:</p>
+</blockquote>
+<p><strong>Vraag 2 — Dezelfde wiskunde, andere betekenis.</strong> Een terugkerend idee was dat één wiskundige vorm in verschillende contexten opduikt, en dat de interpretatie bepaalt wat die vorm betekent. Geef in eigen woorden een voorbeeld hiervan uit deze opdracht, en bedenk of je een context buiten deze opdracht kunt verzinnen waarin je dezelfde wiskunde zou verwachten.</p>
+<blockquote class="blockquote">
+<p>jouw antwoord:</p>
+</blockquote>
+<p><strong>Vraag 3 — Onzekerheid als rode draad.</strong> Het centrale thema van deze opdracht was onzekerheid. We zagen dat de uitkomst van een meting, de waarde van een toetsgrootheid, en zelfs de conclusie van een test allemaal met onzekerheid behept zijn. Verwoord in je eigen woorden waarom onzekerheid onlosmakelijk verbonden is met het overgrote deel van de biologische wetenschap. Ga daarbij een stap verder: is onzekerheid in de biologie enkel een beperking van onze metingen, of een wezenlijke eigenschap van het leven zelf, dat immers voortkomt uit toeval en variatie?</p>
+<blockquote class="blockquote">
+<p>jouw antwoord:</p>
+</blockquote>
+<p><strong>Vraag 4 — Jouw hypothese.</strong> Formuleer ten slotte één of meer eigen hypothesen over hoe de begrippen uit deze opdrachten, entropie, onzekerheid, canalisatie, informatie, zouden kunnen samenhangen met onderwerpen die je later dit jaar verwacht tegen te komen. Dit is bewust open en speculatief; niemand verwacht dat het al klopt. Het doel is dat je leert je eigen denken vast te leggen en er later op terug te komen.</p>
+<blockquote class="blockquote">
+<p>jouw antwoord:</p>
+</blockquote>
+
+
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Bewaar je antwoorden goed. Aan het eind van het jaar kijk je hierop terug en zie je hoe je denken zich heeft ontwikkeld.</p>
+</div></div></section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Het portfolio">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Het portfolio</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Port_logpH_Theory.html" class="pagination-link" aria-label="Logaritmes en exponenten">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Logaritmes en exponenten</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
