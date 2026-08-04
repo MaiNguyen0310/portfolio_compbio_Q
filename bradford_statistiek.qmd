@@ -1,0 +1,240 @@
+# Bradford-test: statistiek en lineaire modellen
+
+Vandaag gaan we de Bradford-test gebruiken om statistiek toe te passen en een ijklijn te maken. We maken in het laboratorium een reeks oplossingen met bekende eiwitconcentraties en meten daarvan de absorbantie met een spectrofotometer. Daarna gebruiken we de relatie tussen concentratie en absorbantie om de concentratie van een onbekende oplossing te schatten.
+
+In deze les kijken we ook naar aannames. Een aanname is een veronderstelling die nodig is om een analyse of model te mogen gebruiken. Die aanname moet wetenschappelijk onderbouwd zijn. Voor de Bradford-test nemen we bijvoorbeeld aan dat de relatie tussen eiwitconcentratie en absorbantie binnen het gebruikte meetbereik lineair is. Daarom is het belangrijk dat monsters soms eerst worden verdund, zodat de metingen binnen het lineaire bereik van de methode vallen.
+
+Voor het portfolio kun je de vragen in dit document beantwoorden. In de les werken we deze vragen stap voor stap uit.
+
+# Doel van de Bradford-test
+
+Bij de Bradford-test meten we de absorbantie van oplossingen met verschillende eiwitconcentraties. We verwachten dat de absorbantie toeneemt wanneer de eiwitconcentratie toeneemt. Er is dan sprake van een positieve relatie tussen eiwitconcentratie en absorbantie.
+
+De informatie over deze relatie gebruiken we om de eiwitconcentratie te bepalen van een oplossing waarvan de concentratie nog onbekend is. Daarvoor maken we eerst een ijklijn met bekende concentraties.
+
+# Correlatie en aannames
+
+Correlatie geeft aan hoe sterk twee variabelen samenhangen. In dit practicum onderzoeken we de correlatie tussen absorbantie en eiwitconcentratie.
+
+Een belangrijke aanname is dat de relatie tussen concentratie en absorbantie in het gebruikte bereik ongeveer lineair is. Dat betekent dat de meetpunten ongeveer op een rechte lijn liggen. Deze aanname moet inhoudelijk te verdedigen zijn. In de analytische chemie is absorbantie bij lage concentraties vaak goed voorspelbaar vanuit de concentratie, zolang de metingen binnen het lineaire meetbereik blijven.
+
+Een grote absolute correlatie, dus dicht bij `-1` of `1`, is nuttig voor een ijklijn. Een positieve correlatie dicht bij `1` betekent dat hogere concentraties betrouwbaar samengaan met hogere absorbanties. Dat maakt schatten en voorspellen beter mogelijk.
+
+In R gebruik je hiervoor de functie `cor()`:
+
+```{r}
+#| eval: false
+#| message: false
+#| warning: false
+
+# Pearson-correlatie: meet vooral lineaire samenhang
+cor(abs, conc, method = "pearson")
+
+# Spearman-correlatie: meet monotone samenhang op basis van rangen
+cor(abs, conc, method = "spearman")
+```
+
+De Spearman-correlatie kan ook worden gezien als de Pearson-correlatie van de rangnummers:
+
+$$
+\rho_s = \operatorname{cor}(\operatorname{rank}(x), \operatorname{rank}(y))
+$$
+
+Als er geen gelijke waarden voorkomen, kan Spearman ook worden geschreven als:
+
+$$
+\rho_s = 1 - \frac{6 \sum d_i^2}{n(n^2 - 1)}
+$$
+
+Hierbij is $d_i$ het verschil tussen de rang van meting $i$ in beide variabelen, en is $n$ het aantal metingen.
+
+# Het lineaire model
+
+We kunnen de relatie tussen absorbantie en concentratie beschrijven met een lineair model:
+
+$$
+Ab = a + b \cdot Conc
+$$
+
+waarbij:
+
+-   $Ab$ de absorbantie is;
+-   $Conc$ de concentratie is;
+-   $a$ het intercept is;
+-   $b$ de richtingscoëfficiënt is.
+
+## Variabele versus parameter
+
+In een lineair model is er een verschil tussen variabelen en parameters.
+
+Een **variabele** is een grootheid die per meting kan verschillen. In dit voorbeeld zijn `abs` en `conc` variabelen. Ze staan als kolommen in de dataset: elke rij bevat één concentratie en de bijbehorende absorbantie.
+
+Een **parameter** is een vaste, maar meestal onbekende, waarde in het model. In de vergelijking
+
+$$
+Ab = a + b \cdot Conc
+$$
+
+zijn $a$ en $b$ parameters. Ze staan niet vooraf in de dataset, omdat we ze uit de meetgegevens moeten schatten. De parameter $a$ bepaalt waar de lijn de y-as snijdt. De parameter $b$ bepaalt hoe sterk de absorbantie verandert wanneer de concentratie toeneemt.
+
+Als de blanco correct is afgetrokken, of als we bewust een model door de oorsprong kiezen, kunnen we soms $a = 0$ stellen. Dan wordt het model:
+
+$$
+Ab = b \cdot Conc
+$$
+
+In dat eenvoudige geval geldt:
+
+$$
+b = \frac{Ab}{Conc}
+$$
+
+In echte meetdata schatten we $b$ meestal met regressie, omdat de meetpunten niet allemaal precies op één lijn liggen.
+
+# Data in tidy format
+
+De meetgegevens zetten we in een tabel. De kolomnamen komen overeen met de variabelen in het model.
+
+| abs | conc |
+|----:|-----:|
+| ... |  ... |
+| ... |  ... |
+| ... |  ... |
+
+Elke rij is één meting: een bekende concentratie met de bijbehorende absorbantie. Dit noemen we **tidy data**: elke variabele heeft een eigen kolom en elke observatie heeft een eigen rij.
+
+Omdat we twee kolommen hebben, kunnen we de dataset ook zien als een tweedimensionale datamatrix of als twee datavectoren: `abs` en `conc`.
+
+# R-code: data invoeren
+
+Je kunt data inlezen vanuit een Excel-bestand, maar in dit voorbeeld voeren we de waarden handmatig in.
+
+```{r}
+#| eval: false
+#| 
+abs <- c(...)   # vul hier de gemeten absorbanties in
+conc <- c(...)  # vul hier de bekende concentraties in
+```
+
+De functie `c()` is een standaardfunctie in R. De `c` staat voor *combine*: de functie combineert losse waarden tot één vector.
+
+De pijl `<-` betekent dat de vector aan een variabele wordt toegekend. Als je daarna `abs` aanroept, krijg je de volledige vector met absorbanties terug.
+
+```{r}
+#| eval: false
+#|
+abs
+conc
+```
+
+Je kunt met een vector rekenen. R past de berekening dan toe op alle elementen van de vector.
+
+```{r}
+#| eval: false
+#|
+abs + 1   # telt 1 op bij elke absorbantiewaarde
+abs * 2   # vermenigvuldigt elke absorbantiewaarde met 2
+```
+
+Veel R-functies gebruiken één of meer argumenten. Het argument staat tussen haakjes.
+
+```{r}
+#| eval: false
+#|
+sum(abs)   # som van alle absorbantiewaarden
+prod(abs)  # product van alle absorbantiewaarden
+exp(abs)   # exponentiële functie toegepast op alle waarden
+sin(abs)   # sinus toegepast op alle waarden
+```
+
+# Correlatie berekenen
+
+Eerst onderzoeken we of er een duidelijke samenhang is tussen absorbantie en concentratie.
+
+```{r}
+#| eval: false
+#|
+cor(abs, conc, method = "pearson")
+cor(abs, conc, method = "spearman")
+```
+
+**Vraag 1.** Is dit een sterke correlatie? Leg je antwoord uit.
+
+**Vraag 2.** Waarom is een hoge correlatie belangrijk voor een ijklijn?
+
+# Plot van de ijklijn
+
+Met een spreidingsdiagram kunnen we controleren of de punten ongeveer op een rechte lijn liggen.
+
+```{r}
+#| eval: false
+#|
+plot(
+  conc, abs,
+  xlab = "Eiwitconcentratie",
+  ylab = "Absorbantie",
+  main = "Bradford-ijklijn"
+)
+```
+
+# Lineaire regressie
+
+Om een model aan de data te fitten, gebruiken we regressie. Hier gebruiken we lineaire regressie: we vatten de data samen in een eenvoudig lineair model.
+
+```{r}
+#| eval: false
+#|
+model <- lm(abs ~ conc)
+```
+
+Hierbij betekent:
+
+-   `lm()` staat voor *linear model*;
+-   `abs ~ conc` betekent dat `abs` wordt gemodelleerd als functie van `conc`;
+-   `model` is het object waarin R de resultaten van de regressie opslaat.
+
+We kunnen de structuur en samenvatting van het model bekijken:
+
+```{r}
+#| eval: false
+#|
+str(model)
+summary(model)
+```
+
+In de output van `summary(model)` staan onder andere de geschatte waarden van het intercept $a$ en de richtingscoëfficiënt $b$.
+
+# Concentratie van een onbekend monster bepalen
+
+Als het model is gefit, kunnen we de concentratie van een onbekend monster schatten. Stel dat de absorbantie van het onbekende monster `abs_onbekend` is. Dan geldt:
+
+$$
+\widehat{Conc} = \frac{Ab_{onbekend} - \hat{a}}{\hat{b}}
+$$
+
+In R kan dat bijvoorbeeld zo:
+
+```{r}
+#| eval: false
+#|
+coefs <- coef(model)
+a_hat <- coefs[1]
+b_hat <- coefs[2]
+
+abs_onbekend <- ...
+conc_onbekend <- (abs_onbekend - a_hat) / b_hat
+conc_onbekend
+```
+
+# Samenvatting
+
+In deze les hebben we de Bradford-test gebruikt als voorbeeld van statistisch modelleren. We hebben:
+
+-   een ijklijn gemaakt met bekende concentraties;
+-   gekeken naar correlatie tussen concentratie en absorbantie;
+-   de functie `cor()` gebruikt, inclusief `method = "spearman"`;
+-   het verschil besproken tussen variabelen en parameters;
+-   een lineair model opgesteld met `lm(abs ~ conc)`;
+-   gezien hoe een onbekende concentratie uit het model kan worden geschat.
+
+Een goede ijklijn vereist niet alleen een hoge correlatie, maar ook een inhoudelijk verdedigbare aanname dat de relatie in het gebruikte meetbereik lineair is.
