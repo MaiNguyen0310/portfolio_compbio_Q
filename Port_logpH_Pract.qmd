@@ -23,7 +23,7 @@ $$\text{pH} = -\log_{10}[\text{H}^+]$$
 Vergelijk dit met de $\chi^2$-toets: ook daar schalen we een verschil (O − E) naar een begrensd interval, waardoor we waarden kunnen vergelijken, onafhankelijk van de grootte van de absolute aantallen.
 :::
 
-**Vraag 1:** Als de H⁺-concentratie met een factor 10 daalt, wat gebeurt er dan met de pH? En als de concentratie halveert (bijvoorbeeld door verdunning)? Reken beide gevallen uit en leg intuïtief uit waarom een verschil van "1 pH-eenheid" een heel andere betekenis heeft dan een verschil van "1 eenheid concentratie".
+**Vraag 1:** Als de H⁺-concentratie met een factor 10 daalt, wat gebeurt er dan met de pH? En als de concentratie halveert (bijvoorbeeld door verdunning)? Reken beide gevallen uit en leg intuïtief uit waarom een verschil van "1 pH-eenheid" een heel andere betekenis heeft dan een verschil van "1 eenheid concentratie" (mol/Liter).
 
 > Jouw antwoord
 
@@ -35,9 +35,6 @@ Bij het eerste practicum van *Chemie van het leven* ga je twee oplossingen maken
 
 
 ```{webr}
-#| setup: true
-#| exercise: massa
-
 vol_gewenst <- 150
 conc_gewenst <- 0.20
 MW <- 136.08
@@ -46,8 +43,6 @@ MW <- 136.08
 Bereken de benodigde massa.
 
 ```{webr}
-#| exercise: massa
-
 massa_nodig <- ______ # vul de berekening in
 massa_nodig
 ```
@@ -72,15 +67,13 @@ massa_gewogen <- rnorm(1, mean = massa_nodig, sd = 0.05)
 massa_gewogen
 ```
 
-**Vraag 2:** Denk terug aan de vorige portfolio-opdracht over verdelingen. Leg voor jezelf uit waarom bovenstaande benadering van de afgewogen massa redelijk is.
+**Vraag 2:** Denk terug aan de vorige portfolio-opdracht over verdelingen. Bedenk waarom bovenstaande benadering van de afgewogen massa redelijk is.
 
 > Jouw antwoord
 
 Hoe kun je het volume demiwater schalen om alsnog de juiste concentratie te verkrijgen?
 
 ```{webr}
-#| setup: true
-#| exercise: volume
 # vul aan hoe je vol_aangepast berekent
 vol_aangepast <- ______
 round(vol_aangepast, 2)
@@ -98,7 +91,7 @@ round(vol_aangepast, 2)
 
 Bovenstaande berekening kun je in de Methode-sectie van je labjournaal plaatsen.
 
-### pKz bepalen
+### pKz bepalen met één punt
 
 Vervolgens ga je de pKz van oplossingen A en B berekend, met behulp van de algemene formule:
 
@@ -115,7 +108,7 @@ Z_A <- 0.2
 
 De concentratie van de geconjugeerde base kan dan worden bepaald via
 
-$$[HZ]=[OH^-]=10^{-(14-pH)}.$$
+$$[HZ]=[\ce{OH^-}]=10^{-(14-pH)}.$$
 Deze algemene formule kunnen we als volgt coderen:
 ```{webr}
 HZ_A <- 10^(-(14 - pH_A))
@@ -124,9 +117,6 @@ HZ_A <- 10^(-(14 - pH_A))
 Codeer nu zelf de algemene uitdrukking die je gebruikt om de pKz van oplossing A te bepalen.
 
 ```{webr}
-#| setup: true
-#| exercise: massa
-
 pKz_A <- # vul hier aan!
 pKz_A
 ```
@@ -138,6 +128,48 @@ pKz_A <- pH_A - log(Z_A / HZ_A, 10)
 pKz_A
 ```
 :::
+
+### pKz bepalen met een lijn
+
+Je hebt de pKz nu berekend uit één meting. Maar bekijk de formule eens goed:
+
+$$\text{pH} = \text{pKz} + \log_{10}\left(\frac{[\text{Z}^-]}{[\text{HZ}]}\right)$$
+
+**Vraag 3:** Als je $x = \log_{10}([\text{Z}^-]/[\text{HZ}])$ noemt, welke bekende vorm ($y = ax + b$) herken je dan in deze formule? Wat stellen $a$, $b$ en $y$ hier voor? Welke waarden verwacht je dat deze aannemen? 
+
+> Jouw antwoord
+
+**Vraag 4:** Leg in eigen woorden uit waarom dit verband inzichtelijk is. Koppel de formule aan het doel en de methode van het practicum: wat verander je? Wat meet je? En wat voor inzichten geeft het  verband?
+
+> Jouw antwoord
+
+Stel dat je op verschillende momenten tijdens het toevoegen van HCl de pH had genoteerd. Je kunt dan het verband tussen $x$ en $y$ plotten. Dit kan er bijvoorbeeld zo uitzien:
+
+```{webr}
+ratio <- c(4, 2, 1, 0.5, 0.25)          # [Z-]/[HZ] op vijf momenten
+pH_gemeten <- c(5.4, 5.1, 4.7, 4.5, 4.1)   # fictieve metingen
+
+x <- log10(ratio)
+
+plot(x, pH_gemeten, xlab = "log10([Z-]/[HZ])", ylab = "pH")
+```
+
+We hebben dit verband benaderd met de functie $y=ax + b$ voor onbekende waarden van $a$ en $b$. De functie lm() bepaalt de meest waarschijnlijke waarden voor deze parameters. Hierover leer je meer in een latere portfolio-opdracht.
+
+```{webr}
+model <- lm(pH_gemeten ~ x)
+
+plot(x, pH_gemeten, xlab = "log10([Z-]/[HZ])", ylab = "pH")
+abline(model)
+```
+
+**Vraag 5:** Waarom geeft het schatten van de pKz uit een lijn door meerdere punten waarschijnlijk een betrouwbaardere waarde dan het berekenen van de pKz uit slechts één meting?
+
+::: aside
+Denk aan het statistiekportfolio! Wat was bij de vorige opdracht de meerwaarde van een grotere steekproefgrootte?
+:::
+
+**Vraag 6:** Je hebt nu nog een nuttige eigenschap van de logaritme gezien. Beschrijf deze eigenschap in eigen woorden, en leg uit hoe we deze kunnen toepassen in practica.
 
 <!-- Zoals in de introductie van dit portfolio beschreven, zullen onderdelen uit dit portfolio gekoppeld worden aan practicumopdrachten. Voor dit portfolio-onderdeel hoef je nog niet zelf een hoofdstuk toe te voegen aan het portfoliobestand, zoals dat later wel zal moeten. Met deze app oefen je op een laagdrempelige manier met de logica achter coderen. Je kunt de berekeningen die je hierbij uitvoert ook gebruiken bij het schrijven van je labjournaal. -->
 

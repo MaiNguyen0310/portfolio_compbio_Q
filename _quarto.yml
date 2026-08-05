@@ -8,20 +8,13 @@ book:
   chapters:
     - index.qmd
     - Port2_Theory.qmd
-<<<<<<< HEAD
     - Port_logpH_Theory.qmd
-=======
-    - log_pH.qmd
->>>>>>> 4e16669bde8243fd54892dc977db95f4313c7d67
     - Differentiaalvergelijkingen_theorie.qmd
     - references.qmd
   appendices:
     - Port2_Pract.qmd
-<<<<<<< HEAD
     - Port_logpH_Pract.qmd
-=======
     - bradford_statistiek.qmd
->>>>>>> 4e16669bde8243fd54892dc977db95f4313c7d67
     - Sepia_Mantel.qmd  
 
     
@@ -40,8 +33,8 @@ language:
   ui: 
     chapter_name: "" 
     
-resources:
-  - evo-devo/
+# resources:
+#   - evo-devo/
   
 filters:
   - webr
