@@ -36,15 +36,11 @@ cor(abs, conc, method = "spearman")
 
 De Spearman-correlatie kan ook worden gezien als de Pearson-correlatie van de rangnummers:
 
-$$
-\rho_s = \operatorname{cor}(\operatorname{rank}(x), \operatorname{rank}(y))
-$$
+$$\rho_s = \operatorname{cor}(\operatorname{rank}(x), \operatorname{rank}(y))$$
 
 Als er geen gelijke waarden voorkomen, kan Spearman ook worden geschreven als:
 
-$$
-\rho_s = 1 - \frac{6 \sum d_i^2}{n(n^2 - 1)}
-$$
+$$\rho_s = 1 - \frac{6 \sum d_i^2}{n(n^2 - 1)}$$
 
 Hierbij is $d_i$ het verschil tussen de rang van meting $i$ in beide variabelen, en is $n$ het aantal metingen.
 
@@ -52,16 +48,14 @@ Hierbij is $d_i$ het verschil tussen de rang van meting $i$ in beide variabelen,
 
 We kunnen de relatie tussen absorbantie en concentratie beschrijven met een lineair model:
 
-$$
-Ab = a + b \cdot Conc
-$$
+$$Ab = a + b \cdot Conc$$
 
 waarbij:
 
--   $Ab$ de absorbantie is;
--   $Conc$ de concentratie is;
--   $a$ het intercept is;
--   $b$ de richtingscoëfficiënt is.
+- $Ab$ de absorbantie is;
+- $Conc$ de concentratie is;
+- $a$ het intercept is;
+- $b$ de richtingscoëfficiënt is.
 
 ## Variabele versus parameter
 
@@ -71,23 +65,17 @@ Een **variabele** is een grootheid die per meting kan verschillen. In dit voorbe
 
 Een **parameter** is een vaste, maar meestal onbekende, waarde in het model. In de vergelijking
 
-$$
-Ab = a + b \cdot Conc
-$$
+$$Ab = a + b \cdot Conc$$
 
 zijn $a$ en $b$ parameters. Ze staan niet vooraf in de dataset, omdat we ze uit de meetgegevens moeten schatten. De parameter $a$ bepaalt waar de lijn de y-as snijdt. De parameter $b$ bepaalt hoe sterk de absorbantie verandert wanneer de concentratie toeneemt.
 
 Als de blanco correct is afgetrokken, of als we bewust een model door de oorsprong kiezen, kunnen we soms $a = 0$ stellen. Dan wordt het model:
 
-$$
-Ab = b \cdot Conc
-$$
+$$Ab = b \cdot Conc$$
 
 In dat eenvoudige geval geldt:
 
-$$
-b = \frac{Ab}{Conc}
-$$
+$$b = \frac{Ab}{Conc}$$
 
 In echte meetdata schatten we $b$ meestal met regressie, omdat de meetpunten niet allemaal precies op één lijn liggen.
 
@@ -189,9 +177,9 @@ model <- lm(abs ~ conc)
 
 Hierbij betekent:
 
--   `lm()` staat voor *linear model*;
--   `abs ~ conc` betekent dat `abs` wordt gemodelleerd als functie van `conc`;
--   `model` is het object waarin R de resultaten van de regressie opslaat.
+- `lm()` staat voor *linear model*;
+- `abs ~ conc` betekent dat `abs` wordt gemodelleerd als functie van `conc`;
+- `model` is het object waarin R de resultaten van de regressie opslaat.
 
 We kunnen de structuur en samenvatting van het model bekijken:
 
@@ -208,9 +196,7 @@ In de output van `summary(model)` staan onder andere de geschatte waarden van he
 
 Als het model is gefit, kunnen we de concentratie van een onbekend monster schatten. Stel dat de absorbantie van het onbekende monster `abs_onbekend` is. Dan geldt:
 
-$$
-\widehat{Conc} = \frac{Ab_{onbekend} - \hat{a}}{\hat{b}}
-$$
+$$\widehat{Conc} = \frac{Ab_{onbekend} - \hat{a}}{\hat{b}}$$
 
 In R kan dat bijvoorbeeld zo:
 
@@ -230,11 +216,11 @@ conc_onbekend
 
 In deze les hebben we de Bradford-test gebruikt als voorbeeld van statistisch modelleren. We hebben:
 
--   een ijklijn gemaakt met bekende concentraties;
--   gekeken naar correlatie tussen concentratie en absorbantie;
--   de functie `cor()` gebruikt, inclusief `method = "spearman"`;
--   het verschil besproken tussen variabelen en parameters;
--   een lineair model opgesteld met `lm(abs ~ conc)`;
--   gezien hoe een onbekende concentratie uit het model kan worden geschat.
+- een ijklijn gemaakt met bekende concentraties;
+- gekeken naar correlatie tussen concentratie en absorbantie;
+- de functie `cor()` gebruikt, inclusief `method = "spearman"`;
+- het verschil besproken tussen variabelen en parameters;
+- een lineair model opgesteld met `lm(abs ~ conc)`;
+- gezien hoe een onbekende concentratie uit het model kan worden geschat.
 
 Een goede ijklijn vereist niet alleen een hoge correlatie, maar ook een inhoudelijk verdedigbare aanname dat de relatie in het gebruikte meetbereik lineair is.

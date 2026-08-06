@@ -159,7 +159,7 @@ Dit maakt wetenschappelijke uitspraken voor een niet-wetenschappelijk publiek so
 Bereken, gebruik makend van de informatie in deze portfolio en je eigen mais data, de p-waarden van je $\chi^2$ -test en trek je conclusie aangedaan je hypothese van de verwachte 3:1 verhouding.
 
 ```{r}
-# gebruike de code van de sex ratio als template.
+# gebruik de code van de sex ratio als template.
 
 ```
 

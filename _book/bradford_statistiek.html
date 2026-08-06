@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="">
 
-<title>1&nbsp; Stochastische variabelen, kansverdelingen en entropie – Portfolio Computationele Biologie</title>
+<title>Appendix C — Bradford-test: statistiek en lineaire modellen – Portfolio Computationele Biologie</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -69,8 +68,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Port_logpH_Theory.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./Sepia_Mantel.html" rel="next">
+<link href="./Port_logpH_Pract.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -146,7 +145,7 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating slimcontent quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -155,7 +154,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Port2_Theory.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Stochastische variabelen, kansverdelingen en entropie</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Port2_Pract.html">Appendices</a></li><li class="breadcrumb-item"><a href="./bradford_statistiek.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Bradford-test: statistiek en lineaire modellen</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -188,7 +187,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Port2_Theory.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Port2_Theory.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Stochastische variabelen, kansverdelingen en entropie</span></span></a>
   </div>
 </li>
@@ -233,7 +232,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bradford_statistiek.html" class="sidebar-item-text sidebar-link">
+  <a href="./bradford_statistiek.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Bradford-test: statistiek en lineaire modellen</span></span></a>
   </div>
 </li>
@@ -255,32 +254,28 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#onzekerheid." id="toc-onzekerheid." class="nav-link active" data-scroll-target="#onzekerheid."><span class="header-section-number">1.1</span> Onzekerheid.</a></li>
-  <li><a href="#de-toetsgrootheid-is-zelf-een-stochastische-variabele" id="toc-de-toetsgrootheid-is-zelf-een-stochastische-variabele" class="nav-link" data-scroll-target="#de-toetsgrootheid-is-zelf-een-stochastische-variabele"><span class="header-section-number">1.2</span> De toetsgrootheid is zelf een stochastische variabele</a></li>
-  <li><a href="#maat-voor-onzekerheid-entropie." id="toc-maat-voor-onzekerheid-entropie." class="nav-link" data-scroll-target="#maat-voor-onzekerheid-entropie."><span class="header-section-number">1.3</span> Maat voor onzekerheid: Entropie.</a>
+  <li><a href="#doel-van-de-bradford-test" id="toc-doel-van-de-bradford-test" class="nav-link active" data-scroll-target="#doel-van-de-bradford-test"><span class="header-section-number">D</span> Doel van de Bradford-test</a></li>
+  <li><a href="#correlatie-en-aannames" id="toc-correlatie-en-aannames" class="nav-link" data-scroll-target="#correlatie-en-aannames"><span class="header-section-number">E</span> Correlatie en aannames</a></li>
+  <li><a href="#het-lineaire-model" id="toc-het-lineaire-model" class="nav-link" data-scroll-target="#het-lineaire-model"><span class="header-section-number">F</span> Het lineaire model</a>
   <ul class="collapse">
-  <li><a href="#interpretatie" id="toc-interpretatie" class="nav-link" data-scroll-target="#interpretatie"><span class="header-section-number">1.3.1</span> Interpretatie</a></li>
-  <li><a href="#contextafhankelijkheid" id="toc-contextafhankelijkheid" class="nav-link" data-scroll-target="#contextafhankelijkheid"><span class="header-section-number">1.3.2</span> Contextafhankelijkheid</a></li>
+  <li><a href="#variabele-versus-parameter" id="toc-variabele-versus-parameter" class="nav-link" data-scroll-target="#variabele-versus-parameter"><span class="header-section-number">F.1</span> Variabele versus parameter</a></li>
   </ul></li>
-  <li><a href="#opdrachten" id="toc-opdrachten" class="nav-link" data-scroll-target="#opdrachten"><span class="header-section-number">1.4</span> Opdrachten</a>
-  <ul class="collapse">
-  <li><a href="#positie-specifieke-entropie" id="toc-positie-specifieke-entropie" class="nav-link" data-scroll-target="#positie-specifieke-entropie"><span class="header-section-number">1.4.1</span> Positie-specifieke entropie</a></li>
-  <li><a href="#entropie-is-optelbaar" id="toc-entropie-is-optelbaar" class="nav-link" data-scroll-target="#entropie-is-optelbaar"><span class="header-section-number">1.4.2</span> Entropie is optelbaar</a></li>
-  </ul></li>
-  <li><a href="#surprisal-informatie-als--logp" id="toc-surprisal-informatie-als--logp" class="nav-link" data-scroll-target="#surprisal-informatie-als--logp"><span class="header-section-number">1.5</span> Surprisal: informatie als <span class="math inline">\(-\log(p)\)</span></a>
-  <ul class="collapse">
-  <li><a href="#de-complexiteit-van-de-natuur-valt-uiteen-in-twee-vragen" id="toc-de-complexiteit-van-de-natuur-valt-uiteen-in-twee-vragen" class="nav-link" data-scroll-target="#de-complexiteit-van-de-natuur-valt-uiteen-in-twee-vragen"><span class="header-section-number">1.5.1</span> De Complexiteit van de natuur valt uiteen in twee vragen</a></li>
-  </ul></li>
-  <li><a href="#slotopdracht-jouw-eigen-synthese" id="toc-slotopdracht-jouw-eigen-synthese" class="nav-link" data-scroll-target="#slotopdracht-jouw-eigen-synthese"><span class="header-section-number">1.6</span> Slotopdracht: jouw eigen synthese</a></li>
+  <li><a href="#data-in-tidy-format" id="toc-data-in-tidy-format" class="nav-link" data-scroll-target="#data-in-tidy-format"><span class="header-section-number">G</span> Data in tidy format</a></li>
+  <li><a href="#r-code-data-invoeren" id="toc-r-code-data-invoeren" class="nav-link" data-scroll-target="#r-code-data-invoeren"><span class="header-section-number">H</span> R-code: data invoeren</a></li>
+  <li><a href="#correlatie-berekenen" id="toc-correlatie-berekenen" class="nav-link" data-scroll-target="#correlatie-berekenen"><span class="header-section-number">I</span> Correlatie berekenen</a></li>
+  <li><a href="#plot-van-de-ijklijn" id="toc-plot-van-de-ijklijn" class="nav-link" data-scroll-target="#plot-van-de-ijklijn"><span class="header-section-number">J</span> Plot van de ijklijn</a></li>
+  <li><a href="#lineaire-regressie" id="toc-lineaire-regressie" class="nav-link" data-scroll-target="#lineaire-regressie"><span class="header-section-number">K</span> Lineaire regressie</a></li>
+  <li><a href="#concentratie-van-een-onbekend-monster-bepalen" id="toc-concentratie-van-een-onbekend-monster-bepalen" class="nav-link" data-scroll-target="#concentratie-van-een-onbekend-monster-bepalen"><span class="header-section-number">L</span> Concentratie van een onbekend monster bepalen</a></li>
+  <li><a href="#samenvatting" id="toc-samenvatting" class="nav-link" data-scroll-target="#samenvatting"><span class="header-section-number">M</span> Samenvatting</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Port2_Pract.html">Appendices</a></li><li class="breadcrumb-item"><a href="./bradford_statistiek.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Bradford-test: statistiek en lineaire modellen</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Stochastische variabelen, kansverdelingen en entropie</span></h1>
+<h1 class="title">Appendix C — Bradford-test: statistiek en lineaire modellen</h1>
 </div>
 
 
@@ -297,158 +292,191 @@ window.Quarto = {
 </header>
 
 
-<section id="onzekerheid." class="level2 page-columns page-full" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="onzekerheid."><span class="header-section-number">1.1</span> Onzekerheid.</h2>
-<p>In het praktische gedeelte bij deze opdracht wordt de stelling geponeerd dat in de empirische wetenschap we geen zekerheid ten aanzien van een hypothese kunnen krijgen. Dit is niet volledig correct. Denk aan het bekende voorbeeld van de zwarte zwaan. Stel dat we uitsluitend witte zwanen waarnemen. Daaruit kunnen we <strong>niet</strong> afleiden dat álle zwanen wit zijn; er kan immers een anders gekleurde zwaan bestaan die we simpelweg nog niet hebben gezien. De hypothese blijft dus onzeker, hoeveel witte zwanen we ook tellen. Maar één enkele niet-witte zwaan volstaat om haar te weerleggen, en de onzekerheid ten aanzien van de hypothese verdwijnt. Dit is het geval voor logische hypotheses.</p>
-<p>Het maïsexperiment is fundamenteel anders, omdat de hypothese zelf een kansuitspraak is; een 3:1-kansverdeling verbiedt geen enkele uitkomst, maar maakt sommige aannemelijker dan andere. Zelfs als de hypothese klopt, is de waargenomen verhouding door toeval bijna nooit exact 3:1, zoals we zagen. Eén afwijking weerlegt hier dus niets; de vraag is of de afwijking groter is dan we redelijkerwijs aan toeval kunnen toeschrijven. De logica verschuift van zekerheid naar kans en waarschijnlijkheid, en de onzekerheid blijft altijd bestaan.</p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>In het dagelijks leven gebruiken we kans en waarschijnlijkheid vaak door elkaar. In de wiskunde (kansrekening) bestaat er echter een subtiel verschil, dat we later dit jaar bespreken.</p>
-</div></div></section>
-<section id="de-toetsgrootheid-is-zelf-een-stochastische-variabele" class="level2 page-columns page-full" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="de-toetsgrootheid-is-zelf-een-stochastische-variabele"><span class="header-section-number">1.2</span> De toetsgrootheid is zelf een stochastische variabele</h2>
-<p>Jullie hebben de resultaten van jullie metingen ingevoerd in het online formulier. Hieronder zie je de verdeling van de berekende <span class="math inline">\(\chi^2\)</span>-waarden op basis van jullie individuele metingen.</p>
+<p>Vandaag gaan we de Bradford-test gebruiken om statistiek toe te passen en een ijklijn te maken. We maken in het laboratorium een reeks oplossingen met bekende eiwitconcentraties en meten daarvan de absorbantie met een spectrofotometer. Daarna gebruiken we de relatie tussen concentratie en absorbantie om de concentratie van een onbekende oplossing te schatten.</p>
+<p>In deze les kijken we ook naar aannames. Een aanname is een veronderstelling die nodig is om een analyse of model te mogen gebruiken. Die aanname moet wetenschappelijk onderbouwd zijn. Voor de Bradford-test nemen we bijvoorbeeld aan dat de relatie tussen eiwitconcentratie en absorbantie binnen het gebruikte meetbereik lineair is. Daarom is het belangrijk dat monsters soms eerst worden verdund, zodat de metingen binnen het lineaire bereik van de methode vallen.</p>
+<p>Voor het portfolio kun je de vragen in dit document beantwoorden. In de les werken we deze vragen stap voor stap uit.</p>
+<section id="doel-van-de-bradford-test" class="level1" data-number="D">
+<h1 data-number="D"><span class="header-section-number">D</span> Doel van de Bradford-test</h1>
+<p>Bij de Bradford-test meten we de absorbantie van oplossingen met verschillende eiwitconcentraties. We verwachten dat de absorbantie toeneemt wanneer de eiwitconcentratie toeneemt. Er is dan sprake van een positieve relatie tussen eiwitconcentratie en absorbantie.</p>
+<p>De informatie over deze relatie gebruiken we om de eiwitconcentratie te bepalen van een oplossing waarvan de concentratie nog onbekend is. Daarvoor maken we eerst een ijklijn met bekende concentraties.</p>
+</section>
+<section id="correlatie-en-aannames" class="level1" data-number="E">
+<h1 data-number="E"><span class="header-section-number">E</span> Correlatie en aannames</h1>
+<p>Correlatie geeft aan hoe sterk twee variabelen samenhangen. In dit practicum onderzoeken we de correlatie tussen absorbantie en eiwitconcentratie.</p>
+<p>Een belangrijke aanname is dat de relatie tussen concentratie en absorbantie in het gebruikte bereik ongeveer lineair is. Dat betekent dat de meetpunten ongeveer op een rechte lijn liggen. Deze aanname moet inhoudelijk te verdedigen zijn. In de analytische chemie is absorbantie bij lage concentraties vaak goed voorspelbaar vanuit de concentratie, zolang de metingen binnen het lineaire meetbereik blijven.</p>
+<p>Een grote absolute correlatie, dus dicht bij <code>-1</code> of <code>1</code>, is nuttig voor een ijklijn. Een positieve correlatie dicht bij <code>1</code> betekent dat hogere concentraties betrouwbaar samengaan met hogere absorbanties. Dat maakt schatten en voorspellen beter mogelijk.</p>
+<p>In R gebruik je hiervoor de functie <code>cor()</code>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code die een histogram geeft van de chi^2 waarden</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pearson-correlatie: meet vooral lineaire samenhang</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(abs, conc, <span class="at">method =</span> <span class="st">"pearson"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Spearman-correlatie: meet monotone samenhang op basis van rangen</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(abs, conc, <span class="at">method =</span> <span class="st">"spearman"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><strong>Vraag 1:</strong> Leg uit waarom niet alle <span class="math inline">\(\chi^2\)</span>-waarden dezelfde waarde hebben.</p>
-<p><strong>Jouw antwoord:</strong></p>
-<p>Wat deze verdeling laat zien, is een voorbeeld van een stochastische variabele: een grootheid waarvan de waarde door toeval wordt bepaald. Ze heeft drie kenmerkende eigenschappen:</p>
+<p>De Spearman-correlatie kan ook worden gezien als de Pearson-correlatie van de rangnummers:</p>
+<p><span class="math display">\[\rho_s = \operatorname{cor}(\operatorname{rank}(x), \operatorname{rank}(y))\]</span></p>
+<p>Als er geen gelijke waarden voorkomen, kan Spearman ook worden geschreven als:</p>
+<p><span class="math display">\[\rho_s = 1 - \frac{6 \sum d_i^2}{n(n^2 - 1)}\]</span></p>
+<p>Hierbij is <span class="math inline">\(d_i\)</span> het verschil tussen de rang van meting <span class="math inline">\(i\)</span> in beide variabelen, en is <span class="math inline">\(n\)</span> het aantal metingen.</p>
+</section>
+<section id="het-lineaire-model" class="level1" data-number="F">
+<h1 data-number="F"><span class="header-section-number">F</span> Het lineaire model</h1>
+<p>We kunnen de relatie tussen absorbantie en concentratie beschrijven met een lineair model:</p>
+<p><span class="math display">\[Ab = a + b \cdot Conc\]</span></p>
+<p>waarbij:</p>
 <ul>
-<li>ze wordt gekarakteriseerd door een kansverdeling;</li>
-<li>haar concrete waarde, of realisatie, is pas bekend na uitvoering van een experiment of meting;</li>
-<li>ze drukt inherente onzekerheid uit.</li>
+<li><span class="math inline">\(Ab\)</span> de absorbantie is;</li>
+<li><span class="math inline">\(Conc\)</span> de concentratie is;</li>
+<li><span class="math inline">\(a\)</span> het intercept is;</li>
+<li><span class="math inline">\(b\)</span> de richtingscoëfficiënt is.</li>
 </ul>
-<p>De <span class="math inline">\(\chi^2\)</span>-waarde voldoet aan alle drie: ze ligt pas vast na het tellen en berekenen (2), verschilt van student tot student door toeval in de steekproef (3), en volgt daarmee een kansverdeling (1). Er is dus onzekerheid over welke <span class="math inline">\(\chi^2\)</span>-waarde een meting oplevert.</p>
-<p>Dit is bovendien geen toeval, maar een noodzakelijk gevolg: <span class="math inline">\(\chi^2\)</span>is een functie van stochastische variabelen, zoals het aantal zaden, en is daardoor zelf ook een stochastische variabele, die dus per definitie een eigen kansverdeling bezit. Wiskundigen hebben die <span class="math inline">\(\chi^2\)</span>-verdeling onder bepaalde aannamen kunnen afleiden:</p>
-<p><span class="math display">\[f(x; k) = \frac{1}{2^{k/2}\,\Gamma(k/2)}\, x^{k/2 - 1} e^{-x/2}, \quad x &gt; 0\]</span></p>
-<p>Dit is een ingewikkelde functie die jullie niet uit je hoofd hoeven te kennen. Het belangrijke deel is de zinsnede <code>onder bepaalde aannamen</code>. We zullen later zien dat we bij statistische toetsen en wiskundige modellen die aannamen expliciet moeten benoemen en controleren.</p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>De wetenschap kan niet zonder aannamen: alleen onder bepaalde condities kunnen we een theorie of model formuleren. Van die aannamen moet je je altijd bewust zijn.</p>
-</div></div><p>Deze onzekerheid wordt nog beter voelbaar bij de p-waarde, die op haar beurt een functie van de stochatische variabele <span class="math inline">\(\chi^2\)</span> is. Hieronder zie je de verdeling van de p-waarden over de groepen.</p>
+<section id="variabele-versus-parameter" class="level2" data-number="F.1">
+<h2 data-number="F.1" class="anchored" data-anchor-id="variabele-versus-parameter"><span class="header-section-number">F.1</span> Variabele versus parameter</h2>
+<p>In een lineair model is er een verschil tussen variabelen en parameters.</p>
+<p>Een <strong>variabele</strong> is een grootheid die per meting kan verschillen. In dit voorbeeld zijn <code>abs</code> en <code>conc</code> variabelen. Ze staan als kolommen in de dataset: elke rij bevat één concentratie en de bijbehorende absorbantie.</p>
+<p>Een <strong>parameter</strong> is een vaste, maar meestal onbekende, waarde in het model. In de vergelijking</p>
+<p><span class="math display">\[Ab = a + b \cdot Conc\]</span></p>
+<p>zijn <span class="math inline">\(a\)</span> en <span class="math inline">\(b\)</span> parameters. Ze staan niet vooraf in de dataset, omdat we ze uit de meetgegevens moeten schatten. De parameter <span class="math inline">\(a\)</span> bepaalt waar de lijn de y-as snijdt. De parameter <span class="math inline">\(b\)</span> bepaalt hoe sterk de absorbantie verandert wanneer de concentratie toeneemt.</p>
+<p>Als de blanco correct is afgetrokken, of als we bewust een model door de oorsprong kiezen, kunnen we soms <span class="math inline">\(a = 0\)</span> stellen. Dan wordt het model:</p>
+<p><span class="math display">\[Ab = b \cdot Conc\]</span></p>
+<p>In dat eenvoudige geval geldt:</p>
+<p><span class="math display">\[b = \frac{Ab}{Conc}\]</span></p>
+<p>In echte meetdata schatten we <span class="math inline">\(b\)</span> meestal met regressie, omdat de meetpunten niet allemaal precies op één lijn liggen.</p>
+</section>
+</section>
+<section id="data-in-tidy-format" class="level1" data-number="G">
+<h1 data-number="G"><span class="header-section-number">G</span> Data in tidy format</h1>
+<p>De meetgegevens zetten we in een tabel. De kolomnamen komen overeen met de variabelen in het model.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">abs</th>
+<th style="text-align: right;">conc</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">…</td>
+<td style="text-align: right;">…</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">…</td>
+<td style="text-align: right;">…</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">…</td>
+<td style="text-align: right;">…</td>
+</tr>
+</tbody>
+</table>
+<p>Elke rij is één meting: een bekende concentratie met de bijbehorende absorbantie. Dit noemen we <strong>tidy data</strong>: elke variabele heeft een eigen kolom en elke observatie heeft een eigen rij.</p>
+<p>Omdat we twee kolommen hebben, kunnen we de dataset ook zien als een tweedimensionale datamatrix of als twee datavectoren: <code>abs</code> en <code>conc</code>.</p>
+</section>
+<section id="r-code-data-invoeren" class="level1" data-number="H">
+<h1 data-number="H"><span class="header-section-number">H</span> R-code: data invoeren</h1>
+<p>Je kunt data inlezen vanuit een Excel-bestand, maar in dit voorbeeld voeren we de waarden handmatig in.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code die een histrogram geeft van de p waarden</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>abs <span class="ot">&lt;-</span> <span class="fu">c</span>(...)   <span class="co"># vul hier de gemeten absorbanties in</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>conc <span class="ot">&lt;-</span> <span class="fu">c</span>(...)  <span class="co"># vul hier de bekende concentraties in</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Nemen we een kritieke waarde van 0.05 om de nulhypothese te verwerpen, dan blijkt iets opmerkelijks: ook de conclusie, verwerpen of niet, wordt bepaald door een stochastische variabele. Of een student de nulhypothese verwerpt, hangt af van een p-waarde die zelf door toeval varieert. Daarmee erft ook de uitspraak over de hypothese die onzekerheid. Een tweede opmerkelijk gevolg is dat zelfs wanneer de 3:1-hypothese correct is, sommige groepen haar toch zal verwerpen, puur door toeval in de steekproef; bv als ze teveel rode of gele hebben gemeten. Dit noemen we later een type-I-fout; voor nu is het genoeg om te zien dat de onzekerheid zich overerft tot in de conclusie zelf.</p>
+<p>De functie <code>c()</code> is een standaardfunctie in R. De <code>c</code> staat voor <em>combine</em>: de functie combineert losse waarden tot één vector.</p>
+<p>De pijl <code>&lt;-</code> betekent dat de vector aan een variabele wordt toegekend. Als je daarna <code>abs</code> aanroept, krijg je de volledige vector met absorbanties terug.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>abs</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>conc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Je kunt met een vector rekenen. R past de berekening dan toe op alle elementen van de vector.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>abs <span class="sc">+</span> <span class="dv">1</span>   <span class="co"># telt 1 op bij elke absorbantiewaarde</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>abs <span class="sc">*</span> <span class="dv">2</span>   <span class="co"># vermenigvuldigt elke absorbantiewaarde met 2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Veel R-functies gebruiken één of meer argumenten. Het argument staat tussen haakjes.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(abs)   <span class="co"># som van alle absorbantiewaarden</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">prod</span>(abs)  <span class="co"># product van alle absorbantiewaarden</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(abs)   <span class="co"># exponentiële functie toegepast op alle waarden</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sin</span>(abs)   <span class="co"># sinus toegepast op alle waarden</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="maat-voor-onzekerheid-entropie." class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="maat-voor-onzekerheid-entropie."><span class="header-section-number">1.3</span> Maat voor onzekerheid: Entropie.</h2>
-<p>Er bestaan verschillen maten in de statistiek welke de hoeveelheid onzekerheid kunnen duiden. Later in het jaar komen we bijvoorbeeld de standaard fout (SE) tegen. Nu wil ik kijken naar een zeer belangrijke wetenschappelijke maat, namelijk <code>entropie.</code> Entropie kan worden opgevat als een maat voor onzekerheid, willekeurigheid of wanorde en zoals we zullen zien ook biodiversiteit en positie-specifieke entropie in moleculaire biologie, is alleen gebaseerd op de kansverdeling.</p>
-<p>De entropie van een discrete kansverdeling zoals voor biodiversiteit en positie-specifieke entropie wordt gedefinieerd als:</p>
-<p><span class="math display">\[H(p) = -\sum_i p_i \log(p_i)\]</span></p>
-<p>waarbij <span class="math inline">\(p_i\)</span> de kans is op uitkomst <span class="math inline">\(i\)</span>.</p>
-<section id="interpretatie" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="interpretatie"><span class="header-section-number">1.3.1</span> Interpretatie</h3>
-<p>Een hoge entropie wijst op grote onzekerheid. Dit treedt op wanneer de kansen relatief gelijk verdeeld zijn over de mogelijke uitkomsten zoals de eerlijk dobbelsteen.</p>
-<p>Een lage entropie wijst op minder onzekerheid. Dit treedt op wanneer kansen geconcentreerd zijn rond één of enkele uitkomsten. Bijvoorbeeld een oneerlijke dobbelsteen met een grotere kans op een 6.</p>
-<p><strong>Vraag 2:</strong> Leg uit dat we voor concepten als maten van verrast zijn of onverwacht, entropie als maat zou kunnen fungeren.</p>
-<p><strong>Jouw antwoord:</strong></p>
+<section id="correlatie-berekenen" class="level1" data-number="I">
+<h1 data-number="I"><span class="header-section-number">I</span> Correlatie berekenen</h1>
+<p>Eerst onderzoeken we of er een duidelijke samenhang is tussen absorbantie en concentratie.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(abs, conc, <span class="at">method =</span> <span class="st">"pearson"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(abs, conc, <span class="at">method =</span> <span class="st">"spearman"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Vraag 1.</strong> Is dit een sterke correlatie? Leg je antwoord uit.</p>
+<p><strong>Vraag 2.</strong> Waarom is een hoge correlatie belangrijk voor een ijklijn?</p>
 </section>
-<section id="contextafhankelijkheid" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="contextafhankelijkheid"><span class="header-section-number">1.3.2</span> Contextafhankelijkheid</h3>
-<p>De betekenis van entropie hangt af van het toepassingsgebied:</p>
-<ol type="1">
-<li>in de <strong>informatietheorie</strong> is entropie een maat voor informatie-inhoud;</li>
-<li>in de <strong>natuurkunde</strong>, met name de thermodynamica, is entropie een maat voor wanorde en bepaald daarme via de weten van de tgheormdynamica de richting van een process;</li>
-<li>in de <strong>sociale wetenschappen</strong> en economie kan entropie worden gebruikt als maat voor economische of sociale ongelijkheid.</li>
-</ol>
-<p><strong>Vraag 3:</strong> Leg uit waarom zou entropie een maat zijn voor kunnen zijn voor ongelijkheid in punt 3. Wordt de waarden van de entropie groter of kleiner bij ongelijkheid?</p>
-<p><strong>Jouw antwoord:</strong></p>
-<p><strong>Vraag 4</strong>: Leg uit waarom zou entropie dan een maat zijn voor biodiversiteit? Heeft een hogere biodiversiteit een kleinere of grotere entropie?</p>
-<p><strong>Jouw antwoord:</strong></p>
+<section id="plot-van-de-ijklijn" class="level1" data-number="J">
+<h1 data-number="J"><span class="header-section-number">J</span> Plot van de ijklijn</h1>
+<p>Met een spreidingsdiagram kunnen we controleren of de punten ongeveer op een rechte lijn liggen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  conc, abs,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Eiwitconcentratie"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Absorbantie"</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Bradford-ijklijn"</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
+<section id="lineaire-regressie" class="level1" data-number="K">
+<h1 data-number="K"><span class="header-section-number">K</span> Lineaire regressie</h1>
+<p>Om een model aan de data te fitten, gebruiken we regressie. Hier gebruiken we lineaire regressie: we vatten de data samen in een eenvoudig lineair model.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(abs <span class="sc">~</span> conc)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Hierbij betekent:</p>
+<ul>
+<li><code>lm()</code> staat voor <em>linear model</em>;</li>
+<li><code>abs ~ conc</code> betekent dat <code>abs</code> wordt gemodelleerd als functie van <code>conc</code>;</li>
+<li><code>model</code> is het object waarin R de resultaten van de regressie opslaat.</li>
+</ul>
+<p>We kunnen de structuur en samenvatting van het model bekijken:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(model)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>In de output van <code>summary(model)</code> staan onder andere de geschatte waarden van het intercept <span class="math inline">\(a\)</span> en de richtingscoëfficiënt <span class="math inline">\(b\)</span>.</p>
 </section>
-<section id="opdrachten" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="opdrachten"><span class="header-section-number">1.4</span> Opdrachten</h2>
-<section id="positie-specifieke-entropie" class="level3" data-number="1.4.1">
-<h3 data-number="1.4.1" class="anchored" data-anchor-id="positie-specifieke-entropie"><span class="header-section-number">1.4.1</span> Positie-specifieke entropie</h3>
-<p>We hebben entropie leren kennen als een maat voor onzekerheid of verrassing: hoe moeilijker de uitkomst vooraf te voorspellen is, hoe hoger de entropie. Diezelfde gedachte kunnen we toepassen op DNA.</p>
-<p>Wanneer we hetzelfde gen van verschillende soorten onder elkaar leggen, ontstaat een <em>alignment</em>: overeenkomstige posities staan in dezelfde kolom. Hieronder staat een klein voorbeeld voor zes soorten en zeven posities.</p>
-<pre><code>positie:   1  2  3  4  5  6  7
-soort 1:   A  T  G  C  A  A  T
-soort 2:   A  T  G  T  A  G  T
-soort 3:   A  T  G  A  A  C  T
-soort 4:   A  T  G  G  A  A  T
-soort 5:   A  T  G  C  A  T  T
-soort 6:   A  T  G  A  A  G  T</code></pre>
-<p>Bekijk de kolommen (posities) van boven naar beneden, niet de rijen. Elke kolom vertelt hoe gevarieerd die positie is over de zes soorten.</p>
-<p><strong>Vraag 5:</strong> Op welke posities staat bij alle soorten dezelfde bouwsteen? En op welke positie verschillen de soorten het sterkst? Beschrijf in woorden.</p>
-<blockquote class="blockquote">
-<p>jouw antwoord:</p>
-</blockquote>
-<p><strong>Vraag 6:</strong> Stel je sluit je ogen en iemand wijst een willekeurige soort aan. Bij welke positie kun je met zekerheid voorspellen welke bouwsteen daar staat, nog vóór je kijkt? Bij welke positie is dat vrijwel onmogelijk? Koppel je antwoord aan het begrip <em>verrassing</em>.</p>
-<blockquote class="blockquote">
-<p>jouw antwoord:</p>
-</blockquote>
-<p><strong>Vraag 7:</strong> Leg uit welke positie de hoogste entropie heeft en welke de laagste. Gebruik daarbij dat entropie alleen afhangt van hoe de bouwstenen over de soorten verdeeld zijn — niet van wélke bouwsteen het is.</p>
-<blockquote class="blockquote">
-<p>jouw antwoord:</p>
-</blockquote>
-<p><strong>Vraag 8:</strong> Een positie die bij alle soorten identiek is, is door de evolutie heen nauwelijks veranderd. Bedenk een biologische reden waarom juist die posities niet mogen veranderen, terwijl andere posities vrij kunnen variëren.</p>
-<blockquote class="blockquote">
-<p>jouw antwoord:</p>
-</blockquote>
-<p><strong>Vraag 9 (evo-devo):</strong> De genen die de vroege ontwikkeling van een lichaam sturen, behoren tot de meest geconserveerde in het hele dierenrijk: dieren die honderden miljoenen jaren geleden een gemeenschappelijke voorouder deelden, hebben op die posities nog steeds dezelfde bouwstenen. Wat zegt lage entropie op die posities over het belang van die genen voor de ontwikkeling? En waarom is lage entropie hier een spoor van diepe verwantschap tussen soorten?</p>
-<blockquote class="blockquote">
-<p>jouw antwoord:</p>
-</blockquote>
+<section id="concentratie-van-een-onbekend-monster-bepalen" class="level1" data-number="L">
+<h1 data-number="L"><span class="header-section-number">L</span> Concentratie van een onbekend monster bepalen</h1>
+<p>Als het model is gefit, kunnen we de concentratie van een onbekend monster schatten. Stel dat de absorbantie van het onbekende monster <code>abs_onbekend</code> is. Dan geldt:</p>
+<p><span class="math display">\[\widehat{Conc} = \frac{Ab_{onbekend} - \hat{a}}{\hat{b}}\]</span></p>
+<p>In R kan dat bijvoorbeeld zo:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>coefs <span class="ot">&lt;-</span> <span class="fu">coef</span>(model)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>a_hat <span class="ot">&lt;-</span> coefs[<span class="dv">1</span>]</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>b_hat <span class="ot">&lt;-</span> coefs[<span class="dv">2</span>]</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>abs_onbekend <span class="ot">&lt;-</span> ...</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>conc_onbekend <span class="ot">&lt;-</span> (abs_onbekend <span class="sc">-</span> a_hat) <span class="sc">/</span> b_hat</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>conc_onbekend</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="entropie-is-optelbaar" class="level3" data-number="1.4.2">
-<h3 data-number="1.4.2" class="anchored" data-anchor-id="entropie-is-optelbaar"><span class="header-section-number">1.4.2</span> Entropie is optelbaar</h3>
-<p>Er is iets vreemds aan de levende wereld. Aan de ene kant wordt ze steeds complexer, histories een groei in biodiversiteit, een rijkdom aan vorm en functie. Aan de andere kant herkennen we juist heldere structuur: soorten, genera en families laten zich netjes onderscheiden. Meer variatie en meer ordening tegelijk; dat lijkt een tegenspraak.</p>
-<p>Om die schijnbare tegenspraak te ontleden, gebruiken we een belangrijke eigenschap van de logaritme:</p>
-<p><span class="math display">\[\log(A \times B) = \log(A) + \log(B)\]</span></p>
-<p>De logaritme maakt van een vermenigvuldiging een optelling. Dat is precies wat we nodig hebben, want kansen worden vermenigvuldigd, terwijl entropie een <em>som</em> is. De logaritme is de brug tussen die twee: hij vertaalt het vermenigvuldigen van kansen naar het optellen van termen, en maakt zo het somteken (<span class="math inline">\(\sum\)</span>) in de entropie mogelijk.</p>
-</section>
-</section>
-<section id="surprisal-informatie-als--logp" class="level2 page-columns page-full" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="surprisal-informatie-als--logp"><span class="header-section-number">1.5</span> Surprisal: informatie als <span class="math inline">\(-\log(p)\)</span></h2>
-<p>De grootheid <span class="math inline">\(-\log(p)\)</span> heeft een eigen naam: <em>informatie</em>, ook wel <em>surprisal</em> (verrassing). Een onwaarschijnlijke uitkomst (kleine <span class="math inline">\(p\)</span>) levert veel informatie op; een vrijwel zekere uitkomst (grote <span class="math inline">\(p\)</span>) weinig. De entropie</p>
-<p><span class="math display">\[H(X) = -\sum_i p_i \log(p_i)\]</span></p>
-<p>is dan niets anders dan het gemiddelde van die informatie over alle uitkomsten, de <em>verwachtingswaarde</em> van de surprisal. Vandaar de naam <em>informatie-entropie</em>, of kortweg weer <em>informatie</em>.</p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>Dat één begrip zowel “surprisal” als “informatie” als “entropie” heet, is een voorbeeld van hoe naamgeving in de wetenschap tot verwarring kan leiden. Toepasselijk genoeg gaat entropie hier nu juist over.</p>
-</div></div><section id="de-complexiteit-van-de-natuur-valt-uiteen-in-twee-vragen" class="level3" data-number="1.5.1">
-<h3 data-number="1.5.1" class="anchored" data-anchor-id="de-complexiteit-van-de-natuur-valt-uiteen-in-twee-vragen"><span class="header-section-number">1.5.1</span> De Complexiteit van de natuur valt uiteen in twee vragen</h3>
-<p>Dankzij de logaritme kunnen we de entropie <em>ontleden</em>. Meet je de vorm van een willekeurig organisme in de biosfeer, dan valt de onzekerheid over die vorm uiteen in twee vragen: <em>welke soort is dit?</em> en <em>hoe ziet dit individu eruit, gegeven die soort?</em> In formulevorm:</p>
-<p><span class="math display">\[H(\text{fenotype}) = H(\text{soort}) + H(\text{fenotype} \mid \text{soort})\]</span></p>
-<p>Deze opsplitsing lost de schijnbare tegenspraak op.</p>
-<p><em>Binnen</em> een soort daalt de entropie. De ontwikkeling is gebufferd: veel verschillende genotypen leiden tot hetzelfde fenotype, zodat de vorm binnen een soort weinig varieert. De rechterterm, <span class="math inline">\(H(\text{fenotype} \mid \text{soort})\)</span>, wordt daardoor kleiner.</p>
-<p><em>Tussen</em> soorten stijgt de entropie. Er komen soorten bij, de biodiversiteit groeit, en de linkerterm <span class="math inline">\(H(\text{soort})\)</span> wordt groter.</p>
-<p>Er is dus geen paradox: het gaat om twee verschillende termen, die onafhankelijk van elkaar kunnen bewegen. Sterker nog, de twee versterken elkaar. Juist doordat de vorm binnen een soort strak gebufferd is, worden soorten scherpe, telbare eenheden — en pas over zulke eenheden kun je überhaupt sommeren om biodiversiteit te meten.</p>
-<p><strong>Canalisatie</strong> is het vermogen van de ontwikkeling om, ondanks variatie in genotype of omgeving, steeds hetzelfde fenotype voort te brengen.</p>
-<p><strong>Vraag 10:</strong> Welke van de twee termen wordt beïnvloed door canalisatie, en welke door het ontstaan van nieuwe soorten? Kan <span class="math inline">\(𝐻(fenotype)=𝐻(soort)+𝐻(fenotype∣soort)\)</span> gelijk blijven terwijl beide termen veranderen?</p>
-<p><strong>Jouw antwoord:</strong></p>
-</section>
-</section>
-<section id="slotopdracht-jouw-eigen-synthese" class="level2 page-columns page-full" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="slotopdracht-jouw-eigen-synthese"><span class="header-section-number">1.6</span> Slotopdracht: jouw eigen synthese</h2>
-<p>Deze laatste opdracht is anders dan de vorige. Er is geen goed of fout antwoord, mogelijk alleen slecht geformuleerd, en je hoeft niets te berekenen. We vragen je om terug te kijken op alles wat in deze portfolio-opdracht langskwam, zowel het practicum als het theoretische deel, en er in je eigen woorden een samenhangend verhaal van te maken.</p>
-<p>Belangrijk: dit is een <em>momentopname</em>. De hypothesen en verbanden die je nu formuleert, mag je gedurende het jaar vrij aanpassen, verwerpen of uitbreiden naarmate je nieuwe onderwerpen tegenkomt, bijvoorbeeld na nieuwe inzichten met allometrische schaling in de komende colleges. Je legt hier dus geen eindantwoord vast, maar je huidige denken. Durf daarom te speculeren.</p>
-<p><strong>Vraag 1 — Rode draad.</strong> Vat in je eigen woorden samen welke theoretische elementen vandaag zijn langsgekomen, en hoe ze met elkaar samenhangen. Denk aan de begrippen die telkens terugkeerden: de nulhypothese en het verwerpen daarvan, de <span class="math inline">\(\chi^2\)</span>-toets en de p-waarde, stochastische variabelen en hun verdeling, surprisal en entropie, en de opsplitsing van entropie in canalisatie en biodiversiteit. Probeer niet elk begrip los te beschrijven, maar te laten zien hoe ze in elkaar grijpen.</p>
-<blockquote class="blockquote">
-<p>jouw antwoord:</p>
-</blockquote>
-<p><strong>Vraag 2 — Dezelfde wiskunde, andere betekenis.</strong> Een terugkerend idee was dat één wiskundige vorm in verschillende contexten opduikt, en dat de interpretatie bepaalt wat die vorm betekent. Geef in eigen woorden een voorbeeld hiervan uit deze opdracht, en bedenk of je een context buiten deze opdracht kunt verzinnen waarin je dezelfde wiskunde zou verwachten.</p>
-<blockquote class="blockquote">
-<p>jouw antwoord:</p>
-</blockquote>
-<p><strong>Vraag 3 — Onzekerheid als rode draad.</strong> Het centrale thema van deze opdracht was onzekerheid. We zagen dat de uitkomst van een meting, de waarde van een toetsgrootheid, en zelfs de conclusie van een test allemaal met onzekerheid behept zijn. Verwoord in je eigen woorden waarom onzekerheid onlosmakelijk verbonden is met het overgrote deel van de biologische wetenschap. Ga daarbij een stap verder: is onzekerheid in de biologie enkel een beperking van onze metingen, of een wezenlijke eigenschap van het leven zelf, dat immers voortkomt uit toeval en variatie?</p>
-<blockquote class="blockquote">
-<p>jouw antwoord:</p>
-</blockquote>
-<p><strong>Vraag 4 — Jouw hypothese.</strong> Formuleer ten slotte één of meer eigen hypothesen over hoe de begrippen uit deze opdrachten, entropie, onzekerheid, canalisatie, informatie, zouden kunnen samenhangen met onderwerpen die je later dit jaar verwacht tegen te komen. Dit is bewust open en speculatief; niemand verwacht dat het al klopt. Het doel is dat je leert je eigen denken vast te leggen en er later op terug te komen.</p>
-<blockquote class="blockquote">
-<p>jouw antwoord:</p>
-</blockquote>
+<section id="samenvatting" class="level1" data-number="M">
+<h1 data-number="M"><span class="header-section-number">M</span> Samenvatting</h1>
+<p>In deze les hebben we de Bradford-test gebruikt als voorbeeld van statistisch modelleren. We hebben:</p>
+<ul>
+<li>een ijklijn gemaakt met bekende concentraties;</li>
+<li>gekeken naar correlatie tussen concentratie en absorbantie;</li>
+<li>de functie <code>cor()</code> gebruikt, inclusief <code>method = "spearman"</code>;</li>
+<li>het verschil besproken tussen variabelen en parameters;</li>
+<li>een lineair model opgesteld met <code>lm(abs ~ conc)</code>;</li>
+<li>gezien hoe een onbekende concentratie uit het model kan worden geschat.</li>
+</ul>
+<p>Een goede ijklijn vereist niet alleen een hoge correlatie, maar ook een inhoudelijk verdedigbare aanname dat de relatie in het gebruikte meetbereik lineair is.</p>
 
 
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>Bewaar je antwoorden goed. Aan het eind van het jaar kijk je hierop terug en zie je hoe je denken zich heeft ontwikkeld.</p>
-</div></div><script type="ojs-module-contents">
+<script type="ojs-module-contents">
 eyJjb250ZW50cyI6W119
 </script>
 <div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
@@ -878,13 +906,13 @@ window._ojs.runtime.interpretFromScriptTags();
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Het portfolio">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Het portfolio</span>
+      <a href="./Port_logpH_Pract.html" class="pagination-link" aria-label="pH-berekeningen: logaritmen en exponenten">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">pH-berekeningen: logaritmen en exponenten</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Port_logpH_Theory.html" class="pagination-link" aria-label="Logaritmes en exponenten">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Logaritmes en exponenten</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Sepia_Mantel.html" class="pagination-link" aria-label="Sepia Mantel en de t-test.">
+        <span class="nav-page-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Sepia Mantel en de t-test.</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -80,6 +80,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-12eeb4b20e9f5a2b0bfc604bfaf942bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -107,6 +109,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -141,7 +145,7 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar floating slimcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -223,13 +227,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Port_logpH_Pract.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">pH berekeningen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">pH-berekeningen: logaritmen en exponenten</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bradford_statistiek.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Bradford-test: statistiek en lineaire modellen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Sepia_Mantel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Sepia Mantel en de t-test.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Sepia Mantel en de t-test.</span></span></a>
   </div>
 </li>
       </ul>
@@ -244,24 +254,21 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#de-exponentiële-functie" id="toc-de-exponentiële-functie" class="nav-link active" data-scroll-target="#de-exponentiële-functie"><span class="header-section-number">2.0.1</span> De exponentiële functie</a></li>
-  <li><a href="#de-logaritme" id="toc-de-logaritme" class="nav-link" data-scroll-target="#de-logaritme"><span class="header-section-number">2.0.2</span> De logaritme</a></li>
-  <li><a href="#regenregels-van-machten-en-logaritmen" id="toc-regenregels-van-machten-en-logaritmen" class="nav-link" data-scroll-target="#regenregels-van-machten-en-logaritmen"><span class="header-section-number">2.0.3</span> Regenregels van machten en logaritmen</a></li>
-  <li><a href="#ph-berekeningen" id="toc-ph-berekeningen" class="nav-link" data-scroll-target="#ph-berekeningen"><span class="header-section-number">2.1</span> pH berekeningen</a>
+  <li><a href="#eigenchappen-van-de-logaritme" id="toc-eigenchappen-van-de-logaritme" class="nav-link active" data-scroll-target="#eigenchappen-van-de-logaritme"><span class="header-section-number">2.0.1</span> Eigenchappen van de logaritme</a></li>
+  <li><a href="#evo-devo-allometrische-schaling" id="toc-evo-devo-allometrische-schaling" class="nav-link" data-scroll-target="#evo-devo-allometrische-schaling"><span class="header-section-number">2.1</span> Evo-devo: Allometrische schaling</a>
   <ul class="collapse">
-  <li><a href="#voorbeeld-ph-metingen" id="toc-voorbeeld-ph-metingen" class="nav-link" data-scroll-target="#voorbeeld-ph-metingen"><span class="header-section-number">2.1.1</span> Voorbeeld: pH metingen</a></li>
+  <li><a href="#de-schijnbare-paradox-van-de-muis-en-de-olifant" id="toc-de-schijnbare-paradox-van-de-muis-en-de-olifant" class="nav-link" data-scroll-target="#de-schijnbare-paradox-van-de-muis-en-de-olifant"><span class="header-section-number">2.1.1</span> De schijnbare paradox van de muis en de olifant</a></li>
+  <li><a href="#voorbeeld-en-opdrachten-metabolismesnelheid" id="toc-voorbeeld-en-opdrachten-metabolismesnelheid" class="nav-link" data-scroll-target="#voorbeeld-en-opdrachten-metabolismesnelheid"><span class="header-section-number">2.1.2</span> Voorbeeld en opdrachten: metabolismesnelheid</a></li>
   </ul></li>
-  <li><a href="#quizvragen" id="toc-quizvragen" class="nav-link" data-scroll-target="#quizvragen"><span class="header-section-number">2.2</span> Quizvragen</a></li>
-  <li><a href="#evo-devo-allometrische-schaling" id="toc-evo-devo-allometrische-schaling" class="nav-link" data-scroll-target="#evo-devo-allometrische-schaling"><span class="header-section-number">2.3</span> Evo-devo: Allometrische schaling</a>
+  <li><a href="#slotopdracht-terug-naar-de-rode-draad" id="toc-slotopdracht-terug-naar-de-rode-draad" class="nav-link" data-scroll-target="#slotopdracht-terug-naar-de-rode-draad"><span class="header-section-number">2.2</span> Slotopdracht: terug naar de rode draad</a>
   <ul class="collapse">
-  <li><a href="#voorbeeld-en-opdrachten-metabolismesnelheid" id="toc-voorbeeld-en-opdrachten-metabolismesnelheid" class="nav-link" data-scroll-target="#voorbeeld-en-opdrachten-metabolismesnelheid"><span class="header-section-number">2.3.1</span> Voorbeeld en opdrachten: metabolismesnelheid</a></li>
-  <li><a href="#optioneel-fractale-structuren" id="toc-optioneel-fractale-structuren" class="nav-link" data-scroll-target="#optioneel-fractale-structuren"><span class="header-section-number">2.3.2</span> Optioneel: Fractale structuren</a></li>
+  <li><a href="#optioneel-fractale-structuren" id="toc-optioneel-fractale-structuren" class="nav-link" data-scroll-target="#optioneel-fractale-structuren"><span class="header-section-number">2.2.1</span> Optioneel: Fractale structuren</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -282,133 +289,93 @@ window.Quarto = {
 </header>
 
 
-<p>Bij het vak <em>Chemie van het leven</em> leer je pH-berekeningen uit te voeren. Hierbij zul je in de logaritmische schaal werken. In deze portfolio-opdracht zullen we kennis maken met logaritmische berekeningen. Daarbij verken je meerdere contexten waarin de logaritme verschijnt.</p>
-<p>Je werkt hierbij aan de onderstaande leerdoelen. Kruis deze voor jezelf af als je ze denkt te beheersen.</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Leerdoel X</label></li>
-<li><label><input type="checkbox">Leerdoel Y</label></li>
-<li><label><input type="checkbox">Leerdoel Z</label></li>
-</ul>
-<section id="de-exponentiële-functie" class="level3" data-number="2.0.1">
-<h3 data-number="2.0.1" class="anchored" data-anchor-id="de-exponentiële-functie"><span class="header-section-number">2.0.1</span> De exponentiële functie</h3>
-<p>We komen de exponentiële functie tegen als we naar vermenigvuldingsprocessen kijken. Als we het grondgetal <span class="math inline">\(a\)</span> noemen, en we willen weten wat er gebeurt als we dit <span class="math inline">\(x\)</span> keer met zichzelf vermenigvuldigen, kunnen we dit als volgt noteren: <span class="math display">\[f(x) = a^x.\]</span> Zo kunnen we bijvoorbeeld de derde macht van 10 noteren:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">^</span><span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1000</code></pre>
-</div>
-</div>
+<!-- Bij het vak *Chemie van het leven* leer je pH-berekeningen uit te voeren. Hierbij zul je in de logaritmische schaal werken. In deze portfolio-opdracht zullen we kennis maken met logaritmische berekeningen. Daarbij verken je meerdere contexten waarin de logaritme verschijnt. -->
+<!-- Je werkt hierbij aan de onderstaande leerdoelen. Kruis deze voor jezelf af als je ze denkt te beheersen. -->
+<!-- - [ ] Leerdoel X -->
+<!-- - [ ] Leerdoel Y -->
+<!-- - [ ] Leerdoel Z -->
+<p>In de vorige portfolio-opdracht zag je dat het concept van entropie in allerlei schijnblijkelijk verschillende vakgebieden opduikt, waaronder informatietheorie, thermodynamica, sociale wetenschappen en de biodiversiteit. Hierbij zagen we steeds dezelfde wiskundige vorm, telkens anders geïnterpreteerd. Dat was geen toeval.</p>
+<p>In deze opdracht bekijken je een tweede voorbeeld van zo’n terugkerende vorm: de logaritme. Je gebruikt hem zodra je met de pH rekent, zoals we hebben gedaan bij het vak <em>Chemie van het leven</em>. Maar dezelfde functie duikt op als je kijkt naar hoe het metabolisme van een dier samenhangt met zijn lichaamsgewicht, hoe sterk een aardbeving is, of hoe hard een geluid klinkt. Aan het eind van deze opdracht kun je zelf uitleggen waarom dat zo is.</p>
+<section id="eigenchappen-van-de-logaritme" class="level3" data-number="2.0.1">
+<h3 data-number="2.0.1" class="anchored" data-anchor-id="eigenchappen-van-de-logaritme"><span class="header-section-number">2.0.1</span> Eigenchappen van de logaritme</h3>
+<p>De logartitme heeft een handige eigenschap voor het werken met concentraties en dus met de pH: hij comprimeert een enorm bereik (14 ordes van grootte in <span class="math inline">\([\text{H}^+]\)</span>) tot een overzichtelijke schaal. Diezelfde eigenschap zit achter de schaal van Richter (aardbevingen) en decibel (geluid): elke stap van 1 staat voor een factor 10 in de onderliggende grootheid.</p>
+<p>Maar de logaritme heeft nog een tweede, andere eigenschap, die je eerder bij de rekenregels al hebt gezien: hij zet een <em>machtsverband</em> om in een <em>lineair</em> verband. Die eigenschap staat nu centraal, in een heel andere context dan pH: hoe lichaamsgrootte samenhangt met de rest van de biologie van een dier.</p>
+<p><strong>Vraag:</strong> Welke van deze eigenschappen van de logaritme verwacht je nodig te hebben om zo dadelijk het verband tussen massa en metabolisme te analyseren? Licht je antwoord toe.</p>
+<blockquote class="blockquote">
+<p>jouw antwoord:</p>
+</blockquote>
 </section>
-<section id="de-logaritme" class="level3" data-number="2.0.2">
-<h3 data-number="2.0.2" class="anchored" data-anchor-id="de-logaritme"><span class="header-section-number">2.0.2</span> De logaritme</h3>
-<p>Een logaritme doet precies het omgekeerde: deze vertelt je hoeveel keer je een bepaald getal moet vermenigvuldigen om bij een ander getal uit te komen.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">1000</span>,<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
-</div>
-</div>
-<p>Met dit voorbeeld kunnen we zien dat de genoemde functies elkaars inverse zijn. Als je eerst de exponent van een getal neemt en daarna de logaritme, kom je terug bij het getal waarmee je begon. Hetzelfde geldt voor wanneer je eerst de logaritme neemt en dan de exponent. Voor alle grondgetallen <span class="math inline">\(a\)</span> en machten <span class="math inline">\(x\)</span> geldt dus:</p>
-<p><span class="math display">\[a^{\log_a(x)} = x \quad \text{en} \quad \log_a(a^x)=x \]</span></p>
-</section>
-<section id="regenregels-van-machten-en-logaritmen" class="level3" data-number="2.0.3">
-<h3 data-number="2.0.3" class="anchored" data-anchor-id="regenregels-van-machten-en-logaritmen"><span class="header-section-number">2.0.3</span> Regenregels van machten en logaritmen</h3>
-<p>Machten en logaritmen zijn praktisch, omdat ze verschijnselen kwantitatief beschrijven die snel toe- of afnemen, of over een enorme schaal variëren. Een macht is namelijk een compacte manier om een herhaaldelijke vermenigvuldiging te noteren.</p>
-<ul>
-<li><span class="math inline">\(10^1\)</span> is één stap omhoog in een schaal</li>
-<li><span class="math inline">\(10^2\)</span> is twee stappen omhoog</li>
-<li><span class="math inline">\(10^3\)</span> is drie stappen omhoog in een schaal</li>
-<li><span class="math inline">\(\vdots\)</span></li>
-</ul>
-<p>Hierbij staat elke stap dus voor een factor 10. Als je een logaritme bepaalt, bereken je hoeveel stappen je omhoog bent gegaan. We kunnen de notatie <span class="math inline">\(\log_{10}(1000)\)</span> dus lezen als: “Hoeveel stappen moet ik vanaf 10 omhoog om bij 1000 te komen?”. Hierdoor weten we dat <span class="math inline">\(\log_{10}(1000) = 3.\)</span></p>
-<p>We kunnen ook een ander grondgetal (en dus een andere vermenigvuldigingsfactor) gebruiken dan 10. In onderstaande rekenregels gebruiken we de algemene notatie <span class="math inline">\(a\)</span> en <span class="math inline">\(b\)</span> als grondgetallen, en <span class="math inline">\(p\)</span> en <span class="math inline">\(q\)</span> als machten.</p>
-<div class="note">
-<p>Rekenregels voor machten</p>
-<dl>
-<dt>Vermenigvuldiging wordt optelling</dt>
-<dd>
-<p><span class="math inline">\(a^p \cdot a^q = a^{p+q}\)</span></p>
-</dd>
-<dd>
-<p><span class="math inline">\(\frac{a^p}{a^q} = a^{p-q}\)</span></p>
-</dd>
-<dt>Machtsverheffen wordt vermenigvuldigen</dt>
-<dd>
-<p><span class="math inline">\((a^p)^q = a^{pq}\)</span></p>
-</dd>
-<dd>
-<p><span class="math inline">\(a^{-p} = \frac{1}{a^p}\)</span></p>
-</dd>
-<dd>
-<p><span class="math inline">\(a^{\frac{p}{q}} = \sqrt[q]{10^p}\)</span></p>
-</dd>
-<dt>De nulde macht is altijd 1</dt>
-<dd>
-<span class="math inline">\(a^0 = 1\)</span>
-</dd>
-</dl>
-</div>
-<p>Hieruit volgen direct de rekenregels voor de logaritme.</p>
-<p>Rekenregels voor logaritmen</p>
-<dl>
-<dt>Vermenigvuldiging wordt optelling</dt>
-<dd>
-<p><span class="math inline">\(\log_a(xy) = \log_a(x) + \log_a(y)\)</span></p>
-</dd>
-<dd>
-<p><span class="math inline">\(\log_a\left(\frac{x}{y}\right) = \log_a(x) - \log_a(y)\)</span></p>
-</dd>
-<dt>Machtsverheffen wordt vermenigvuldigen</dt>
-<dd>
-<p><span class="math inline">\(\log_a(x^y) = y\cdot \log_a(x)\)</span></p>
-</dd>
-<dt>De logaritme van 1 is altijd 0</dt>
-<dd>
-<p><span class="math inline">\(\log_a(1)=0\)</span></p>
-</dd>
-</dl>
-</section>
-<section id="ph-berekeningen" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="ph-berekeningen"><span class="header-section-number">2.1</span> pH berekeningen</h2>
-<p>De zuurgraad van een oplossing wordt bepaald door de concentratie protonen (<span class="math inline">\([\text{H}^+]\)</span>). Deze kan sterk verschillen tussen oplossingen. Het is niet handig om met extreem grote of kleine concentraties te werken. In de praktijk wordt deze concetratie daarom op een logaritmische schaal geplaatst.</p>
-<p>De pH van een oplossing wordt als volgt gedefinieerd: <span class="math display">\[\text{pH} = -\log_{10}[\text{H}^+]\]</span> Hiermee wordt een enorm concentratiebereik teruggebracht tot een schaal van ongeveer 0 tot 14.</p>
-<p>Om uit de pH de concentratie te bepalen, gebruiken we de exponentiële functie: <span class="math display">\[[\text{H}^+] = 10^{-\text{pH}}\]</span></p>
-<section id="voorbeeld-ph-metingen" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="voorbeeld-ph-metingen"><span class="header-section-number">2.1.1</span> Voorbeeld: pH metingen</h3>
-<p>Stel dat een oplossing pH 3 heeft. Dan geldt: <span class="math display">\[[\text{H}^+] = 10^{-3} = 0.001 ~\text{mol/L}.\]</span> Als de pH daalt naar 2, volgt: <span class="math display">\[[\text{H}^+] = 10^{-2} = 0.01 ~\text{mol/L}.\]</span> De concentratie wordt dus 10× groter, omdat exponentiële en logaritmische functies elkaars inverse zijn.</p>
-</section>
-</section>
-<section id="quizvragen" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="quizvragen"><span class="header-section-number">2.2</span> Quizvragen</h2>
-<p>Test je begrip door de volgende vragen te beantwoorden.</p>
-<div class="cell">
-<div class="cell-output-display">
-<iframe src="https://mai-nguyen0310.shinyapps.io/shiny_log/" width="100%" height="400" frameborder="0"></iframe>
-</div>
-</div>
-</section>
-<section id="evo-devo-allometrische-schaling" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="evo-devo-allometrische-schaling"><span class="header-section-number">2.3</span> Evo-devo: Allometrische schaling</h2>
+<section id="evo-devo-allometrische-schaling" class="level2 page-columns page-full" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="evo-devo-allometrische-schaling"><span class="header-section-number">2.1</span> Evo-devo: Allometrische schaling</h2>
 <p>We gaan nu kijken naar een andere context waarin logaritmes en exponenten helpen bij het begrijpen van biologische fenomenen. We duiken hierbij voor het eerst het vakgebied Evo-Devo in. Je kunt de bijbehorende vragen in R maken door <a href="evo-devo/schaling.qmd">dit bestand</a> te downloaden.</p>
 <p>Een interessant fenomeen binnen de evolutie is allometrische schaling. Dit beschrijft hoe biologische eigenschappen systematisch veranderen als de lichaamsgrootte toeneemt van soort tot soort. Wat opvalt, is dat veel kenmerken, zoals metabolismesnelheid, levensduur, loopsnelheid en breingrootte, niet linear toenemen, maar volgens een bepaalde machtswet. Deze kunnen we als volgt schrijven:</p>
 <p><span class="math display">\[Y = aM^b.\]</span></p>
 <p>Hierbij staat <span class="math inline">\(Y\)</span> voor de variabele die gemeten wordt en <span class="math inline">\(M\)</span> voor de massa. De coëfficiënt <span class="math inline">\(a\)</span> is soortspecifiek en <span class="math inline">\(b\)</span> is de allometrische exponent.</p>
-<section id="voorbeeld-en-opdrachten-metabolismesnelheid" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="voorbeeld-en-opdrachten-metabolismesnelheid"><span class="header-section-number">2.3.1</span> Voorbeeld en opdrachten: metabolismesnelheid</h3>
+<section id="de-schijnbare-paradox-van-de-muis-en-de-olifant" class="level3 page-columns page-full" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="de-schijnbare-paradox-van-de-muis-en-de-olifant"><span class="header-section-number">2.1.1</span> De schijnbare paradox van de muis en de olifant</h3>
+<p>Een muis verbrandt, per gram lichaamsweefsel, veel sneller energie dan een olifant, en toch leeft de olifant vele malen langer. Beide dieren volgen hetzelfde hierboven beschreven allebei verband. Hoe kan dat?</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Vergelijk dit met de entropie-splitsing uit de vorige opdracht: <span class="math inline">\(H(\text{fenotype}) = H(\text{soort}) + H(\text{fenotype}\mid\text{soort})\)</span>. Ook daar leken meer biodiversiteit én meer ordening (canalisatie) elkaar tegen te spreken, tot bleek dat het om twee aparte termen ging.</p>
+</div></div><p>Het antwoord hier zit op dezelfde manier in <em>welke</em> grootheid je bekijkt: massa-specifiek metabolisme (per gram) en totaal metabolisme (per dier) volgen beide een machtswet in <span class="math inline">\(M\)</span>, maar met tegengestelde tendens. Dat ga je hieronder zelf aantonen.</p>
+</section>
+<section id="voorbeeld-en-opdrachten-metabolismesnelheid" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="voorbeeld-en-opdrachten-metabolismesnelheid"><span class="header-section-number">2.1.2</span> Voorbeeld en opdrachten: metabolismesnelheid</h3>
 <p>Om meer inzicht te krijgen in hoe deze machtsrelatie werkt, gaan we de volgende afbeelding analyseren:</p>
 <p>!<a href="evo-devo/data_schaling.png">Data_schaling</a></p>
 <p>We zien dat we een verband zoeken tussen de massa van een soort in kilogram en de metabolismesnelheid in mL zuurstofverbruik per gram per uur. Uit deze figuur kunnen we (ongeveer) de datapunten bepalen:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>massa <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.002</span>, <span class="fl">0.008</span>, <span class="fl">0.015</span>, <span class="fl">0.02</span>, <span class="fl">0.025</span>, <span class="fl">0.08</span>, <span class="fl">0.4</span>, </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>          <span class="fl">2.5</span>, <span class="dv">3</span>, <span class="dv">14</span>, <span class="dv">45</span>, <span class="dv">72</span>,<span class="dv">700</span>, <span class="dv">2500</span>)  </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>metabolisme <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">7.15</span>, <span class="fl">2.2</span>, <span class="fl">1.85</span>, <span class="fl">1.7</span>, <span class="fl">1.65</span>, <span class="fl">1.05</span>, <span class="fl">0.75</span>, </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.45</span>, <span class="fl">0.4</span>,<span class="fl">0.2</span>, <span class="fl">0.15</span>, <span class="fl">0.1</span>, <span class="fl">0.75</span>, <span class="fl">0.05</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>massa <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.002</span>, <span class="fl">0.008</span>, <span class="fl">0.015</span>, <span class="fl">0.02</span>, <span class="fl">0.025</span>, <span class="fl">0.08</span>, <span class="fl">0.4</span>, </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>          <span class="fl">2.5</span>, <span class="dv">3</span>, <span class="dv">14</span>, <span class="dv">45</span>, <span class="dv">72</span>,<span class="dv">700</span>, <span class="dv">2500</span>)  </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>metabolisme <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">7.15</span>, <span class="fl">2.2</span>, <span class="fl">1.85</span>, <span class="fl">1.7</span>, <span class="fl">1.65</span>, <span class="fl">1.05</span>, <span class="fl">0.75</span>, </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.45</span>, <span class="fl">0.4</span>,<span class="fl">0.2</span>, <span class="fl">0.15</span>, <span class="fl">0.1</span>, <span class="fl">0.75</span>, <span class="fl">0.05</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="plot-hieronder-de-datapunten-aan-de-hand-van-de-vectoren-die-gegeven-zijn.-waarom-ziet-het-er-anders-uit-dan-de-gegeven-figuur" class="level4" data-number="2.3.1.1">
-<h4 data-number="2.3.1.1" class="anchored" data-anchor-id="plot-hieronder-de-datapunten-aan-de-hand-van-de-vectoren-die-gegeven-zijn.-waarom-ziet-het-er-anders-uit-dan-de-gegeven-figuur"><span class="header-section-number">2.3.1.1</span> Plot hieronder de datapunten aan de hand van de vectoren die gegeven zijn. Waarom ziet het er anders uit dan de gegeven figuur?</h4>
+<p><strong>Vraag 1:</strong> Plot hieronder de datapunten aan de hand van de vectoren die gegeven zijn. Waarom ziet het er anders uit dan de gegeven figuur?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dit zou je zelf moeten doen </span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(massa, metabolisme)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dit zou je zelf moeten doen </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(massa, metabolisme)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Port_logpH_Theory_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Vraag 2:</strong> Los het probleem op: hoe zou je ervoor kunnen zorgen dat de data goed leesbaar wordt? Wat voor verband kunnen we nu afleiden?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dit zou je zelf moeten doen </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log10</span>(massa), <span class="fu">log10</span>(metabolisme),      </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">xlab =</span> <span class="st">"log10(Massa)"</span>, </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"log10(Metabolisme)"</span>)  </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(<span class="fu">log10</span>(metabolisme) <span class="sc">~</span> <span class="fu">log10</span>(massa)), <span class="at">col =</span> <span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Port_logpH_Theory_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Vraag 3:</strong> Leg nu in woorden uit waarom de gebruikte methode werkt, en relateer dat aan de machtsformule.</p>
+<blockquote class="blockquote">
+<p>Jouw antwoord</p>
+</blockquote>
+<p>We gaan nu iets beter kijken naar de betekenis van het aangetone verband. We hebben gekeken naar de massa-specifieke metabole snelheid, ook wel metabole intensiteit, die aangeeft hoe snel metabolisme verloopt per eenheid massa van een bepaald weefsel. Dit meten we bijvoorbeeld als de hoeveelheid <span class="math inline">\(\text{O}_2\)</span> die verbruikt wordt per uur. Aan deze eenheid zien we dat we dit kunnen berekenen door de totale metabole intensiteit te delen door de massa.</p>
+<p><strong>Vraag 4:</strong> Vul dit in bij de machtsformule, waarbij de gemeten variabele het totale metabolisme is. Maak gebruik van de rekenregels van de logaritme om een uitdrukking te krijgen voor de totale metabole intensiteit.</p>
+<blockquote class="blockquote">
+<p>Jouw antwoord</p>
+</blockquote>
+<p>Om terug te gaan naar het totale metabolisme in een dier, vermenigvuldigen we de massa en het massa-specifieke metabolisme.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>massa_metabolisme <span class="ot">&lt;-</span> massa<span class="sc">*</span>metabolisme</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Vraag 5:</strong> Probeer nu een relatie te vinden tussen de massa en het totale metabolisme.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dit zou je zelf doen </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log10</span>(massa), </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">log10</span>(massa_metabolisme)) </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(<span class="fu">log10</span>(massa_metabolisme) <span class="sc">~</span> <span class="fu">log10</span>(massa)), <span class="at">col =</span> <span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -417,71 +384,61 @@ window.Quarto = {
 </div>
 </div>
 </div>
-</section>
-<section id="los-het-probleem-op-hoe-zou-je-ervoor-kunnen-zorgen-dat-de-data-goed-leesbaar-wordt-wat-voor-verband-kunnen-we-nu-afleiden" class="level4" data-number="2.3.1.2">
-<h4 data-number="2.3.1.2" class="anchored" data-anchor-id="los-het-probleem-op-hoe-zou-je-ervoor-kunnen-zorgen-dat-de-data-goed-leesbaar-wordt-wat-voor-verband-kunnen-we-nu-afleiden"><span class="header-section-number">2.3.1.2</span> Los het probleem op: hoe zou je ervoor kunnen zorgen dat de data goed leesbaar wordt? Wat voor verband kunnen we nu afleiden?</h4>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dit zou je zelf moeten doen </span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log10</span>(massa), <span class="fu">log10</span>(metabolisme),      </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">xlab =</span> <span class="st">"log10(Massa)"</span>, </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"log10(Metabolisme)"</span>)  </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(<span class="fu">log10</span>(metabolisme) <span class="sc">~</span> <span class="fu">log10</span>(massa)), <span class="at">col =</span> <span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Port_logpH_Theory_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="leg-nu-in-woorden-uit-waarom-de-gebruikte-methode-werkt-en-relateer-dat-aan-de-machtsformule." class="level4" data-number="2.3.1.3">
-<h4 data-number="2.3.1.3" class="anchored" data-anchor-id="leg-nu-in-woorden-uit-waarom-de-gebruikte-methode-werkt-en-relateer-dat-aan-de-machtsformule."><span class="header-section-number">2.3.1.3</span> Leg nu in woorden uit waarom de gebruikte methode werkt, en relateer dat aan de machtsformule.</h4>
-<p>[vul hier in]</p>
-<p>We gaan nu iets beter kijken naar de betekenis van het aangetone verband. We hebben gekeken naar de massa-specifieke metabole snelheid, ook wel metabole intensiteit, die aangeeft hoe snel metabolisme verloopt per eenheid massa van een bepaald weefsel. Dit meten we bijvoorbeeld als de hoeveelheid <span class="math inline">\(\text{O}_2\)</span> die verbruikt wordt per uur. Aan deze eenheid zien we dat we dit kunnen berekenen door de totale metabole intensiteit te delen door de massa.</p>
-</section>
-<section id="vul-dit-in-bij-de-machtsformule-waarbij-de-gemeten-variabele-het-totale-metabolisme-is.-maak-gebruik-van-de-rekenregels-van-de-logaritme-om-een-uitdrukking-te-krijgen-voor-de-totale-metabole-intensiteit." class="level4" data-number="2.3.1.4">
-<h4 data-number="2.3.1.4" class="anchored" data-anchor-id="vul-dit-in-bij-de-machtsformule-waarbij-de-gemeten-variabele-het-totale-metabolisme-is.-maak-gebruik-van-de-rekenregels-van-de-logaritme-om-een-uitdrukking-te-krijgen-voor-de-totale-metabole-intensiteit."><span class="header-section-number">2.3.1.4</span> Vul dit in bij de machtsformule, waarbij de gemeten variabele het totale metabolisme is. Maak gebruik van de rekenregels van de logaritme om een uitdrukking te krijgen voor de totale metabole intensiteit.</h4>
-<p>[vul hier in]</p>
-<p>Om terug te gaan naar het totale metabolisme in een dier, vermenigvuldigen we de massa en het massa-specifieke metabolisme.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>massa_metabolisme <span class="ot">&lt;-</span> massa<span class="sc">*</span>metabolisme</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="probeer-nu-een-relatie-te-vinden-tussen-de-massa-en-het-totale-metabolisme." class="level4" data-number="2.3.1.5">
-<h4 data-number="2.3.1.5" class="anchored" data-anchor-id="probeer-nu-een-relatie-te-vinden-tussen-de-massa-en-het-totale-metabolisme."><span class="header-section-number">2.3.1.5</span> Probeer nu een relatie te vinden tussen de massa en het totale metabolisme.</h4>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dit zou je zelf doen </span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log10</span>(massa), </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">log10</span>(massa_metabolisme)) </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(<span class="fu">log10</span>(massa_metabolisme) <span class="sc">~</span> <span class="fu">log10</span>(massa)), <span class="at">col =</span> <span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Port_logpH_Theory_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="wat-kun-je-opmerken-over-het-effect-van-een-grotere-massa-op-de-totale-metabole-snelheid-en-op-de-massa-specifieke-metabole-snelheid" class="level4" data-number="2.3.1.6">
-<h4 data-number="2.3.1.6" class="anchored" data-anchor-id="wat-kun-je-opmerken-over-het-effect-van-een-grotere-massa-op-de-totale-metabole-snelheid-en-op-de-massa-specifieke-metabole-snelheid"><span class="header-section-number">2.3.1.6</span> Wat kun je opmerken over het effect van een grotere massa op de totale metabole snelheid? En op de massa-specifieke metabole snelheid?</h4>
-<p>[vul hier in]</p>
-</section>
-<section id="gebruik-de-rekenregels-van-de-logaritme-en-je-eerdere-antwoorden-om-een-waarde-voor-de-exponent-b-te-vinden.-hint-gebruik-de-functie-om-een-relevante-waarde-te-vinden.-met-vind-je-hoe-je-deze-kunt-gebruiken." class="level4" data-number="2.3.1.7">
-<h4 data-number="2.3.1.7" class="anchored" data-anchor-id="gebruik-de-rekenregels-van-de-logaritme-en-je-eerdere-antwoorden-om-een-waarde-voor-de-exponent-b-te-vinden.-hint-gebruik-de-functie-om-een-relevante-waarde-te-vinden.-met-vind-je-hoe-je-deze-kunt-gebruiken."><span class="header-section-number">2.3.1.7</span> Gebruik de rekenregels van de logaritme en je eerdere antwoorden om een waarde voor de exponent <span class="math inline">\(b\)</span> te vinden. Hint: gebruik de functie om een relevante waarde te vinden. Met vind je hoe je deze kunt gebruiken.</h4>
-<p>[vul hier in]</p>
+<p><strong>Vraag 6:</strong> Wat kun je opmerken over het effect van een grotere massa op de totale metabole snelheid? En op de massa-specifieke metabole snelheid?</p>
+<blockquote class="blockquote">
+<p>Jouw antwoord</p>
+</blockquote>
+<p><strong>Vraag 7:</strong> Gebruik de rekenregels van de logaritme en je eerdere antwoorden om een waarde voor de exponent <span class="math inline">\(b\)</span> te vinden. Hint: gebruik de functie om een relevante waarde te vinden. Met vind je hoe je deze kunt gebruiken.</p>
+<blockquote class="blockquote">
+<p>Jouw antwoord ### Terug naar de paradox</p>
+</blockquote>
+<p><strong>Vraag 8:</strong> Je vond zojuist twee exponenten: één voor het verband tussen massa en massa-specifiek metabolisme, en één voor massa en totaal metabolisme. Laat met de rekenregels van de logaritme zien hoe deze twee exponenten met elkaar samenhangen (hint: totaal = specifiek × massa, dus <span class="math inline">\(M^1\)</span> komt erbij). Los hiermee de muis-olifant-paradox formeel op.</p>
+<blockquote class="blockquote">
+<p>jouw antwoord:</p>
+</blockquote>
 </section>
 </section>
-<section id="optioneel-fractale-structuren" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="optioneel-fractale-structuren"><span class="header-section-number">2.3.2</span> Optioneel: Fractale structuren</h3>
-<p>Geïnteresseerden worden uitgenodigd om <a href="evo-devo/schaling.html">hier</a> meer te lezen over fractale structuren.</p>
+<section id="slotopdracht-terug-naar-de-rode-draad" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="slotopdracht-terug-naar-de-rode-draad"><span class="header-section-number">2.2</span> Slotopdracht: terug naar de rode draad</h2>
+<p>In de vorige portfolio-opdracht schreef je een eigen hypothese over hoe entropie, onzekerheid en canalisatie zouden samenhangen met onderwerpen die je dit jaar nog zou tegenkomen.</p>
+<p><strong>Vraag 9:</strong> Lees je antwoord van toen terug. - Klopte je speculatie? - Zie je nu een verband tussen de logaritme hier en de entropie van vorige keer? - In de introductie beschreven we dat de logaritme in zoveel uiteenlopende contexten (pH, aardbevingen, geluid, metabolisme) opduikt. Formuleer nu, in je eigen woorden, een algemene verklaring.</p>
+<blockquote class="blockquote">
+<p>jouw antwoord:</p>
+</blockquote>
+<section id="optioneel-fractale-structuren" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="optioneel-fractale-structuren"><span class="header-section-number">2.2.1</span> Optioneel: Fractale structuren</h3>
+<p>De log-log-lineariteit die je hierboven gebruikte, komt niet toevallig ook terug bij fractale structuren. Dit zijn patronen die er op elke schaal ongeveer hetzelfde uitzien. Geïnteresseerden worden uitgenodigd om <a href="evo-devo/schaling.html">hier</a> meer te lezen over fractale structuren.</p>
 
 
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
 </section>
 </section>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

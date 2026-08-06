@@ -27,6 +27,104 @@ Vergelijk dit met de $\chi^2$-toets: ook daar schalen we een verschil (O − E) 
 
 > Jouw antwoord
 
+### De exponentiële functie
+
+We komen de exponentiële functie tegen als we naar vermenigvuldingsprocessen kijken. Als we het grondgetal $a$ noemen, en we willen weten wat er gebeurt als we dit $x$ keer met zichzelf vermenigvuldigen, kunnen we dit als volgt noteren: $$f(x) = a^x.$$ Zo kunnen we bijvoorbeeld de derde macht van 10 noteren:
+
+```{r}
+10^3
+```
+
+### De logaritme
+
+Een logaritme doet precies het omgekeerde: deze vertelt je hoeveel keer je een bepaald getal moet vermenigvuldigen om bij een ander getal uit te komen.
+
+```{r}
+log(1000,10)
+```
+
+Met dit voorbeeld kunnen we zien dat de genoemde functies elkaars inverse zijn. Als je eerst de exponent van een getal neemt en daarna de logaritme, kom je terug bij het getal waarmee je begon. Hetzelfde geldt voor wanneer je eerst de logaritme neemt en dan de exponent. Voor alle grondgetallen $a$ en machten $x$ geldt dus:
+
+$$a^{\log_a(x)} = x \quad \text{en} \quad \log_a(a^x)=x $$
+
+### Regenregels van machten en logaritmen
+
+Machten en logaritmen zijn praktisch, omdat ze verschijnselen kwantitatief beschrijven die snel toe- of afnemen, of over een enorme schaal variëren. Een macht is namelijk een compacte manier om een herhaaldelijke vermenigvuldiging te noteren.
+
+- $10^1$ is één stap omhoog in een schaal
+- $10^2$ is twee stappen omhoog
+- $10^3$ is drie stappen omhoog in een schaal
+- $\vdots$
+
+Hierbij staat elke stap dus voor een factor 10. Als je een logaritme bepaalt, bereken je hoeveel stappen je omhoog bent gegaan. We kunnen de notatie $\log_{10}(1000)$ dus lezen als: "Hoeveel stappen moet ik vanaf 10 omhoog om bij 1000 te komen?". Hierdoor weten we dat $\log_{10}(1000) = 3.$
+
+We kunnen ook een ander grondgetal (en dus een andere vermenigvuldigingsfactor) gebruiken dan 10. In onderstaande rekenregels gebruiken we de algemene notatie $a$ en $b$ als grondgetallen, en $p$ en $q$ als machten.
+
+::: note
+Rekenregels voor machten
+
+Vermenigvuldiging wordt optelling
+
+:   $a^p \cdot a^q = a^{p+q}$
+
+:   $\frac{a^p}{a^q} = a^{p-q}$
+
+Machtsverheffen wordt vermenigvuldigen
+
+:   $(a^p)^q = a^{pq}$
+
+:   $a^{-p} = \frac{1}{a^p}$
+
+:   $a^{\frac{p}{q}} = \sqrt[q]{10^p}$
+
+De nulde macht is altijd 1
+
+:   $a^0 = 1$
+:::
+
+Hieruit volgen direct de rekenregels voor de logaritme.
+
+Rekenregels voor logaritmen
+
+Vermenigvuldiging wordt optelling
+
+:   $\log_a(xy) = \log_a(x) + \log_a(y)$
+
+:   $\log_a\left(\frac{x}{y}\right) = \log_a(x) - \log_a(y)$
+
+Machtsverheffen wordt vermenigvuldigen
+
+:   $\log_a(x^y) = y\cdot \log_a(x)$
+
+De logaritme van 1 is altijd 0
+
+:   $\log_a(1)=0$
+
+
+
+
+## pH berekeningen
+
+De zuurgraad van een oplossing wordt bepaald door de concentratie protonen ($[\text{H}^+]$). Deze kan sterk verschillen tussen oplossingen. Het is niet handig om met extreem grote of kleine concentraties te werken. In de praktijk wordt deze concetratie daarom op een logaritmische schaal geplaatst.
+
+De pH van een oplossing wordt als volgt gedefinieerd: $$\text{pH} = -\log_{10}[\text{H}^+]$$ Hiermee wordt een enorm concentratiebereik teruggebracht tot een schaal van ongeveer 0 tot 14.
+
+Om uit de pH de concentratie te bepalen, gebruiken we de exponentiële functie: $$[\text{H}^+] = 10^{-\text{pH}}$$
+
+### Voorbeeld: pH metingen
+
+Stel dat een oplossing pH 3 heeft. Dan geldt: $$[\text{H}^+] = 10^{-3} = 0.001 ~\text{mol/L}.$$ Als de pH daalt naar 2, volgt: $$[\text{H}^+] = 10^{-2} = 0.01 ~\text{mol/L}.$$ De concentratie wordt dus 10× groter, omdat exponentiële en logaritmische functies elkaars inverse zijn.
+
+## Quizvragen
+
+Test je begrip door de volgende vragen te beantwoorden.
+
+```{r, echo = FALSE}
+# Verander hier niks aan!
+htmltools::tags$iframe(src = "https://mai-nguyen0310.shinyapps.io/shiny_log/",
+                       width = "100%", height = "400", frameborder = "0")
+```
+
 ## Practicumopdracht
 
 ### Oplossingen maken
