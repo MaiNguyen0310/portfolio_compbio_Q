@@ -1,6 +1,4 @@
----
-title: "Differentiaalvergelijkingen"
----
+# Differentiaalvergelijkingen
 
 Levende systemen veranderen continu. Populaties groeien, krimpen en migreren; cellen delen en sterven, en concentraties in allerlei omgevingen veranderen... Deze verandering over de tijd is vaak makkelijker bij te houden of te schatten dan de absolute aantallen: als je weet dat een diersoort gemiddeld 5 nakomelingen per jaar per organisme introduceert, kun je aan de hand hiervan vrij makkelijk de populatiegrootte over een langere tijd schatten. Dat is veel hanteerbaarder dan het aantal individuen elk jaar proberen te tellen!
 
@@ -18,10 +16,10 @@ $$\frac{dN}{dt} = 5N(t), \quad N(0)=100.$$
 
 Hierin zien we dat hoe meer individuen er zijn, hoe meer nakomelingen er bijkomen en dus hoe sneller de populatie groeit. In dit geval hebben we *exponentiële groei* gemodelleerd, waarbij elk individu dus per tijdseenheid 5 nakomelingen krijgt. In de oplossing voor deze differentiaalvergelijkingen is dit gedrag direct te zien.
 
-**Opdracht** Laat door differentieren van de functie $N(t)= Ce^{rt}$ geldt dat $\frac{dN}{dt}=rA(t)$, waarbij $r$ en $C$ constantes zijn.
+**Vraag 1:** Laat door differentieren van de functie $N(t)= Ce^{rt}$ geldt dat $\frac{dN}{dt}=rA(t)$, waarbij $r$ en $C$ constantes zijn.
 
-```         
-# geef je antwoord hier in R code stijl
+```  {r}
+# geef je antwoord hier 
 ```
 
 We kunnen bekijken hoe de groeisnelheid afhangt van de huidige populatiegrootte. We vinden dan de volgende grafiek:
@@ -62,9 +60,11 @@ for(i in 1:(length(t)-1)){
 plot(t,N, type = 'l')
 ```
 
-**Opdracht** Verklaar de laatste twee grafieken op basis van de differentiaalvergelijking en relateer ze aan elkaar.
+**Vraag 2:** Verklaar de laatste twee grafieken op basis van de differentiaalvergelijking en relateer ze aan elkaar.
 
-**Opdracht** Wat is, uitgaande van deze exponentiële relatie, het verband tussen de afhankelijke variabele $\ln(N)$ en de onafhankelijke variabele $t$?
+> Jouw antwoord
+
+**Vraag 3:** Wat is, uitgaande van deze exponentiële relatie, het verband tussen de afhankelijke variabele $\ln(N)$ en de onafhankelijke variabele $t$?
 
 > Jouw antwoord
 
@@ -186,13 +186,17 @@ We nemen aan dat de oppervlakte $A$ van de kolonie als functie van de tijd $t$ w
 A(t)=\alpha e^{\beta t}.
 \end{equation}
 
-**Opdracht** Hoe kunnen we ervoor zorgen dat de dalende trend uit de tabel gevolgd wordt door het model? Simuleer dit, en haal hierbij inspiratie uit eerder gegeven code. De exacte datapunten uit de tabel hoeven niet benaderd te worden, het gaat om de trend.
+**Vraag 4:** Hoe kunnen we ervoor zorgen dat de dalende trend uit de tabel gevolgd wordt door het model? Simuleer dit, en haal hierbij inspiratie uit eerder gegeven code. De exacte datapunten uit de tabel hoeven niet benaderd te worden, het gaat om de trend.
+
+```{r}
+# jouw antwoord
+```
 
 ## Parameters schatten
 
 We kunnen de draagkracht en groeisnelheid ook afleiden uit andere observaties.
 
-**Opdracht** We beschrijven een populatie met dichtheid $n$ (exacte eenheden laten we buiten beschouwing) en observeren dat de het aantal geboortes $g$ en sterftes $s$ in de populatie dichtheidsafhankelijk is. We hebben hiervoor de vergelijkingen \begin{equation}
+**Vraag 5** We beschrijven een populatie met dichtheid $n$ (exacte eenheden laten we buiten beschouwing) en observeren dat de het aantal geboortes $g$ en sterftes $s$ in de populatie dichtheidsafhankelijk is. We hebben hiervoor de vergelijkingen \begin{equation}
 \frac{dg}{dt} = 1 + 0.04n, \quad \frac{ds}{dt} = 0.45 + 0.06n.
 \end{equation}
 

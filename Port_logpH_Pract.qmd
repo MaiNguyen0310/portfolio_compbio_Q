@@ -1,31 +1,15 @@
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
 
+<!-- TODO fix bug dat app heel vaak opent -->
 # pH-berekeningen: logaritmen en exponenten
 
-Dit portfolio-onderdeel is gekoppeld aan het vak *Chemie van het leven*, waarbij je veel met pH-waarden werkt. Hierbij heb je ongetwijfeld al gerekend met de logaritme, maar dat is niet de eerste keer dat je deze functie bent tegengekomen in de studie. In de vorige portfolio-opdracht kwam deze naar voren bij het bespreken van entropie. Dit is geen toeval: de logaritme is een belangrijke functie, die toepassingen heeft in meerdere contexten. In deze opdracht zullen we verder kennis maken met eigenschappen van de logaritme en zullen we interessante toepassingen verkennen.
+Dit portfolio-onderdeel is gekoppeld aan het vak *Chemie van het leven*, waarbij je veel met pH-waarden werkt. Hierbij heb je ongetwijfeld al gerekend met de logaritme, maar dat is niet de eerste keer dat je deze functie bent tegengekomen in de studie. In de vorige portfolio-opdracht kwam deze naar voren bij het bespreken van entropie. Dit is geen toeval: de logaritme is een belangrijke functie, die toepassingen heeft in meerdere contexten.
 
-Net als bij de vorige portfolio-opdracht, volgt een theoretisch deel.
+We herhalen de rekenregels van de logaritme kort, zodat je deze bij de hand hebt. Vervolgens leiden we het aankomende practicum in, waarbij je tegelijkertijd oefent met coderen.
 
-## Waarom werken we eigenlijk met een logaritmische maat?
+Net als bij de vorige portfolio-opdracht, volgt een theoretisch deel. Hierbij zul je een toepassing van de logaritme in de evolutieleer bestuderen.
 
-De concentratie van $\ce{H^+}$ in waterige oplossingen varieert van ongeveer 1 mol/L (sterk zuur) tot $10^{-14}$ mol/L (sterk basisch). Dit is een enorm bereik van veertien ordes van grootte. Op een lineaire schaal zouden kleine verschillen volledig wegvallen tegen de uitschieters, terwijl we weten dat het verschil tussen bijvoorbeeld pH 6 en pH 8 biologisch erg relevant is.
-
-
-De logaritme lost dit op door een vermenigvuldigingsverhouding om te zetten in een optelbaar verschil: $$\log(a \cdot b) = \log a + \log b.$$ 
-
-We hebben eerder gezien dat dit een gunstige eigenschap is! Eerder ging het om het optellen van entropie; nu gaat het om het schalen van data met een groot bereik.
-
-De definitie van de pH is dankzij deze eigenschap als volgt:
-
-$$\text{pH} = -\log_{10}[\text{H}^+]$$
-
-::: aside
-Vergelijk dit met de $\chi^2$-toets: ook daar schalen we een verschil (O − E) naar een begrensd interval, waardoor we waarden kunnen vergelijken, onafhankelijk van de grootte van de absolute aantallen.
-:::
-
-**Vraag 1:** Als de H⁺-concentratie met een factor 10 daalt, wat gebeurt er dan met de pH? En als de concentratie halveert (bijvoorbeeld door verdunning)? Reken beide gevallen uit en leg intuïtief uit waarom een verschil van "1 pH-eenheid" een heel andere betekenis heeft dan een verschil van "1 eenheid concentratie" (mol/Liter).
-
-> Jouw antwoord
+## Logaritmen en exponenten
 
 ### De exponentiële functie
 
@@ -102,6 +86,29 @@ De logaritme van 1 is altijd 0
 
 
 
+## Waarom werken we voor de pH eigenlijk met een logaritmische maat?
+
+De concentratie van $\ce{H^+}$ in waterige oplossingen varieert van ongeveer 1 mol/L (sterk zuur) tot $10^{-14}$ mol/L (sterk basisch). Dit is een enorm bereik van veertien ordes van grootte. Op een lineaire schaal zouden kleine verschillen volledig wegvallen tegen de uitschieters, terwijl we weten dat het verschil tussen bijvoorbeeld pH 6 en pH 8 biologisch erg relevant is.
+
+
+De logaritme lost dit op door een vermenigvuldigingsverhouding om te zetten in een optelbaar verschil: 
+$$\log(a \cdot b) = \log a + \log b.$$ 
+::: aside
+We hebben bij het vorige portfolio-onderdeel ook gezien dat dit een gunstige eigenschap is! Eerder ging het om het optellen van entropie; nu gaat het om het schalen van data met een groot bereik.
+:::
+
+De definitie van de pH is dankzij deze eigenschap als volgt:
+
+$$\text{pH} = -\log_{10}[\text{H}^+]$$
+
+::: aside
+Vergelijk dit met de $\chi^2$-toets: ook daar schalen we een verschil (O − E) naar een begrensd interval, waardoor we waarden kunnen vergelijken, onafhankelijk van de grootte van de absolute aantallen.
+:::
+
+**Vraag 1:** Als de H⁺-concentratie met een factor 10 daalt, wat gebeurt er dan met de pH? En als de concentratie halveert (bijvoorbeeld door verdunning)? Reken beide gevallen uit en leg intuïtief uit waarom een verschil van "1 pH-eenheid" een heel andere betekenis heeft dan een verschil van "1 eenheid concentratie" (mol/Liter).
+
+> Jouw antwoord
+
 
 ## pH berekeningen
 
@@ -111,9 +118,9 @@ De pH van een oplossing wordt als volgt gedefinieerd: $$\text{pH} = -\log_{10}[\
 
 Om uit de pH de concentratie te bepalen, gebruiken we de exponentiële functie: $$[\text{H}^+] = 10^{-\text{pH}}$$
 
-### Voorbeeld: pH metingen
+<!-- ### Voorbeeld: pH metingen -->
 
-Stel dat een oplossing pH 3 heeft. Dan geldt: $$[\text{H}^+] = 10^{-3} = 0.001 ~\text{mol/L}.$$ Als de pH daalt naar 2, volgt: $$[\text{H}^+] = 10^{-2} = 0.01 ~\text{mol/L}.$$ De concentratie wordt dus 10× groter, omdat exponentiële en logaritmische functies elkaars inverse zijn.
+<!-- Stel dat een oplossing pH 3 heeft. Dan geldt: $$[\text{H}^+] = 10^{-3} = 0.001 ~\text{mol/L}.$$ Als de pH daalt naar 2, volgt: $$[\text{H}^+] = 10^{-2} = 0.01 ~\text{mol/L}.$$ De concentratie wordt dus 10× groter, omdat exponentiële en logaritmische functies elkaars inverse zijn. -->
 
 ## Quizvragen
 

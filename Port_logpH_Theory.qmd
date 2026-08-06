@@ -10,31 +10,31 @@
 <!-- - [ ] Leerdoel Z -->
 
 
-In de vorige portfolio-opdracht zag je dat het concept van entropie in allerlei schijnblijkelijk verschillende vakgebieden opduikt, waaronder  informatietheorie, thermodynamica, sociale wetenschappen en de biodiversiteit. Hierbij zagen we steeds dezelfde wiskundige vorm, telkens anders geïnterpreteerd. Dat was geen toeval.
+In de vorige portfolio-opdracht ontdekte je dat het concept van entropie in allerlei schijnblijkelijk verschillende vakgebieden opduikt, waaronder  informatietheorie, thermodynamica, sociale wetenschappen en biodiversiteit. Hierbij zagen we steeds dezelfde wiskundige vorm, telkens anders geïnterpreteerd. Dat was geen toeval.
 
-In deze opdracht bekijken je een tweede voorbeeld van zo'n terugkerende vorm: de logaritme. Je gebruikt hem zodra je met de pH rekent, zoals we hebben gedaan bij het vak *Chemie van het leven*. Maar dezelfde functie duikt op als je kijkt naar hoe het metabolisme van een dier samenhangt met zijn lichaamsgewicht, hoe sterk een aardbeving is, of hoe hard een geluid klinkt. Aan het eind van deze opdracht kun je zelf uitleggen waarom dat zo is.
+In deze opdracht bekijken we een tweede voorbeeld van zo'n terugkerende vorm: de logaritme. Je kent hem al van de pH-berekeningen die je hebt uitgevoerd bij het practicum van *Chemie van het leven*. Maar dezelfde functie duikt op als je kijkt naar hoe het metabolisme van een dier samenhangt met zijn lichaamsgewicht, hoe sterk een aardbeving is, of hoe hard een geluid klinkt. Aan het eind van deze opdracht kun je zelf uitleggen waarom dat zo is.
 
 
-### Eigenchappen van de logaritme
+## Eigenchappen van de logaritme
 
 De logartitme heeft een handige eigenschap voor het werken met concentraties en dus met de pH: hij comprimeert een enorm bereik (14 ordes van grootte in $[\text{H}^+]$) tot een overzichtelijke schaal. Diezelfde eigenschap zit achter de schaal van Richter (aardbevingen) en decibel (geluid): elke stap van 1 staat voor een factor 10 in de onderliggende grootheid.
 
 Maar de logaritme heeft nog een tweede, andere eigenschap, die je eerder bij de rekenregels al hebt gezien: hij zet een *machtsverband* om in een *lineair* verband. Die eigenschap staat nu centraal, in een heel andere context dan pH: hoe lichaamsgrootte samenhangt met de rest van de biologie van een dier.
 
-**Vraag:** Welke van deze eigenschappen van de logaritme verwacht je nodig te hebben om zo dadelijk het verband tussen massa en metabolisme te analyseren? Licht je antwoord toe.
+**Vraag 1:** Welke van deze eigenschappen van de logaritme verwacht je nodig te hebben om zo dadelijk het verband tussen massa en metabolisme van zoogdieren te analyseren? En op welke manier?
 
 > jouw antwoord:
 
 
 ## Evo-devo: Allometrische schaling
 
-We gaan nu kijken naar een andere context waarin logaritmes en exponenten helpen bij het begrijpen van biologische fenomenen. We duiken hierbij voor het eerst het vakgebied Evo-Devo in. Je kunt de bijbehorende vragen in R maken door [dit bestand](evo-devo/schaling.qmd) te downloaden.
+We gaan nu kijken naar een andere context waarin logaritmes en exponenten helpen bij het begrijpen van biologische fenomenen. We duiken hierbij  weerhet vakgebied Evo-Devo in. 
 
-Een interessant fenomeen binnen de evolutie is allometrische schaling. Dit beschrijft hoe biologische eigenschappen systematisch veranderen als de lichaamsgrootte toeneemt van soort tot soort. Wat opvalt, is dat veel kenmerken, zoals metabolismesnelheid, levensduur, loopsnelheid en breingrootte, niet linear toenemen, maar volgens een bepaalde machtswet. Deze kunnen we als volgt schrijven:
+Een interessant fenomeen binnen de evolutie is allometrische schaling. Dit beschrijft hoe biologische eigenschappen systematisch veranderen als de lichaamsgrootte toeneemt van soort tot soort. Wat opvalt, is dat veel kenmerken, zoals metabolismesnelheid, levensduur, loopsnelheid en breingrootte, niet linear toenemen, maar volgens een bepaalde machtswet. Deze disproportionele groei noemen we *allometrie*. We kunnen dit als volgt modelleren:
 
 $$Y = aM^b.$$
 
-Hierbij staat $Y$ voor de variabele die gemeten wordt en $M$ voor de massa. De coëfficiënt $a$ is soortspecifiek en $b$ is de allometrische exponent.
+Hierbij staat $Y$ voor de variabele die gemeten wordt (bv. metabolismesnelheid) en $M$ voor de massa. De coëfficiënt $a$ is soortspecifiek en $b$ is de allometrische exponent.
 
 ### De schijnbare paradox van de muis en de olifant
 
@@ -45,7 +45,7 @@ Een muis verbrandt, per gram lichaamsweefsel, veel sneller energie dan een olifa
 Het antwoord hier zit op dezelfde manier in *welke* grootheid je bekijkt: massa-specifiek metabolisme (per gram) en totaal metabolisme (per dier) volgen beide een machtswet in $M$, maar met tegengestelde tendens. Dat ga je hieronder zelf aantonen.
 
 ::: aside
-Vergelijk dit met de entropie-splitsing uit de vorige opdracht: $H(\text{fenotype}) = H(\text{soort}) + H(\text{fenotype}\mid\text{soort})$. Ook daar leken meer biodiversiteit én meer ordening (canalisatie) elkaar tegen te spreken, tot bleek dat het om twee aparte termen ging.
+Vergelijk dit met de entropie-splitsing uit de vorige opdracht: $H(\text{fenotype}) = H(\text{soort}) + H(\text{fenotype}\mid\text{soort})$. Ook daar leek de combinatie van meer biodiversiteit én meer ordening (canalisatie) tegenstrijding, tot bleek dat het om twee aparte termen ging.
 :::
 
 ### Voorbeeld en opdrachten: metabolismesnelheid
@@ -63,13 +63,13 @@ metabolisme = c(7.15, 2.2, 1.85, 1.7, 1.65, 1.05, 0.75,
                 0.45, 0.4,0.2, 0.15, 0.1, 0.75, 0.05) 
 ```
 
-**Vraag 1:** Plot hieronder de datapunten aan de hand van de vectoren die gegeven zijn. Waarom ziet het er anders uit dan de gegeven figuur?
+**Vraag 2:** Plot hieronder de datapunten aan de hand van de vectoren die gegeven zijn. Waarom ziet het er anders uit dan de gegeven figuur?
 
 ```{r}
 # gebruik de functie plot()
 ```
 
-**Vraag 2:** Los het probleem op: hoe zou je ervoor kunnen zorgen dat de data goed leesbaar wordt? Wat voor verband kunnen we nu afleiden?
+**Vraag 3:** Los het probleem op: hoe zou je ervoor kunnen zorgen dat de data goed leesbaar wordt? Wat voor verband kunnen we nu afleiden?
 
 ```{r}
 # dit zou je zelf moeten doen 
@@ -80,13 +80,13 @@ plot(log10(massa), log10(metabolisme),
 abline(lm(log10(metabolisme) ~ log10(massa)), col = "red")
 ```
 
-**Vraag 3:** Leg nu in woorden uit waarom de gebruikte methode werkt, en relateer dat aan de machtsformule.
+**Vraag 4:** Leg nu in woorden uit waarom de gebruikte methode werkt, en relateer dat aan de machtsformule.
 
  > Jouw antwoord
 
 We gaan nu iets beter kijken naar de betekenis van het aangetone verband. We hebben gekeken naar de massa-specifieke metabole snelheid, ook wel metabole intensiteit, die aangeeft hoe snel metabolisme verloopt per eenheid massa van een bepaald weefsel. Dit meten we bijvoorbeeld als de hoeveelheid $\text{O}_2$ die verbruikt wordt per uur. Aan deze eenheid zien we dat we dit kunnen berekenen door de totale metabole intensiteit te delen door de massa.
 
-**Vraag 4:** Vul dit in bij de machtsformule, waarbij de gemeten variabele het totale metabolisme is. Maak gebruik van de rekenregels van de logaritme om een uitdrukking te krijgen voor de totale metabole intensiteit.
+**Vraag 5:** Vul dit in bij de machtsformule, waarbij de gemeten variabele het totale metabolisme is. Maak gebruik van de rekenregels van de logaritme om een uitdrukking te krijgen voor de totale metabole intensiteit.
 
  > Jouw antwoord
 
@@ -96,7 +96,7 @@ Om terug te gaan naar het totale metabolisme in een dier, vermenigvuldigen we de
 massa_metabolisme <- massa*metabolisme
 ```
 
-**Vraag 5:** Probeer nu een relatie te vinden tussen de massa en het totale metabolisme. Plot deze relatie.
+**Vraag 6:** Probeer nu een relatie te vinden tussen de massa en het totale metabolisme. Plot deze relatie.
 
 ```{r}
 # dit zou je zelf doen 
@@ -105,17 +105,22 @@ plot(log10(massa),
 abline(lm(log10(massa_metabolisme) ~ log10(massa)), col = "red")
 ```
 
-**Vraag 6:** Wat kun je opmerken over het effect van een grotere massa op de totale metabole snelheid? En op de massa-specifieke metabole snelheid?
+**Vraag 7:** Wat kun je opmerken over het effect van een grotere massa op de totale metabole snelheid? En op de massa-specifieke metabole snelheid?
 
  > Jouw antwoord
 
-**Vraag 7:** Gebruik de rekenregels van de logaritme en je eerdere antwoorden om een waarde voor de exponent $b$ te vinden. Hint: gebruik de functie \textrm{lm()} om een relevante waarde te vinden. Met \textrm{?lm()} vind je hoe je deze kunt gebruiken.
+**Vraag 8:** Gebruik de rekenregels van de logaritme en je eerdere antwoorden om een waarde voor de exponent $b$ te vinden. Hint: gebruik de functie \textrm{lm()} om een relevante waarde te vinden. Met \textrm{?lm()} vind je hoe je deze kunt gebruiken. 
 
  > Jouw antwoord
  
+ 
+::: aside
+Merk op dat je de functie \textrm{lm} al eerder hebt gebruikt, bij het practicum-deel van dit portfolio-onderdeel.Het zou dan vast een heel belangrijke functie zijn... Bij het volgende portfolio-onderdeel staan we hierbij stil!
+:::
+ 
 ### Terug naar de paradox
 
-**Vraag 8:** Je vond zojuist twee exponenten: één voor het verband tussen massa en massa-specifiek metabolisme, en één voor massa en totaal metabolisme. Laat met de rekenregels van de logaritme zien hoe deze twee exponenten met elkaar samenhangen (hint: totaal = specifiek × massa, dus $M^1$ komt erbij). Los hiermee de muis-olifant-paradox formeel op.
+**Vraag 8:** Je vond zojuist twee exponenten: één voor het verband tussen massa en massa-specifiek metabolisme, en één voor massa en totaal metabolisme. Laat met de rekenregels van de logaritme zien hoe deze twee exponenten met elkaar samenhangen. Verklaar daarmee je bevindingen.
 
 > jouw antwoord:
 
