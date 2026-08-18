@@ -38,7 +38,7 @@ Hierbij staat $Y$ voor de variabele die gemeten wordt (bv. metabolismesnelheid) 
 
 ### De schijnbare paradox van de muis en de olifant
 
-Een muis verbrandt, per gram lichaamsweefsel, veel sneller energie dan een olifant, en toch leeft de olifant vele malen langer. Beide dieren volgen hetzelfde hierboven beschreven allebei verband. Hoe kan dat?
+Een muis verbrandt, per gram lichaamsweefsel, veel sneller energie dan een olifant. Tegelijkertijd verbruikt een olifant, als geheel dier, enorm veel méér energie per uur dan een muis. Beide patronen volgen uit hetzelfde verband $Y = aM^b$. Hoe kan dat?
 
 
 
@@ -52,7 +52,7 @@ Vergelijk dit met de entropie-splitsing uit de vorige opdracht: $H(\text{fenotyp
 
 Om meer inzicht te krijgen in hoe deze machtsrelatie werkt, gaan we de volgende afbeelding analyseren:
 
-\![Data_schaling](evo-devo/data_schaling.png)
+![De massa-specifieke metabolisme snelheid van verschillende zoogdieren uitgezet tegen hun (gemiddelde) massa. (@randall2002eckert)](evo-devo/data_schaling.png)
 
 We zien dat we een verband zoeken tussen de massa van een soort in kilogram en de metabolismesnelheid in mL zuurstofverbruik per gram per uur. Uit deze figuur kunnen we (ongeveer) de datapunten bepalen:
 
@@ -124,13 +124,16 @@ Merk op dat je de functie \textrm{lm} al eerder hebt gebruikt, bij het practicum
 
 > jouw antwoord:
 
-## Slotopdracht 
+## Samenvattende opdracht 
+
+Wat hier opvalt, is dat één simpele wiskundige vorm, namelijk het machtsverband $Y=aM^b$, een patroon beschrijft dat voor sterk uiteenlopende dieren en eigenschappen lijkt te gelden, van spitsmuis tot olifant. Dat zulke brede, kwantitatieve regelmatigheden in de biologie überhaupt bestaan, is opmerkelijk: de levende wereld zit vol uitzonderingen en variatie. Toch is er hier een algemene wetmatigheid te vinden. Juist de wiskunde is het gereedschap waarmee je zo'n regelmatigheid uit ruwe data kunt achterhalen. Hiervan zullen we gedurende het jaar meerdere voorbeelden zien.
+
 
 In de vorige portfolio-opdracht schreef je een eigen hypothese over hoe entropie, onzekerheid en canalisatie zouden samenhangen met onderwerpen die je dit jaar nog zou tegenkomen.
 
 **Vraag 9:** Lees je antwoord van toen terug.
 
-- Klopte je speculatie?
+- Klopten je verwachtingen?
 - Zie je nu een verband tussen de logaritme hier en de entropie van vorige keer?
 - In de introductie beschreven we dat de logaritme in zoveel uiteenlopende contexten (pH, aardbevingen, geluid, metabolisme) opduikt. Formuleer nu, in je eigen woorden, een algemene verklaring.
 
@@ -140,3 +143,58 @@ In de vorige portfolio-opdracht schreef je een eigen hypothese over hoe entropie
 
 De log-log-lineariteit die je hierboven gebruikte, komt niet toevallig ook terug bij fractale structuren. Dit zijn patronen die er op elke schaal ongeveer hetzelfde uitzien. 
 Geïnteresseerden worden uitgenodigd om [hier](evo-devo/schaling.html) meer te lezen over fractale structuren.
+
+
+## Terug naar concentraties
+
+De motivatie om de logaritme verder te onderzoeken, kwam vanuit de pH-berekeningen die we eerder hebben uitgevoerd. We hebben gezien dat de logaritme ook in andere contexten voorkomt, maar nu keren we toch nog terug naar de context van concentraties. Je bent al bekend met het begrip diffusie: een druppel inkt in een glas water verspreidt zich vanzelf, van een gebied met hoge concentratie naar een gebied met lage concentratie. Dat proces verloopt spontaan, zonder toevoeging van energie. Wil je het omgekeerde bereiken (namelijk de inkt weer terugconcentreren op één plek) dan kost dat wél energie.
+
+Hetzelfde geldt voor opgeloste deeltjes tussen twee compartimenten, bijvoorbeeld binnen en buiten een cel, of aan weerszijden van een membraan. Hoe groter het concentratieverschil dat je wilt creëren of in stand wilt houden, hoe meer energie je nodig hebt. Deze relatie wordt gegeven door:
+
+$$\Delta G = RT\ln\left(\frac{c_A}{c_B}\right)$$
+
+waarbij $c_A$ en $c_B$ de concentraties in de twee compartimenten zijn, $R$ de gasconstante is, $T$ de temperatuur (in Kelvin), en $\ln$ de natuurlijke logaritme (grondgetal $e$)
+
+::: aside
+De natuurljke logaritme is dezelfde functie als $\log_{10}$, alleen met een ander grondgetal, zoals je eerder al bij $\log_2$ zag.
+::: 
+
+
+$\Delta G$ noemen we de `vrije energie`: de energie die vrijkomt ($\Delta G < 0$) of nodig is ($\Delta G > 0$) om deze verplaatsing te laten plaatsvinden.
+
+**Vraag:** 
+
+- Als $c_A = c_B$, wat is dan $\Delta G$ (gebruik een rekenregel van de logaritme)? Wat betekent dat, in woorden, voor de energie die nodig is om een deeltje van compartiment $A$ naar $B$ te verplaatsen als er geen concentratieverschil is?
+
+> jouw antwoord:
+
+- Stel $c_A > c_B$ geldt. Is $\Delta G$ dan positief of negatief? Bedenk of dit betekent dat het proces spontaan verloopt of dat er energie toegevoegd moet worden.
+
+> jouw antwoord:
+
+### Een concreet voorbeeld: de protonengradiënt in mitochondriën
+
+We plaatsen dit verhaal in de context van de protonengradiënt over de mitochondriënmembraan. We beschrijven de concentratie protonen binnen en buiten de mitochondriën respectievelijk als $c_A$ en $c_B$. In mitochondriën wordt tijdens de celademhaling actief $\text{H}^+$ vanuit de matrix naar de intermembraanruimte gepompt, waardoor er een pH-verschil ontstaat tussen de twee compartimenten. Stel dat de matrix pH 8 heeft en de intermembraanruimte pH 7.
+
+**Vraag:** Bereken $[\text{H}^+]$ in beide compartimenten, en gebruik dat om $\Delta G$ te berekenen voor het verplaatsen van één mol $\text{H}^+$ van de intermembraanruimte terug naar de matrix. Neem $R = 8.314~\text{J mol}^{-1}\text{K}^{-1}$ en $T = 310~\text{K}$ (lichaamstemperatuur).
+
+```{r}
+pH_matrix <- 8
+pH_intermembraan <- 7
+
+H_matrix <- 10^(-pH_matrix)
+H_intermembraan <- 10^(-pH_intermembraan)
+
+R <- 8.314
+Temp <- 310
+
+# vul aan: gebruik de formule voor Delta G
+```
+
+> jouw antwoord:
+
+**Vraag:** Interpreteer de uitkomst. Betekent dit dat protonen spontaan van de intermembraanruimte terug naar de matrix stromen, of dat de cel daar energie voor moet leveren? En hoe zit dat dan met de pomp die de gradiënt in de eerste plaats opbouwt?
+
+> jouw antwoord:
+
+Deze energie die vrijkomt als protonen langs hun concentratiegradiënt terugstromen, wordt in de cel niet verspild. Het enzym ATP-synthase gebruikt precies deze stroom om ATP te maken. Dit principe heet chemiosmose. Bij het vak *Celfysiologie* wordt dit uitgebreider behandeld. Let er dan op dat de werkelijke drijvende kracht (de **protonmotive force**) naast dit concentratieverschil ook nog een elektrisch component heeft, die we hier voor het gemak buiten beschouwing hebben gelaten.

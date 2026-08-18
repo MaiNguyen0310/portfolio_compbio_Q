@@ -25,6 +25,7 @@ format:
 engine: knitr
 
 bibliography: references.bib
+link-citations: true
 
 
 editor: visual

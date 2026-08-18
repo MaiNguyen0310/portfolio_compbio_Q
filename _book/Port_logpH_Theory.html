@@ -58,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -261,9 +280,13 @@ window.Quarto = {
   <li><a href="#voorbeeld-en-opdrachten-metabolismesnelheid" id="toc-voorbeeld-en-opdrachten-metabolismesnelheid" class="nav-link" data-scroll-target="#voorbeeld-en-opdrachten-metabolismesnelheid"><span class="header-section-number">2.2.2</span> Voorbeeld en opdrachten: metabolismesnelheid</a></li>
   <li><a href="#terug-naar-de-paradox" id="toc-terug-naar-de-paradox" class="nav-link" data-scroll-target="#terug-naar-de-paradox"><span class="header-section-number">2.2.3</span> Terug naar de paradox</a></li>
   </ul></li>
-  <li><a href="#slotopdracht" id="toc-slotopdracht" class="nav-link" data-scroll-target="#slotopdracht"><span class="header-section-number">2.3</span> Slotopdracht</a>
+  <li><a href="#samenvattende-opdracht" id="toc-samenvattende-opdracht" class="nav-link" data-scroll-target="#samenvattende-opdracht"><span class="header-section-number">2.3</span> Samenvattende opdracht</a>
   <ul class="collapse">
   <li><a href="#optioneel-fractale-structuren" id="toc-optioneel-fractale-structuren" class="nav-link" data-scroll-target="#optioneel-fractale-structuren"><span class="header-section-number">2.3.1</span> Optioneel: Fractale structuren</a></li>
+  </ul></li>
+  <li><a href="#terug-naar-concentraties" id="toc-terug-naar-concentraties" class="nav-link" data-scroll-target="#terug-naar-concentraties"><span class="header-section-number">2.4</span> Terug naar concentraties</a>
+  <ul class="collapse">
+  <li><a href="#een-concreet-voorbeeld-de-protonengradiënt-in-mitochondriën" id="toc-een-concreet-voorbeeld-de-protonengradiënt-in-mitochondriën" class="nav-link" data-scroll-target="#een-concreet-voorbeeld-de-protonengradiënt-in-mitochondriën"><span class="header-section-number">2.4.1</span> Een concreet voorbeeld: de protonengradiënt in mitochondriën</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -314,7 +337,7 @@ window.Quarto = {
 <p>Hierbij staat <span class="math inline">\(Y\)</span> voor de variabele die gemeten wordt (bv. metabolismesnelheid) en <span class="math inline">\(M\)</span> voor de massa. De coëfficiënt <span class="math inline">\(a\)</span> is soortspecifiek en <span class="math inline">\(b\)</span> is de allometrische exponent.</p>
 <section id="de-schijnbare-paradox-van-de-muis-en-de-olifant" class="level3 page-columns page-full" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="de-schijnbare-paradox-van-de-muis-en-de-olifant"><span class="header-section-number">2.2.1</span> De schijnbare paradox van de muis en de olifant</h3>
-<p>Een muis verbrandt, per gram lichaamsweefsel, veel sneller energie dan een olifant, en toch leeft de olifant vele malen langer. Beide dieren volgen hetzelfde hierboven beschreven allebei verband. Hoe kan dat?</p>
+<p>Een muis verbrandt, per gram lichaamsweefsel, veel sneller energie dan een olifant. Tegelijkertijd verbruikt een olifant, als geheel dier, enorm veel méér energie per uur dan een muis. Beide patronen volgen uit hetzelfde verband <span class="math inline">\(Y = aM^b\)</span>. Hoe kan dat?</p>
 <p>Het antwoord hier zit op dezelfde manier in <em>welke</em> grootheid je bekijkt: massa-specifiek metabolisme (per gram) en totaal metabolisme (per dier) volgen beide een machtswet in <span class="math inline">\(M\)</span>, maar met tegengestelde tendens. Dat ga je hieronder zelf aantonen.</p>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
@@ -323,7 +346,12 @@ window.Quarto = {
 <section id="voorbeeld-en-opdrachten-metabolismesnelheid" class="level3 page-columns page-full" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="voorbeeld-en-opdrachten-metabolismesnelheid"><span class="header-section-number">2.2.2</span> Voorbeeld en opdrachten: metabolismesnelheid</h3>
 <p>Om meer inzicht te krijgen in hoe deze machtsrelatie werkt, gaan we de volgende afbeelding analyseren:</p>
-<p>!<a href="evo-devo/data_schaling.png">Data_schaling</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="evo-devo/data_schaling.png" class="img-fluid figure-img"></p>
+<figcaption>De massa-specifieke metabolisme snelheid van verschillende zoogdieren uitgezet tegen hun (gemiddelde) massa. (<span class="citation" data-cites="randall2002eckert">Randall et al. (<a href="references.html#ref-randall2002eckert" role="doc-biblioref">2002</a>)</span>)</figcaption>
+</figure>
+</div>
 <p>We zien dat we een verband zoeken tussen de massa van een soort in kilogram en de metabolismesnelheid in mL zuurstofverbruik per gram per uur. Uit deze figuur kunnen we (ongeveer) de datapunten bepalen:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>massa <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.002</span>, <span class="fl">0.008</span>, <span class="fl">0.015</span>, <span class="fl">0.02</span>, <span class="fl">0.025</span>, <span class="fl">0.08</span>, <span class="fl">0.4</span>, </span>
@@ -398,12 +426,13 @@ window.Quarto = {
 </blockquote>
 </section>
 </section>
-<section id="slotopdracht" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="slotopdracht"><span class="header-section-number">2.3</span> Slotopdracht</h2>
+<section id="samenvattende-opdracht" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="samenvattende-opdracht"><span class="header-section-number">2.3</span> Samenvattende opdracht</h2>
+<p>Wat hier opvalt, is dat één simpele wiskundige vorm, namelijk het machtsverband <span class="math inline">\(Y=aM^b\)</span>, een patroon beschrijft dat voor sterk uiteenlopende dieren en eigenschappen lijkt te gelden, van spitsmuis tot olifant. Dat zulke brede, kwantitatieve regelmatigheden in de biologie überhaupt bestaan, is opmerkelijk: de levende wereld zit vol uitzonderingen en variatie. Toch is er hier een algemene wetmatigheid te vinden. Juist de wiskunde is het gereedschap waarmee je zo’n regelmatigheid uit ruwe data kunt achterhalen. Hiervan zullen we gedurende het jaar meerdere voorbeelden zien.</p>
 <p>In de vorige portfolio-opdracht schreef je een eigen hypothese over hoe entropie, onzekerheid en canalisatie zouden samenhangen met onderwerpen die je dit jaar nog zou tegenkomen.</p>
 <p><strong>Vraag 9:</strong> Lees je antwoord van toen terug.</p>
 <ul>
-<li>Klopte je speculatie?</li>
+<li>Klopten je verwachtingen?</li>
 <li>Zie je nu een verband tussen de logaritme hier en de entropie van vorige keer?</li>
 <li>In de introductie beschreven we dat de logaritme in zoveel uiteenlopende contexten (pH, aardbevingen, geluid, metabolisme) opduikt. Formuleer nu, in je eigen woorden, een algemene verklaring.</li>
 </ul>
@@ -413,6 +442,55 @@ window.Quarto = {
 <section id="optioneel-fractale-structuren" class="level3" data-number="2.3.1">
 <h3 data-number="2.3.1" class="anchored" data-anchor-id="optioneel-fractale-structuren"><span class="header-section-number">2.3.1</span> Optioneel: Fractale structuren</h3>
 <p>De log-log-lineariteit die je hierboven gebruikte, komt niet toevallig ook terug bij fractale structuren. Dit zijn patronen die er op elke schaal ongeveer hetzelfde uitzien. Geïnteresseerden worden uitgenodigd om <a href="evo-devo/schaling.html">hier</a> meer te lezen over fractale structuren.</p>
+</section>
+</section>
+<section id="terug-naar-concentraties" class="level2 page-columns page-full" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="terug-naar-concentraties"><span class="header-section-number">2.4</span> Terug naar concentraties</h2>
+<p>De motivatie om de logaritme verder te onderzoeken, kwam vanuit de pH-berekeningen die we eerder hebben uitgevoerd. We hebben gezien dat de logaritme ook in andere contexten voorkomt, maar nu keren we toch nog terug naar de context van concentraties. Je bent al bekend met het begrip diffusie: een druppel inkt in een glas water verspreidt zich vanzelf, van een gebied met hoge concentratie naar een gebied met lage concentratie. Dat proces verloopt spontaan, zonder toevoeging van energie. Wil je het omgekeerde bereiken (namelijk de inkt weer terugconcentreren op één plek) dan kost dat wél energie.</p>
+<p>Hetzelfde geldt voor opgeloste deeltjes tussen twee compartimenten, bijvoorbeeld binnen en buiten een cel, of aan weerszijden van een membraan. Hoe groter het concentratieverschil dat je wilt creëren of in stand wilt houden, hoe meer energie je nodig hebt. Deze relatie wordt gegeven door:</p>
+<p><span class="math display">\[\Delta G = RT\ln\left(\frac{c_A}{c_B}\right)\]</span></p>
+<p>waarbij <span class="math inline">\(c_A\)</span> en <span class="math inline">\(c_B\)</span> de concentraties in de twee compartimenten zijn, <span class="math inline">\(R\)</span> de gasconstante is, <span class="math inline">\(T\)</span> de temperatuur (in Kelvin), en <span class="math inline">\(\ln\)</span> de natuurlijke logaritme (grondgetal <span class="math inline">\(e\)</span>)</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>De natuurljke logaritme is dezelfde functie als <span class="math inline">\(\log_{10}\)</span>, alleen met een ander grondgetal, zoals je eerder al bij <span class="math inline">\(\log_2\)</span> zag.</p>
+</div></div><p><span class="math inline">\(\Delta G\)</span> noemen we de <code>vrije energie</code>: de energie die vrijkomt (<span class="math inline">\(\Delta G &lt; 0\)</span>) of nodig is (<span class="math inline">\(\Delta G &gt; 0\)</span>) om deze verplaatsing te laten plaatsvinden.</p>
+<p><strong>Vraag:</strong></p>
+<ul>
+<li>Als <span class="math inline">\(c_A = c_B\)</span>, wat is dan <span class="math inline">\(\Delta G\)</span> (gebruik een rekenregel van de logaritme)? Wat betekent dat, in woorden, voor de energie die nodig is om een deeltje van compartiment <span class="math inline">\(A\)</span> naar <span class="math inline">\(B\)</span> te verplaatsen als er geen concentratieverschil is?</li>
+</ul>
+<blockquote class="blockquote">
+<p>jouw antwoord:</p>
+</blockquote>
+<ul>
+<li>Stel <span class="math inline">\(c_A &gt; c_B\)</span> geldt. Is <span class="math inline">\(\Delta G\)</span> dan positief of negatief? Bedenk of dit betekent dat het proces spontaan verloopt of dat er energie toegevoegd moet worden.</li>
+</ul>
+<blockquote class="blockquote">
+<p>jouw antwoord:</p>
+</blockquote>
+<section id="een-concreet-voorbeeld-de-protonengradiënt-in-mitochondriën" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="een-concreet-voorbeeld-de-protonengradiënt-in-mitochondriën"><span class="header-section-number">2.4.1</span> Een concreet voorbeeld: de protonengradiënt in mitochondriën</h3>
+<p>We plaatsen dit verhaal in de context van de protonengradiënt over de mitochondriënmembraan. We beschrijven de concentratie protonen binnen en buiten de mitochondriën respectievelijk als <span class="math inline">\(c_A\)</span> en <span class="math inline">\(c_B\)</span>. In mitochondriën wordt tijdens de celademhaling actief <span class="math inline">\(\text{H}^+\)</span> vanuit de matrix naar de intermembraanruimte gepompt, waardoor er een pH-verschil ontstaat tussen de twee compartimenten. Stel dat de matrix pH 8 heeft en de intermembraanruimte pH 7.</p>
+<p><strong>Vraag:</strong> Bereken <span class="math inline">\([\text{H}^+]\)</span> in beide compartimenten, en gebruik dat om <span class="math inline">\(\Delta G\)</span> te berekenen voor het verplaatsen van één mol <span class="math inline">\(\text{H}^+\)</span> van de intermembraanruimte terug naar de matrix. Neem <span class="math inline">\(R = 8.314~\text{J mol}^{-1}\text{K}^{-1}\)</span> en <span class="math inline">\(T = 310~\text{K}\)</span> (lichaamstemperatuur).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pH_matrix <span class="ot">&lt;-</span> <span class="dv">8</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>pH_intermembraan <span class="ot">&lt;-</span> <span class="dv">7</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>H_matrix <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span>(<span class="sc">-</span>pH_matrix)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>H_intermembraan <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span>(<span class="sc">-</span>pH_intermembraan)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="fl">8.314</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>Temp <span class="ot">&lt;-</span> <span class="dv">310</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># vul aan: gebruik de formule voor Delta G</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<blockquote class="blockquote">
+<p>jouw antwoord:</p>
+</blockquote>
+<p><strong>Vraag:</strong> Interpreteer de uitkomst. Betekent dit dat protonen spontaan van de intermembraanruimte terug naar de matrix stromen, of dat de cel daar energie voor moet leveren? En hoe zit dat dan met de pomp die de gradiënt in de eerste plaats opbouwt?</p>
+<blockquote class="blockquote">
+<p>jouw antwoord:</p>
+</blockquote>
+<p>Deze energie die vrijkomt als protonen langs hun concentratiegradiënt terugstromen, wordt in de cel niet verspild. Het enzym ATP-synthase gebruikt precies deze stroom om ATP te maken. Dit principe heet chemiosmose. Bij het vak <em>Celfysiologie</em> wordt dit uitgebreider behandeld. Let er dan op dat de werkelijke drijvende kracht (de <strong>protonmotive force</strong>) naast dit concentratieverschil ook nog een elektrisch component heeft, die we hier voor het gemak buiten beschouwing hebben gelaten.</p>
 
 
 <script type="ojs-module-contents">
@@ -429,6 +507,11 @@ eyJjb250ZW50cyI6W119
 <script type="vfs-file">
 W10=
 </script>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-randall2002eckert" class="csl-entry" role="listitem">
+Randall, David, Warren Burggren, and Kathleen French. 2002. <em>Eckert Animal Physiology: Mechanisms and Adaptations</em>. 5th ed. W.H. Freeman; Company.
+</div>
+</div>
 </section>
 </section>
 

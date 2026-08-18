@@ -27,22 +27,40 @@ Een logaritme doet precies het omgekeerde: deze vertelt je hoeveel keer je een b
 log(1000,10)
 ```
 
-Met dit voorbeeld kunnen we zien dat de genoemde functies elkaars inverse zijn. Als je eerst de exponent van een getal neemt en daarna de logaritme, kom je terug bij het getal waarmee je begon. Hetzelfde geldt voor wanneer je eerst de logaritme neemt en dan de exponent. Voor alle grondgetallen $a$ en machten $x$ geldt dus:
+Met dit voorbeeld kunnen we zien dat de genoemde functies elkaars `inverse` zijn. Als je eerst de exponent van een getal neemt en daarna de logaritme, kom je terug bij het getal waarmee je begon. Hetzelfde geldt voor wanneer je eerst de logaritme neemt en dan de exponent. Voor alle grondgetallen $a$ en machten $x$ geldt dus:
 
 $$a^{\log_a(x)} = x \quad \text{en} \quad \log_a(a^x)=x $$
 
 ### Regenregels van machten en logaritmen
 
-Machten en logaritmen zijn praktisch, omdat ze verschijnselen kwantitatief beschrijven die snel toe- of afnemen, of over een enorme schaal variëren. Een macht is namelijk een compacte manier om een herhaaldelijke vermenigvuldiging te noteren.
+<!-- Machten en logaritmen zijn praktisch, omdat ze verschijnselen kwantitatief beschrijven die snel toe- of afnemen, of over een enorme schaal variëren. Een macht is namelijk een compacte manier om een herhaaldelijke vermenigvuldiging te noteren. -->
 
-- $10^1$ is één stap omhoog in een schaal
-- $10^2$ is twee stappen omhoog
-- $10^3$ is drie stappen omhoog in een schaal
+<!-- - $10^1$ is één stap omhoog in een schaal -->
+<!-- - $10^2$ is twee stappen omhoog -->
+<!-- - $10^3$ is drie stappen omhoog in een schaal -->
+<!-- - $\vdots$ -->
+
+<!-- Hierbij staat elke stap dus voor een factor 10. Als je een logaritme bepaalt, bereken je hoeveel stappen je omhoog bent gegaan. We kunnen de notatie $\log_{10}(1000)$ dus lezen als: "Hoeveel stappen moet ik vanaf 10 omhoog om bij 1000 te komen?". Hierdoor weten we dat $\log_{10}(1000) = 3.$ -->
+
+
+Machten en logaritmen zijn praktisch omdat ze processen beschrijven die met een vaste `factor` toe- of afnemen. Een macht is een compacte manier om een herhaalde vermenigvuldiging met diezelfde factor te noteren.
+
+- $10^1 = 10$: de factor 10 één keer toegepast
+- $10^2 = 100$: de factor 10 twee keer toegepast ($10\times10$)
+- $10^3 = 1000$: de factor 10 drie keer toegepast ($10\times10\times 10$)
 - $\vdots$
 
-Hierbij staat elke stap dus voor een factor 10. Als je een logaritme bepaalt, bereken je hoeveel stappen je omhoog bent gegaan. We kunnen de notatie $\log_{10}(1000)$ dus lezen als: "Hoeveel stappen moet ik vanaf 10 omhoog om bij 1000 te komen?". Hierdoor weten we dat $\log_{10}(1000) = 3.$
+Als je een logaritme bepaalt, bereken je hoe vaak je die factor hebt toegepast. De notatie $\log_{10}(1000)$ lees je dus als: "hoe vaak moet ik de factor 10 toepassen om van 1 bij 1000 uit te komen?" Vandaar geldt $\log_{10}(1000) = 3$.
 
-We kunnen ook een ander grondgetal (en dus een andere vermenigvuldigingsfactor) gebruiken dan 10. In onderstaande rekenregels gebruiken we de algemene notatie $a$ en $b$ als grondgetallen, en $p$ en $q$ als machten.
+
+We kunnen ook een ander grondgetal (en dus een andere vermenigvuldigingsfactor) gebruiken dan 10.
+Bij grondgetal 2 hoort de factor 2. Dit beschrijft dus een verdubbeling. Dit kom je bijvoorbeeld tegen bij een cel die zich steeds in tweeën deelt: hoeveel delingsrondes zijn nodig om van 1 naar 1024 cellen te komen?
+
+```{r}
+log(1024, 2)
+```
+
+In onderstaande rekenregels gebruiken we de algemene notatie $a$ en $b$ als grondgetallen, en $p$ en $q$ als machten.
 
 ::: note
 Rekenregels voor machten
@@ -68,6 +86,7 @@ De nulde macht is altijd 1
 
 Hieruit volgen direct de rekenregels voor de logaritme.
 
+::: note
 Rekenregels voor logaritmen
 
 Vermenigvuldiging wordt optelling
@@ -83,16 +102,40 @@ Machtsverheffen wordt vermenigvuldigen
 De logaritme van 1 is altijd 0
 
 :   $\log_a(1)=0$
+:::
+
+### De vorm van de logaritmische functie
+
+We kunnen de logaritme met basis 10 als volgt visualiseren:
+
+```{r}
+x <- seq(0.01, 10, length.out = 200) # discretisatie van de x-as
+
+plot(x, log10(x), type = "l", lwd = 2,
+     xlab = "x", ylab = "log10(x)")
+abline(h = 0, lty = 2) # horizontale lijn op y=0
+abline(v = 1, lty = 2) # verticale lijn op x=1
+```
+
+**Vraag 1:** Bekijk de grafiek.
 
 
+- Wat gebeurt er met $\log_{10}(x)$ als $x$ steeds dichter bij 0 komt? Waarom bestaat $\log_{10}(0)$ niet?
+- Voor welke $x$-waarden is $\log_{10}(x)$ negatief? Waarom is dat, gezien de derfinitie van een logaritme?
+
+> jouw antwoord:
 
 ## Waarom werken we voor de pH eigenlijk met een logaritmische maat?
 
-De concentratie van $\ce{H^+}$ in waterige oplossingen varieert van ongeveer 1 mol/L (sterk zuur) tot $10^{-14}$ mol/L (sterk basisch). Dit is een enorm bereik van veertien ordes van grootte. Op een lineaire schaal zouden kleine verschillen volledig wegvallen tegen de uitschieters, terwijl we weten dat het verschil tussen bijvoorbeeld pH 6 en pH 8 biologisch erg relevant is.
+De concentratie van $\ce{H^+}$ in waterige oplossingen varieert van ongeveer 1 mol/L (sterk zuur) tot $10^{-14}$ mol/L (sterk basisch). Dit is een enorm bereik van veertien ordes van grootte. We zijn in zulke situaties gewend om waardes dan af te ronden tot de dichtstbijzijnde macht van tien. Een concentratie van 0.0003 mol/L heeft bijvoorbeeld orde van grootte $10^{-4}$. Dat is handig om snel een gevoel te krijgen voor hoe klein deze concentratie is, maar de gerapporteerde waarde is wel erg grof: 0.0001 en 0.0005 mol/L krijgen zo dezelfde orde van grootte, terwijl ze een factor 5 schelen.
+
+De pH doet in feite hetzelfde als het bepalen van een orde van grootte: hij drukt de concentratie uit als een macht van tien. Een verschil is dat we de pH gewoonlijk niet afronden naar een geheel getal: de pH ís de (niet-afgeronde) exponent zelf. Zo noteert pH=6.3 een fijner onderscheid dan "orde van grootte $10^{-6}$" zou doen.
+Op een lineaire schaal zouden kleine verschillen volledig dus wegvallem, terwijl we weten dat kleine verschillen tussen bijvoorbeeld pH-waarden 6 en 6.5 biologisch erg relevant is. 
 
 
 De logaritme lost dit op door een vermenigvuldigingsverhouding om te zetten in een optelbaar verschil: 
 $$\log(a \cdot b) = \log a + \log b.$$ 
+
 ::: aside
 We hebben bij het vorige portfolio-onderdeel ook gezien dat dit een gunstige eigenschap is! Eerder ging het om het optellen van entropie; nu gaat het om het schalen van data met een groot bereik.
 :::
@@ -102,19 +145,19 @@ De definitie van de pH is dankzij deze eigenschap als volgt:
 $$\text{pH} = -\log_{10}[\text{H}^+]$$
 
 ::: aside
-Vergelijk dit met de $\chi^2$-toets: ook daar schalen we een verschil (O − E) naar een begrensd interval, waardoor we waarden kunnen vergelijken, onafhankelijk van de grootte van de absolute aantallen.
+Vergelijk dit met de $\chi^2$-toets: ook daar schalen we een verschil $(O − E)^2$ naar een begrensd interval, waardoor we waarden kunnen vergelijken, onafhankelijk van de grootte van de absolute aantallen.
 :::
 
-**Vraag 1:** Als de H⁺-concentratie met een factor 10 daalt, wat gebeurt er dan met de pH? En als de concentratie halveert (bijvoorbeeld door verdunning)? Reken beide gevallen uit en leg intuïtief uit waarom een verschil van "1 pH-eenheid" een heel andere betekenis heeft dan een verschil van "1 eenheid concentratie" (mol/Liter).
+**Vraag 2:** Als de H⁺-concentratie met een factor 10 daalt, wat gebeurt er dan met de pH? En als de concentratie halveert (bijvoorbeeld door verdunning)? Reken beide gevallen uit en leg intuïtief uit waarom een verschil van "1 pH-eenheid" een heel andere betekenis heeft dan een verschil van "1 eenheid concentratie" (mol/Liter).
 
 > Jouw antwoord
 
 
 ## pH berekeningen
 
-De zuurgraad van een oplossing wordt bepaald door de concentratie protonen ($[\text{H}^+]$). Deze kan sterk verschillen tussen oplossingen. Het is niet handig om met extreem grote of kleine concentraties te werken. In de praktijk wordt deze concetratie daarom op een logaritmische schaal geplaatst.
+De zuurgraad van een oplossing wordt bepaald door de concentratie protonen ($[\text{H}^+]$). Deze kan sterk verschillen tussen oplossingen. Het is niet handig om met extreem grote of kleine concentraties te werken. In de praktijk wordt deze concentratie daarom, zoals besproken, op een logaritmische schaal geplaatst.
 
-De pH van een oplossing wordt als volgt gedefinieerd: $$\text{pH} = -\log_{10}[\text{H}^+]$$ Hiermee wordt een enorm concentratiebereik teruggebracht tot een schaal van ongeveer 0 tot 14.
+De pH van een oplossing wordt als volgt gedefinieerd: $$\text{pH} = -\log_{10}[\text{H}^+].$$ 
 
 Om uit de pH de concentratie te bepalen, gebruiken we de exponentiële functie: $$[\text{H}^+] = 10^{-\text{pH}}$$
 
@@ -136,8 +179,10 @@ htmltools::tags$iframe(src = "https://mai-nguyen0310.shinyapps.io/shiny_log/",
 
 ### Oplossingen maken
 
-Bij het eerste practicum van *Chemie van het leven* ga je twee oplossingen maken, die we A en B noemen. Hierbij moet oplossing A een 150 mL 0.20 M Na-acetaatoplossing zijn. Voor de voorbereidende opdracht in Labbuddy heb je bepaald hoeveel natriumacetaat je moest afwegen (of als je dit nog niet gedaan hebt, kun je de komende berekeningen overnemen in Labbuddy). In deze opdracht oefen je op een laagdrempelige manier met de logica achter coderen. Je kunt de berekeningen die je hierbij uitvoert ook gebruiken bij het schrijven van je labjournaal.
+Bij het eerste practicum van *Chemie van het leven* ga je twee oplossingen maken, die we A en B noemen. Hierbij moet oplossing A een 150 mL 0.20 M Na-acetaatoplossing zijn. Voor de voorbereidende opdracht in Labbuddy heb je bepaald hoeveel natriumacetaat je moest afwegen (of als je dit nog niet gedaan hebt, kun je de komende berekeningen overnemen in Labbuddy). In deze opdracht oefen je op een laagdrempelige manier met de logica achter coderen. Daarbij gebruiken we de voorbereidingsopdrachten en geven we alvast een voorproefje van het aankomende practicum. Je kunt de berekeningen die je hierbij uitvoert ook gebruiken bij het schrijven van je labjournaal.
 
+
+Zeg dat we 150 mL van een 0.2 M $\ce{HCl}$-oplossing maken.
 
 ```{webr}
 vol_gewenst <- 150
@@ -165,14 +210,14 @@ massa_nodig
 
 
 
-In de praktijk is het lastig om een massa zo precies af te wegen. De massa die je afweegt zit er waarschijnlijk wel bij in de buurt, maar is het niet helemaal. In het vervolg van deze opgave gaan we ervanuit dat het afwegen niet perfect heeft plaatsgevonden, en we nemen aan dat de afgewogen massa afkomstig is uit een normaalverdeling met als gemiddelde de echte massa en een kleine standaarddeviatie.
+In de praktijk is het lastig om een massa zo precies af te wegen. De massa die je afweegt, zit  waarschijnlijk wel in de buurt, maar is het niet helemaal. In het vervolg van deze opgave gaan we ervanuit dat het afwegen niet perfect heeft plaatsgevonden, en we nemen aan dat de afgewogen massa afkomstig is uit een normaalverdeling met als gemiddelde de echte massa en een kleine standaarddeviatie.
 
 ```{webr}
 massa_gewogen <- rnorm(1, mean = massa_nodig, sd = 0.05)
 massa_gewogen
 ```
 
-**Vraag 2:** Denk terug aan de vorige portfolio-opdracht over verdelingen. Bedenk waarom bovenstaande benadering van de afgewogen massa redelijk is.
+**Vraag 3:** Denk terug aan de vorige portfolio-opdracht over verdelingen. Bedenk waarom bovenstaande benadering van de afgewogen massa redelijk is.
 
 > Jouw antwoord
 
@@ -198,7 +243,7 @@ Bovenstaande berekening kun je in de Methode-sectie van je labjournaal plaatsen.
 
 ### pKz bepalen met één punt
 
-Vervolgens ga je de pKz van oplossingen A en B berekend, met behulp van de algemene formule:
+Vervolgens ga je de pKz van oplossingen A en B berekenen, met behulp van de algemene formule:
 
 $$\text{pH} = \text{pKz} + \log_{10}\left(\frac{[\text{Z}^-]}{[\text{HZ}]}\right),$$
 
@@ -213,7 +258,7 @@ Z_A <- 0.2
 
 De concentratie van de geconjugeerde base kan dan worden bepaald via
 
-$$[HZ]=[\ce{OH^-}]=10^{-(14-pH)}.$$
+$$[\ce{HZ}]=[\ce{OH^-}]=10^{-(14-pH)}.$$
 Deze algemene formule kunnen we als volgt coderen:
 ```{webr}
 HZ_A <- 10^(-(14 - pH_A))
@@ -240,17 +285,17 @@ Je hebt de pKz nu berekend uit één meting. Maar bekijk de formule eens goed:
 
 $$\text{pH} = \text{pKz} + \log_{10}\left(\frac{[\text{Z}^-]}{[\text{HZ}]}\right)$$
 
-**Vraag 3:** Als je $x = \log_{10}([\text{Z}^-]/[\text{HZ}])$ noemt, welke bekende vorm ($y = ax + b$) herken je dan in deze formule? Wat stellen $a$, $b$ en $y$ hier voor? Welke waarden verwacht je dat deze aannemen? 
+**Vraag 4:** Als je $x = \log_{10}([\text{Z}^-]/[\text{HZ}])$ noemt, welke bekende vorm ($y = ax + b$) herken je dan in deze formule? Wat stellen $a$, $b$ en $y$ hier voor? Welke waarden verwacht je dat deze aannemen? 
 
 > Jouw antwoord
 
-**Vraag 4:** Leg in eigen woorden uit waarom dit verband inzichtelijk is. Koppel de formule aan het doel en de methode van het practicum: wat verander je? Wat meet je? En wat voor inzichten geeft het  verband?
+**Vraag 5:** Leg in eigen woorden uit waarom dit verband inzichtelijk is. Koppel de formule aan het doel en de methode van het practicum: wat verander je? Wat meet je? En wat voor inzichten geeft het  verband?
 
 > Jouw antwoord
 
 Stel dat je op verschillende momenten tijdens het toevoegen van HCl de pH had genoteerd. Je kunt dan het verband tussen $x$ en $y$ plotten. Dit kan er bijvoorbeeld zo uitzien:
 
-```{webr}
+```{r}
 ratio <- c(4, 2, 1, 0.5, 0.25)          # [Z-]/[HZ] op vijf momenten
 pH_gemeten <- c(5.4, 5.1, 4.7, 4.5, 4.1)   # fictieve metingen
 
@@ -259,22 +304,24 @@ x <- log10(ratio)
 plot(x, pH_gemeten, xlab = "log10([Z-]/[HZ])", ylab = "pH")
 ```
 
-We hebben dit verband benaderd met de functie $y=ax + b$ voor onbekende waarden van $a$ en $b$. De functie lm() bepaalt de meest waarschijnlijke waarden voor deze parameters. Hierover leer je meer in een latere portfolio-opdracht.
+We hebben dit verband benaderd met de functie $y=ax + b$ voor onbekende waarden van $a$ en $b$. De functie \textrm{lm()} bepaalt de meest waarschijnlijke waarden voor deze parameters. Hierover leer je meer in een latere portfolio-opdracht.
 
-```{webr}
+We gebruiken deze functie en plotten de lijn met de parameterwaarden die hieruit komen.
+
+```{r}
 model <- lm(pH_gemeten ~ x)
 
 plot(x, pH_gemeten, xlab = "log10([Z-]/[HZ])", ylab = "pH")
 abline(model)
 ```
 
-**Vraag 5:** Waarom geeft het schatten van de pKz uit een lijn door meerdere punten waarschijnlijk een betrouwbaardere waarde dan het berekenen van de pKz uit slechts één meting?
+**Vraag 6:** Waarom geeft het schatten van de pKz uit een lijn door meerdere punten waarschijnlijk een betrouwbaardere waarde dan het berekenen van de pKz uit slechts één meting?
 
 ::: aside
 Denk aan het statistiekportfolio! Wat was bij de vorige opdracht de meerwaarde van een grotere steekproefgrootte?
 :::
 
-**Vraag 6:** Je hebt nu nog een nuttige eigenschap van de logaritme gezien. Beschrijf deze eigenschap in eigen woorden, en leg uit hoe we deze kunnen toepassen in practica.
+**Vraag 7:** Je hebt nu nog een nuttige eigenschap van de logaritme gezien. Beschrijf deze eigenschap in eigen woorden, en leg uit hoe we deze kunnen toepassen in practica.
 
 <!-- Zoals in de introductie van dit portfolio beschreven, zullen onderdelen uit dit portfolio gekoppeld worden aan practicumopdrachten. Voor dit portfolio-onderdeel hoef je nog niet zelf een hoofdstuk toe te voegen aan het portfoliobestand, zoals dat later wel zal moeten. Met deze app oefen je op een laagdrempelige manier met de logica achter coderen. Je kunt de berekeningen die je hierbij uitvoert ook gebruiken bij het schrijven van je labjournaal. -->
 

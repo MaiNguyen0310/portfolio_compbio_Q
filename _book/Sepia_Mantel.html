@@ -8,7 +8,7 @@
 
 <meta name="author" content="Portfolio Statistiek">
 
-<title>Appendix B — Sepia Mantel en de t-test. – Portfolio Computationele Biologie</title>
+<title>Appendix D — Sepia Mantel en de t-test. – Portfolio Computationele Biologie</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -69,7 +69,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Port2_Pract.html" rel="prev">
+<link href="./bradford_statistiek.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -80,6 +80,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-12eeb4b20e9f5a2b0bfc604bfaf942bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -107,6 +109,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -150,7 +154,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Port2_Pract.html">Appendices</a></li><li class="breadcrumb-item"><a href="./Sepia_Mantel.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Sepia Mantel en de t-test.</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Port2_Pract.html">Appendices</a></li><li class="breadcrumb-item"><a href="./Sepia_Mantel.html"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Sepia Mantel en de t-test.</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -183,14 +187,14 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./log_pH.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Logaritmes en exponenten</span></span></a>
+  <a href="./Port2_Theory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Stochastische variabelen, kansverdelingen en entropie</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Port2_Theory.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Stochastische variabelen, kansverdelingen en entropie</span></span></a>
+  <a href="./Port_logpH_Theory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Logaritmes en exponenten</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -222,8 +226,20 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Port_logpH_Pract.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">pH-berekeningen: logaritmen en exponenten</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bradford_statistiek.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Bradford-test: statistiek en lineaire modellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./Sepia_Mantel.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Sepia Mantel en de t-test.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Sepia Mantel en de t-test.</span></span></a>
   </div>
 </li>
       </ul>
@@ -238,16 +254,16 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introductie" id="toc-introductie" class="nav-link active" data-scroll-target="#introductie"><span class="header-section-number">B.1</span> Introductie:</a></li>
-  <li><a href="#het-probleem." id="toc-het-probleem." class="nav-link" data-scroll-target="#het-probleem."><span class="header-section-number">B.2</span> Het probleem.</a></li>
-  <li><a href="#kansuitspraken-en-wetenschap" id="toc-kansuitspraken-en-wetenschap" class="nav-link" data-scroll-target="#kansuitspraken-en-wetenschap"><span class="header-section-number">B.3</span> Kansuitspraken en wetenschap</a></li>
-  <li><a href="#analyse-van-jullie-data" id="toc-analyse-van-jullie-data" class="nav-link" data-scroll-target="#analyse-van-jullie-data"><span class="header-section-number">C</span> Analyse van jullie data</a>
+  <li><a href="#introductie" id="toc-introductie" class="nav-link active" data-scroll-target="#introductie"><span class="header-section-number">D.1</span> Introductie:</a></li>
+  <li><a href="#het-probleem." id="toc-het-probleem." class="nav-link" data-scroll-target="#het-probleem."><span class="header-section-number">D.2</span> Het probleem.</a></li>
+  <li><a href="#kansuitspraken-en-wetenschap" id="toc-kansuitspraken-en-wetenschap" class="nav-link" data-scroll-target="#kansuitspraken-en-wetenschap"><span class="header-section-number">D.3</span> Kansuitspraken en wetenschap</a></li>
+  <li><a href="#analyse-van-jullie-data" id="toc-analyse-van-jullie-data" class="nav-link" data-scroll-target="#analyse-van-jullie-data"><span class="header-section-number">E</span> Analyse van jullie data</a>
   <ul class="collapse">
-  <li><a href="#inlezen-van-de-data" id="toc-inlezen-van-de-data" class="nav-link" data-scroll-target="#inlezen-van-de-data"><span class="header-section-number">C.1</span> Inlezen van de data:</a></li>
-  <li><a href="#data-kwaliteit" id="toc-data-kwaliteit" class="nav-link" data-scroll-target="#data-kwaliteit"><span class="header-section-number">C.2</span> Data Kwaliteit</a></li>
-  <li><a href="#de-hypothese-test." id="toc-de-hypothese-test." class="nav-link" data-scroll-target="#de-hypothese-test."><span class="header-section-number">C.3</span> De Hypothese test.</a></li>
-  <li><a href="#spreiding-gemiddelde-en-test---statistieken" id="toc-spreiding-gemiddelde-en-test---statistieken" class="nav-link" data-scroll-target="#spreiding-gemiddelde-en-test---statistieken"><span class="header-section-number">C.4</span> Spreiding gemiddelde en test - statistieken</a></li>
-  <li><a href="#t-test-je-eigen-tafel." id="toc-t-test-je-eigen-tafel." class="nav-link" data-scroll-target="#t-test-je-eigen-tafel."><span class="header-section-number">C.5</span> T-test je eigen tafel.</a></li>
+  <li><a href="#inlezen-van-de-data" id="toc-inlezen-van-de-data" class="nav-link" data-scroll-target="#inlezen-van-de-data"><span class="header-section-number">E.1</span> Inlezen van de data:</a></li>
+  <li><a href="#data-kwaliteit" id="toc-data-kwaliteit" class="nav-link" data-scroll-target="#data-kwaliteit"><span class="header-section-number">E.2</span> Data Kwaliteit</a></li>
+  <li><a href="#de-hypothese-test." id="toc-de-hypothese-test." class="nav-link" data-scroll-target="#de-hypothese-test."><span class="header-section-number">E.3</span> De Hypothese test.</a></li>
+  <li><a href="#spreiding-gemiddelde-en-test---statistieken" id="toc-spreiding-gemiddelde-en-test---statistieken" class="nav-link" data-scroll-target="#spreiding-gemiddelde-en-test---statistieken"><span class="header-section-number">E.4</span> Spreiding gemiddelde en test - statistieken</a></li>
+  <li><a href="#t-test-je-eigen-tafel." id="toc-t-test-je-eigen-tafel." class="nav-link" data-scroll-target="#t-test-je-eigen-tafel."><span class="header-section-number">E.5</span> T-test je eigen tafel.</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -255,9 +271,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Port2_Pract.html">Appendices</a></li><li class="breadcrumb-item"><a href="./Sepia_Mantel.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Sepia Mantel en de t-test.</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Port2_Pract.html">Appendices</a></li><li class="breadcrumb-item"><a href="./Sepia_Mantel.html"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Sepia Mantel en de t-test.</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Appendix B — Sepia Mantel en de t-test.</h1>
+<h1 class="title">Appendix D — Sepia Mantel en de t-test.</h1>
 </div>
 
 
@@ -280,8 +296,8 @@ window.Quarto = {
 </header>
 
 
-<section id="introductie" class="level2" data-number="B.1">
-<h2 data-number="B.1" class="anchored" data-anchor-id="introductie"><span class="header-section-number">B.1</span> Introductie:</h2>
+<section id="introductie" class="level2" data-number="D.1">
+<h2 data-number="D.1" class="anchored" data-anchor-id="introductie"><span class="header-section-number">D.1</span> Introductie:</h2>
 <p>Vandaag onderzoeken we een fundamentele relatie tussen de betrouwbaarheid van een schatting van het gemiddelde, de p-waarde die we gebruiken om een hypothese te verwerpen, en de kwaliteit van een experimentele opzet.</p>
 <p>Allereerst is het belangrijk te realiseren dat <strong>steekproefdata</strong> afkomstig zijn uit een grotere verzameling gegevens, de <strong>populatie.</strong> Met een steekproef beschikken we dus slechts over een deel van alle informatie uit de populatie waarin we geïnteresseerd zijn. Het doel van statistiek is daarom niet de steekproef zelf te beschrijven, maar om op basis van onvolledige informatie uitspraken te doen over de populatie waaruit de steekproef afkomstig is.Er zit dus onzekerheid in.</p>
 <p>Wat is de logica van statistisch hypothesetoetsen?</p>
@@ -299,8 +315,8 @@ window.Quarto = {
 <p>Laat dit even bezinken. De gemiddelden kennen we, maar wat is <strong>SE</strong>? Dat is de focus van vandaag. SE vormt de link tussen het gemiddelde, de p-waarde en de betrouwbaarheid van het experiment.</p>
 <p>Wat we nu alvast kunnen zeggen is dat de <strong>SE</strong> een functie is van de standaarddeviatie (<strong>SD</strong>), een maat voor de spreiding in de steekproef, en van de steekproefgrootte (<strong>n</strong>). Hieronder beginnen we met het begrip SE te onderzoeken en proberen we met een aantal eenvoudige vragen een complexere vraag te begrijpen.</p>
 </section>
-<section id="het-probleem." class="level2" data-number="B.2">
-<h2 data-number="B.2" class="anchored" data-anchor-id="het-probleem."><span class="header-section-number">B.2</span> Het probleem.</h2>
+<section id="het-probleem." class="level2" data-number="D.2">
+<h2 data-number="D.2" class="anchored" data-anchor-id="het-probleem."><span class="header-section-number">D.2</span> Het probleem.</h2>
 <p><strong>Vraag 1</strong>: Waarom nemen we een spreiding waar in de mantellengte van Sepia?</p>
 <p>Antwoord:</p>
 <p>De spreiding wordt beschreven met de <strong>variantie</strong>. Bekijk de volgende formules voor het gemiddelde en voor een maat van spreiding <span class="math inline">\(s^2\)</span>.</p>
@@ -328,8 +344,8 @@ SE =
 <p><strong>Vraag 6</strong>: Gegeven de relatie tussen het verschil van de gemiddelden, de SE, de t-waarde en de p-waarde: kunnen we uit de vergelijking voor de t-waarde afleiden hoe groot onze steekproef moet zijn?</p>
 <p>Antwoord 6:</p>
 </section>
-<section id="kansuitspraken-en-wetenschap" class="level2" data-number="B.3">
-<h2 data-number="B.3" class="anchored" data-anchor-id="kansuitspraken-en-wetenschap"><span class="header-section-number">B.3</span> Kansuitspraken en wetenschap</h2>
+<section id="kansuitspraken-en-wetenschap" class="level2" data-number="D.3">
+<h2 data-number="D.3" class="anchored" data-anchor-id="kansuitspraken-en-wetenschap"><span class="header-section-number">D.3</span> Kansuitspraken en wetenschap</h2>
 <p>Hier komen we bij de volgende observaties:</p>
 <ul>
 <li>Als we een meting doen waarvan de uitkomst niet van tevoren met absolute precisie bekend is, spreken we van een <strong>random variabele</strong>.</li>
@@ -341,10 +357,10 @@ SE =
 </ul>
 <p>Daarom zijn al onze uitspraken in de statistiek gebaseerd op <strong>kansen die voortkomen uit een verdeling</strong>, en nooit op een absoluut bewijs.</p>
 </section>
-<section id="analyse-van-jullie-data" class="level1" data-number="C">
-<h1 data-number="C"><span class="header-section-number">C</span> Analyse van jullie data</h1>
-<section id="inlezen-van-de-data" class="level2" data-number="C.1">
-<h2 data-number="C.1" class="anchored" data-anchor-id="inlezen-van-de-data"><span class="header-section-number">C.1</span> Inlezen van de data:</h2>
+<section id="analyse-van-jullie-data" class="level1" data-number="E">
+<h1 data-number="E"><span class="header-section-number">E</span> Analyse van jullie data</h1>
+<section id="inlezen-van-de-data" class="level2" data-number="E.1">
+<h2 data-number="E.1" class="anchored" data-anchor-id="inlezen-van-de-data"><span class="header-section-number">E.1</span> Inlezen van de data:</h2>
 <blockquote class="blockquote">
 <p>Wees gerust we verwachten nog niet dat je deze code kent</p>
 </blockquote>
@@ -399,8 +415,8 @@ Attaching package: 'dplyr'</code></pre>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="data-kwaliteit" class="level2" data-number="C.2">
-<h2 data-number="C.2" class="anchored" data-anchor-id="data-kwaliteit"><span class="header-section-number">C.2</span> Data Kwaliteit</h2>
+<section id="data-kwaliteit" class="level2" data-number="E.2">
+<h2 data-number="E.2" class="anchored" data-anchor-id="data-kwaliteit"><span class="header-section-number">E.2</span> Data Kwaliteit</h2>
 <p>Voor we verder kunnen kijken we eerst naar de kwaliteit van de data.</p>
 <p><strong>Extreme waarden</strong>:</p>
 <div class="cell">
@@ -455,8 +471,8 @@ Attaching package: 'dplyr'</code></pre>
 </div>
 <p>Opmerkingen:</p>
 </section>
-<section id="de-hypothese-test." class="level2" data-number="C.3">
-<h2 data-number="C.3" class="anchored" data-anchor-id="de-hypothese-test."><span class="header-section-number">C.3</span> De Hypothese test.</h2>
+<section id="de-hypothese-test." class="level2" data-number="E.3">
+<h2 data-number="E.3" class="anchored" data-anchor-id="de-hypothese-test."><span class="header-section-number">E.3</span> De Hypothese test.</h2>
 <p>We willen weten of het waargenomen verschil tussen de gemiddelde door toeval komt of structureel is. Is er een verschil tussen de gemiddelde?</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kwantitatief</span></span>
@@ -522,8 +538,8 @@ mean in group Mannelijk mean in group Vrouwlijk
 </div>
 </div>
 </section>
-<section id="spreiding-gemiddelde-en-test---statistieken" class="level2" data-number="C.4">
-<h2 data-number="C.4" class="anchored" data-anchor-id="spreiding-gemiddelde-en-test---statistieken"><span class="header-section-number">C.4</span> Spreiding gemiddelde en test - statistieken</h2>
+<section id="spreiding-gemiddelde-en-test---statistieken" class="level2" data-number="E.4">
+<h2 data-number="E.4" class="anchored" data-anchor-id="spreiding-gemiddelde-en-test---statistieken"><span class="header-section-number">E.4</span> Spreiding gemiddelde en test - statistieken</h2>
 <p>Zoals we eerder hadden besproken verwachten we niet dat alle gemiddelden, t en p-waarden gelijk zijn per tafel. Hieronder gaan we alle gemiddelde</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>nTafel <span class="ot">&lt;-</span> <span class="dv">7</span></span>
@@ -555,8 +571,8 @@ mean in group Mannelijk mean in group Vrouwlijk
 </div>
 <p>Opmerking:</p>
 </section>
-<section id="t-test-je-eigen-tafel." class="level2" data-number="C.5">
-<h2 data-number="C.5" class="anchored" data-anchor-id="t-test-je-eigen-tafel."><span class="header-section-number">C.5</span> T-test je eigen tafel.</h2>
+<section id="t-test-je-eigen-tafel." class="level2" data-number="E.5">
+<h2 data-number="E.5" class="anchored" data-anchor-id="t-test-je-eigen-tafel."><span class="header-section-number">E.5</span> T-test je eigen tafel.</h2>
 <p>Hieronder kan je testen het resultaat van je eigen tafel. Dat kan je ook doen voor de breedte. Pas hiervoor de code zelf aan.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset data tafel 1</span></span>
@@ -589,10 +605,35 @@ mean in group Mannelijk mean in group Vrouwlijk
 <p><strong>Opdracht</strong>: Beschrijf in maximaal 200 woorden de relatie tussen het gemiddelde, de t-waarde, de p-waarde en de steekproefgrootte. Interpreteer daarnaast het resultaat van je eigen tabel. Upload dit bestand, liefst als html via de daarvoor bestemde link op Brightspace.</p>
 
 
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
 </section>
 </section>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -995,8 +1036,8 @@ mean in group Mannelijk mean in group Vrouwlijk
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Port2_Pract.html" class="pagination-link" aria-label="Maiszaden practicum">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Maiszaden practicum</span></span>
+      <a href="./bradford_statistiek.html" class="pagination-link" aria-label="Bradford-test: statistiek en lineaire modellen">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Bradford-test: statistiek en lineaire modellen</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
