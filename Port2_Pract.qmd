@@ -75,15 +75,21 @@ Voor ons sex ratio voorbeeld ziet de vergelijking er als volgt uit:
 
 $$X^2 = \frac{(O_m - E_m)^2}{E_m} + \frac{(O_v - E_v)^2}{E_v}$$
 
-**Vraag 1:** Leg uit dat deze formule het verschil meet tussen de verdeling van de verwachte waarden (E) en de geobserveerde waarden (O) en welke waarde $\chi^2$ aanneemt als de hypothese exact overeenkomt met de meeting. Leg uit waarom deze waarde logisch is in deze context.
+::: {#exr-chi2_uitleg}
+Leg uit dat deze formule het verschil meet tussen de verdeling van de verwachte waarden (E) en de geobserveerde waarden (O) en welke waarde $\chi^2$ aanneemt als de hypothese exact overeenkomt met de meeting. Leg uit waarom deze waarde logisch is in deze context.
+:::
 
 > jouw antwoord:
 
-**Vraag 2:** Beargumenteer en onderbouw wat er met de $\chi^2$-waarde gebeurt naarmate de Null-hypothese steeds onaannemelijker wordt.
+::: {#exr-chi2_null}
+Beargumenteer en onderbouw wat er met de $\chi^2$-waarde gebeurt naarmate de Null-hypothese steeds onaannemelijker wordt.
+:::
 
 > jouw antwoord:
 
-**Vraag 3:** Wat gebeurt er met $\chi^2$ als we een veel grotere steekproef nemen maar de verhoudingen (proporties) gelijk houden (bijv. 1000 in plaats van 80)?
+::: {#exr-chi2_steekproefgrootte}
+Wat gebeurt er met $\chi^2$ als we een veel grotere steekproef nemen maar de verhoudingen (proporties) gelijk houden (bijv. 1000 in plaats van 80)?
+:::
 
 > jouw antwoord:
 
@@ -113,7 +119,9 @@ R beschikt over een ingebouwde functie om de $\chi^2$-kwadraattoets direct uit t
 
 `chisq.test(c(45, 35), p = c(1/2, 1/2))`
 
-**Vraag 4:** Vertaal deze code naar de context van het experiment en leg in je eigen woorden uit wat elk onderdeel van de code betekent.
+::: {#exr-chi2_code}
+Vertaal deze code naar de context van het experiment en leg in je eigen woorden uit wat elk onderdeel van de code betekent.
+:::
 
 > jouw antwoord
 
@@ -142,7 +150,9 @@ De algemene statistische stelregel is:
 
 In ons voorbeeld is de p-waarde 0.263, dit is groter dan 0.05; is er onvoldoende grond om $H_0$ te verwerpen: *we kunnen de 1:1 verhouding niet uitsluiten*. Het waargenomen verschil (gekwantificeerd in $\chi^2$) is hoogstwaarschijnlijk het gevolg van toeval en dus niet systematisch.
 
-**Vraag 5**: Wat gebeurt er met de $\chi ^{2}$-waarde en de p-waarde als onze steekproefomvang groter wordt (bijvoorbeeld van 350 naar 450)? Leid dit eerst theoretisch af, voer daarna de berekening uit in R en interpreteer ten slotte het resultaat.
+::: {#exr-chi2_steekproef}
+Wat gebeurt er met de $\chi ^{2}$-waarde en de p-waarde als onze steekproefomvang groter wordt (bijvoorbeeld van 350 naar 450)? Leid dit eerst theoretisch af, voer daarna de berekening uit in R en interpreteer ten slotte het resultaat.
+:::
 
 > jouw antwoord.
 

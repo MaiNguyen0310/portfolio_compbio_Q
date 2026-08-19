@@ -280,10 +280,7 @@ window.Quarto = {
   <li><a href="#voorbeeld-en-opdrachten-metabolismesnelheid" id="toc-voorbeeld-en-opdrachten-metabolismesnelheid" class="nav-link" data-scroll-target="#voorbeeld-en-opdrachten-metabolismesnelheid"><span class="header-section-number">2.2.2</span> Voorbeeld en opdrachten: metabolismesnelheid</a></li>
   <li><a href="#terug-naar-de-paradox" id="toc-terug-naar-de-paradox" class="nav-link" data-scroll-target="#terug-naar-de-paradox"><span class="header-section-number">2.2.3</span> Terug naar de paradox</a></li>
   </ul></li>
-  <li><a href="#samenvattende-opdracht" id="toc-samenvattende-opdracht" class="nav-link" data-scroll-target="#samenvattende-opdracht"><span class="header-section-number">2.3</span> Samenvattende opdracht</a>
-  <ul class="collapse">
-  <li><a href="#optioneel-fractale-structuren" id="toc-optioneel-fractale-structuren" class="nav-link" data-scroll-target="#optioneel-fractale-structuren"><span class="header-section-number">2.3.1</span> Optioneel: Fractale structuren</a></li>
-  </ul></li>
+  <li><a href="#samenvattende-opdracht" id="toc-samenvattende-opdracht" class="nav-link" data-scroll-target="#samenvattende-opdracht"><span class="header-section-number">2.3</span> Samenvattende opdracht</a></li>
   <li><a href="#terug-naar-concentraties" id="toc-terug-naar-concentraties" class="nav-link" data-scroll-target="#terug-naar-concentraties"><span class="header-section-number">2.4</span> Terug naar concentraties</a>
   <ul class="collapse">
   <li><a href="#een-concreet-voorbeeld-de-protonengradiënt-in-mitochondriën" id="toc-een-concreet-voorbeeld-de-protonengradiënt-in-mitochondriën" class="nav-link" data-scroll-target="#een-concreet-voorbeeld-de-protonengradiënt-in-mitochondriën"><span class="header-section-number">2.4.1</span> Een concreet voorbeeld: de protonengradiënt in mitochondriën</a></li>
@@ -324,7 +321,9 @@ window.Quarto = {
 <h2 data-number="2.1" class="anchored" data-anchor-id="eigenchappen-van-de-logaritme"><span class="header-section-number">2.1</span> Eigenchappen van de logaritme</h2>
 <p>De logartitme heeft een handige eigenschap voor het werken met concentraties en dus met de pH: hij comprimeert een enorm bereik (14 ordes van grootte in <span class="math inline">\([\text{H}^+]\)</span>) tot een overzichtelijke schaal. Diezelfde eigenschap zit achter de schaal van Richter (aardbevingen) en decibel (geluid): elke stap van 1 staat voor een factor 10 in de onderliggende grootheid.</p>
 <p>Maar de logaritme heeft nog een tweede, andere eigenschap, die je eerder bij de rekenregels al hebt gezien: hij zet een <em>machtsverband</em> om in een <em>lineair</em> verband. Die eigenschap staat nu centraal, in een heel andere context dan pH: hoe lichaamsgrootte samenhangt met de rest van de biologie van een dier.</p>
-<p><strong>Vraag 1:</strong> Welke van deze eigenschappen van de logaritme verwacht je nodig te hebben om zo dadelijk het verband tussen massa en metabolisme van zoogdieren te analyseren? En op welke manier?</p>
+<div id="exr-eig_log" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 2.1</strong></span> Welke van deze eigenschappen van de logaritme verwacht je nodig te hebben om zo dadelijk het verband tussen massa en metabolisme van zoogdieren te analyseren? En op welke manier?</p>
+</div>
 <blockquote class="blockquote">
 <p>jouw antwoord:</p>
 </blockquote>
@@ -359,11 +358,15 @@ window.Quarto = {
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>metabolisme <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">7.15</span>, <span class="fl">2.2</span>, <span class="fl">1.85</span>, <span class="fl">1.7</span>, <span class="fl">1.65</span>, <span class="fl">1.05</span>, <span class="fl">0.75</span>, </span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.45</span>, <span class="fl">0.4</span>,<span class="fl">0.2</span>, <span class="fl">0.15</span>, <span class="fl">0.1</span>, <span class="fl">0.75</span>, <span class="fl">0.05</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><strong>Vraag 2:</strong> Plot hieronder de datapunten aan de hand van de vectoren die gegeven zijn. Waarom ziet het er anders uit dan de gegeven figuur?</p>
+<div id="exr-plot_data" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 2.2</strong></span> Plot hieronder de datapunten aan de hand van de vectoren die gegeven zijn. Waarom ziet het er anders uit dan de gegeven figuur?</p>
+</div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gebruik de functie plot()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><strong>Vraag 3:</strong> Los het probleem op: hoe zou je ervoor kunnen zorgen dat de data goed leesbaar wordt? Wat voor verband kunnen we nu afleiden?</p>
+<div id="exr-plot_log_data" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 2.3</strong></span> Los het probleem op: hoe zou je ervoor kunnen zorgen dat de data goed leesbaar wordt? Wat voor verband kunnen we nu afleiden?</p>
+</div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dit zou je zelf moeten doen </span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># gebruik de functie log10()</span></span>
@@ -379,12 +382,16 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p><strong>Vraag 4:</strong> Leg nu in woorden uit waarom de gebruikte methode werkt, en relateer dat aan de machtsformule.</p>
+<div id="exr-uitleg_plot_log" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 2.4</strong></span> Leg nu in woorden uit waarom de gebruikte methode werkt, en relateer dat aan de machtsformule.</p>
+</div>
 <blockquote class="blockquote">
 <p>Jouw antwoord</p>
 </blockquote>
 <p>We gaan nu iets beter kijken naar de betekenis van het aangetone verband. We hebben gekeken naar de massa-specifieke metabole snelheid, ook wel metabole intensiteit, die aangeeft hoe snel metabolisme verloopt per eenheid massa van een bepaald weefsel. Dit meten we bijvoorbeeld als de hoeveelheid <span class="math inline">\(\text{O}_2\)</span> die verbruikt wordt per uur. Aan deze eenheid zien we dat we dit kunnen berekenen door de totale metabole intensiteit te delen door de massa.</p>
-<p><strong>Vraag 5:</strong> Vul dit in bij de machtsformule, waarbij de gemeten variabele het totale metabolisme is. Maak gebruik van de rekenregels van de logaritme om een uitdrukking te krijgen voor de totale metabole intensiteit.</p>
+<div id="exr-machtsform" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 2.5</strong></span> Vul dit in bij de machtsformule, waarbij de gemeten variabele het totale metabolisme is. Maak gebruik van de rekenregels van de logaritme om een uitdrukking te krijgen voor de totale metabole intensiteit.</p>
+</div>
 <blockquote class="blockquote">
 <p>Jouw antwoord</p>
 </blockquote>
@@ -392,7 +399,9 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>massa_metabolisme <span class="ot">&lt;-</span> massa<span class="sc">*</span>metabolisme</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><strong>Vraag 6:</strong> Probeer nu een relatie te vinden tussen de massa en het totale metabolisme. Plot deze relatie.</p>
+<div id="exr-plot_metab" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 2.6</strong></span> Probeer nu een relatie te vinden tussen de massa en het totale metabolisme. Plot deze relatie.</p>
+</div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dit zou je zelf doen </span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log10</span>(massa), </span>
@@ -406,11 +415,15 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p><strong>Vraag 7:</strong> Wat kun je opmerken over het effect van een grotere massa op de totale metabole snelheid? En op de massa-specifieke metabole snelheid?</p>
+<div id="exr-massa_metab" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 2.7</strong></span> Wat kun je opmerken over het effect van een grotere massa op de totale metabole snelheid? En op de massa-specifieke metabole snelheid?</p>
+</div>
 <blockquote class="blockquote">
 <p>Jouw antwoord</p>
 </blockquote>
-<p><strong>Vraag 8:</strong> Gebruik de rekenregels van de logaritme en je eerdere antwoorden om een waarde voor de exponent <span class="math inline">\(b\)</span> te vinden. Hint: gebruik de functie om een relevante waarde te vinden. Met vind je hoe je deze kunt gebruiken.</p>
+<div id="exr-exp_bepalen" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 2.8</strong></span> Gebruik de rekenregels van de logaritme en je eerdere antwoorden om een waarde voor de exponent <span class="math inline">\(b\)</span> te vinden. Hint: gebruik de functie om een relevante waarde te vinden. Met vind je hoe je deze kunt gebruiken.</p>
+</div>
 <blockquote class="blockquote">
 <p>Jouw antwoord</p>
 </blockquote>
@@ -420,7 +433,9 @@ window.Quarto = {
 </div></div></section>
 <section id="terug-naar-de-paradox" class="level3" data-number="2.2.3">
 <h3 data-number="2.2.3" class="anchored" data-anchor-id="terug-naar-de-paradox"><span class="header-section-number">2.2.3</span> Terug naar de paradox</h3>
-<p><strong>Vraag 8:</strong> Je vond zojuist twee exponenten: één voor het verband tussen massa en massa-specifiek metabolisme, en één voor massa en totaal metabolisme. Laat met de rekenregels van de logaritme zien hoe deze twee exponenten met elkaar samenhangen. Verklaar daarmee je bevindingen.</p>
+<div id="exr-exponenten" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 2.9</strong></span> Je vond zojuist twee exponenten: één voor het verband tussen massa en massa-specifiek metabolisme, en één voor massa en totaal metabolisme. Laat met de rekenregels van de logaritme zien hoe deze twee exponenten met elkaar samenhangen. Verklaar daarmee je bevindingen.</p>
+</div>
 <blockquote class="blockquote">
 <p>jouw antwoord:</p>
 </blockquote>
@@ -430,19 +445,20 @@ window.Quarto = {
 <h2 data-number="2.3" class="anchored" data-anchor-id="samenvattende-opdracht"><span class="header-section-number">2.3</span> Samenvattende opdracht</h2>
 <p>Wat hier opvalt, is dat één simpele wiskundige vorm, namelijk het machtsverband <span class="math inline">\(Y=aM^b\)</span>, een patroon beschrijft dat voor sterk uiteenlopende dieren en eigenschappen lijkt te gelden, van spitsmuis tot olifant. Dat zulke brede, kwantitatieve regelmatigheden in de biologie überhaupt bestaan, is opmerkelijk: de levende wereld zit vol uitzonderingen en variatie. Toch is er hier een algemene wetmatigheid te vinden. Juist de wiskunde is het gereedschap waarmee je zo’n regelmatigheid uit ruwe data kunt achterhalen. Hiervan zullen we gedurende het jaar meerdere voorbeelden zien.</p>
 <p>In de vorige portfolio-opdracht schreef je een eigen hypothese over hoe entropie, onzekerheid en canalisatie zouden samenhangen met onderwerpen die je dit jaar nog zou tegenkomen.</p>
-<p><strong>Vraag 9:</strong> Lees je antwoord van toen terug.</p>
+<div id="exr-log_terugblik" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 2.10</strong></span> Lees je antwoord van toen terug.</p>
 <ul>
 <li>Klopten je verwachtingen?</li>
 <li>Zie je nu een verband tussen de logaritme hier en de entropie van vorige keer?</li>
 <li>In de introductie beschreven we dat de logaritme in zoveel uiteenlopende contexten (pH, aardbevingen, geluid, metabolisme) opduikt. Formuleer nu, in je eigen woorden, een algemene verklaring.</li>
 </ul>
+</div>
 <blockquote class="blockquote">
 <p>jouw antwoord:</p>
 </blockquote>
-<section id="optioneel-fractale-structuren" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="optioneel-fractale-structuren"><span class="header-section-number">2.3.1</span> Optioneel: Fractale structuren</h3>
-<p>De log-log-lineariteit die je hierboven gebruikte, komt niet toevallig ook terug bij fractale structuren. Dit zijn patronen die er op elke schaal ongeveer hetzelfde uitzien. Geïnteresseerden worden uitgenodigd om <a href="evo-devo/schaling.html">hier</a> meer te lezen over fractale structuren.</p>
-</section>
+<!-- ### Optioneel: Fractale structuren -->
+<!-- De log-log-lineariteit die je hierboven gebruikte, komt niet toevallig ook terug bij fractale structuren. Dit zijn patronen die er op elke schaal ongeveer hetzelfde uitzien.  -->
+<!-- Geïnteresseerden worden uitgenodigd om [hier](evo-devo/schaling.html) meer te lezen over fractale structuren. -->
 </section>
 <section id="terug-naar-concentraties" class="level2 page-columns page-full" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="terug-naar-concentraties"><span class="header-section-number">2.4</span> Terug naar concentraties</h2>

@@ -367,15 +367,21 @@ window.Quarto = {
 </ul>
 <p>Voor ons sex ratio voorbeeld ziet de vergelijking er als volgt uit:</p>
 <p><span class="math display">\[X^2 = \frac{(O_m - E_m)^2}{E_m} + \frac{(O_v - E_v)^2}{E_v}\]</span></p>
-<p><strong>Vraag 1:</strong> Leg uit dat deze formule het verschil meet tussen de verdeling van de verwachte waarden (E) en de geobserveerde waarden (O) en welke waarde <span class="math inline">\(\chi^2\)</span> aanneemt als de hypothese exact overeenkomt met de meeting. Leg uit waarom deze waarde logisch is in deze context.</p>
+<div id="exr-chi2_uitleg" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag A.1</strong></span> Leg uit dat deze formule het verschil meet tussen de verdeling van de verwachte waarden (E) en de geobserveerde waarden (O) en welke waarde <span class="math inline">\(\chi^2\)</span> aanneemt als de hypothese exact overeenkomt met de meeting. Leg uit waarom deze waarde logisch is in deze context.</p>
+</div>
 <blockquote class="blockquote">
 <p>jouw antwoord:</p>
 </blockquote>
-<p><strong>Vraag 2:</strong> Beargumenteer en onderbouw wat er met de <span class="math inline">\(\chi^2\)</span>-waarde gebeurt naarmate de Null-hypothese steeds onaannemelijker wordt.</p>
+<div id="exr-chi2_null" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag A.2</strong></span> Beargumenteer en onderbouw wat er met de <span class="math inline">\(\chi^2\)</span>-waarde gebeurt naarmate de Null-hypothese steeds onaannemelijker wordt.</p>
+</div>
 <blockquote class="blockquote">
 <p>jouw antwoord:</p>
 </blockquote>
-<p><strong>Vraag 3:</strong> Wat gebeurt er met <span class="math inline">\(\chi^2\)</span> als we een veel grotere steekproef nemen maar de verhoudingen (proporties) gelijk houden (bijv. 1000 in plaats van 80)?</p>
+<div id="exr-chi2_steekproefgrootte" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag A.3</strong></span> Wat gebeurt er met <span class="math inline">\(\chi^2\)</span> als we een veel grotere steekproef nemen maar de verhoudingen (proporties) gelijk houden (bijv. 1000 in plaats van 80)?</p>
+</div>
 <blockquote class="blockquote">
 <p>jouw antwoord:</p>
 </blockquote>
@@ -400,7 +406,9 @@ window.Quarto = {
 </div>
 <p>R beschikt over een ingebouwde functie om de <span class="math inline">\(\chi^2\)</span>-kwadraattoets direct uit te voeren: chisq.test(). Deze gebruik je voor deze data als volgt:</p>
 <p><code>chisq.test(c(45, 35), p = c(1/2, 1/2))</code></p>
-<p><strong>Vraag 4:</strong> Vertaal deze code naar de context van het experiment en leg in je eigen woorden uit wat elk onderdeel van de code betekent.</p>
+<div id="exr-chi2_code" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag A.4</strong></span> Vertaal deze code naar de context van het experiment en leg in je eigen woorden uit wat elk onderdeel van de code betekent.</p>
+</div>
 <blockquote class="blockquote">
 <p>jouw antwoord</p>
 </blockquote>
@@ -440,7 +448,9 @@ X-squared = 1.25, df = 1, p-value = 0.2636</code></pre>
 <li>Als <span class="math inline">\(p \ge 0.05\)</span>, is er onvoldoende grond om de nulhypothese te verwerpen; <em>toeval blijft dan een aannemelijke verklaring voor de waargenomen afwijking</em>.</li>
 </ul>
 <p>In ons voorbeeld is de p-waarde 0.263, dit is groter dan 0.05; is er onvoldoende grond om <span class="math inline">\(H_0\)</span> te verwerpen: <em>we kunnen de 1:1 verhouding niet uitsluiten</em>. Het waargenomen verschil (gekwantificeerd in <span class="math inline">\(\chi^2\)</span>) is hoogstwaarschijnlijk het gevolg van toeval en dus niet systematisch.</p>
-<p><strong>Vraag 5</strong>: Wat gebeurt er met de <span class="math inline">\(\chi ^{2}\)</span>-waarde en de p-waarde als onze steekproefomvang groter wordt (bijvoorbeeld van 350 naar 450)? Leid dit eerst theoretisch af, voer daarna de berekening uit in R en interpreteer ten slotte het resultaat.</p>
+<div id="exr-chi2_steekproef" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag A.5</strong></span> Wat gebeurt er met de <span class="math inline">\(\chi ^{2}\)</span>-waarde en de p-waarde als onze steekproefomvang groter wordt (bijvoorbeeld van 350 naar 450)? Leid dit eerst theoretisch af, voer daarna de berekening uit in R en interpreteer ten slotte het resultaat.</p>
+</div>
 <blockquote class="blockquote">
 <p>jouw antwoord.</p>
 </blockquote>

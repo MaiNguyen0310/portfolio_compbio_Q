@@ -117,13 +117,16 @@ abline(h = 0, lty = 2) # horizontale lijn op y=0
 abline(v = 1, lty = 2) # verticale lijn op x=1
 ```
 
-**Vraag 1:** Bekijk de grafiek.
-
+::: {#exr-grafiek_log}
+Bekijk de grafiek.
 
 - Wat gebeurt er met $\log_{10}(x)$ als $x$ steeds dichter bij 0 komt? Waarom bestaat $\log_{10}(0)$ niet?
 - Voor welke $x$-waarden is $\log_{10}(x)$ negatief? Waarom is dat, gezien de derfinitie van een logaritme?
+:::
+
 
 > jouw antwoord:
+
 
 ## Waarom werken we voor de pH eigenlijk met een logaritmische maat?
 
@@ -148,7 +151,9 @@ $$\text{pH} = -\log_{10}[\text{H}^+]$$
 Vergelijk dit met de $\chi^2$-toets: ook daar schalen we een verschil $(O − E)^2$ naar een begrensd interval, waardoor we waarden kunnen vergelijken, onafhankelijk van de grootte van de absolute aantallen.
 :::
 
-**Vraag 2:** Als de H⁺-concentratie met een factor 10 daalt, wat gebeurt er dan met de pH? En als de concentratie halveert (bijvoorbeeld door verdunning)? Reken beide gevallen uit en leg intuïtief uit waarom een verschil van "1 pH-eenheid" een heel andere betekenis heeft dan een verschil van "1 eenheid concentratie" (mol/Liter).
+::: {#exr-pH_redenering}
+Als de H⁺-concentratie met een factor 10 daalt, wat gebeurt er dan met de pH? En als de concentratie halveert (bijvoorbeeld door verdunning)? Reken beide gevallen uit en leg intuïtief uit waarom een verschil van "1 pH-eenheid" een heel andere betekenis heeft dan een verschil van "1 eenheid concentratie" (mol/Liter).
+:::
 
 > Jouw antwoord
 
@@ -193,7 +198,7 @@ MW <- 136.08
 Bereken de benodigde massa.
 
 ```{webr}
-massa_nodig <- ______ # vul de berekening in
+massa_nodig <- ___ # vul de berekening in
 massa_nodig
 ```
 
@@ -217,7 +222,9 @@ massa_gewogen <- rnorm(1, mean = massa_nodig, sd = 0.05)
 massa_gewogen
 ```
 
-**Vraag 3:** Denk terug aan de vorige portfolio-opdracht over verdelingen. Bedenk waarom bovenstaande benadering van de afgewogen massa redelijk is.
+::: {#exr-massa_gw}
+Denk terug aan de vorige portfolio-opdracht over verdelingen. Bedenk waarom bovenstaande benadering van de afgewogen massa redelijk is.
+:::
 
 > Jouw antwoord
 
@@ -285,11 +292,15 @@ Je hebt de pKz nu berekend uit één meting. Maar bekijk de formule eens goed:
 
 $$\text{pH} = \text{pKz} + \log_{10}\left(\frac{[\text{Z}^-]}{[\text{HZ}]}\right)$$
 
-**Vraag 4:** Als je $x = \log_{10}([\text{Z}^-]/[\text{HZ}])$ noemt, welke bekende vorm ($y = ax + b$) herken je dan in deze formule? Wat stellen $a$, $b$ en $y$ hier voor? Welke waarden verwacht je dat deze aannemen? 
+::: {#exr-pH_lineaire_reg}
+Als je $x = \log_{10}([\text{Z}^-]/[\text{HZ}])$ noemt, welke bekende vorm ($y = ax + b$) herken je dan in deze formule? Wat stellen $a$, $b$ en $y$ hier voor? Welke waarden verwacht je dat deze aannemen? 
+:::
 
 > Jouw antwoord
 
-**Vraag 5:** Leg in eigen woorden uit waarom dit verband inzichtelijk is. Koppel de formule aan het doel en de methode van het practicum: wat verander je? Wat meet je? En wat voor inzichten geeft het  verband?
+::: {#exr-lin_interpretatie}
+Leg in eigen woorden uit waarom dit verband inzichtelijk is. Koppel de formule aan het doel en de methode van het practicum: wat verander je? Wat meet je? En wat voor inzichten geeft het  verband?
+:::
 
 > Jouw antwoord
 
@@ -315,13 +326,17 @@ plot(x, pH_gemeten, xlab = "log10([Z-]/[HZ])", ylab = "pH")
 abline(model)
 ```
 
-**Vraag 6:** Waarom geeft het schatten van de pKz uit een lijn door meerdere punten waarschijnlijk een betrouwbaardere waarde dan het berekenen van de pKz uit slechts één meting?
+::: {#exr-pKz_lijn}
+Waarom geeft het schatten van de pKz uit een lijn door meerdere punten waarschijnlijk een betrouwbaardere waarde dan het berekenen van de pKz uit slechts één meting?
+:::
 
 ::: aside
 Denk aan het statistiekportfolio! Wat was bij de vorige opdracht de meerwaarde van een grotere steekproefgrootte?
 :::
 
-**Vraag 7:** Je hebt nu nog een nuttige eigenschap van de logaritme gezien. Beschrijf deze eigenschap in eigen woorden, en leg uit hoe we deze kunnen toepassen in practica.
+::: {#exr-eig_log} 
+Je hebt nu nog een nuttige eigenschap van de logaritme gezien. Beschrijf deze eigenschap in eigen woorden, en leg uit hoe we deze kunnen toepassen in practica.
+:::
 
 <!-- Zoals in de introductie van dit portfolio beschreven, zullen onderdelen uit dit portfolio gekoppeld worden aan practicumopdrachten. Voor dit portfolio-onderdeel hoef je nog niet zelf een hoofdstuk toe te voegen aan het portfoliobestand, zoals dat later wel zal moeten. Met deze app oefen je op een laagdrempelige manier met de logica achter coderen. Je kunt de berekeningen die je hierbij uitvoert ook gebruiken bij het schrijven van je labjournaal. -->
 

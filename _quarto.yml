@@ -27,12 +27,17 @@ engine: knitr
 bibliography: references.bib
 link-citations: true
 
+number-sections: true
+
+crossref:
+  exr-prefix: "Vraag"
+  chapters: true
 
 editor: visual
-
-language: 
-  ui: 
-    chapter_name: "" 
+language:
+  ui:
+    chapter_name: ""
+  crossref-exr-title: "Vraag"
     
 # resources:
 #   - evo-devo/

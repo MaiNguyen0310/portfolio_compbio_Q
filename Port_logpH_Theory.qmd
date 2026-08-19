@@ -21,7 +21,9 @@ De logartitme heeft een handige eigenschap voor het werken met concentraties en 
 
 Maar de logaritme heeft nog een tweede, andere eigenschap, die je eerder bij de rekenregels al hebt gezien: hij zet een *machtsverband* om in een *lineair* verband. Die eigenschap staat nu centraal, in een heel andere context dan pH: hoe lichaamsgrootte samenhangt met de rest van de biologie van een dier.
 
-**Vraag 1:** Welke van deze eigenschappen van de logaritme verwacht je nodig te hebben om zo dadelijk het verband tussen massa en metabolisme van zoogdieren te analyseren? En op welke manier?
+::: {#exr-eig_log}
+Welke van deze eigenschappen van de logaritme verwacht je nodig te hebben om zo dadelijk het verband tussen massa en metabolisme van zoogdieren te analyseren? En op welke manier?
+:::
 
 > jouw antwoord:
 
@@ -63,13 +65,17 @@ metabolisme = c(7.15, 2.2, 1.85, 1.7, 1.65, 1.05, 0.75,
                 0.45, 0.4,0.2, 0.15, 0.1, 0.75, 0.05) 
 ```
 
-**Vraag 2:** Plot hieronder de datapunten aan de hand van de vectoren die gegeven zijn. Waarom ziet het er anders uit dan de gegeven figuur?
+::: {#exr-plot_data}
+Plot hieronder de datapunten aan de hand van de vectoren die gegeven zijn. Waarom ziet het er anders uit dan de gegeven figuur?
+:::
 
 ```{r}
 # gebruik de functie plot()
 ```
 
-**Vraag 3:** Los het probleem op: hoe zou je ervoor kunnen zorgen dat de data goed leesbaar wordt? Wat voor verband kunnen we nu afleiden?
+::: {#exr-plot_log_data}
+Los het probleem op: hoe zou je ervoor kunnen zorgen dat de data goed leesbaar wordt? Wat voor verband kunnen we nu afleiden?
+:::
 
 ```{r}
 # dit zou je zelf moeten doen 
@@ -80,13 +86,17 @@ plot(log10(massa), log10(metabolisme),
 abline(lm(log10(metabolisme) ~ log10(massa)), col = "red")
 ```
 
-**Vraag 4:** Leg nu in woorden uit waarom de gebruikte methode werkt, en relateer dat aan de machtsformule.
+::: {#exr-uitleg_plot_log}
+Leg nu in woorden uit waarom de gebruikte methode werkt, en relateer dat aan de machtsformule.
+:::
 
  > Jouw antwoord
 
 We gaan nu iets beter kijken naar de betekenis van het aangetone verband. We hebben gekeken naar de massa-specifieke metabole snelheid, ook wel metabole intensiteit, die aangeeft hoe snel metabolisme verloopt per eenheid massa van een bepaald weefsel. Dit meten we bijvoorbeeld als de hoeveelheid $\text{O}_2$ die verbruikt wordt per uur. Aan deze eenheid zien we dat we dit kunnen berekenen door de totale metabole intensiteit te delen door de massa.
 
-**Vraag 5:** Vul dit in bij de machtsformule, waarbij de gemeten variabele het totale metabolisme is. Maak gebruik van de rekenregels van de logaritme om een uitdrukking te krijgen voor de totale metabole intensiteit.
+::: {#exr-machtsform} 
+Vul dit in bij de machtsformule, waarbij de gemeten variabele het totale metabolisme is. Maak gebruik van de rekenregels van de logaritme om een uitdrukking te krijgen voor de totale metabole intensiteit.
+:::
 
  > Jouw antwoord
 
@@ -96,7 +106,9 @@ Om terug te gaan naar het totale metabolisme in een dier, vermenigvuldigen we de
 massa_metabolisme <- massa*metabolisme
 ```
 
-**Vraag 6:** Probeer nu een relatie te vinden tussen de massa en het totale metabolisme. Plot deze relatie.
+::: {#exr-plot_metab}
+Probeer nu een relatie te vinden tussen de massa en het totale metabolisme. Plot deze relatie.
+:::
 
 ```{r}
 # dit zou je zelf doen 
@@ -105,11 +117,16 @@ plot(log10(massa),
 abline(lm(log10(massa_metabolisme) ~ log10(massa)), col = "red")
 ```
 
-**Vraag 7:** Wat kun je opmerken over het effect van een grotere massa op de totale metabole snelheid? En op de massa-specifieke metabole snelheid?
+::: {#exr-massa_metab}
+Wat kun je opmerken over het effect van een grotere massa op de totale metabole snelheid? En op de massa-specifieke metabole snelheid?
+:::
 
  > Jouw antwoord
 
-**Vraag 8:** Gebruik de rekenregels van de logaritme en je eerdere antwoorden om een waarde voor de exponent $b$ te vinden. Hint: gebruik de functie \textrm{lm()} om een relevante waarde te vinden. Met \textrm{?lm()} vind je hoe je deze kunt gebruiken. 
+::: {#exr-exp_bepalen}
+Gebruik de rekenregels van de logaritme en je eerdere antwoorden om een waarde voor de exponent $b$ te vinden. Hint: gebruik de functie \textrm{lm()} om een relevante waarde te vinden. Met \textrm{?lm()} vind je hoe je deze kunt gebruiken. 
+:::
+
 
  > Jouw antwoord
  
@@ -120,7 +137,9 @@ Merk op dat je de functie \textrm{lm} al eerder hebt gebruikt, bij het practicum
  
 ### Terug naar de paradox
 
-**Vraag 8:** Je vond zojuist twee exponenten: één voor het verband tussen massa en massa-specifiek metabolisme, en één voor massa en totaal metabolisme. Laat met de rekenregels van de logaritme zien hoe deze twee exponenten met elkaar samenhangen. Verklaar daarmee je bevindingen.
+::: {#exr-exponenten}
+Je vond zojuist twee exponenten: één voor het verband tussen massa en massa-specifiek metabolisme, en één voor massa en totaal metabolisme. Laat met de rekenregels van de logaritme zien hoe deze twee exponenten met elkaar samenhangen. Verklaar daarmee je bevindingen.
+:::
 
 > jouw antwoord:
 
@@ -131,18 +150,20 @@ Wat hier opvalt, is dat één simpele wiskundige vorm, namelijk het machtsverban
 
 In de vorige portfolio-opdracht schreef je een eigen hypothese over hoe entropie, onzekerheid en canalisatie zouden samenhangen met onderwerpen die je dit jaar nog zou tegenkomen.
 
-**Vraag 9:** Lees je antwoord van toen terug.
+::: {#exr-log_terugblik}
+Lees je antwoord van toen terug.
 
 - Klopten je verwachtingen?
 - Zie je nu een verband tussen de logaritme hier en de entropie van vorige keer?
 - In de introductie beschreven we dat de logaritme in zoveel uiteenlopende contexten (pH, aardbevingen, geluid, metabolisme) opduikt. Formuleer nu, in je eigen woorden, een algemene verklaring.
+:::
 
 > jouw antwoord:
 
-### Optioneel: Fractale structuren
+<!-- ### Optioneel: Fractale structuren -->
 
-De log-log-lineariteit die je hierboven gebruikte, komt niet toevallig ook terug bij fractale structuren. Dit zijn patronen die er op elke schaal ongeveer hetzelfde uitzien. 
-Geïnteresseerden worden uitgenodigd om [hier](evo-devo/schaling.html) meer te lezen over fractale structuren.
+<!-- De log-log-lineariteit die je hierboven gebruikte, komt niet toevallig ook terug bij fractale structuren. Dit zijn patronen die er op elke schaal ongeveer hetzelfde uitzien.  -->
+<!-- Geïnteresseerden worden uitgenodigd om [hier](evo-devo/schaling.html) meer te lezen over fractale structuren. -->
 
 
 ## Terug naar concentraties
