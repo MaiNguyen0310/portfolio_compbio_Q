@@ -1,0 +1,295 @@
+# Bradford-test: statistiek, vectoren en lineaire modellen
+
+In de eerste portfolio-opdracht gebruikten we het concept van entropie om toenemende complexiteit in de biologie te duiden. In de tweede opdracht zagen we dat een rechte lijn de relatie tussen metabolische snelheid en massa goed kon beschrijven. Vandaag gebruiken we de Bradford-test om statistiek toe te passen en een ijklijn te maken. Daarbij komen beide concepten opnieuw samen.
+
+In deze les kijken we ook weer naar aannames. Een aanname is een biologische veronderstelling die nodig is om een wiskundige analyse of model te mogen gebruiken. Die aanname moet wetenschappelijk onderbouwd zijn. Voor de Bradford-test nemen we bijvoorbeeld aan dat de relatie tussen eiwitconcentratie en absorbantie binnen het gebruikte meetbereik **lineair** is en dat de **rest-term normal verdeeld** is. Daarom is het belangrijk dat monsters soms eerst worden verdund, zodat de metingen binnen het lineaire bereik van de methode vallen.
+
+::: aside
+Aannames kwamen ook eerder terug: de $\chi^2$-verdeling gelden alleen onder specifieke aannames die je moet benoemen en controleren.
+:::
+
+Naast de statistiek introduceren we in deze opdracht een nieuw stuk wiskundige taal: **vectoren** en **matrices**, concepten uit de lineaire algebra. Deze taal loopt als een draad door de rest van het portfolio: je meetgegevens zijn vectoren, je dataset is een matrix, en straks blijkt dat ook het lineaire model zich in die taal laat schrijven. Zo zie je opnieuw dat één wiskundige vorm in verschillende contexten terugkeert; de interpretatie bepaalt de betekenis.
+
+Voor het portfolio kun je de vragen in dit document beantwoorden. In de les werken we deze vragen stap voor stap uit.
+
+# Doel van de Bradford-test
+
+Bij de Bradford-test meten we de absorbantie van oplossingen met verschillende eiwitconcentraties. We verwachten dat de absorbantie toeneemt wanneer de eiwitconcentratie toeneemt. Er is dan sprake van een positieve relatie tussen eiwitconcentratie en absorbantie.
+
+De informatie over deze relatie gebruiken we om de eiwitconcentratie te bepalen van een oplossing waarvan de concentratie nog onbekend is. Daarvoor maken we eerst een ijklijn met bekende concentraties.
+
+# Data als vectoren en matrices
+
+Voordat we gaan rekenen, kijken we naar de *vorm* van onze data. In de vorige opdracht voerde je een meetreeks in met de functie `c()`. Zo'n rijtje getallen heeft een wiskundige naam: een **vector**.
+
+Een **vector** is een geordend rijtje getallen. In dit practicum verzamelen we per meting twee getallen: een concentratie en de bijbehorende absorbantie. Alle concentraties samen vormen één vector, alle absorbanties samen een tweede vector. We noemen ze **datavectoren**, omdat elk element een gemeten waarde is.
+
+Een datavector met *n* metingen schrijven we als:
+
+$$\mathbf{conc} = \begin{pmatrix} conc_1 \\ conc_2 \\ \vdots \\ conc_n \end{pmatrix}, \qquad \mathbf{abs} = \begin{pmatrix} abs_1 \\ abs_2 \\ \vdots \\ abs_n \end{pmatrix}$$
+
+We schrijven vectoren vet ($\mathbf{conc}$) om ze te onderscheiden van een enkel getal (een *scalar*), zoals $conc_i$: de $i$-de meting. De index $i$ loopt van 1 tot *n* en wijst één element in de vector aan.
+
+Leggen we de twee datavectoren als kolommen naast elkaar, dan ontstaat een **datamatrix**: een tabel van getallen met rijen en kolommen.
+
+$$\mathbf{D} = \begin{pmatrix} conc_1 & abs_1 \\ conc_2 & abs_2 \\ \vdots & \vdots \\ conc_n & abs_n \end{pmatrix}$$
+
+Elke **kolom** is een variabele (één datavector); elke **rij** is één meting (één observatie). Dit is precies de *tidy* vorm die je zo dadelijk in R terugziet: elke variabele een eigen kolom, elke observatie een eigen rij.
+
+::: aside
+De afmeting van een matrix noteren we als (aantal rijen) $\times$ (aantal kolommen). Onze datamatrix $\mathbf{D}$ is dus $n \times 2$: $n$ metingen, $2$ variabelen. Een vector is een matrix met maar één kolom.
+:::
+
+**Vraag 1.** Stel dat je $12$ oplossingen doormeet. Wat is de lengte van de datavector $\mathbf{abs}$, en wat is de afmeting ($\ldots \times \ldots$) van de datamatrix $\mathbf{D}$? en wat als je van 20 oplossingen de absorbatie bepaald en de pH meet?
+
+**Jouw antwoord:**
+
+# Correlatie en aannames
+
+Correlatie geeft aan hoe sterk twee variabelen samenhangen. In dit practicum onderzoeken we de correlatie tussen de datavectoren $\mathbf{abs}$ en $\mathbf{conc}$.
+
+Een belangrijke aanname is dat de relatie tussen concentratie en absorbantie in het bemeten bereik ongeveer lineair is. Dat betekent dat de meetpunten ongeveer op een rechte lijn liggen. Deze aanname moet inhoudelijk te verdedigen zijn. In de analytische chemie is absorbantie bij lage concentraties vaak goed voorspelbaar vanuit de concentratie, zolang de metingen binnen het lineaire meetbereik blijven.
+
+::: aside
+In de biologie zijn concentraties vaak zo hoog dat opgeloste moleculen met elkaar interageren. Daarom verdunnen we oplossingen om deze interacties te verminderen. Later meer hierover.
+:::
+
+Een grote absolute correlatie, dus dicht bij `-1` of `1`, is nuttig voor een ijklijn. Een positieve correlatie dicht bij `1` betekent dat hogere concentraties betrouwbaar samengaan met hogere absorbanties. Dat maakt schatten en voorspellen beter mogelijk.
+
+In R gebruik je hiervoor de functie `cor()`, met als argumenten de twee datavectoren:
+
+```{r}
+#| eval: false
+#| message: false
+#| warning: false
+
+# Pearson-correlatie: meet vooral lineaire samenhang
+cor(abs, conc, method = "pearson")
+
+# Spearman-correlatie: meet monotone samenhang op basis van rangen
+cor(abs, conc, method = "spearman")
+```
+
+Formeel is de Pearson correlatie beschreven als,
+
+$$
+r = \frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}
+{\sqrt{\sum_{i=1}^{n}(x_i-\bar{x})^2}\sqrt{\sum_{i=1}^{n}(y_i-\bar{y})^2}}
+$$
+
+waarbij $x_i$ hier de gemeten concentraties en $y_i$ absorbanties zijn, en $\bar{x}$ en $\bar{y}$ hun gemiddelden.
+
+De Spearman-correlatie gebruikt exact dezelfde formule, maar past die niet toe op de gemeten waarden zelf, maar op hun rangnummers (hun volgorde van klein naar groot). Daardoor meet Pearson vooral een lineaire samenhang, terwijl Spearman elke de toe- of afnamen (monotone samenhang) oppikt. Dezelfde wiskundige vorm dus, met een andere invoer; en ook cor() in R laat je met één argument, `method` in de code, tussen die vormen wisselen.
+
+```{r}
+#| eval: false
+#| message: false
+#| warning: false
+
+# Spearman-correlatie: meet monotone samenhang op basis van rangen
+cor(abs, conc, method = "spearman")
+```
+
+Dus ook in de structuur van R nemen we deze herbruikbare vormen waar, net als in de wiskunde.
+
+Correlatie is dus een maat voor de samenhang tussen twee datavectoren. Pearson meet een lineaire samenhang en Spearman meet een monotone samenhang, of de waarden samen stijgen of samen dalen, ook als dat niet langs een rechte lijn gebeurt. Spearman gebruikt daarvoor dezelfde formule als Pearson, maar toegepast op de rangnummers in plaats van de gemeten waarden.
+
+# Het lineaire model
+
+We kunnen de relatie tussen absorbantie en concentratie beschrijven met een lineair model:
+
+$$Ab = a + b \cdot Conc$$
+
+waarbij:
+
+-   $Ab$ de absorbantie is;
+-   $Conc$ de concentratie is;
+-   $a$ het intercept is;
+-   $b$ de richtingscoëfficiënt is.
+
+## Variabele versus parameter
+
+In een lineair model is er een verschil tussen variabelen en parameters.
+
+Een **variabele** is een grootheid die per meting kan verschillen. In dit voorbeeld zijn `abs` en `conc` variabelen. Ze staan als kolommen in de datamatrix: elke rij bevat één concentratie en de bijbehorende absorbantie. Een variabele is dus precies één datavector.
+
+::: aside
+Een grootheid is een meetbare eigenschap die je in een getal (meestal met eenheid) kunt uitdrukken, zoals concentratie of lengte. Categorische eigenschappen zoals geslacht of soort zijn variabelen, maar geen grootheden: hun waarden zijn labels, geen getallen.
+:::
+
+Een **parameter** is een vaste, maar meestal onbekende, waarde in het model. In de vergelijking
+
+$$Ab = a + b \cdot Conc$$
+
+zijn $a$ en $b$ parameters. Ze staan niet vooraf in de datamatrix, omdat we ze uit de meetgegevens moeten schatten. De parameter $a$ bepaalt waar de lijn de y-as snijdt. De parameter $b$ bepaalt hoe sterk de absorbantie verandert wanneer de concentratie toeneemt.
+
+::: aside
+Deze twee parameters, $a$ en $b$, kun je zelf ook als een klein rijtje getallen opvatten: een parametervector $\boldsymbol{\beta} = (a, b)$. In het theoretische vervolg op deze opdracht schrijven we het hele lineaire model met vectoren en matrices, en dan wordt duidelijk waarom die schrijfwijze zo krachtig is.
+:::
+
+Als de blanco correct is afgetrokken, of als we bewust een model door de oorsprong kiezen, kunnen we soms $a = 0$ stellen. Dan wordt het model:
+
+$$Ab = b \cdot Conc$$
+
+In dat eenvoudige geval geldt:
+
+$$b = \frac{Ab}{Conc}$$
+
+In echte meetdata schatten we $b$ meestal met statistische regressie, omdat de meetpunten niet allemaal precies op één lijn liggen.
+
+# Data in tidy format
+
+De meetgegevens zetten we in een tabel. De kolomnamen komen overeen met de variabelen in het model. Elke kolom is een datavector; samen vormen ze de datamatrix.
+
+| abs | conc |
+|----:|-----:|
+| ... |  ... |
+| ... |  ... |
+| ... |  ... |
+
+Elke rij is één meting: een bekende concentratie met de bijbehorende absorbantie. Dit noemen we **tidy data**: elke variabele heeft een eigen kolom en elke observatie heeft een eigen rij.
+
+Zo zien we de dataset op twee manieren tegelijk: als één tweedimensionale datamatrix, of als twee datavectoren `abs` en `conc` naast elkaar. Beide beschrijvingen zijn correct; ze benadrukken alleen iets anders.
+
+# R-code: data invoeren als vectoren
+
+Je kunt data inlezen vanuit een Excel-bestand, maar in dit voorbeeld voeren we de waarden handmatig in. Elke regel maakt één datavector.
+
+```{r}
+#| eval: false  #vervang false door true als je je eigen data invoerd
+
+abs <- c(...)   # vul hier de gemeten absorbanties in
+conc <- c(...)  # vul hier de bekende concentraties in
+```
+
+De functie `c()` is een standaardfunctie in R. De `c` staat voor *combine*: de functie combineert losse getallen (scalars) tot één vector.
+
+De pijl `<-` betekent dat de vector aan een naam wordt toegekend. Als je daarna `abs` aanroept, krijg je de volledige datavector met absorbanties terug.
+
+```{r}
+#| eval: false  #vervang false door true als je je eigen data invoerd
+
+abs
+conc
+```
+
+Je kunt met een vector in één keer rekenen. R past de berekening *elementsgewijs* toe: op elk element van de vector afzonderlijk.
+
+```{r}
+#| eval: false #vervang false door true als je je eigen data invoerd
+
+abs + 1   # telt 1 op bij elke absorbantiewaarde
+abs * 2   # vermenigvuldigt elke absorbantiewaarde met 2; een scalaire vermenigvuldiging
+```
+
+::: aside
+Dat R automatisch elk element bewerkt, heet *vectorisatie*. Het is precies de reden dat vectoren zo handig zijn: je schrijft één bewerking op, en die werkt meteen op de hele meetreeks.
+:::
+
+Veel R-functies gebruiken één of meer argumenten. Het argument staat tussen haakjes.
+
+```{r}
+#| eval: false #vervang false door true als je je eigen data invoerd
+
+sum(abs)   # som van alle absorbantiewaarden
+prod(abs)  # product van alle absorbantiewaarden
+exp(abs)   # exponentiële functie toegepast op alle waarden
+sin(abs)   # sinus toegepast op alle waarden
+```
+
+# Correlatie berekenen
+
+Eerst onderzoeken we of er een duidelijke samenhang is tussen de datavectoren $\mathbf{abs}$ en $\mathbf{conc}$.
+
+```{r}
+#| eval: false #vervang false door true als je je eigen data invoerd
+
+cor(abs, conc, method = "pearson")
+cor(abs, conc, method = "spearman")
+```
+
+**Vraag 2.** Is dit een sterke correlatie? Leg je antwoord uit.
+
+**Vraag 3.** Waarom is een hoge correlatie belangrijk voor een ijklijn?
+
+# Plot van de ijklijn
+
+Met een spreidingsdiagram kunnen we controleren of de punten ongeveer op een rechte lijn liggen. In de plot zet je de twee datavectoren tegen elkaar uit: elke rij van de datamatrix wordt één punt.
+
+```{r}
+#| eval: false #vervang false door true als je je eigen data invoerd
+
+plot(
+  conc, abs,
+  xlab = "Eiwitconcentratie",
+  ylab = "Absorbantie",
+  main = "Bradford-ijklijn"
+)
+```
+
+# Lineaire regressie
+
+Om een model aan de data te fitten, gebruiken we regressie. Hier gebruiken we lineaire regressie: we vatten de data samen in een eenvoudig lineair model.
+
+```{r}
+#| eval: false #vervang false door true als je je eigen data invoerd
+
+model <- lm(abs ~ conc)
+```
+
+Hierbij betekent:
+
+-   `lm()` staat voor *linear model*;
+-   `abs ~ conc` betekent dat de datavector `abs` wordt gemodelleerd als functie van de datavector `conc`;
+-   `model` is het object waarin R de resultaten van de regressie opslaat.
+
+We kunnen de structuur en samenvatting van het model bekijken:
+
+```{r}
+#| eval: false #vervang false door true als je je eigen data invoerd
+
+str(model)
+summary(model)
+```
+
+In de output van `summary(model)` staan onder andere de geschatte waarden van het intercept $a$ (Intercept) en de richtingscoëfficiënt $b$ (abs). Een leuk weetje is de Multiple R\^2, dit is Pearson-correlatie r in het kwadraat en geeft aan welk deel van de spreiding door het model wordt verklaard. Neem de wortel van multiple R\^2 (sqrt(...)) en je krijgt de absolute waarde van de correlatie terug die je eerder had berekend.
+
+::: aside
+Note dat je de functie `lm()` ook tegenkomt in de theoretische opdracht over logaritmes en allometrische schaling, waar hetzelfde lineaire model op log-log-getransformeerde data wordt losgelaten. Dezelfde functie, dezelfde wiskunde, een andere biologische context.
+:::
+
+# Concentratie van een onbekend monster bepalen
+
+Als het model is gefit, kunnen we de concentratie van een onbekend monster schatten. Stel dat de absorbantie van het onbekende monster `abs_onbekend` is. Dan geldt:
+
+$$\widehat{Conc} = \frac{Ab_{onbekend} - \hat{a}}{\hat{b}}$$
+
+In R kan dat bijvoorbeeld zo:
+
+```{r}
+#| eval: false #vervang false door true als je je eigen data invoerd
+
+coefs <- coef(model)
+a_hat <- coefs[1]
+b_hat <- coefs[2]
+
+abs_onbekend <- ...
+conc_onbekend <- (abs_onbekend - a_hat) / b_hat
+conc_onbekend
+```
+
+# Samenvatting
+
+In deze les hebben we de Bradford-test gebruikt als voorbeeld van statistisch modelleren. We hebben:
+
+-   meetgegevens leren zien als **datavectoren** en de dataset als een **datamatrix**
+-   een ijklijn gemaakt met bekende concentraties
+-   gekeken naar correlatie tussen de datavectoren concentratie en absorbantie
+-   de functie `cor()` gebruikt, inclusief `method = "spearman"`
+-   het verschil besproken tussen variabelen (datavectoren) en parameters (parameter vectors;
+-   een lineair model opgesteld met `lm(abs ~ conc)`
+-   gezien hoe een onbekende concentratie uit het model kan worden geschat.
+
+Een goede ijklijn vereist niet alleen een hoge correlatie, maar ook een inhoudelijk verdedigbare aanname dat de relatie in het gebruikte meetbereik lineair is.
+
+In het theoretische deel dat bij deze opdracht hoort, gaan we dieper in op de lineaire regressie zelf. We schrijven het lineaire model dan volledig in de taal van vectoren en matrices, en zien hoe diezelfde wiskunde opduikt in de evo-devo, wanneer we verbanden tussen vorm en grootte over soorten heen willen beschrijven.
