@@ -61,7 +61,8 @@ Er bestaan verschillen maten in de statistiek welke de hoeveelheid onzekerheid k
 
 De entropie van een discrete kansverdeling zoals voor biodiversiteit en positie-specifieke entropie wordt gedefinieerd als:
 
-$$H(p) = -\sum_i p_i \log(p_i)$$
+
+$$H(p) = -\sum_i p_i \log(p_i)$$ {#eq-entropie-def}
 
 waarbij $p_i$ de kans is op uitkomst $i$.
 

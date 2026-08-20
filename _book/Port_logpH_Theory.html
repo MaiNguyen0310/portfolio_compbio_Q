@@ -161,7 +161,6 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar floating slimcontent quarto-light">
@@ -345,35 +344,41 @@ window.Quarto = {
 <section id="voorbeeld-en-opdrachten-metabolismesnelheid" class="level3 page-columns page-full" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="voorbeeld-en-opdrachten-metabolismesnelheid"><span class="header-section-number">2.2.2</span> Voorbeeld en opdrachten: metabolismesnelheid</h3>
 <p>Om meer inzicht te krijgen in hoe deze machtsrelatie werkt, gaan we de volgende afbeelding analyseren:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="evo-devo/data_schaling.png" class="img-fluid figure-img"></p>
-<figcaption>De massa-specifieke metabolisme snelheid van verschillende zoogdieren uitgezet tegen hun (gemiddelde) massa. (<span class="citation" data-cites="randall2002eckert">Randall et al. (<a href="references.html#ref-randall2002eckert" role="doc-biblioref">2002</a>)</span>)</figcaption>
+<div id="fig-massa-metabolisme" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-massa-metabolisme-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="evo-devo/data_schaling.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-massa-metabolisme-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: De massa-specifieke metabolisme snelheid van verschillende zoogdieren uitgezet tegen hun (gemiddelde) massa. (<span class="citation" data-cites="randall2002eckert">Randall et al. (<a href="references.html#ref-randall2002eckert" role="doc-biblioref">2002</a>)</span>)
+</figcaption>
 </figure>
 </div>
 <p>We zien dat we een verband zoeken tussen de massa van een soort in kilogram en de metabolismesnelheid in mL zuurstofverbruik per gram per uur. Uit deze figuur kunnen we (ongeveer) de datapunten bepalen:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>massa <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.002</span>, <span class="fl">0.008</span>, <span class="fl">0.015</span>, <span class="fl">0.02</span>, <span class="fl">0.025</span>, <span class="fl">0.08</span>, <span class="fl">0.4</span>, </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>          <span class="fl">2.5</span>, <span class="dv">3</span>, <span class="dv">14</span>, <span class="dv">45</span>, <span class="dv">72</span>,<span class="dv">700</span>, <span class="dv">2500</span>)  </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>metabolisme <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">7.15</span>, <span class="fl">2.2</span>, <span class="fl">1.85</span>, <span class="fl">1.7</span>, <span class="fl">1.65</span>, <span class="fl">1.05</span>, <span class="fl">0.75</span>, </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.45</span>, <span class="fl">0.4</span>,<span class="fl">0.2</span>, <span class="fl">0.15</span>, <span class="fl">0.1</span>, <span class="fl">0.75</span>, <span class="fl">0.05</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>metabolisme <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">7.05</span>, <span class="fl">2.45</span>, <span class="fl">1.9</span>, <span class="fl">1.8</span>, <span class="fl">1.65</span>, <span class="fl">1.15</span>, <span class="fl">0.75</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.45</span>, <span class="fl">0.4</span>,<span class="fl">0.2</span>, <span class="fl">0.15</span>, <span class="fl">0.1</span>, <span class="fl">0.085</span>, <span class="fl">0.05</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="exr-plot_data" class="theorem exercise">
 <p><span class="theorem-title"><strong>Vraag 2.2</strong></span> Plot hieronder de datapunten aan de hand van de vectoren die gegeven zijn. Waarom ziet het er anders uit dan de gegeven figuur?</p>
 </div>
-<div class="cell">
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Een <code>vector</code> is hier een vector simpelweg een geordende rij getallen met datapunten: de vector <em>massa</em> bevat veertien massawaarden, de vector <em>metabolisme</em> de bijbehorende veertien waarden voor de metabolismesnelheid. We hebben de vectoren in R gemaakt met de functie <code>c()</code>. De volgorde is essentieel: het eerste getal in <code>massa</code> hoort bij het eerste getal in <code>metabolisme</code>, enzovoort. Over vectoren leer je in het volgende portfolio-onderdeel meer.</p>
+</div></div><div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gebruik de functie plot()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="exr-plot_log_data" class="theorem exercise">
-<p><span class="theorem-title"><strong>Vraag 2.3</strong></span> Los het probleem op: hoe zou je ervoor kunnen zorgen dat de data goed leesbaar wordt? Wat voor verband kunnen we nu afleiden?</p>
+<p><span class="theorem-title"><strong>Vraag 2.3</strong></span> Los het probleem op: hoe zou je ervoor kunnen zorgen dat de data goed leesbaar wordt? Wat voor verband kunnen we nu afleiden? Tip: kijk goed naar de assen in <a href="#fig-massa-metabolisme" class="quarto-xref">Figuur&nbsp;<span>2.1</span></a>.</p>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dit zou je zelf moeten doen </span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># gebruik de functie log10()</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log10</span>(massa), <span class="fu">log10</span>(metabolisme),      </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log10</span>(massa), metabolisme,      </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">xlab =</span> <span class="st">"log10(Massa)"</span>, </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"log10(Metabolisme)"</span>)  </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(<span class="fu">log10</span>(metabolisme) <span class="sc">~</span> <span class="fu">log10</span>(massa)), <span class="at">col =</span> <span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Metabolisme"</span>)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -382,8 +387,22 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<p>Om Figuur <a href="#fig-massa-metabolisme" class="quarto-xref">Figuur&nbsp;<span>2.1</span></a> te repliceren heb je een transformatie uitgevoerd op één van de assen. Doe hetzelfde nu voor de andere as.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log10</span>(massa), <span class="fu">log10</span>(metabolisme),      </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">xlab =</span> <span class="st">"log10(Massa)"</span>, </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"log10(Metabolisme)"</span>)  </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(<span class="fu">log10</span>(metabolisme) <span class="sc">~</span> <span class="fu">log10</span>(massa)), <span class="at">col =</span> <span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Port_logpH_Theory_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <div id="exr-uitleg_plot_log" class="theorem exercise">
-<p><span class="theorem-title"><strong>Vraag 2.4</strong></span> Leg nu in woorden uit waarom de gebruikte methode werkt, en relateer dat aan de machtsformule.</p>
+<p><span class="theorem-title"><strong>Vraag 2.4</strong></span> Leg nu in woorden uit waarom de gebruikte methode werkt, en relateer dat aan de machtsformule en de rekenregels genoemd in het practicum-onderdeel van deze portfolio-opdracht.</p>
 </div>
 <blockquote class="blockquote">
 <p>Jouw antwoord</p>
@@ -397,20 +416,20 @@ window.Quarto = {
 </blockquote>
 <p>Om terug te gaan naar het totale metabolisme in een dier, vermenigvuldigen we de massa en het massa-specifieke metabolisme.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>massa_metabolisme <span class="ot">&lt;-</span> massa<span class="sc">*</span>metabolisme</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>massa_metabolisme <span class="ot">&lt;-</span> massa<span class="sc">*</span>metabolisme</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="exr-plot_metab" class="theorem exercise">
 <p><span class="theorem-title"><strong>Vraag 2.6</strong></span> Probeer nu een relatie te vinden tussen de massa en het totale metabolisme. Plot deze relatie.</p>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dit zou je zelf doen </span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log10</span>(massa), </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">log10</span>(massa_metabolisme)) </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(<span class="fu">log10</span>(massa_metabolisme) <span class="sc">~</span> <span class="fu">log10</span>(massa)), <span class="at">col =</span> <span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dit zou je zelf doen </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log10</span>(massa), </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">log10</span>(massa_metabolisme)) </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(<span class="fu">log10</span>(massa_metabolisme) <span class="sc">~</span> <span class="fu">log10</span>(massa)), <span class="at">col =</span> <span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Port_logpH_Theory_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Port_logpH_Theory_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -462,7 +481,7 @@ window.Quarto = {
 </section>
 <section id="terug-naar-concentraties" class="level2 page-columns page-full" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="terug-naar-concentraties"><span class="header-section-number">2.4</span> Terug naar concentraties</h2>
-<p>De motivatie om de logaritme verder te onderzoeken, kwam vanuit de pH-berekeningen die we eerder hebben uitgevoerd. We hebben gezien dat de logaritme ook in andere contexten voorkomt, maar nu keren we toch nog terug naar de context van concentraties. Je bent al bekend met het begrip diffusie: een druppel inkt in een glas water verspreidt zich vanzelf, van een gebied met hoge concentratie naar een gebied met lage concentratie. Dat proces verloopt spontaan, zonder toevoeging van energie. Wil je het omgekeerde bereiken (namelijk de inkt weer terugconcentreren op één plek) dan kost dat wél energie.</p>
+<p>De motivatie om de logaritme verder te onderzoeken, kwam vanuit de pH-berekeningen die we eerder hebben uitgevoerd. We hebben gezien dat de logaritme ook in andere contexten voorkomt, maar nu keren we toch nog terug naar de context van concentraties. Je bent al bekend met het begrip <code>diffusie</code>: een druppel inkt in een glas water verspreidt zich vanzelf, van een gebied met hoge concentratie naar een gebied met lage concentratie. Dat proces verloopt spontaan, zonder toevoeging van energie. Wil je het omgekeerde bereiken (namelijk de inkt weer terugconcentreren op één plek) dan kost dat wél energie.</p>
 <p>Hetzelfde geldt voor opgeloste deeltjes tussen twee compartimenten, bijvoorbeeld binnen en buiten een cel, of aan weerszijden van een membraan. Hoe groter het concentratieverschil dat je wilt creëren of in stand wilt houden, hoe meer energie je nodig hebt. Deze relatie wordt gegeven door:</p>
 <p><span class="math display">\[\Delta G = RT\ln\left(\frac{c_A}{c_B}\right)\]</span></p>
 <p>waarbij <span class="math inline">\(c_A\)</span> en <span class="math inline">\(c_B\)</span> de concentraties in de twee compartimenten zijn, <span class="math inline">\(R\)</span> de gasconstante is, <span class="math inline">\(T\)</span> de temperatuur (in Kelvin), en <span class="math inline">\(\ln\)</span> de natuurlijke logaritme (grondgetal <span class="math inline">\(e\)</span>)</p>
@@ -472,7 +491,7 @@ window.Quarto = {
 </div></div><p><span class="math inline">\(\Delta G\)</span> noemen we de <code>vrije energie</code>: de energie die vrijkomt (<span class="math inline">\(\Delta G &lt; 0\)</span>) of nodig is (<span class="math inline">\(\Delta G &gt; 0\)</span>) om deze verplaatsing te laten plaatsvinden.</p>
 <p><strong>Vraag:</strong></p>
 <ul>
-<li>Als <span class="math inline">\(c_A = c_B\)</span>, wat is dan <span class="math inline">\(\Delta G\)</span> (gebruik een rekenregel van de logaritme)? Wat betekent dat, in woorden, voor de energie die nodig is om een deeltje van compartiment <span class="math inline">\(A\)</span> naar <span class="math inline">\(B\)</span> te verplaatsen als er geen concentratieverschil is?</li>
+<li>Als <span class="math inline">\(c_A = c_B\)</span> geldt, wat is dan <span class="math inline">\(\Delta G\)</span> (gebruik een rekenregel van de logaritme)? Wat betekent dat, in woorden, voor de energie die nodig is om een deeltje van compartiment <span class="math inline">\(A\)</span> naar <span class="math inline">\(B\)</span> te verplaatsen als er geen concentratieverschil is?</li>
 </ul>
 <blockquote class="blockquote">
 <p>jouw antwoord:</p>
@@ -485,24 +504,28 @@ window.Quarto = {
 </blockquote>
 <section id="een-concreet-voorbeeld-de-protonengradiënt-in-mitochondriën" class="level3" data-number="2.4.1">
 <h3 data-number="2.4.1" class="anchored" data-anchor-id="een-concreet-voorbeeld-de-protonengradiënt-in-mitochondriën"><span class="header-section-number">2.4.1</span> Een concreet voorbeeld: de protonengradiënt in mitochondriën</h3>
-<p>We plaatsen dit verhaal in de context van de protonengradiënt over de mitochondriënmembraan. We beschrijven de concentratie protonen binnen en buiten de mitochondriën respectievelijk als <span class="math inline">\(c_A\)</span> en <span class="math inline">\(c_B\)</span>. In mitochondriën wordt tijdens de celademhaling actief <span class="math inline">\(\text{H}^+\)</span> vanuit de matrix naar de intermembraanruimte gepompt, waardoor er een pH-verschil ontstaat tussen de twee compartimenten. Stel dat de matrix pH 8 heeft en de intermembraanruimte pH 7.</p>
-<p><strong>Vraag:</strong> Bereken <span class="math inline">\([\text{H}^+]\)</span> in beide compartimenten, en gebruik dat om <span class="math inline">\(\Delta G\)</span> te berekenen voor het verplaatsen van één mol <span class="math inline">\(\text{H}^+\)</span> van de intermembraanruimte terug naar de matrix. Neem <span class="math inline">\(R = 8.314~\text{J mol}^{-1}\text{K}^{-1}\)</span> en <span class="math inline">\(T = 310~\text{K}\)</span> (lichaamstemperatuur).</p>
+<p>We plaatsen dit verhaal in de context van de protonengradiënt over de mitochondriënmembraan. We beschrijven de concentratie protonen binnen en buiten de mitochondriën respectievelijk als <span class="math inline">\(c_A\)</span> en <span class="math inline">\(c_B\)</span>. In mitochondriën wordt actief <span class="math inline">\(\text{H}^+\)</span> vanuit de matrix naar de intermembraanruimte gepompt, waardoor er een pH-verschil ontstaat tussen de twee compartimenten. Stel dat de matrix pH 8 heeft en de intermembraanruimte pH 7.</p>
+<div id="exr-delta_G-code" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 2.11</strong></span> <strong>Vraag:</strong> Bereken <span class="math inline">\([\text{H}^+]\)</span> in beide compartimenten, en gebruik dat om <span class="math inline">\(\Delta G\)</span> te berekenen voor het verplaatsen van één mol <span class="math inline">\(\text{H}^+\)</span> van de intermembraanruimte terug naar de matrix. Neem <span class="math inline">\(R = 8.314~\text{J mol}^{-1}\text{K}^{-1}\)</span> en <span class="math inline">\(T = 310~\text{K}\)</span> (lichaamstemperatuur).</p>
+</div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pH_matrix <span class="ot">&lt;-</span> <span class="dv">8</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>pH_intermembraan <span class="ot">&lt;-</span> <span class="dv">7</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>H_matrix <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span>(<span class="sc">-</span>pH_matrix)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>H_intermembraan <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span>(<span class="sc">-</span>pH_intermembraan)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="fl">8.314</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>Temp <span class="ot">&lt;-</span> <span class="dv">310</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># vul aan: gebruik de formule voor Delta G</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pH_matrix <span class="ot">&lt;-</span> <span class="dv">8</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>pH_intermembraan <span class="ot">&lt;-</span> <span class="dv">7</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>H_matrix <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span>(<span class="sc">-</span>pH_matrix)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>H_intermembraan <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span>(<span class="sc">-</span>pH_intermembraan)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="fl">8.314</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>Temp <span class="ot">&lt;-</span> <span class="dv">310</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># vul aan: gebruik de formule voor Delta G</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <blockquote class="blockquote">
 <p>jouw antwoord:</p>
 </blockquote>
-<p><strong>Vraag:</strong> Interpreteer de uitkomst. Betekent dit dat protonen spontaan van de intermembraanruimte terug naar de matrix stromen, of dat de cel daar energie voor moet leveren? En hoe zit dat dan met de pomp die de gradiënt in de eerste plaats opbouwt?</p>
+<div id="exr-int_delta_G" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 2.12</strong></span> <strong>Vraag:</strong> Interpreteer de uitkomst. Betekent dit dat protonen spontaan van de intermembraanruimte terug naar de matrix stromen, of dat de cel daar energie voor moet leveren? En hoe zit dat dan met de pomp die de gradiënt in de eerste plaats opbouwt?</p>
+</div>
 <blockquote class="blockquote">
 <p>jouw antwoord:</p>
 </blockquote>

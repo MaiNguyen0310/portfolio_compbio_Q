@@ -143,7 +143,6 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar floating slimcontent quarto-light">
@@ -311,7 +310,9 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code die een histogram geeft van de chi^2 waarden</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><strong>Vraag 1:</strong> Leg uit waarom niet alle <span class="math inline">\(\chi^2\)</span>-waarden dezelfde waarde hebben.</p>
+<div id="exr-chi2_waarden" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 1.1</strong></span> Leg uit waarom niet alle <span class="math inline">\(\chi^2\)</span>-waarden dezelfde waarde hebben.</p>
+</div>
 <p><strong>Jouw antwoord:</strong></p>
 <p>Wat deze verdeling laat zien, is een voorbeeld van een stochastische variabele: een grootheid waarvan de waarde door toeval wordt bepaald. Ze heeft drie kenmerkende eigenschappen:</p>
 <ul>
@@ -336,13 +337,15 @@ window.Quarto = {
 <h2 data-number="1.3" class="anchored" data-anchor-id="maat-voor-onzekerheid-entropie."><span class="header-section-number">1.3</span> Maat voor onzekerheid: Entropie.</h2>
 <p>Er bestaan verschillen maten in de statistiek welke de hoeveelheid onzekerheid kunnen duiden. Later in het jaar komen we bijvoorbeeld de standaard fout (SE) tegen. Nu wil ik kijken naar een zeer belangrijke wetenschappelijke maat, namelijk <code>entropie.</code> Entropie kan worden opgevat als een maat voor onzekerheid, willekeurigheid of wanorde en zoals we zullen zien ook biodiversiteit en positie-specifieke entropie in moleculaire biologie, is alleen gebaseerd op de kansverdeling.</p>
 <p>De entropie van een discrete kansverdeling zoals voor biodiversiteit en positie-specifieke entropie wordt gedefinieerd als:</p>
-<p><span class="math display">\[H(p) = -\sum_i p_i \log(p_i)\]</span></p>
+<p><span id="eq-entropie-def"><span class="math display">\[H(p) = -\sum_i p_i \log(p_i) \tag{1.1}\]</span></span></p>
 <p>waarbij <span class="math inline">\(p_i\)</span> de kans is op uitkomst <span class="math inline">\(i\)</span>.</p>
 <section id="interpretatie" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="interpretatie"><span class="header-section-number">1.3.1</span> Interpretatie</h3>
 <p>Een hoge entropie wijst op grote onzekerheid. Dit treedt op wanneer de kansen relatief gelijk verdeeld zijn over de mogelijke uitkomsten zoals de eerlijk dobbelsteen.</p>
 <p>Een lage entropie wijst op minder onzekerheid. Dit treedt op wanneer kansen geconcentreerd zijn rond één of enkele uitkomsten. Bijvoorbeeld een oneerlijke dobbelsteen met een grotere kans op een 6.</p>
-<p><strong>Vraag 2:</strong> Leg uit dat we voor concepten als maten van verrast zijn of onverwacht, entropie als maat zou kunnen fungeren.</p>
+<div id="exr-entropie_uitleg" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 1.2</strong></span> Leg uit dat we voor concepten als maten van verrast zijn of onverwacht, entropie als maat zou kunnen fungeren.</p>
+</div>
 <p><strong>Jouw antwoord:</strong></p>
 </section>
 <section id="contextafhankelijkheid" class="level3" data-number="1.3.2">
@@ -353,9 +356,13 @@ window.Quarto = {
 <li>in de <strong>natuurkunde</strong>, met name de thermodynamica, is entropie een maat voor wanorde en bepaald daarme via de weten van de tgheormdynamica de richting van een process;</li>
 <li>in de <strong>sociale wetenschappen</strong> en economie kan entropie worden gebruikt als maat voor economische of sociale ongelijkheid.</li>
 </ol>
-<p><strong>Vraag 3:</strong> Leg uit waarom zou entropie een maat zijn voor kunnen zijn voor ongelijkheid in punt 3. Wordt de waarden van de entropie groter of kleiner bij ongelijkheid?</p>
+<div id="exr-entropie_sociaal" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 1.3</strong></span> Leg uit waarom zou entropie een maat zijn voor kunnen zijn voor ongelijkheid in punt 3. Wordt de waarden van de entropie groter of kleiner bij ongelijkheid?</p>
+</div>
 <p><strong>Jouw antwoord:</strong></p>
-<p><strong>Vraag 4</strong>: Leg uit waarom zou entropie dan een maat zijn voor biodiversiteit? Heeft een hogere biodiversiteit een kleinere of grotere entropie?</p>
+<div id="exr-entropie_biodiv" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 1.4</strong></span> Leg uit waarom zou entropie dan een maat zijn voor biodiversiteit? Heeft een hogere biodiversiteit een kleinere of grotere entropie?</p>
+</div>
 <p><strong>Jouw antwoord:</strong></p>
 </section>
 </section>
@@ -373,23 +380,33 @@ soort 4:   A  T  G  G  A  A  T
 soort 5:   A  T  G  C  A  T  T
 soort 6:   A  T  G  A  A  G  T</code></pre>
 <p>Bekijk de kolommen (posities) van boven naar beneden, niet de rijen. Elke kolom vertelt hoe gevarieerd die positie is over de zes soorten.</p>
-<p><strong>Vraag 5:</strong> Op welke posities staat bij alle soorten dezelfde bouwsteen? En op welke positie verschillen de soorten het sterkst? Beschrijf in woorden.</p>
+<div id="exr-tabel_pos" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 1.5</strong></span> Op welke posities staat bij alle soorten dezelfde bouwsteen? En op welke positie verschillen de soorten het sterkst? Beschrijf in woorden.</p>
+</div>
 <blockquote class="blockquote">
 <p>jouw antwoord:</p>
 </blockquote>
-<p><strong>Vraag 6:</strong> Stel je sluit je ogen en iemand wijst een willekeurige soort aan. Bij welke positie kun je met zekerheid voorspellen welke bouwsteen daar staat, nog vóór je kijkt? Bij welke positie is dat vrijwel onmogelijk? Koppel je antwoord aan het begrip <em>verrassing</em>.</p>
+<div id="exr-tabel_verassing" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 1.6</strong></span> Stel je sluit je ogen en iemand wijst een willekeurige soort aan. Bij welke positie kun je met zekerheid voorspellen welke bouwsteen daar staat, nog vóór je kijkt? Bij welke positie is dat vrijwel onmogelijk? Koppel je antwoord aan het begrip <em>verrassing</em>.</p>
+</div>
 <blockquote class="blockquote">
 <p>jouw antwoord:</p>
 </blockquote>
-<p><strong>Vraag 7:</strong> Leg uit welke positie de hoogste entropie heeft en welke de laagste. Gebruik daarbij dat entropie alleen afhangt van hoe de bouwstenen over de soorten verdeeld zijn — niet van wélke bouwsteen het is.</p>
+<div id="exr-tabel_entropie" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 1.7</strong></span> Leg uit welke positie de hoogste entropie heeft en welke de laagste. Gebruik daarbij dat entropie alleen afhangt van hoe de bouwstenen over de soorten verdeeld zijn — niet van wélke bouwsteen het is.</p>
+</div>
 <blockquote class="blockquote">
 <p>jouw antwoord:</p>
 </blockquote>
-<p><strong>Vraag 8:</strong> Een positie die bij alle soorten identiek is, is door de evolutie heen nauwelijks veranderd. Bedenk een biologische reden waarom juist die posities niet mogen veranderen, terwijl andere posities vrij kunnen variëren.</p>
+<div id="exr-pos_ident" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 1.8</strong></span> Een positie die bij alle soorten identiek is, is door de evolutie heen nauwelijks veranderd. Bedenk een biologische reden waarom juist die posities niet mogen veranderen, terwijl andere posities vrij kunnen variëren.</p>
+</div>
 <blockquote class="blockquote">
 <p>jouw antwoord:</p>
 </blockquote>
-<p><strong>Vraag 9 (evo-devo):</strong> De genen die de vroege ontwikkeling van een lichaam sturen, behoren tot de meest geconserveerde in het hele dierenrijk: dieren die honderden miljoenen jaren geleden een gemeenschappelijke voorouder deelden, hebben op die posities nog steeds dezelfde bouwstenen. Wat zegt lage entropie op die posities over het belang van die genen voor de ontwikkeling? En waarom is lage entropie hier een spoor van diepe verwantschap tussen soorten?</p>
+<div id="exr-entropie_evo" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 1.9</strong></span> De genen die de vroege ontwikkeling van een lichaam sturen, behoren tot de meest geconserveerde in het hele dierenrijk: dieren die honderden miljoenen jaren geleden een gemeenschappelijke voorouder deelden, hebben op die posities nog steeds dezelfde bouwstenen. Wat zegt lage entropie op die posities over het belang van die genen voor de ontwikkeling? En waarom is lage entropie hier een spoor van diepe verwantschap tussen soorten?</p>
+</div>
 <blockquote class="blockquote">
 <p>jouw antwoord:</p>
 </blockquote>
@@ -419,7 +436,9 @@ soort 6:   A  T  G  A  A  G  T</code></pre>
 <p><em>Tussen</em> soorten stijgt de entropie. Er komen soorten bij, de biodiversiteit groeit, en de linkerterm <span class="math inline">\(H(\text{soort})\)</span> wordt groter.</p>
 <p>Er is dus geen paradox: het gaat om twee verschillende termen, die onafhankelijk van elkaar kunnen bewegen. Sterker nog, de twee versterken elkaar. Juist doordat de vorm binnen een soort strak gebufferd is, worden soorten scherpe, telbare eenheden — en pas over zulke eenheden kun je überhaupt sommeren om biodiversiteit te meten.</p>
 <p><strong>Canalisatie</strong> is het vermogen van de ontwikkeling om, ondanks variatie in genotype of omgeving, steeds hetzelfde fenotype voort te brengen.</p>
-<p><strong>Vraag 10:</strong> Welke van de twee termen wordt beïnvloed door canalisatie, en welke door het ontstaan van nieuwe soorten? Kan <span class="math inline">\(𝐻(fenotype)=𝐻(soort)+𝐻(fenotype∣soort)\)</span> gelijk blijven terwijl beide termen veranderen?</p>
+<div id="exr-entropie_canal" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 1.10</strong></span> Welke van de twee termen wordt beïnvloed door canalisatie, en welke door het ontstaan van nieuwe soorten? Kan <span class="math inline">\(𝐻(fenotype)=𝐻(soort)+𝐻(fenotype∣soort)\)</span> gelijk blijven terwijl beide termen veranderen?</p>
+</div>
 <p><strong>Jouw antwoord:</strong></p>
 </section>
 </section>

@@ -54,19 +54,23 @@ Vergelijk dit met de entropie-splitsing uit de vorige opdracht: $H(\text{fenotyp
 
 Om meer inzicht te krijgen in hoe deze machtsrelatie werkt, gaan we de volgende afbeelding analyseren:
 
-![De massa-specifieke metabolisme snelheid van verschillende zoogdieren uitgezet tegen hun (gemiddelde) massa. (@randall2002eckert)](evo-devo/data_schaling.png)
+![De massa-specifieke metabolisme snelheid van verschillende zoogdieren uitgezet tegen hun (gemiddelde) massa. (@randall2002eckert)](evo-devo/data_schaling.png){#fig-massa-metabolisme}
 
 We zien dat we een verband zoeken tussen de massa van een soort in kilogram en de metabolismesnelheid in mL zuurstofverbruik per gram per uur. Uit deze figuur kunnen we (ongeveer) de datapunten bepalen:
 
 ```{r}
 massa = c(0.002, 0.008, 0.015, 0.02, 0.025, 0.08, 0.4, 
           2.5, 3, 14, 45, 72,700, 2500)  
-metabolisme = c(7.15, 2.2, 1.85, 1.7, 1.65, 1.05, 0.75, 
-                0.45, 0.4,0.2, 0.15, 0.1, 0.75, 0.05) 
+metabolisme = c(7.05, 2.45, 1.9, 1.8, 1.65, 1.15, 0.75,
+                0.45, 0.4,0.2, 0.15, 0.1, 0.085, 0.05) 
 ```
 
 ::: {#exr-plot_data}
 Plot hieronder de datapunten aan de hand van de vectoren die gegeven zijn. Waarom ziet het er anders uit dan de gegeven figuur?
+:::
+
+::: aside
+Een `vector` is hier een vector simpelweg een geordende rij getallen met datapunten: de vector *massa* bevat veertien massawaarden, de vector *metabolisme* de bijbehorende veertien waarden voor de metabolismesnelheid. We hebben de vectoren in R gemaakt met de functie `c()`. De volgorde is essentieel: het eerste getal in `massa` hoort bij het eerste getal in `metabolisme`, enzovoort. Over vectoren leer je in het volgende portfolio-onderdeel meer.
 :::
 
 ```{r}
@@ -74,12 +78,22 @@ Plot hieronder de datapunten aan de hand van de vectoren die gegeven zijn. Waaro
 ```
 
 ::: {#exr-plot_log_data}
-Los het probleem op: hoe zou je ervoor kunnen zorgen dat de data goed leesbaar wordt? Wat voor verband kunnen we nu afleiden?
+Los het probleem op: hoe zou je ervoor kunnen zorgen dat de data goed leesbaar wordt? Wat voor verband kunnen we nu afleiden? Tip: kijk goed naar de assen in @fig-massa-metabolisme.
 :::
+
+
 
 ```{r}
 # dit zou je zelf moeten doen 
 # gebruik de functie log10()
+plot(log10(massa), metabolisme,      
+     pch = 19, xlab = "log10(Massa)", 
+     ylab = "Metabolisme")  
+```
+
+Om Figuur @fig-massa-metabolisme te repliceren heb je een transformatie uitgevoerd op één van de assen. Doe hetzelfde nu voor de andere as. 
+
+```{r}
 plot(log10(massa), log10(metabolisme),      
      pch = 19, xlab = "log10(Massa)", 
      ylab = "log10(Metabolisme)")  
@@ -87,7 +101,7 @@ abline(lm(log10(metabolisme) ~ log10(massa)), col = "red")
 ```
 
 ::: {#exr-uitleg_plot_log}
-Leg nu in woorden uit waarom de gebruikte methode werkt, en relateer dat aan de machtsformule.
+Leg nu in woorden uit waarom de gebruikte methode werkt, en relateer dat aan de machtsformule en de rekenregels genoemd in het practicum-onderdeel van deze portfolio-opdracht.
 :::
 
  > Jouw antwoord
@@ -168,7 +182,7 @@ Lees je antwoord van toen terug.
 
 ## Terug naar concentraties
 
-De motivatie om de logaritme verder te onderzoeken, kwam vanuit de pH-berekeningen die we eerder hebben uitgevoerd. We hebben gezien dat de logaritme ook in andere contexten voorkomt, maar nu keren we toch nog terug naar de context van concentraties. Je bent al bekend met het begrip diffusie: een druppel inkt in een glas water verspreidt zich vanzelf, van een gebied met hoge concentratie naar een gebied met lage concentratie. Dat proces verloopt spontaan, zonder toevoeging van energie. Wil je het omgekeerde bereiken (namelijk de inkt weer terugconcentreren op één plek) dan kost dat wél energie.
+De motivatie om de logaritme verder te onderzoeken, kwam vanuit de pH-berekeningen die we eerder hebben uitgevoerd. We hebben gezien dat de logaritme ook in andere contexten voorkomt, maar nu keren we toch nog terug naar de context van concentraties. Je bent al bekend met het begrip `diffusie`: een druppel inkt in een glas water verspreidt zich vanzelf, van een gebied met hoge concentratie naar een gebied met lage concentratie. Dat proces verloopt spontaan, zonder toevoeging van energie. Wil je het omgekeerde bereiken (namelijk de inkt weer terugconcentreren op één plek) dan kost dat wél energie.
 
 Hetzelfde geldt voor opgeloste deeltjes tussen twee compartimenten, bijvoorbeeld binnen en buiten een cel, of aan weerszijden van een membraan. Hoe groter het concentratieverschil dat je wilt creëren of in stand wilt houden, hoe meer energie je nodig hebt. Deze relatie wordt gegeven door:
 
@@ -185,7 +199,7 @@ $\Delta G$ noemen we de `vrije energie`: de energie die vrijkomt ($\Delta G < 0$
 
 **Vraag:** 
 
-- Als $c_A = c_B$, wat is dan $\Delta G$ (gebruik een rekenregel van de logaritme)? Wat betekent dat, in woorden, voor de energie die nodig is om een deeltje van compartiment $A$ naar $B$ te verplaatsen als er geen concentratieverschil is?
+- Als $c_A = c_B$ geldt, wat is dan $\Delta G$ (gebruik een rekenregel van de logaritme)? Wat betekent dat, in woorden, voor de energie die nodig is om een deeltje van compartiment $A$ naar $B$ te verplaatsen als er geen concentratieverschil is?
 
 > jouw antwoord:
 
@@ -195,9 +209,13 @@ $\Delta G$ noemen we de `vrije energie`: de energie die vrijkomt ($\Delta G < 0$
 
 ### Een concreet voorbeeld: de protonengradiënt in mitochondriën
 
-We plaatsen dit verhaal in de context van de protonengradiënt over de mitochondriënmembraan. We beschrijven de concentratie protonen binnen en buiten de mitochondriën respectievelijk als $c_A$ en $c_B$. In mitochondriën wordt tijdens de celademhaling actief $\text{H}^+$ vanuit de matrix naar de intermembraanruimte gepompt, waardoor er een pH-verschil ontstaat tussen de twee compartimenten. Stel dat de matrix pH 8 heeft en de intermembraanruimte pH 7.
+We plaatsen dit verhaal in de context van de protonengradiënt over de mitochondriënmembraan. We beschrijven de concentratie protonen binnen en buiten de mitochondriën respectievelijk als $c_A$ en $c_B$. In mitochondriën wordt actief $\text{H}^+$ vanuit de matrix naar de intermembraanruimte gepompt, waardoor er een pH-verschil ontstaat tussen de twee compartimenten. Stel dat de matrix pH 8 heeft en de intermembraanruimte pH 7.
+
+
+:::{#exr-delta_G-code}
 
 **Vraag:** Bereken $[\text{H}^+]$ in beide compartimenten, en gebruik dat om $\Delta G$ te berekenen voor het verplaatsen van één mol $\text{H}^+$ van de intermembraanruimte terug naar de matrix. Neem $R = 8.314~\text{J mol}^{-1}\text{K}^{-1}$ en $T = 310~\text{K}$ (lichaamstemperatuur).
+:::
 
 ```{r}
 pH_matrix <- 8
@@ -214,7 +232,10 @@ Temp <- 310
 
 > jouw antwoord:
 
+
+::: {#exr-int_delta_G}
 **Vraag:** Interpreteer de uitkomst. Betekent dit dat protonen spontaan van de intermembraanruimte terug naar de matrix stromen, of dat de cel daar energie voor moet leveren? En hoe zit dat dan met de pomp die de gradiënt in de eerste plaats opbouwt?
+:::
 
 > jouw antwoord:
 
