@@ -9,12 +9,13 @@ book:
     - index.qmd
     - Port2_Theory.qmd
     - Port_logpH_Theory.qmd
+    - Regressie_theorie.qmd
     - Differentiaalvergelijkingen_theorie.qmd
     - references.qmd
   appendices:
     - Port2_Pract.qmd
     - Port_logpH_Pract.qmd
-    - bradford_statistiek.qmd
+    - Bradford_statistiek.qmd
     - Sepia_Mantel.qmd  
 
     
@@ -25,19 +26,13 @@ format:
 engine: knitr
 
 bibliography: references.bib
-link-citations: true
 
-number-sections: true
-
-crossref:
-  exr-prefix: "Vraag"
-  chapters: true
 
 editor: visual
-language:
-  ui:
-    chapter_name: ""
-  crossref-exr-title: "Vraag"
+
+language: 
+  ui: 
+    chapter_name: "" 
     
 # resources:
 #   - evo-devo/
