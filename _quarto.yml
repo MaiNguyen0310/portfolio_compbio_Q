@@ -9,6 +9,7 @@ book:
     - index.qmd
     - Port2_Theory.qmd
     - Port_logpH_Theory.qmd
+    - Regressie_theorie.qmd
     - Differentiaalvergelijkingen_theorie.qmd
     - references.qmd
   appendices:
@@ -43,48 +44,3 @@ language:
 
 filters:
   - webr
-
-=======
-project:
-  type: book
-
-book:
-  title: "Portfolio Computationele Biologie"
-  author: "Jouw naam"
-  date: "September 2027 - Februari 2028"
-  chapters:
-    - index.qmd
-    - Port2_Theory.qmd
-    - Port_logpH_Theory.qmd
-    - Regressie_theorie.qmd
-    - Differentiaalvergelijkingen_theorie.qmd
-    - references.qmd
-  appendices:
-    - Port2_Pract.qmd
-    - Port_logpH_Pract.qmd
-    - Bradford_statistiek.qmd
-    - Sepia_Mantel.qmd  
-
-    
-format:
-  live-html:
-    css: styles.css
-
-engine: knitr
-
-bibliography: references.bib
-
-
-editor: visual
-
-language: 
-  ui: 
-    chapter_name: "" 
-    
-# resources:
-#   - evo-devo/
-  
-filters:
-  - webr
-
->>>>>>> 61b412d9df92eb2db0e3a25514561f809cf0ddc9

@@ -197,13 +197,12 @@ De natuurljke logaritme is dezelfde functie als $\log_{10}$, alleen met een ande
 
 $\Delta G$ noemen we de `vrije energie`: de energie die vrijkomt ($\Delta G < 0$) of nodig is ($\Delta G > 0$) om deze verplaatsing te laten plaatsvinden.
 
-**Vraag:** 
+::: {#exr-red_delta-G}
 
 - Als $c_A = c_B$ geldt, wat is dan $\Delta G$ (gebruik een rekenregel van de logaritme)? Wat betekent dat, in woorden, voor de energie die nodig is om een deeltje van compartiment $A$ naar $B$ te verplaatsen als er geen concentratieverschil is?
 
-> jouw antwoord:
-
 - Stel $c_A > c_B$ geldt. Is $\Delta G$ dan positief of negatief? Bedenk of dit betekent dat het proces spontaan verloopt of dat er energie toegevoegd moet worden.
+:::
 
 > jouw antwoord:
 
@@ -214,7 +213,7 @@ We plaatsen dit verhaal in de context van de protonengradiënt over de mitochond
 
 :::{#exr-delta_G-code}
 
-**Vraag:** Bereken $[\text{H}^+]$ in beide compartimenten, en gebruik dat om $\Delta G$ te berekenen voor het verplaatsen van één mol $\text{H}^+$ van de intermembraanruimte terug naar de matrix. Neem $R = 8.314~\text{J mol}^{-1}\text{K}^{-1}$ en $T = 310~\text{K}$ (lichaamstemperatuur).
+Bereken $[\text{H}^+]$ in beide compartimenten, en gebruik dat om $\Delta G$ te berekenen voor het verplaatsen van één mol $\text{H}^+$ van de intermembraanruimte terug naar de matrix. Neem $R = 8.314~\text{J mol}^{-1}\text{K}^{-1}$ en $T = 310~\text{K}$ (lichaamstemperatuur).
 :::
 
 ```{r}
@@ -234,7 +233,7 @@ Temp <- 310
 
 
 ::: {#exr-int_delta_G}
-**Vraag:** Interpreteer de uitkomst. Betekent dit dat protonen spontaan van de intermembraanruimte terug naar de matrix stromen, of dat de cel daar energie voor moet leveren? En hoe zit dat dan met de pomp die de gradiënt in de eerste plaats opbouwt?
+Interpreteer de uitkomst. Betekent dit dat protonen spontaan van de intermembraanruimte terug naar de matrix stromen, of dat de cel daar energie voor moet leveren? En hoe zit dat dan met de pomp die de gradiënt in de eerste plaats opbouwt?
 :::
 
 > jouw antwoord:
