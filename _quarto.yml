@@ -9,12 +9,13 @@ book:
     - index.qmd
     - Port2_Theory.qmd
     - Port_logpH_Theory.qmd
+    - Regressie_theorie.qmd
     - Differentiaalvergelijkingen_theorie.qmd
     - references.qmd
   appendices:
     - Port2_Pract.qmd
     - Port_logpH_Pract.qmd
-    - bradford_statistiek.qmd
+    - Bradford_statistiek.qmd
     - Sepia_Mantel.qmd  
 
     
