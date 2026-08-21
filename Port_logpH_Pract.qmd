@@ -171,16 +171,6 @@ Om uit de pH de concentratie te bepalen, gebruiken we de exponentiële functie: 
 
 <!-- Stel dat een oplossing pH 3 heeft. Dan geldt: $$[\text{H}^+] = 10^{-3} = 0.001 ~\text{mol/L}.$$ Als de pH daalt naar 2, volgt: $$[\text{H}^+] = 10^{-2} = 0.01 ~\text{mol/L}.$$ De concentratie wordt dus 10× groter, omdat exponentiële en logaritmische functies elkaars inverse zijn. -->
 
-## Quizvragen
-
-Test je begrip door de volgende vragen te beantwoorden.
-
-```{r, echo = FALSE}
-# Verander hier niks aan!
-htmltools::tags$iframe(src = "https://mai-nguyen0310.shinyapps.io/shiny_log/",
-                       width = "100%", height = "400", frameborder = "0")
-```
-
 ## Practicumopdracht
 
 ### Oplossingen maken
@@ -190,10 +180,18 @@ Bij het eerste practicum van *Chemie van het leven* ga je twee oplossingen maken
 
 Zeg dat we 150 mL van een 0.2 M $\ce{HCl}$-oplossing maken.
 
+In R kunnen we alvast wat benodigde variabelen noteren:
+
 ```{r}
 vol_gewenst <- 150
 conc_gewenst <- 0.20
 MW <- 136.08
+```
+
+De pijl `<-` wijst een naam toe aan hetgeen rechts van de pijl. We kunnen nu deze namen gebruiken voor verdere berekeningen. Als we bijvoorbeeld `vol_gewenst` aanroepen, vinden we de toegewezen waarde terug:
+
+```{r}
+vol_gewenst
 ```
 
 ::: {#exr-massa}
@@ -272,7 +270,7 @@ Je hebt de pKz nu berekend uit één meting. Maar bekijk de formule eens goed:
 $$\text{pH} = \text{pKz} + \log_{10}\left(\frac{[\text{Z}^-]}{[\text{HZ}]}\right)$$
 
 ::: {#exr-pH_lineaire_reg}
-Als je $x = \log_{10}([\text{Z}^-]/[\text{HZ}])$ noemt, welke bekende vorm ($y = ax + b$) herken je dan in deze formule? Wat stellen $a$, $b$ en $y$ hier voor? Welke waarden verwacht je dat deze aannemen? 
+Als je $x = \log_{10}([\text{Z}^-]/[\text{HZ}])$ noemt, welke bekende vorm ($y = a + bx$) herken je dan in deze formule? Wat stellen $a$, $b$ en $y$ hier voor? Welke waarden verwacht je dat deze aannemen? 
 :::
 
 > Jouw antwoord
@@ -294,7 +292,7 @@ x <- log10(ratio)
 plot(x, pH_gemeten, xlab = "log10([Z-]/[HZ])", ylab = "pH")
 ```
 
-We hebben dit verband benaderd met de functie $y=ax + b$ voor onbekende waarden van $a$ en $b$. De functie \textrm{lm()} bepaalt de meest waarschijnlijke waarden voor deze parameters. Hierover leer je meer in een latere portfolio-opdracht.
+We hebben dit verband benaderd met de functie $y= a + bx$ voor onbekende waarden van $a$ en $b$. De functie \textrm{lm()} bepaalt de meest waarschijnlijke waarden voor deze parameters. Hierover leer je meer in een latere portfolio-opdracht.
 
 We gebruiken deze functie en plotten de lijn met de parameterwaarden die hieruit komen.
 

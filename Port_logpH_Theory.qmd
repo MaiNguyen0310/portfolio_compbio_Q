@@ -15,14 +15,14 @@ In de vorige portfolio-opdracht ontdekte je dat het concept van entropie in alle
 In deze opdracht bekijken we een tweede voorbeeld van zo'n terugkerende vorm: de logaritme. Je kent hem al van de pH-berekeningen die je hebt uitgevoerd bij het practicum van *Chemie van het leven*. Maar dezelfde functie duikt op als je kijkt naar hoe het metabolisme van een dier samenhangt met zijn lichaamsgewicht, hoe sterk een aardbeving is, of hoe hard een geluid klinkt. Aan het eind van deze opdracht kun je zelf uitleggen waarom dat zo is.
 
 
-## Eigenchappen van de logaritme
+## Eigenschappen van de logaritme
 
 De logartitme heeft een handige eigenschap voor het werken met concentraties en dus met de pH: hij comprimeert een enorm bereik (14 ordes van grootte in $[\text{H}^+]$) tot een overzichtelijke schaal. Diezelfde eigenschap zit achter de schaal van Richter (aardbevingen) en decibel (geluid): elke stap van 1 staat voor een factor 10 in de onderliggende grootheid.
 
 Maar de logaritme heeft nog een tweede, andere eigenschap, die je eerder bij de rekenregels al hebt gezien: hij zet een *machtsverband* om in een *lineair* verband. Die eigenschap staat nu centraal, in een heel andere context dan pH: hoe lichaamsgrootte samenhangt met de rest van de biologie van een dier.
 
 ::: {#exr-eig_log}
-Welke van deze eigenschappen van de logaritme verwacht je nodig te hebben om zo dadelijk het verband tussen massa en metabolisme van zoogdieren te analyseren? En op welke manier?
+Welke van deze eigenschappen van de logaritme verwacht je nodig te hebben om in deze opdracht het verband tussen massa en metabolisme van zoogdieren te analyseren? En op welke manier?
 :::
 
 > jouw antwoord:
@@ -30,13 +30,13 @@ Welke van deze eigenschappen van de logaritme verwacht je nodig te hebben om zo 
 
 ## Evo-devo: Allometrische schaling
 
-We gaan nu kijken naar een andere context waarin logaritmes en exponenten helpen bij het begrijpen van biologische fenomenen. We duiken hierbij  weerhet vakgebied Evo-Devo in. 
+We gaan nu kijken naar een andere context waarin logaritmes en exponenten helpen bij het begrijpen van biologische fenomenen. We duiken hierbij  weer het vakgebied Evo-Devo in. 
 
-Een interessant fenomeen binnen de evolutie is allometrische schaling. Dit beschrijft hoe biologische eigenschappen systematisch veranderen als de lichaamsgrootte toeneemt van soort tot soort. Wat opvalt, is dat veel kenmerken, zoals metabolismesnelheid, levensduur, loopsnelheid en breingrootte, niet linear toenemen, maar volgens een bepaalde machtswet. Deze disproportionele groei noemen we *allometrie*. We kunnen dit als volgt modelleren:
+Een interessant fenomeen binnen de evolutie is `allometrische schaling`. Dit beschrijft hoe biologische eigenschappen systematisch veranderen als de lichaamsgrootte toeneemt van soort tot soort. Wat opvalt, is dat veel kenmerken, zoals metabolismesnelheid, levensduur, loopsnelheid en breingrootte, niet linear toenemen, maar volgens een bepaalde `machtswet`. Deze disproportionele groei noemen we *allometrie*. De allometrie volgt dus een algemene machtswet, die we als volgt modelleren:
 
 $$Y = aM^b.$$
 
-Hierbij staat $Y$ voor de variabele die gemeten wordt (bv. metabolismesnelheid) en $M$ voor de massa. De coëfficiënt $a$ is soortspecifiek en $b$ is de allometrische exponent.
+Hierbij staat $Y$ voor de variabele die gemeten wordt (bv. metabolismesnelheid) en $M$ voor de massa. De coëfficiënt $a$ is soortspecifiek en $b$ is de allometrische exponent. Deze exponent blijft dus bewaard tussen soorten.
 
 ### De schijnbare paradox van de muis en de olifant
 
@@ -47,7 +47,7 @@ Een muis verbrandt, per gram lichaamsweefsel, veel sneller energie dan een olifa
 Het antwoord hier zit op dezelfde manier in *welke* grootheid je bekijkt: massa-specifiek metabolisme (per gram) en totaal metabolisme (per dier) volgen beide een machtswet in $M$, maar met tegengestelde tendens. Dat ga je hieronder zelf aantonen.
 
 ::: aside
-Vergelijk dit met de entropie-splitsing uit de vorige opdracht: $H(\text{fenotype}) = H(\text{soort}) + H(\text{fenotype}\mid\text{soort})$. Ook daar leek de combinatie van meer biodiversiteit én meer ordening (canalisatie) tegenstrijding, tot bleek dat het om twee aparte termen ging.
+Vergelijk dit met de entropie-splitsing uit het vorige onderdeel (bij @exr-entropie_canal): $H(\text{fenotype}) = H(\text{soort}) + H(\text{fenotype}\mid\text{soort})$. Ook daar leek de combinatie van meer biodiversiteit én meer ordening (canalisatie) tegenstrijding, tot bleek dat het om twee aparte termen ging.
 :::
 
 ### Voorbeeld en opdrachten: metabolismesnelheid
@@ -65,52 +65,54 @@ metabolisme = c(7.05, 2.45, 1.9, 1.8, 1.65, 1.15, 0.75,
                 0.45, 0.4,0.2, 0.15, 0.1, 0.085, 0.05) 
 ```
 
-::: {#exr-plot_data}
-Plot hieronder de datapunten aan de hand van de vectoren die gegeven zijn. Waarom ziet het er anders uit dan de gegeven figuur?
-:::
 
 ::: aside
-Een `vector` is hier een vector simpelweg een geordende rij getallen met datapunten: de vector *massa* bevat veertien massawaarden, de vector *metabolisme* de bijbehorende veertien waarden voor de metabolismesnelheid. We hebben de vectoren in R gemaakt met de functie `c()`. De volgorde is essentieel: het eerste getal in `massa` hoort bij het eerste getal in `metabolisme`, enzovoort. Over vectoren leer je in het volgende portfolio-onderdeel meer.
+Een `vector` is hier een vector een geordende rij getallen met datapunten: de vector *massa* bevat veertien massawaarden, de vector *metabolisme* de bijbehorende veertien waarden voor de metabolismesnelheid. We hebben de vectoren in R gemaakt met de functie `c()`. De volgorde is essentieel: het eerste getal in `massa` hoort bij het eerste getal in `metabolisme`, enzovoort. Over vectoren leer je in het volgende portfolio-onderdeel meer.
 :::
 
+We kunnen deze datapunten als volgt visualiseren:
+
 ```{r}
-# gebruik de functie plot()
+plot(massa,metabolisme,
+     xlab = "Massa",
+     ylab = "Metabolismesnelheid")
 ```
 
 ::: {#exr-plot_log_data}
-Los het probleem op: hoe zou je ervoor kunnen zorgen dat de data goed leesbaar wordt? Wat voor verband kunnen we nu afleiden? Tip: kijk goed naar de assen in @fig-massa-metabolisme.
+Bovenstaande plot ziet er anders uit dan de gegeven figuur? Los het probleem op: hoe zou je ervoor kunnen zorgen dat de data goed af te lezen wordt? Gebruik bovenstaande code als voorbeeld om een nieuwe plot te maken. 
 :::
 
-
+::: aside
+Tip: kijk goed naar de assen in @fig-massa-metabolisme.
+:::
 
 ```{r}
-# dit zou je zelf moeten doen 
 # gebruik de functie log10()
-plot(log10(massa), metabolisme,      
-     pch = 19, xlab = "log10(Massa)", 
-     ylab = "Metabolisme")  
 ```
 
-Om Figuur @fig-massa-metabolisme te repliceren heb je een transformatie uitgevoerd op één van de assen. Doe hetzelfde nu voor de andere as. 
+::: {#exr-log-log}
+Om @fig-massa-metabolisme te repliceren heb je een transformatie uitgevoerd op één van de assen. Doe hetzelfde nu voor de andere as, en plot opnieuw 
+:::
 
 ```{r}
-plot(log10(massa), log10(metabolisme),      
-     pch = 19, xlab = "log10(Massa)", 
-     ylab = "log10(Metabolisme)")  
-abline(lm(log10(metabolisme) ~ log10(massa)), col = "red")
+# jouw antwoord
 ```
+
+Als het goed is, heb je een linear verband gevonden.
 
 ::: {#exr-uitleg_plot_log}
-Leg nu in woorden uit waarom de gebruikte methode werkt, en relateer dat aan de machtsformule en de rekenregels genoemd in het practicum-onderdeel van deze portfolio-opdracht.
+Leg nu in woorden uit waarom de gebruikte methode werkt, en relateer dat aan de machtsformule en de rekenregels die genoemd zijn in het practicum-onderdeel van deze portfolio-opdracht.
 :::
 
  > Jouw antwoord
 
-We gaan nu iets beter kijken naar de betekenis van het aangetone verband. We hebben gekeken naar de massa-specifieke metabole snelheid, ook wel metabole intensiteit, die aangeeft hoe snel metabolisme verloopt per eenheid massa van een bepaald weefsel. Dit meten we bijvoorbeeld als de hoeveelheid $\text{O}_2$ die verbruikt wordt per uur. Aan deze eenheid zien we dat we dit kunnen berekenen door de totale metabole intensiteit te delen door de massa.
+We gaan nu iets beter kijken naar de betekenis van het aangetone verband. We hebben gekeken naar de massa-specifieke metabole snelheid, die aangeeft hoe snel metabolisme verloopt per eenheid massa van een bepaald weefsel. Dit meten we bijvoorbeeld als de hoeveelheid $\text{O}_2$ die verbruikt wordt per uur. Aan deze eenheid zien we dat we dit kunnen berekenen door de totale metabole intensiteit te delen door de massa.
 
-::: {#exr-machtsform} 
-Vul dit in bij de machtsformule, waarbij de gemeten variabele het totale metabolisme is. Maak gebruik van de rekenregels van de logaritme om een uitdrukking te krijgen voor de totale metabole intensiteit.
+
+::: {#exr-machtsform}
+Het totale metabolisme volgens de machtsformule $Y_{\text{totaal}} = aM^b$ verloopt, en de massa-specifieke intensiteit is gelijk aan $Y_{\text{totaal}}$ gedeeld door de massa $M$. Gebruik de rekenregels van de logaritme om een uitdrukking te vinden voor $\log(Y_{\text{specifiek}})$ in termen van $\log(M)$ en koppel dat aan de laatste plot die je gevonden hebt. Wat voor informatie over het lineaire verband kun je hieruit halen?
 :::
+
 
  > Jouw antwoord
 
@@ -121,14 +123,11 @@ massa_metabolisme <- massa*metabolisme
 ```
 
 ::: {#exr-plot_metab}
-Probeer nu een relatie te vinden tussen de massa en het totale metabolisme. Plot deze relatie.
+Probeer nu een relatie te vinden tussen de massa en het totale metabolisme. Plot deze relatie op dezelfde manier als eerder.
 :::
 
 ```{r}
-# dit zou je zelf doen 
-plot(log10(massa), 
-     log10(massa_metabolisme)) 
-abline(lm(log10(massa_metabolisme) ~ log10(massa)), col = "red")
+# jouw antwoord
 ```
 
 ::: {#exr-massa_metab}
@@ -138,7 +137,7 @@ Wat kun je opmerken over het effect van een grotere massa op de totale metabole 
  > Jouw antwoord
 
 ::: {#exr-exp_bepalen}
-Gebruik de rekenregels van de logaritme en je eerdere antwoorden om een waarde voor de exponent $b$ te vinden. Hint: gebruik de functie \textrm{lm()} om een relevante waarde te vinden. Met \textrm{?lm()} vind je hoe je deze kunt gebruiken. 
+Gebruik de rekenregels van de logaritme en je eerdere antwoorden om een waarde voor de exponent $b$ te vinden. Hint: Gebruik `lm()` op de (twee maal) getransformeerde data van het **totale** metabolisme (dus de plot van @exr-plot_metab) om een schatting voor de exponent $b$ te vinden. Vergelijk deze vervolgens met de helling die `lm()`  geeft voor de massa-specifieke intensiteit. Klopt het verschil met wat je bij @exr-machtsform had afgeleid?
 :::
 
 
@@ -146,7 +145,7 @@ Gebruik de rekenregels van de logaritme en je eerdere antwoorden om een waarde v
  
  
 ::: aside
-Merk op dat je de functie \textrm{lm} al eerder hebt gebruikt, bij het practicum-deel van dit portfolio-onderdeel.Het zou dan vast een heel belangrijke functie zijn... Bij het volgende portfolio-onderdeel staan we hierbij stil!
+Merk op dat je de functie **lm()** al eerder hebt gebruikt, bij het practicum-deel van dit portfolio-onderdeel.Het zou dan vast een heel belangrijke functie zijn... Bij het volgende portfolio-onderdeel staan we hierbij stil!
 :::
  
 ### Terug naar de paradox

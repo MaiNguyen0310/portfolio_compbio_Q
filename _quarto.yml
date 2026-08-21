@@ -4,7 +4,8 @@ project:
 book:
   title: "Portfolio Computationele Biologie"
   author: "Jouw naam"
-  date: "September 2027 - Februari 2028"
+  date: today
+  description: "September 2027 – Februari 2028"
   chapters:
     - index.qmd
     - Port2_Theory.qmd
