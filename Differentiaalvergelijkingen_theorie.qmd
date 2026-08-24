@@ -16,9 +16,11 @@ $$\frac{dN}{dt} = 5N(t), \quad N(0)=100.$$
 
 Hierin zien we dat hoe meer individuen er zijn, hoe meer nakomelingen er bijkomen en dus hoe sneller de populatie groeit. In dit geval hebben we *exponentiële groei* gemodelleerd, waarbij elk individu dus per tijdseenheid 5 nakomelingen krijgt. In de oplossing voor deze differentiaalvergelijkingen is dit gedrag direct te zien.
 
-**Vraag 1:** Laat door differentieren van de functie $N(t)= Ce^{rt}$ geldt dat $\frac{dN}{dt}=rA(t)$, waarbij $r$ en $C$ constantes zijn.
+::: {#exr-diff_diff} 
+Laat door differentieren van de functie $N(t)= Ce^{rt}$ geldt dat $\frac{dN}{dt}=rN(t)$, waarbij $r$ en $C$ constantes zijn.
+:::
 
-```  {r}
+```{r}
 # geef je antwoord hier 
 ```
 
@@ -39,7 +41,6 @@ dNdt <- r * N_vals
 plot(N_vals, dNdt, type = "l", lwd = 2,
      xlab = "Populatiegrootte N",
      ylab = "dN/dt",
-     main = "Afgeleide van logistische groei",
      xaxt = "n")
 ```
 
@@ -60,11 +61,15 @@ for(i in 1:(length(t)-1)){
 plot(t,N, type = 'l')
 ```
 
-**Vraag 2:** Verklaar de laatste twee grafieken op basis van de differentiaalvergelijking en relateer ze aan elkaar.
+::: {exr-diff_graf} 
+Verklaar de laatste twee grafieken op basis van de differentiaalvergelijking en relateer ze aan elkaar.
+:::
 
 > Jouw antwoord
 
-**Vraag 3:** Wat is, uitgaande van deze exponentiële relatie, het verband tussen de afhankelijke variabele $\ln(N)$ en de onafhankelijke variabele $t$?
+::: {#exr-verband}
+Wat is, uitgaande van deze exponentiële relatie, het verband tussen de afhankelijke variabele $\ln(N)$ en de onafhankelijke variabele $t$?
+:::
 
 > Jouw antwoord
 
@@ -186,7 +191,9 @@ We nemen aan dat de oppervlakte $A$ van de kolonie als functie van de tijd $t$ w
 A(t)=\alpha e^{\beta t}.
 \end{equation}
 
-**Vraag 4:** Hoe kunnen we ervoor zorgen dat de dalende trend uit de tabel gevolgd wordt door het model? Simuleer dit, en haal hierbij inspiratie uit eerder gegeven code. De exacte datapunten uit de tabel hoeven niet benaderd te worden, het gaat om de trend.
+::: {#exr-diff_dalend}
+Hoe kunnen we ervoor zorgen dat de dalende trend uit de tabel gevolgd wordt door het model? Simuleer dit, en haal hierbij inspiratie uit eerder gegeven code. De exacte datapunten uit de tabel hoeven niet benaderd te worden, het gaat om de trend.
+:::
 
 ```{r}
 # jouw antwoord
@@ -196,9 +203,11 @@ A(t)=\alpha e^{\beta t}.
 
 We kunnen de draagkracht en groeisnelheid ook afleiden uit andere observaties.
 
-**Vraag 5** We beschrijven een populatie met dichtheid $n$ (exacte eenheden laten we buiten beschouwing) en observeren dat de het aantal geboortes $g$ en sterftes $s$ in de populatie dichtheidsafhankelijk is. We hebben hiervoor de vergelijkingen \begin{equation}
+::: {exr-diff_interpr}
+We beschrijven een populatie met dichtheid $n$ (exacte eenheden laten we buiten beschouwing) en observeren dat de het aantal geboortes $g$ en sterftes $s$ in de populatie dichtheidsafhankelijk is. We hebben hiervoor de vergelijkingen \begin{equation}
 \frac{dg}{dt} = 1 + 0.04n, \quad \frac{ds}{dt} = 0.45 + 0.06n.
 \end{equation}
+:::
 
 **(a)** Interpreteer deze vergelijkingen. Wat betekent het dat het aantal geboortes en sterftes afhankelijk is van de dichtheid? Geef een voorbeeld van een verklaring.
 
