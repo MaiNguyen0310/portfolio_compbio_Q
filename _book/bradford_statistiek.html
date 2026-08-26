@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="September 2026 – Februari 2027">
 
-<title>Appendix C — Bradford-test: statistiek en lineaire modellen – Portfolio Computationele Biologie</title>
+<title>Appendix C — Bradford-test: statistiek, vectoren en lineaire modellen – Portfolio Computationele Biologie</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -80,8 +81,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-12eeb4b20e9f5a2b0bfc604bfaf942bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
-<link href="site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -109,8 +108,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -145,7 +142,7 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar floating slimcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -154,7 +151,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Port2_Pract.html">Appendices</a></li><li class="breadcrumb-item"><a href="./bradford_statistiek.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Bradford-test: statistiek en lineaire modellen</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Port2_Pract.html">Appendices</a></li><li class="breadcrumb-item"><a href="./bradford_statistiek.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Bradford-test: statistiek, vectoren en lineaire modellen</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -199,8 +196,26 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Regressie_theorie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lineaire regressie: vectoren en projectie.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./Differentiaalvergelijkingen_theorie.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Differentiaalvergelijkingen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Differentiaalvergelijkingen</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sepia_standaardfout_theorie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Sepia: de wiskunde achter de standaardfout</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./genetic_drift.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Genetic Drift</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -233,7 +248,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./bradford_statistiek.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Bradford-test: statistiek en lineaire modellen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Bradford-test: statistiek, vectoren en lineaire modellen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -255,27 +270,28 @@ window.Quarto = {
    
   <ul>
   <li><a href="#doel-van-de-bradford-test" id="toc-doel-van-de-bradford-test" class="nav-link active" data-scroll-target="#doel-van-de-bradford-test"><span class="header-section-number">D</span> Doel van de Bradford-test</a></li>
-  <li><a href="#correlatie-en-aannames" id="toc-correlatie-en-aannames" class="nav-link" data-scroll-target="#correlatie-en-aannames"><span class="header-section-number">E</span> Correlatie en aannames</a></li>
-  <li><a href="#het-lineaire-model" id="toc-het-lineaire-model" class="nav-link" data-scroll-target="#het-lineaire-model"><span class="header-section-number">F</span> Het lineaire model</a>
+  <li><a href="#data-als-vectoren-en-matrices" id="toc-data-als-vectoren-en-matrices" class="nav-link" data-scroll-target="#data-als-vectoren-en-matrices"><span class="header-section-number">E</span> Data als vectoren en matrices</a></li>
+  <li><a href="#correlatie-en-aannames" id="toc-correlatie-en-aannames" class="nav-link" data-scroll-target="#correlatie-en-aannames"><span class="header-section-number">F</span> Correlatie en aannames</a></li>
+  <li><a href="#het-lineaire-model" id="toc-het-lineaire-model" class="nav-link" data-scroll-target="#het-lineaire-model"><span class="header-section-number">G</span> Het lineaire model</a>
   <ul class="collapse">
-  <li><a href="#variabele-versus-parameter" id="toc-variabele-versus-parameter" class="nav-link" data-scroll-target="#variabele-versus-parameter"><span class="header-section-number">F.1</span> Variabele versus parameter</a></li>
+  <li><a href="#variabele-versus-parameter" id="toc-variabele-versus-parameter" class="nav-link" data-scroll-target="#variabele-versus-parameter"><span class="header-section-number">G.1</span> Variabele versus parameter</a></li>
   </ul></li>
-  <li><a href="#data-in-tidy-format" id="toc-data-in-tidy-format" class="nav-link" data-scroll-target="#data-in-tidy-format"><span class="header-section-number">G</span> Data in tidy format</a></li>
-  <li><a href="#r-code-data-invoeren" id="toc-r-code-data-invoeren" class="nav-link" data-scroll-target="#r-code-data-invoeren"><span class="header-section-number">H</span> R-code: data invoeren</a></li>
-  <li><a href="#correlatie-berekenen" id="toc-correlatie-berekenen" class="nav-link" data-scroll-target="#correlatie-berekenen"><span class="header-section-number">I</span> Correlatie berekenen</a></li>
-  <li><a href="#plot-van-de-ijklijn" id="toc-plot-van-de-ijklijn" class="nav-link" data-scroll-target="#plot-van-de-ijklijn"><span class="header-section-number">J</span> Plot van de ijklijn</a></li>
-  <li><a href="#lineaire-regressie" id="toc-lineaire-regressie" class="nav-link" data-scroll-target="#lineaire-regressie"><span class="header-section-number">K</span> Lineaire regressie</a></li>
-  <li><a href="#concentratie-van-een-onbekend-monster-bepalen" id="toc-concentratie-van-een-onbekend-monster-bepalen" class="nav-link" data-scroll-target="#concentratie-van-een-onbekend-monster-bepalen"><span class="header-section-number">L</span> Concentratie van een onbekend monster bepalen</a></li>
-  <li><a href="#samenvatting" id="toc-samenvatting" class="nav-link" data-scroll-target="#samenvatting"><span class="header-section-number">M</span> Samenvatting</a></li>
+  <li><a href="#data-in-tidy-format" id="toc-data-in-tidy-format" class="nav-link" data-scroll-target="#data-in-tidy-format"><span class="header-section-number">H</span> Data in tidy format</a></li>
+  <li><a href="#r-code-data-invoeren-als-vectoren" id="toc-r-code-data-invoeren-als-vectoren" class="nav-link" data-scroll-target="#r-code-data-invoeren-als-vectoren"><span class="header-section-number">I</span> R-code: data invoeren als vectoren</a></li>
+  <li><a href="#correlatie-berekenen" id="toc-correlatie-berekenen" class="nav-link" data-scroll-target="#correlatie-berekenen"><span class="header-section-number">J</span> Correlatie berekenen</a></li>
+  <li><a href="#plot-van-de-ijklijn" id="toc-plot-van-de-ijklijn" class="nav-link" data-scroll-target="#plot-van-de-ijklijn"><span class="header-section-number">K</span> Plot van de ijklijn</a></li>
+  <li><a href="#lineaire-regressie" id="toc-lineaire-regressie" class="nav-link" data-scroll-target="#lineaire-regressie"><span class="header-section-number">L</span> Lineaire regressie</a></li>
+  <li><a href="#concentratie-van-een-onbekend-monster-bepalen" id="toc-concentratie-van-een-onbekend-monster-bepalen" class="nav-link" data-scroll-target="#concentratie-van-een-onbekend-monster-bepalen"><span class="header-section-number">M</span> Concentratie van een onbekend monster bepalen</a></li>
+  <li><a href="#samenvatting" id="toc-samenvatting" class="nav-link" data-scroll-target="#samenvatting"><span class="header-section-number">N</span> Samenvatting</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Port2_Pract.html">Appendices</a></li><li class="breadcrumb-item"><a href="./bradford_statistiek.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Bradford-test: statistiek en lineaire modellen</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Port2_Pract.html">Appendices</a></li><li class="breadcrumb-item"><a href="./bradford_statistiek.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Bradford-test: statistiek, vectoren en lineaire modellen</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Appendix C — Bradford-test: statistiek en lineaire modellen</h1>
+<h1 class="title"><span id="sec-bradford" class="quarto-section-identifier">Appendix C — Bradford-test: statistiek, vectoren en lineaire modellen</span></h1>
 </div>
 
 
@@ -292,20 +308,43 @@ window.Quarto = {
 </header>
 
 
-<p>Vandaag gaan we de Bradford-test gebruiken om statistiek toe te passen en een ijklijn te maken. We maken in het laboratorium een reeks oplossingen met bekende eiwitconcentraties en meten daarvan de absorbantie met een spectrofotometer. Daarna gebruiken we de relatie tussen concentratie en absorbantie om de concentratie van een onbekende oplossing te schatten.</p>
-<p>In deze les kijken we ook naar aannames. Een aanname is een veronderstelling die nodig is om een analyse of model te mogen gebruiken. Die aanname moet wetenschappelijk onderbouwd zijn. Voor de Bradford-test nemen we bijvoorbeeld aan dat de relatie tussen eiwitconcentratie en absorbantie binnen het gebruikte meetbereik lineair is. Daarom is het belangrijk dat monsters soms eerst worden verdund, zodat de metingen binnen het lineaire bereik van de methode vallen.</p>
+<p>In de eerste portfolio-opdracht gebruikten we het concept van entropie om toenemende complexiteit in de biologie te duiden. In de tweede opdracht zagen we dat een rechte lijn de relatie tussen metabolische snelheid en massa goed kon beschrijven. Vandaag gebruiken we de Bradford-test om statistiek toe te passen en een ijklijn te maken. Daarbij komen beide concepten opnieuw samen.</p>
+<p>In deze les kijken we ook weer naar aannames. Een aanname is een biologische veronderstelling die nodig is om een wiskundige analyse of model te mogen gebruiken. Die aanname moet wetenschappelijk onderbouwd zijn. Voor de Bradford-test nemen we bijvoorbeeld aan dat de relatie tussen eiwitconcentratie en absorbantie binnen het gebruikte meetbereik <strong>lineair</strong> is en dat de <strong>rest-term normal verdeeld</strong> is. Daarom is het belangrijk dat monsters soms eerst worden verdund, zodat de metingen binnen het lineaire bereik van de methode vallen.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Aannames kwamen ook eerder terug: de <span class="math inline">\(\chi^2\)</span>-verdeling gelden alleen onder specifieke aannames die je moet benoemen en controleren.</p>
+</div></div><p>Naast de statistiek introduceren we in deze opdracht een nieuw stuk wiskundige taal: <strong>vectoren</strong> en <strong>matrices</strong>, concepten uit de lineaire algebra. Deze taal loopt als een draad door de rest van het portfolio: je meetgegevens zijn vectoren, je dataset is een matrix, en straks blijkt dat ook het lineaire model zich in die taal laat schrijven. Zo zie je opnieuw dat één wiskundige vorm in verschillende contexten terugkeert; de interpretatie bepaalt de betekenis.</p>
 <p>Voor het portfolio kun je de vragen in dit document beantwoorden. In de les werken we deze vragen stap voor stap uit.</p>
 <section id="doel-van-de-bradford-test" class="level1" data-number="D">
 <h1 data-number="D"><span class="header-section-number">D</span> Doel van de Bradford-test</h1>
 <p>Bij de Bradford-test meten we de absorbantie van oplossingen met verschillende eiwitconcentraties. We verwachten dat de absorbantie toeneemt wanneer de eiwitconcentratie toeneemt. Er is dan sprake van een positieve relatie tussen eiwitconcentratie en absorbantie.</p>
 <p>De informatie over deze relatie gebruiken we om de eiwitconcentratie te bepalen van een oplossing waarvan de concentratie nog onbekend is. Daarvoor maken we eerst een ijklijn met bekende concentraties.</p>
 </section>
-<section id="correlatie-en-aannames" class="level1" data-number="E">
-<h1 data-number="E"><span class="header-section-number">E</span> Correlatie en aannames</h1>
-<p>Correlatie geeft aan hoe sterk twee variabelen samenhangen. In dit practicum onderzoeken we de correlatie tussen absorbantie en eiwitconcentratie.</p>
-<p>Een belangrijke aanname is dat de relatie tussen concentratie en absorbantie in het gebruikte bereik ongeveer lineair is. Dat betekent dat de meetpunten ongeveer op een rechte lijn liggen. Deze aanname moet inhoudelijk te verdedigen zijn. In de analytische chemie is absorbantie bij lage concentraties vaak goed voorspelbaar vanuit de concentratie, zolang de metingen binnen het lineaire meetbereik blijven.</p>
-<p>Een grote absolute correlatie, dus dicht bij <code>-1</code> of <code>1</code>, is nuttig voor een ijklijn. Een positieve correlatie dicht bij <code>1</code> betekent dat hogere concentraties betrouwbaar samengaan met hogere absorbanties. Dat maakt schatten en voorspellen beter mogelijk.</p>
-<p>In R gebruik je hiervoor de functie <code>cor()</code>:</p>
+<section id="data-als-vectoren-en-matrices" class="level1 page-columns page-full" data-number="E">
+<h1 data-number="E"><span class="header-section-number">E</span> Data als vectoren en matrices</h1>
+<p>Voordat we gaan rekenen, kijken we naar de <em>vorm</em> van onze data. In de vorige opdracht voerde je een meetreeks in met de functie <code>c()</code>. Zo’n rijtje getallen heeft een wiskundige naam: een <strong>vector</strong>.</p>
+<p>Een <strong>vector</strong> is een geordend rijtje getallen. In dit practicum verzamelen we per meting twee getallen: een concentratie en de bijbehorende absorbantie. Alle concentraties samen vormen één vector, alle absorbanties samen een tweede vector. We noemen ze <strong>datavectoren</strong>, omdat elk element een gemeten waarde is.</p>
+<p>Een datavector met <em>n</em> metingen schrijven we als:</p>
+<p><span class="math display">\[\mathbf{conc} = \begin{pmatrix} conc_1 \\ conc_2 \\ \vdots \\ conc_n \end{pmatrix}, \qquad \mathbf{abs} = \begin{pmatrix} abs_1 \\ abs_2 \\ \vdots \\ abs_n \end{pmatrix}\]</span></p>
+<p>We schrijven vectoren vet (<span class="math inline">\(\mathbf{conc}\)</span>) om ze te onderscheiden van een enkel getal (een <em>scalar</em>), zoals <span class="math inline">\(conc_i\)</span>: de <span class="math inline">\(i\)</span>-de meting. De index <span class="math inline">\(i\)</span> loopt van 1 tot <em>n</em> en wijst één element in de vector aan.</p>
+<p>Leggen we de twee datavectoren als kolommen naast elkaar, dan ontstaat een <strong>datamatrix</strong>: een tabel van getallen met rijen en kolommen.</p>
+<p><span class="math display">\[\mathbf{D} = \begin{pmatrix} conc_1 &amp; abs_1 \\ conc_2 &amp; abs_2 \\ \vdots &amp; \vdots \\ conc_n &amp; abs_n \end{pmatrix}\]</span></p>
+<p>Elke <strong>kolom</strong> is een variabele (één datavector); elke <strong>rij</strong> is één meting (één observatie). Dit is precies de <em>tidy</em> vorm die je zo dadelijk in R terugziet: elke variabele een eigen kolom, elke observatie een eigen rij.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>De afmeting van een matrix noteren we als (aantal rijen) <span class="math inline">\(\times\)</span> (aantal kolommen). Onze datamatrix <span class="math inline">\(\mathbf{D}\)</span> is dus <span class="math inline">\(n \times 2\)</span>: <span class="math inline">\(n\)</span> metingen, <span class="math inline">\(2\)</span> variabelen. Een vector is een matrix met maar één kolom.</p>
+</div></div><p><strong>Vraag 1.</strong> Stel dat je <span class="math inline">\(12\)</span> oplossingen doormeet. Wat is de lengte van de datavector <span class="math inline">\(\mathbf{abs}\)</span>, en wat is de afmeting (<span class="math inline">\(\ldots \times \ldots\)</span>) van de datamatrix <span class="math inline">\(\mathbf{D}\)</span>? en wat als je van 20 oplossingen de absorbatie bepaald en de pH meet?</p>
+<p><strong>Jouw antwoord:</strong></p>
+</section>
+<section id="correlatie-en-aannames" class="level1 page-columns page-full" data-number="F">
+<h1 data-number="F"><span class="header-section-number">F</span> Correlatie en aannames</h1>
+<p>Correlatie geeft aan hoe sterk twee variabelen samenhangen. In dit practicum onderzoeken we de correlatie tussen de datavectoren <span class="math inline">\(\mathbf{abs}\)</span> en <span class="math inline">\(\mathbf{conc}\)</span>.</p>
+<p>Een belangrijke aanname is dat de relatie tussen concentratie en absorbantie in het bemeten bereik ongeveer lineair is. Dat betekent dat de meetpunten ongeveer op een rechte lijn liggen. Deze aanname moet inhoudelijk te verdedigen zijn. In de analytische chemie is absorbantie bij lage concentraties vaak goed voorspelbaar vanuit de concentratie, zolang de metingen binnen het lineaire meetbereik blijven.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>In de biologie zijn concentraties vaak zo hoog dat opgeloste moleculen met elkaar interageren. Daarom verdunnen we oplossingen om deze interacties te verminderen. Later meer hierover.</p>
+</div></div><p>Een grote absolute correlatie, dus dicht bij <code>-1</code> of <code>1</code>, is nuttig voor een ijklijn. Een positieve correlatie dicht bij <code>1</code> betekent dat hogere concentraties betrouwbaar samengaan met hogere absorbanties. Dat maakt schatten en voorspellen beter mogelijk.</p>
+<p>In R gebruik je hiervoor de functie <code>cor()</code>, met als argumenten de twee datavectoren:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pearson-correlatie: meet vooral lineaire samenhang</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(abs, conc, <span class="at">method =</span> <span class="st">"pearson"</span>)</span>
@@ -313,14 +352,20 @@ window.Quarto = {
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Spearman-correlatie: meet monotone samenhang op basis van rangen</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(abs, conc, <span class="at">method =</span> <span class="st">"spearman"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>De Spearman-correlatie kan ook worden gezien als de Pearson-correlatie van de rangnummers:</p>
-<p><span class="math display">\[\rho_s = \operatorname{cor}(\operatorname{rank}(x), \operatorname{rank}(y))\]</span></p>
-<p>Als er geen gelijke waarden voorkomen, kan Spearman ook worden geschreven als:</p>
-<p><span class="math display">\[\rho_s = 1 - \frac{6 \sum d_i^2}{n(n^2 - 1)}\]</span></p>
-<p>Hierbij is <span class="math inline">\(d_i\)</span> het verschil tussen de rang van meting <span class="math inline">\(i\)</span> in beide variabelen, en is <span class="math inline">\(n\)</span> het aantal metingen.</p>
+<p>Formeel is de Pearson correlatie beschreven als,</p>
+<p><span class="math display">\[r = \frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}
+{\sqrt{\sum_{i=1}^{n}(x_i-\bar{x})^2}\sqrt{\sum_{i=1}^{n}(y_i-\bar{y})^2}}\]</span></p>
+<p>waarbij <span class="math inline">\(x_i\)</span> hier de gemeten concentraties en <span class="math inline">\(y_i\)</span> absorbanties zijn, en <span class="math inline">\(\bar{x}\)</span> en <span class="math inline">\(\bar{y}\)</span> hun gemiddelden.</p>
+<p>De Spearman-correlatie gebruikt exact dezelfde formule, maar past die niet toe op de gemeten waarden zelf, maar op hun rangnummers (hun volgorde van klein naar groot). Daardoor meet Pearson vooral een lineaire samenhang, terwijl Spearman elke de toe- of afnamen (monotone samenhang) oppikt. Dezelfde wiskundige vorm dus, met een andere invoer; en ook cor() in R laat je met één argument, <code>method</code> in de code, tussen die vormen wisselen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Spearman-correlatie: meet monotone samenhang op basis van rangen</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(abs, conc, <span class="at">method =</span> <span class="st">"spearman"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Dus ook in de structuur van R nemen we deze herbruikbare vormen waar, net als in de wiskunde.</p>
+<p>Correlatie is dus een maat voor de samenhang tussen twee datavectoren. Pearson meet een lineaire samenhang en Spearman meet een monotone samenhang, of de waarden samen stijgen of samen dalen, ook als dat niet langs een rechte lijn gebeurt. Spearman gebruikt daarvoor dezelfde formule als Pearson, maar toegepast op de rangnummers in plaats van de gemeten waarden.</p>
 </section>
-<section id="het-lineaire-model" class="level1" data-number="F">
-<h1 data-number="F"><span class="header-section-number">F</span> Het lineaire model</h1>
+<section id="het-lineaire-model" class="level1 page-columns page-full" data-number="G">
+<h1 data-number="G"><span class="header-section-number">G</span> Het lineaire model</h1>
 <p>We kunnen de relatie tussen absorbantie en concentratie beschrijven met een lineair model:</p>
 <p><span class="math display">\[Ab = a + b \cdot Conc\]</span></p>
 <p>waarbij:</p>
@@ -330,23 +375,29 @@ window.Quarto = {
 <li><span class="math inline">\(a\)</span> het intercept is;</li>
 <li><span class="math inline">\(b\)</span> de richtingscoëfficiënt is.</li>
 </ul>
-<section id="variabele-versus-parameter" class="level2" data-number="F.1">
-<h2 data-number="F.1" class="anchored" data-anchor-id="variabele-versus-parameter"><span class="header-section-number">F.1</span> Variabele versus parameter</h2>
+<section id="variabele-versus-parameter" class="level2 page-columns page-full" data-number="G.1">
+<h2 data-number="G.1" class="anchored" data-anchor-id="variabele-versus-parameter"><span class="header-section-number">G.1</span> Variabele versus parameter</h2>
 <p>In een lineair model is er een verschil tussen variabelen en parameters.</p>
-<p>Een <strong>variabele</strong> is een grootheid die per meting kan verschillen. In dit voorbeeld zijn <code>abs</code> en <code>conc</code> variabelen. Ze staan als kolommen in de dataset: elke rij bevat één concentratie en de bijbehorende absorbantie.</p>
-<p>Een <strong>parameter</strong> is een vaste, maar meestal onbekende, waarde in het model. In de vergelijking</p>
+<p>Een <strong>variabele</strong> is een grootheid die per meting kan verschillen. In dit voorbeeld zijn <code>abs</code> en <code>conc</code> variabelen. Ze staan als kolommen in de datamatrix: elke rij bevat één concentratie en de bijbehorende absorbantie. Een variabele is dus precies één datavector.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Een grootheid is een meetbare eigenschap die je in een getal (meestal met eenheid) kunt uitdrukken, zoals concentratie of lengte. Categorische eigenschappen zoals geslacht of soort zijn variabelen, maar geen grootheden: hun waarden zijn labels, geen getallen.</p>
+</div></div><p>Een <strong>parameter</strong> is een vaste, maar meestal onbekende, waarde in het model. In de vergelijking</p>
 <p><span class="math display">\[Ab = a + b \cdot Conc\]</span></p>
-<p>zijn <span class="math inline">\(a\)</span> en <span class="math inline">\(b\)</span> parameters. Ze staan niet vooraf in de dataset, omdat we ze uit de meetgegevens moeten schatten. De parameter <span class="math inline">\(a\)</span> bepaalt waar de lijn de y-as snijdt. De parameter <span class="math inline">\(b\)</span> bepaalt hoe sterk de absorbantie verandert wanneer de concentratie toeneemt.</p>
-<p>Als de blanco correct is afgetrokken, of als we bewust een model door de oorsprong kiezen, kunnen we soms <span class="math inline">\(a = 0\)</span> stellen. Dan wordt het model:</p>
+<p>zijn <span class="math inline">\(a\)</span> en <span class="math inline">\(b\)</span> parameters. Ze staan niet vooraf in de datamatrix, omdat we ze uit de meetgegevens moeten schatten. De parameter <span class="math inline">\(a\)</span> bepaalt waar de lijn de y-as snijdt. De parameter <span class="math inline">\(b\)</span> bepaalt hoe sterk de absorbantie verandert wanneer de concentratie toeneemt.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Deze twee parameters, <span class="math inline">\(a\)</span> en <span class="math inline">\(b\)</span>, kun je zelf ook als een klein rijtje getallen opvatten: een parametervector <span class="math inline">\(\boldsymbol{\beta} = (a, b)\)</span>. In het theoretische vervolg op deze opdracht schrijven we het hele lineaire model met vectoren en matrices, en dan wordt duidelijk waarom die schrijfwijze zo krachtig is.</p>
+</div></div><p>Als de blanco correct is afgetrokken, of als we bewust een model door de oorsprong kiezen, kunnen we soms <span class="math inline">\(a = 0\)</span> stellen. Dan wordt het model:</p>
 <p><span class="math display">\[Ab = b \cdot Conc\]</span></p>
 <p>In dat eenvoudige geval geldt:</p>
 <p><span class="math display">\[b = \frac{Ab}{Conc}\]</span></p>
-<p>In echte meetdata schatten we <span class="math inline">\(b\)</span> meestal met regressie, omdat de meetpunten niet allemaal precies op één lijn liggen.</p>
+<p>In echte meetdata schatten we <span class="math inline">\(b\)</span> meestal met statistische regressie, omdat de meetpunten niet allemaal precies op één lijn liggen.</p>
 </section>
 </section>
-<section id="data-in-tidy-format" class="level1" data-number="G">
-<h1 data-number="G"><span class="header-section-number">G</span> Data in tidy format</h1>
-<p>De meetgegevens zetten we in een tabel. De kolomnamen komen overeen met de variabelen in het model.</p>
+<section id="data-in-tidy-format" class="level1" data-number="H">
+<h1 data-number="H"><span class="header-section-number">H</span> Data in tidy format</h1>
+<p>De meetgegevens zetten we in een tabel. De kolomnamen komen overeen met de variabelen in het model. Elke kolom is een datavector; samen vormen ze de datamatrix.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -370,140 +421,115 @@ window.Quarto = {
 </tbody>
 </table>
 <p>Elke rij is één meting: een bekende concentratie met de bijbehorende absorbantie. Dit noemen we <strong>tidy data</strong>: elke variabele heeft een eigen kolom en elke observatie heeft een eigen rij.</p>
-<p>Omdat we twee kolommen hebben, kunnen we de dataset ook zien als een tweedimensionale datamatrix of als twee datavectoren: <code>abs</code> en <code>conc</code>.</p>
+<p>Zo zien we de dataset op twee manieren tegelijk: als één tweedimensionale datamatrix, of als twee datavectoren <code>abs</code> en <code>conc</code> naast elkaar. Beide beschrijvingen zijn correct; ze benadrukken alleen iets anders.</p>
 </section>
-<section id="r-code-data-invoeren" class="level1" data-number="H">
-<h1 data-number="H"><span class="header-section-number">H</span> R-code: data invoeren</h1>
-<p>Je kunt data inlezen vanuit een Excel-bestand, maar in dit voorbeeld voeren we de waarden handmatig in.</p>
+<section id="r-code-data-invoeren-als-vectoren" class="level1 page-columns page-full" data-number="I">
+<h1 data-number="I"><span class="header-section-number">I</span> R-code: data invoeren als vectoren</h1>
+<p>Je kunt data inlezen vanuit een Excel-bestand, maar in dit voorbeeld voeren we de waarden handmatig in. Elke regel maakt één datavector.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>abs <span class="ot">&lt;-</span> <span class="fu">c</span>(...)   <span class="co"># vul hier de gemeten absorbanties in</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>conc <span class="ot">&lt;-</span> <span class="fu">c</span>(...)  <span class="co"># vul hier de bekende concentraties in</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>abs <span class="ot">&lt;-</span> <span class="fu">c</span>(...)   <span class="co"># vul hier de gemeten absorbanties in</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>conc <span class="ot">&lt;-</span> <span class="fu">c</span>(...)  <span class="co"># vul hier de bekende concentraties in</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>De functie <code>c()</code> is een standaardfunctie in R. De <code>c</code> staat voor <em>combine</em>: de functie combineert losse waarden tot één vector.</p>
-<p>De pijl <code>&lt;-</code> betekent dat de vector aan een variabele wordt toegekend. Als je daarna <code>abs</code> aanroept, krijg je de volledige vector met absorbanties terug.</p>
+<p>De functie <code>c()</code> is een standaardfunctie in R. De <code>c</code> staat voor <em>combine</em>: de functie combineert losse getallen (scalars) tot één vector.</p>
+<p>De pijl <code>&lt;-</code> betekent dat de vector aan een naam wordt toegekend. Als je daarna <code>abs</code> aanroept, krijg je de volledige datavector met absorbanties terug.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>abs</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>conc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>abs</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>conc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Je kunt met een vector rekenen. R past de berekening dan toe op alle elementen van de vector.</p>
+<p>Je kunt met een vector in één keer rekenen. R past de berekening <em>elementsgewijs</em> toe: op elk element van de vector afzonderlijk.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>abs <span class="sc">+</span> <span class="dv">1</span>   <span class="co"># telt 1 op bij elke absorbantiewaarde</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>abs <span class="sc">*</span> <span class="dv">2</span>   <span class="co"># vermenigvuldigt elke absorbantiewaarde met 2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>abs <span class="sc">+</span> <span class="dv">1</span>   <span class="co"># telt 1 op bij elke absorbantiewaarde</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>abs <span class="sc">*</span> <span class="dv">2</span>   <span class="co"># vermenigvuldigt elke absorbantiewaarde met 2; een scalaire vermenigvuldiging</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Veel R-functies gebruiken één of meer argumenten. Het argument staat tussen haakjes.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Dat R automatisch elk element bewerkt, heet <em>vectorisatie</em>. Het is precies de reden dat vectoren zo handig zijn: je schrijft één bewerking op, en die werkt meteen op de hele meetreeks.</p>
+</div></div><p>Veel R-functies gebruiken één of meer argumenten. Het argument staat tussen haakjes.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(abs)   <span class="co"># som van alle absorbantiewaarden</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">prod</span>(abs)  <span class="co"># product van alle absorbantiewaarden</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(abs)   <span class="co"># exponentiële functie toegepast op alle waarden</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sin</span>(abs)   <span class="co"># sinus toegepast op alle waarden</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="correlatie-berekenen" class="level1" data-number="I">
-<h1 data-number="I"><span class="header-section-number">I</span> Correlatie berekenen</h1>
-<p>Eerst onderzoeken we of er een duidelijke samenhang is tussen absorbantie en concentratie.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(abs, conc, <span class="at">method =</span> <span class="st">"pearson"</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(abs, conc, <span class="at">method =</span> <span class="st">"spearman"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p><strong>Vraag 1.</strong> Is dit een sterke correlatie? Leg je antwoord uit.</p>
-<p><strong>Vraag 2.</strong> Waarom is een hoge correlatie belangrijk voor een ijklijn?</p>
-</section>
-<section id="plot-van-de-ijklijn" class="level1" data-number="J">
-<h1 data-number="J"><span class="header-section-number">J</span> Plot van de ijklijn</h1>
-<p>Met een spreidingsdiagram kunnen we controleren of de punten ongeveer op een rechte lijn liggen.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  conc, abs,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Eiwitconcentratie"</span>,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Absorbantie"</span>,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Bradford-ijklijn"</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(abs)   <span class="co"># som van alle absorbantiewaarden</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">prod</span>(abs)  <span class="co"># product van alle absorbantiewaarden</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(abs)   <span class="co"># exponentiële functie toegepast op alle waarden</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sin</span>(abs)   <span class="co"># sinus toegepast op alle waarden</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="lineaire-regressie" class="level1" data-number="K">
-<h1 data-number="K"><span class="header-section-number">K</span> Lineaire regressie</h1>
+<section id="correlatie-berekenen" class="level1" data-number="J">
+<h1 data-number="J"><span class="header-section-number">J</span> Correlatie berekenen</h1>
+<p>Eerst onderzoeken we of er een duidelijke samenhang is tussen de datavectoren <span class="math inline">\(\mathbf{abs}\)</span> en <span class="math inline">\(\mathbf{conc}\)</span>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(abs, conc, <span class="at">method =</span> <span class="st">"pearson"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(abs, conc, <span class="at">method =</span> <span class="st">"spearman"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Vraag 2.</strong> Is dit een sterke correlatie? Leg je antwoord uit.</p>
+<p><strong>Vraag 3.</strong> Waarom is een hoge correlatie belangrijk voor een ijklijn?</p>
+</section>
+<section id="plot-van-de-ijklijn" class="level1" data-number="K">
+<h1 data-number="K"><span class="header-section-number">K</span> Plot van de ijklijn</h1>
+<p>Met een spreidingsdiagram kunnen we controleren of de punten ongeveer op een rechte lijn liggen. In de plot zet je de twee datavectoren tegen elkaar uit: elke rij van de datamatrix wordt één punt.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  conc, abs,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Eiwitconcentratie"</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Absorbantie"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Bradford-ijklijn"</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="lineaire-regressie" class="level1 page-columns page-full" data-number="L">
+<h1 data-number="L"><span class="header-section-number">L</span> Lineaire regressie</h1>
 <p>Om een model aan de data te fitten, gebruiken we regressie. Hier gebruiken we lineaire regressie: we vatten de data samen in een eenvoudig lineair model.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(abs <span class="sc">~</span> conc)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(abs <span class="sc">~</span> conc)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Hierbij betekent:</p>
 <ul>
 <li><code>lm()</code> staat voor <em>linear model</em>;</li>
-<li><code>abs ~ conc</code> betekent dat <code>abs</code> wordt gemodelleerd als functie van <code>conc</code>;</li>
+<li><code>abs ~ conc</code> betekent dat de datavector <code>abs</code> wordt gemodelleerd als functie van de datavector <code>conc</code>;</li>
 <li><code>model</code> is het object waarin R de resultaten van de regressie opslaat.</li>
 </ul>
 <p>We kunnen de structuur en samenvatting van het model bekijken:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(model)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(model)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>In de output van <code>summary(model)</code> staan onder andere de geschatte waarden van het intercept <span class="math inline">\(a\)</span> en de richtingscoëfficiënt <span class="math inline">\(b\)</span>.</p>
-</section>
-<section id="concentratie-van-een-onbekend-monster-bepalen" class="level1" data-number="L">
-<h1 data-number="L"><span class="header-section-number">L</span> Concentratie van een onbekend monster bepalen</h1>
+<p>In de output van <code>summary(model)</code> staan onder andere de geschatte waarden van het intercept <span class="math inline">\(a\)</span> (Intercept) en de richtingscoëfficiënt <span class="math inline">\(b\)</span> (abs). Een leuk weetje is de Multiple R^2, dit is Pearson-correlatie r in het kwadraat en geeft aan welk deel van de spreiding door het model wordt verklaard. Neem de wortel van multiple R^2 (sqrt(…)) en je krijgt de absolute waarde van de correlatie terug die je eerder had berekend.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Note dat je de functie <code>lm()</code> ook tegenkomt in de theoretische opdracht over logaritmes en allometrische schaling, waar hetzelfde lineaire model op log-log-getransformeerde data wordt losgelaten. Dezelfde functie, dezelfde wiskunde, een andere biologische context.</p>
+</div></div></section>
+<section id="concentratie-van-een-onbekend-monster-bepalen" class="level1" data-number="M">
+<h1 data-number="M"><span class="header-section-number">M</span> Concentratie van een onbekend monster bepalen</h1>
 <p>Als het model is gefit, kunnen we de concentratie van een onbekend monster schatten. Stel dat de absorbantie van het onbekende monster <code>abs_onbekend</code> is. Dan geldt:</p>
 <p><span class="math display">\[\widehat{Conc} = \frac{Ab_{onbekend} - \hat{a}}{\hat{b}}\]</span></p>
 <p>In R kan dat bijvoorbeeld zo:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>coefs <span class="ot">&lt;-</span> <span class="fu">coef</span>(model)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>a_hat <span class="ot">&lt;-</span> coefs[<span class="dv">1</span>]</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>b_hat <span class="ot">&lt;-</span> coefs[<span class="dv">2</span>]</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>abs_onbekend <span class="ot">&lt;-</span> ...</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>conc_onbekend <span class="ot">&lt;-</span> (abs_onbekend <span class="sc">-</span> a_hat) <span class="sc">/</span> b_hat</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>conc_onbekend</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>coefs <span class="ot">&lt;-</span> <span class="fu">coef</span>(model)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>a_hat <span class="ot">&lt;-</span> coefs[<span class="dv">1</span>]</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>b_hat <span class="ot">&lt;-</span> coefs[<span class="dv">2</span>]</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>abs_onbekend <span class="ot">&lt;-</span> ...</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>conc_onbekend <span class="ot">&lt;-</span> (abs_onbekend <span class="sc">-</span> a_hat) <span class="sc">/</span> b_hat</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>conc_onbekend</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="samenvatting" class="level1" data-number="M">
-<h1 data-number="M"><span class="header-section-number">M</span> Samenvatting</h1>
+<section id="samenvatting" class="level1" data-number="N">
+<h1 data-number="N"><span class="header-section-number">N</span> Samenvatting</h1>
 <p>In deze les hebben we de Bradford-test gebruikt als voorbeeld van statistisch modelleren. We hebben:</p>
 <ul>
-<li>een ijklijn gemaakt met bekende concentraties;</li>
-<li>gekeken naar correlatie tussen concentratie en absorbantie;</li>
-<li>de functie <code>cor()</code> gebruikt, inclusief <code>method = "spearman"</code>;</li>
-<li>het verschil besproken tussen variabelen en parameters;</li>
-<li>een lineair model opgesteld met <code>lm(abs ~ conc)</code>;</li>
+<li>meetgegevens leren zien als <strong>datavectoren</strong> en de dataset als een <strong>datamatrix</strong></li>
+<li>een ijklijn gemaakt met bekende concentraties</li>
+<li>gekeken naar correlatie tussen de datavectoren concentratie en absorbantie</li>
+<li>de functie <code>cor()</code> gebruikt, inclusief <code>method = "spearman"</code></li>
+<li>het verschil besproken tussen variabelen (datavectoren) en parameters (parameter vectors;</li>
+<li>een lineair model opgesteld met <code>lm(abs ~ conc)</code></li>
 <li>gezien hoe een onbekende concentratie uit het model kan worden geschat.</li>
 </ul>
 <p>Een goede ijklijn vereist niet alleen een hoge correlatie, maar ook een inhoudelijk verdedigbare aanname dat de relatie in het gebruikte meetbereik lineair is.</p>
+<p>In het theoretische deel dat bij deze opdracht hoort, gaan we dieper in op de lineaire regressie zelf. We schrijven het lineaire model dan volledig in de taal van vectoren en matrices, en zien hoe diezelfde wiskunde opduikt in de evo-devo, wanneer we verbanden tussen vorm en grootte over soorten heen willen beschrijven.</p>
 
 
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W119
-</script>
-<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
-<div id="exercise-loading-status" class="d-flex gap-2">
-
-</div>
-<div class="spinner-grow spinner-grow-sm">
-
-</div>
-</div>
-<script type="vfs-file">
-W10=
-</script>
 </section>
 
 </main> <!-- /main -->
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W119
-</script>
-<script type="module">
-if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-window._ojs.paths.runtimeToDoc = "../..";
-window._ojs.paths.runtimeToRoot = "../..";
-window._ojs.paths.docToRoot = "";
-window._ojs.selfContained = false;
-window._ojs.runtime.interpretFromScriptTags();
-</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

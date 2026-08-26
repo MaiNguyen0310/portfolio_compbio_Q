@@ -17,6 +17,7 @@ book:
     - Port_logpH_Theory.qmd
     - Regressie_theorie.qmd
     - Differentiaalvergelijkingen_theorie.qmd
+    - sepia_standaardfout_theorie.qmd
     - genetic_drift.qmd
     - references.qmd
   appendices:

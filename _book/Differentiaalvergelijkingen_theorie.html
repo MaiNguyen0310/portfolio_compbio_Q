@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="September 2026 – Februari 2027">
 
-<title>3&nbsp; Differentiaalvergelijkingen – Portfolio Computationele Biologie</title>
+<title>4&nbsp; Differentiaalvergelijkingen – Portfolio Computationele Biologie</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -68,8 +69,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
-<link href="./Port_logpH_Theory.html" rel="prev">
+<link href="./sepia_standaardfout_theorie.html" rel="next">
+<link href="./Regressie_theorie.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -80,8 +81,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-12eeb4b20e9f5a2b0bfc604bfaf942bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
-<link href="site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -109,8 +108,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -145,7 +142,7 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar floating slimcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -154,7 +151,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Differentiaalvergelijkingen_theorie.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Differentiaalvergelijkingen</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Differentiaalvergelijkingen_theorie.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Differentiaalvergelijkingen</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -199,8 +196,26 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Regressie_theorie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lineaire regressie: vectoren en projectie.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./Differentiaalvergelijkingen_theorie.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Differentiaalvergelijkingen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Differentiaalvergelijkingen</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sepia_standaardfout_theorie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Sepia: de wiskunde achter de standaardfout</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./genetic_drift.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Genetic Drift</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -233,7 +248,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./bradford_statistiek.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Bradford-test: statistiek en lineaire modellen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Bradford-test: statistiek, vectoren en lineaire modellen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -254,18 +269,21 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#exponentiële-groei" id="toc-exponentiële-groei" class="nav-link active" data-scroll-target="#exponentiële-groei"><span class="header-section-number">3.1</span> Exponentiële groei</a></li>
-  <li><a href="#logistische-groei" id="toc-logistische-groei" class="nav-link" data-scroll-target="#logistische-groei"><span class="header-section-number">3.2</span> Logistische groei</a></li>
-  <li><a href="#parameters-schatten" id="toc-parameters-schatten" class="nav-link" data-scroll-target="#parameters-schatten"><span class="header-section-number">3.3</span> Parameters schatten</a></li>
+  <li><a href="#exponentiële-groei" id="toc-exponentiële-groei" class="nav-link active" data-scroll-target="#exponentiële-groei"><span class="header-section-number">4.1</span> Exponentiële groei</a>
+  <ul class="collapse">
+  <li><a href="#de-methode-van-euler" id="toc-de-methode-van-euler" class="nav-link" data-scroll-target="#de-methode-van-euler"><span class="header-section-number">4.1.1</span> De methode van Euler</a></li>
+  </ul></li>
+  <li><a href="#logistische-groei" id="toc-logistische-groei" class="nav-link" data-scroll-target="#logistische-groei"><span class="header-section-number">4.2</span> Logistische groei</a></li>
+  <li><a href="#parameters-schatten" id="toc-parameters-schatten" class="nav-link" data-scroll-target="#parameters-schatten"><span class="header-section-number">4.3</span> Parameters schatten</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Differentiaalvergelijkingen</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Differentiaalvergelijkingen</span></h1>
 </div>
 
 
@@ -282,21 +300,60 @@ window.Quarto = {
 </header>
 
 
-<p>Levende systemen veranderen continu. Populaties groeien, krimpen en migreren; cellen delen en sterven, en concentraties in allerlei omgevingen veranderen… Deze verandering over de tijd is vaak makkelijker bij te houden of te schatten dan de absolute aantallen: als je weet dat een diersoort gemiddeld 5 nakomelingen per jaar per organisme introduceert, kun je aan de hand hiervan vrij makkelijk de populatiegrootte over een langere tijd schatten. Dat is veel hanteerbaarder dan het aantal individuen elk jaar proberen te tellen!</p>
-<p>Zo’n schatting kan gedaan worden door het oplossen van een <em>differentiaalvergelijking</em>. Dit is een vergelijking die beschrijft wat je meet: veranderingen over de tijd. Om een accurate schatting te maken, heb je naast de groei, daarnaast ook nog informatie nodig over de oorspronkelijke populatiegrootte. Een differentiaalvergelijking heeft de volgende algemene vorm:</p>
-<p><span class="math display">\[\frac{dN}{dt} = f(N), \quad N(0)=N_0.\]</span></p>
-<p>Hierbij is <span class="math inline">\(f\)</span> een specifieke functie, die je observeert, en <span class="math inline">\(N(0)\)</span> de beginwaarde.</p>
-<section id="exponentiële-groei" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="exponentiële-groei"><span class="header-section-number">3.1</span> Exponentiële groei</h2>
-<p>In het voorbeeld van de 5 nakomelingen, waarbij we aannemen dat de populatie begint met 100 individuen, kunnen we een populatiegrootte bijvoorbeeld beschrijven via</p>
-<p><span class="math display">\[\frac{dN}{dt} = 5N(t), \quad N(0)=100.\]</span></p>
-<p>Hierin zien we dat hoe meer individuen er zijn, hoe meer nakomelingen er bijkomen en dus hoe sneller de populatie groeit. In dit geval hebben we <em>exponentiële groei</em> gemodelleerd, waarbij elk individu dus per tijdseenheid 5 nakomelingen krijgt. In de oplossing voor deze differentiaalvergelijkingen is dit gedrag direct te zien.</p>
-<p><strong>Vraag 1:</strong> Laat door differentieren van de functie <span class="math inline">\(N(t)= Ce^{rt}\)</span> geldt dat <span class="math inline">\(\frac{dN}{dt}=rA(t)\)</span>, waarbij <span class="math inline">\(r\)</span> en <span class="math inline">\(C\)</span> constantes zijn.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># geef je antwoord hier </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Stel je weet van een bepaalde populatie maar één ding: elk individu krijgt gemiddeld 2 nakomelingen per jaar. Verder heb je geen informatie uit tellingen of tussentijdse metingen. Toch kun je, met alleen deze regel en een startaantal, de populatiegrootte op elk moment in de toekomst redelijk voorspellen.</p>
+<p>Dat is de kern van een <code>differentiaalvergelijking</code>: een vergelijking die niet een grootheid (in dit geval populatiegrootte) zelf beschrijft, maar hoe die <em>verandert</em>. Een differentiaalvergelijking heeft de volgende algemene vorm:</p>
+<p><span id="eq-algemeen"><span class="math display">\[\frac{dN}{dt} = f(N), \quad N(0)=N_0. \tag{4.1}\]</span></span></p>
+<p>Hierbij is <span class="math inline">\(f\)</span> een specifieke functie die de geobserveerde verandering beschrijft, en <span class="math inline">\(N(0)\)</span> is de beginwaarde.</p>
+<p>Zo’n vergelijking is niet alleen van toepassing in populaties, maar in allerlei (biologische) contexten. Levende systemen veranderen immers continu. Populaties groeien, krimpen en migreren; cellen delen en sterven, en concentraties in allerlei omgevingen veranderen… Deze verandering over de tijd is vaak makkelijker bij te houden of te schatten dan de absolute aantallen. Dit is ook waarom we deze algemene vorm introduceren: de wiskunde die in dit portfolio geïntroduceerd wordt, is veel breder toepasbaar.</p>
+<p>Als we dan wel iets willen weten over hoe de populatiegrootte zich over de tijd heen ontwikkelt, proberen we de differentiaalvergelijking op te lossen. Daarmee zoeken we op basis van <a href="#eq-algemeen" class="quarto-xref">Vergelijking&nbsp;<span>4.1</span></a> een uitdrukking voor <span class="math inline">\(N(t)\)</span>; de populatiegrootte als functie van de tijd. In dit portfolio-onderdeel bekijken we hier een veelvoorkomend voorbeeld van dat biologisch ook erg relevant is. Soms is het moeilijk of zelfs niet mogelijk om een uitdrukking voor <span class="math inline">\(N(t)\)</span> te vinden. In dat geval kan het nog steeds nuttig zijn om vergelijking <a href="#eq-algemeen" class="quarto-xref">Vergelijking&nbsp;<span>4.1</span></a> te visualiseren en om een schatting te krijgen van de waarde van <span class="math inline">\(N\)</span> op bepaalde punten. Hiervoor gebruiken we <code>numerieke integratie</code>. We behandelen hiervan een simpel voorbeeld en introduceren nieuwe R-code.</p>
+<section id="exponentiële-groei" class="level2 page-columns page-full" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="exponentiële-groei"><span class="header-section-number">4.1</span> Exponentiële groei</h2>
+<p>In het voorbeeld waarin een individu gemiddeld 2 nakomelingen krijgt, waarbij we aannemen dat de populatie begint met 100 individuen, kunnen we een populatiegrootte bijvoorbeeld beschrijven via</p>
+<p><span class="math display">\[\frac{dN}{dt} = 2N(t), \quad N(0)=100.\]</span></p>
+<p>Hierin zien we dat hoe meer individuen er zijn, hoe meer nakomelingen er bijkomen en dus hoe groter de groeisnelheid van de populatie wordt. In dit geval hebben we <code>exponentiële groei</code> gemodelleerd, waarbij elk individu dus per tijdseenheid 2 nakomelingen krijgt. We kunnen aantonen dat dit inderdaad een exponentiële groeifunctie beschrijft door de differentiaalvergelijking op te lossen.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Merk op dat we dit scenario al eerder kort aan bod hebben zien komen, in <a href="Port_logpH_Pract.html#sec-rekenregels" class="quarto-xref"><span>Hoofdstuk B.1.3</span></a>. Daarbij redeneerden we de andere kant op door op basis van de huidige populatiegrootte het aantal verstreken generaties te bepalen.</p>
+</div></div><div id="exr-diff_diff" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 4.1</strong></span> Merk op dat exponentiële groei gemodelleerd wordt met de functie <span class="math inline">\(N(t)=Ce^{rt}\)</span>, waarbij <span class="math inline">\(r\)</span> en <span class="math inline">\(C\)</span> constantes zijn. Bepaal de afgeleide van deze functie en laat daarmee zien dat deze oplossing inderdaad hoort bij de differentiaalvergelijking <span class="math inline">\(\frac{dN}{dt}=rN(t)\)</span>.</p>
 </div>
-<p>We kunnen bekijken hoe de groeisnelheid afhangt van de huidige populatiegrootte. We vinden dan de volgende grafiek:</p>
+<blockquote class="blockquote">
+<p>Jouw antwoord</p>
+</blockquote>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Als je toevallig bekend bent met de syntax van <span class="math inline">\(\LaTeX\)</span>, kun je deze gebruiken om je antwoord te geven. Zo niet, doe dit dan op papier; zodra de antwoorden online komen, kun je je uitwerking controleren.</p>
+</div></div><p>We kunnen bekijken hoe de groeisnelheid afhangt van de huidige populatiegrootte. We vinden dan de volgende grafiek:</p>
 <div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Differentiaalvergelijkingen_theorie_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Merk op dat dit laat zien wat we eerder in woorden hadden geconcludeerd: hoe groter de populatie, hoe groter de groeisnelheid.</p>
+<p>In plaats van de groeisnelheid <span class="math inline">\(dN/dt\)</span> als functie van <span class="math inline">\(N\)</span>, kunnen we ook <span class="math inline">\(N\)</span> als functie van de tijd <span class="math inline">\(t\)</span> plotten. Hiervoor maken we gebruik van numerieke integratie, en in het bijzonder de methode van Euler.</p>
+<section id="de-methode-van-euler" class="level3 page-columns page-full" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="de-methode-van-euler"><span class="header-section-number">4.1.1</span> De methode van Euler</h3>
+<p>Voor <span class="math inline">\(\frac{dN}{dt}=rN\)</span> vonden we, zoals je in <a href="#exr-diff_diff" class="quarto-xref">Vraag&nbsp;<span>4.1</span></a> liet zien, een exacte formule voor <span class="math inline">\(N(t)\)</span>. Dat lukt niet altijd: voor veel differentiaalvergelijkingen bestaat er geen nette uitdrukking voor <span class="math inline">\(N(t)\)</span>. Toch kunnen we de vergelijking dan nog steeds gebruiken om <span class="math inline">\(N\)</span> te <em>benaderen</em>, met een simpel idee: we kennen op elk moment de groeisnelheid <span class="math inline">\(\frac{dN}{dt}\)</span>, dus we kunnen een klein stapje vooruit zetten door de huidige waarde op te tellen bij (stapgrootte × groeisnelheid):</p>
+<p><span id="eq-euler"><span class="math display">\[N(t+dt) \approx N(t) + dt \cdot \left.\frac{dN}{dt}\right|_{N(t)}. \tag{4.2}\]</span></span></p>
+<p>In dit geval wordt dat dus <span id="eq-euler-exp"><span class="math display">\[N(t+dt) \approx N(t) + dt \cdot rN(t). \tag{4.3}\]</span></span></p>
+<p>Dit is <code>Euler-integratie</code> of de <code>methode van Euler</code>. Als je dit vaak genoeg doet, kun je voor elk tijdspunt de waarde van <span class="math inline">\(N(t)\)</span> benaderen. Hoe kleiner je de stapgrootte <code>dt</code> is, hoe nauwkeuriger de benadering, maar ook hoe meer rekenstappen nodig zijn.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fl">0.1</span> <span class="co"># tijdstappen voor berekeningen en plotten</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="co"># groeisnelheid</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">5</span>, <span class="at">by =</span> dt) <span class="co"># we plotten 5 tijdseenheden</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(t)) <span class="co"># vector om populatiegroottes in op te slaan</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>N[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="co"># beginwaarde 100</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">length</span>(t)<span class="sc">-</span><span class="dv">1</span>)){</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  N[i <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> N[i] <span class="sc">+</span> dt <span class="sc">*</span> r <span class="sc">*</span> N[i] <span class="co"># huidige waarde + tijdsstap*afgeleide (differentiaalvergelijking)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(t,N, <span class="at">type =</span> <span class="st">'l'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -305,20 +362,35 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>We kunnen deze exponentiële groei ook zien in de grafiek die de waarde voor <span class="math inline">\(N\)</span> numeriek bepaalt op basis van de differentiaalvergelijking.</p>
+<div id="exr-diff_graf" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 4.2</strong></span> Verklaar de laatste twee grafieken op basis van de differentiaalvergelijking en relateer ze aan elkaar.</p>
+</div>
+<blockquote class="blockquote">
+<p>Jouw antwoord</p>
+</blockquote>
+<div id="exr-diff-verband" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 4.3</strong></span> Wat is, uitgaande van deze exponentiële relatie, het verband tussen de afhankelijke variabele <span class="math inline">\(\ln(N)\)</span> en de onafhankelijke variabele <span class="math inline">\(t\)</span>?</p>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Dit is dezelfde truc als bij <a href="Port_logpH_Theory.html#exr-plot_log_data" class="quarto-xref">Vraag&nbsp;<span>2.2</span></a> uit <a href="Port_logpH_Theory.html" class="quarto-xref"><span>Chapter 2</span></a>: een exponentieel verband wordt, na het nemen van de logaritme, een <em>lineair</em> verband. Daar gebruikte je dat om met <code>lm()</code> een exponent te schatten uit een log-log-plot; hier ga je straks hetzelfde doen om de groeisnelheid <span class="math inline">\(r\)</span> te schatten.</p>
+</div></div><blockquote class="blockquote">
+<p>Jouw antwoord</p>
+</blockquote>
+</section>
+</section>
+<section id="logistische-groei" class="level2 page-columns page-full" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="logistische-groei"><span class="header-section-number">4.2</span> Logistische groei</h2>
+<p>We zien in de grafiek voor exponentiële groei dat de populatiegrootte in vijf tijdheden van 100 tot meer dan <span class="math inline">\(10^5\)</span> is gegroeid. Dat is een enorme toename, en het is niet realistisch dat een gebied die groei aan kan. Doordat de ruimte en de hoeveelheid voedsel beperkt is, onstaat er competitie. Hierdoor is er een bovengrens voor het totaal aantal dieren in de populatie. We noemen deze grens ook wel de <em>draagkracht</em> en noteren deze als <span class="math inline">\(K\)</span>. De groei van de populatie wordt dan afhankelijk van de verhouding tussen de populatiegrootte en de draagkracht. Dit zien we in de volgende uitdrukking:</p>
+<p><span id="eq-log_groei"><span class="math display">\[
+\begin{align}
+  \frac{dN}{dt} &amp; = rN\left(1-\frac{N}{K}\right)
+\\ &amp; = rN-r\frac{N^2}{K}
+\end{align}
+\tag{4.4}\]</span></span></p>
+<p>Via <a href="https://mai-nguyen0310.shinyapps.io/Computational_Biology/">deze app</a> kun je het logistische groeimodel simuleren om een intuïtie te ontwikkelen voor hoe dit werkt. Hier laten we ook enkele voorbeelden zien.</p>
+<p>Net zoals bij de exponentiële groei kunnen we de groeisnelheid uitzetten tegen de populatiegrootte:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fl">0.1</span> <span class="co"># tijdstappen voor berekeningen en plotten</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="co"># groeisnelheid</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">3</span>, <span class="at">by =</span> dt)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(t)) <span class="co"># vector om populatiegroottes in op te slaan</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>N[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">length</span>(t)<span class="sc">-</span><span class="dv">1</span>)){</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  N[i <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> N[i] <span class="sc">+</span> dt <span class="sc">*</span> r <span class="sc">*</span> N[i] <span class="co"># huidige waarde + tijdsstap*afgeleide (differentiaalvergelijking)</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(t,N, <span class="at">type =</span> <span class="st">'l'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -327,24 +399,34 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p><strong>Vraag 2:</strong> Verklaar de laatste twee grafieken op basis van de differentiaalvergelijking en relateer ze aan elkaar.</p>
+<p>Merk op dat deze paraboolvorm ook af te leiden is uit de kwadratische term in <a href="#eq-log_groei" class="quarto-xref">Vergelijking&nbsp;<span>4.4</span></a>.</p>
+<div id="exr-log_groei_eq" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 4.4</strong></span> In bovenstaande plot is het punt <span class="math inline">\((K,0)\)</span> expliciet genoteerd. Waarom is dit een interessant punt? Bedenk wat het betekent dat de grafiek de lijn <span class="math inline">\(dN/dt=0\)</span> snijdt (en dus wat het betekent als <span class="math inline">\(dN/dt &gt;0\)</span> of <span class="math inline">\(dN/dt &lt;0\)</span> geldt).</p>
+</div>
 <blockquote class="blockquote">
 <p>Jouw antwoord</p>
 </blockquote>
-<p><strong>Vraag 3:</strong> Wat is, uitgaande van deze exponentiële relatie, het verband tussen de afhankelijke variabele <span class="math inline">\(\ln(N)\)</span> en de onafhankelijke variabele <span class="math inline">\(t\)</span>?</p>
+<div id="exr-oorsprong" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 4.5</strong></span> De grafiek gaat ook door het punt <span class="math inline">\((0,0)\)</span>. Hoe interpreteren we dit punt, en waarom is het verloop van de grafiek rondom dit punt logsich?</p>
+</div>
 <blockquote class="blockquote">
 <p>Jouw antwoord</p>
 </blockquote>
-</section>
-<section id="logistische-groei" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="logistische-groei"><span class="header-section-number">3.2</span> Logistische groei</h2>
-<p>We zien in de grafiek voor exponentiële groei dat de populatiegrootte in drie tijdheden van 100 tot meer dan <span class="math inline">\(10^7\)</span> is gegroeid. Dat is een enorme toenname, en het is niet realistisch dat een gebied die groei aan kan. Doordat de ruimte en de hoeveelheid voedsel beperkt is, onstaat er competitie. Hierdoor is er een bovengrens voor het totaal aantal dieren in de populatie. We noemen deze grens ook wel de <em>draagkracht</em> en noteren deze als <span class="math inline">\(K\)</span>. De groei van de populatie wordt dan afhankelijk van de verhouding tussen de populatiegrootte en de draagkracht. Dit zien we in de volgende uitdrukking:</p>
-<p><span class="math display">\[\begin{equation}
-  \frac{dN}{dt} = rN\left(1-\frac{N}{K}\right).
-\end{equation}\]</span></p>
-<p>Via <a href="https://mai-nguyen0310.shinyapps.io/Computational_Biology/">deze app</a> kun je het logistische groeimodel simuleren om een intuïtie te ontwikkelen voor hoe dit werkt. Hier laten we ook enkele voorbeelden zien.</p>
-<p>Net zoals bij de exponentiële groei kunnen we de groeisnelheid uitzetten tegen de populatiegrootte:</p>
+<p>We kunnen de beschreven situatie, met als draagkracht 10000 individuen, op een vergelijkbare wijze visualiseren:</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="co"># groeisnelheid</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="dv">10000</span> <span class="co"># draagkracht</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">3</span>, <span class="at">by =</span> dt)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(t))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>N[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">length</span>(t)<span class="sc">-</span><span class="dv">1</span>)){</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  N[i <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> N[i] <span class="sc">+</span> dt <span class="sc">*</span>r<span class="sc">*</span>N[i]<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> N[i]<span class="sc">/</span>K) <span class="co"># de nieuwe differentiaalvergelijking</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(t,N, <span class="at">type =</span> <span class="st">'l'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -353,21 +435,13 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>We kunnen de beschreven situatie, met als draagkracht 10000 individuen, op een vergelijkbare wijze visualiseren:</p>
+<p>Merk op dat een deel van deze grafiek erg lijkt op die van de exponentiële groei. Dit zien we ook terug in de differentiaalvergelijkingen: als <span class="math inline">\(\frac{N}{K}\)</span> erg klein, komen de twee modellen met elkaar overeen. Dit betekent dat het exponentiële groeimodel werkt onder de aanname dat de populatie zich in de exponentiële groeifase bevindt.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Denk ook terug aan <a href="Port_logpH_Pract.html#eq-pkz" class="quarto-xref">Vergelijking&nbsp;<span>B.1</span></a> voor het berekenen van de pKz in het tweede portfolio-onderdeel. Daar ging het om de ratio <span class="math inline">\(\frac{[\text{Z}^-]}{[\text{HZ}]}\)</span>, en hier bepaalt de ratio <span class="math inline">\(\frac{N}{K}\)</span> het gedrag van het systeem.</p>
+</div></div><p>Na een tijdje zien we geen verandering meer in de populatiegrootte. Dit betekent dat er netto geen groei is. We spreken dan van een <code>evenwicht</code>.</p>
+<p>We kunnen dus de grafiek opdelen in twee fases:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="co"># groeisnelheid</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="dv">10000</span> <span class="co"># draagkracht</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">3</span>, <span class="at">by =</span> dt)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(t))</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>N[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">length</span>(t)<span class="sc">-</span><span class="dv">1</span>)){</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  N[i <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> N[i] <span class="sc">+</span> dt <span class="sc">*</span>r<span class="sc">*</span>N[i]<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> N[i]<span class="sc">/</span>K)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(t,N, <span class="at">type =</span> <span class="st">'l'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -376,10 +450,16 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Merk op dat een deel van deze grafiek erg lijkt op die van de exponentiële groei. Dit zien we ook terug in de differentiaalvergelijkingen: als <span class="math inline">\(\frac{N}{K}\)</span> erg klein, komen de twee modellen met elkaar overeen. Dit betekent dat het exponentiële groeimodel werkt onder de aanname dat de populatie zich in de exponentiële groeifase bevindt.</p>
-<p>Na een tijdje zien we geen verandering meer in de populatiegrootte. Dit betekent dat er netto geen groei is. We spreken dan van een <em>evenwicht</em>.</p>
-<p>We kunnen dus de grafiek opdelen in twee fases:</p>
+<div id="exr-diff_over_draagkracht" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 4.6</strong></span> We laten nu de populatiegrootte starten boven de draagkracht. Bedenk waarom het verloop van de volgende grafiek nu logisch is.</p>
+</div>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>N[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fl">1.1</span><span class="sc">*</span>K <span class="co"># start op 1.1 maal de draagkracht</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">length</span>(t)<span class="sc">-</span><span class="dv">1</span>)){</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  N[i <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> N[i] <span class="sc">+</span> dt <span class="sc">*</span>r<span class="sc">*</span>N[i]<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> N[i]<span class="sc">/</span>K)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(t,N, <span class="at">type =</span> <span class="st">'l'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -388,22 +468,9 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>We laten nu de populatiegrootte starten boven de draagkracht. Bedenk waarom deze grafiek nu logisch is.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>N[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fl">1.1</span><span class="sc">*</span>K</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">length</span>(t)<span class="sc">-</span><span class="dv">1</span>)){</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  N[i <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> N[i] <span class="sc">+</span> dt <span class="sc">*</span>r<span class="sc">*</span>N[i]<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> N[i]<span class="sc">/</span>K)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(t,N, <span class="at">type =</span> <span class="st">'l'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Differentiaalvergelijkingen_theorie_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<blockquote class="blockquote">
+<p>Jouw antwoord</p>
+</blockquote>
 <p>Er zijn ook andere situaties waarin populatiegroottes kunnen afnemen. Stel dat we een bacteriekolonie hebben, waarvan op verschillende tijdstippen de grootte gemeten wordt door de oppervlakte (aangeduid met <span class="math inline">\(A\)</span> in cm<span class="math inline">\(^2\)</span>) te bepalen die de kolonie in een petrischaal inneemt. Dit levert de volgende gegevens op:</p>
 <table class="caption-top table">
 <thead>
@@ -438,50 +505,58 @@ window.Quarto = {
 <p>We nemen aan dat de oppervlakte <span class="math inline">\(A\)</span> van de kolonie als functie van de tijd <span class="math inline">\(t\)</span> wordt beschreven door een exponentiele functie: <span class="math display">\[\begin{equation}
 A(t)=\alpha e^{\beta t}.
 \end{equation}\]</span></p>
-<p><strong>Vraag 4:</strong> Hoe kunnen we ervoor zorgen dat de dalende trend uit de tabel gevolgd wordt door het model? Simuleer dit, en haal hierbij inspiratie uit eerder gegeven code. De exacte datapunten uit de tabel hoeven niet benaderd te worden, het gaat om de trend.</p>
+<div id="exr-diff_dalend" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 4.7</strong></span> Hoe kunnen we ervoor zorgen dat de dalende trend uit de tabel gevolgd wordt door het model? Simuleer dit, en haal hierbij inspiratie uit eerder gegeven code. De exacte datapunten uit de tabel hoeven niet benaderd te worden, het gaat om de trend. Denk aan de mogelijke parameterwaarden.</p>
+</div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># jouw antwoord</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Jouw antwoord</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="parameters-schatten" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="parameters-schatten"><span class="header-section-number">3.3</span> Parameters schatten</h2>
+<section id="parameters-schatten" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="parameters-schatten"><span class="header-section-number">4.3</span> Parameters schatten</h2>
 <p>We kunnen de draagkracht en groeisnelheid ook afleiden uit andere observaties.</p>
-<p><strong>Vraag 5</strong> We beschrijven een populatie met dichtheid <span class="math inline">\(n\)</span> (exacte eenheden laten we buiten beschouwing) en observeren dat de het aantal geboortes <span class="math inline">\(g\)</span> en sterftes <span class="math inline">\(s\)</span> in de populatie dichtheidsafhankelijk is. We hebben hiervoor de vergelijkingen <span class="math display">\[\begin{equation}
+<p>We beschrijven een populatie met dichtheid <span class="math inline">\(n\)</span> (exacte eenheden laten we buiten beschouwing) en observeren dat de het aantal geboortes <span class="math inline">\(g\)</span> en sterftes <span class="math inline">\(s\)</span> in de populatie dichtheidsafhankelijk is. We hebben hiervoor de vergelijkingen <span class="math display">\[\begin{equation}
 \frac{dg}{dt} = 1 + 0.04n, \quad \frac{ds}{dt} = 0.45 + 0.06n.
 \end{equation}\]</span></p>
-<p><strong>(a)</strong> Interpreteer deze vergelijkingen. Wat betekent het dat het aantal geboortes en sterftes afhankelijk is van de dichtheid? Geef een voorbeeld van een verklaring.</p>
+<div id="exr-int_g_s" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 4.8</strong></span> Interpreteer deze vergelijkingen. Wat betekent het dat het aantal geboortes en sterftes afhankelijk is van de dichtheid? Geef een mogelijke context waarin dit voor kan komen.</p>
+</div>
 <blockquote class="blockquote">
 <p>jouw antwoord</p>
 </blockquote>
-<p>We kunnen deze vergelijkingen plotten. Dit geeft de volgende figuur:</p>
+<p>We kunnen deze vergelijkingen plotten. Hiervoor introduceren we eerst <code>functies</code> in R.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># parameters</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(n) <span class="dv">1</span> <span class="sc">+</span> <span class="fl">0.04</span><span class="sc">*</span>n</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="cf">function</span>(n) <span class="fl">0.45</span> <span class="sc">+</span> <span class="fl">0.06</span><span class="sc">*</span>n</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># evenwichtspunt</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="fl">27.5</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># plotbereik</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>n_vals <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">60</span>, <span class="at">length.out =</span> <span class="dv">400</span>)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># basisplot</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(n_vals, <span class="fu">g</span>(n_vals), <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"blue"</span>,</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(<span class="fu">g</span>(n_vals), <span class="fu">s</span>(n_vals))),</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Populatiedichtheid n"</span>,</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Geboortes / Sterftes per tijdseenheid"</span>)</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(n_vals, <span class="fu">s</span>(n_vals), <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># evenwichtspunt</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(K, <span class="fu">g</span>(K), <span class="at">pch =</span> <span class="dv">19</span>)</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co"># legenda</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>,</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"geboortes"</span>, <span class="st">"sterftes"</span>),</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>),</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(n) <span class="dv">1</span> <span class="sc">+</span> <span class="fl">0.04</span><span class="sc">*</span>n</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># of (vooral voor langere functies:)</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>      <span class="fl">0.45</span> <span class="sc">+</span> <span class="fl">0.06</span><span class="sc">*</span>n</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We hebben hier de functies <code>g</code> en <code>s</code> gedefinieerd, met <code>function(n) ...</code>. Een functie neemt een input (hier de dichtheid <code>n</code>) en geeft daar volgens een vaste regel (bij <code>g</code> bijvoorbeeld <span class="math inline">\(1+0.04n\)</span>) een output bij. Het voordeel van een R-functie is dat je deze kunt hergebruiken voor elke waarde van <code>n</code>, zonder de berekening opnieuw uit te typen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># evenwichtspunt</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="fl">27.5</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># plotbereik</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>n_vals <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">60</span>, <span class="at">length.out =</span> <span class="dv">400</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># basisplot</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(n_vals, <span class="fu">g</span>(n_vals), <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"blue"</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(<span class="fu">g</span>(n_vals), <span class="fu">s</span>(n_vals))),</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Populatiedichtheid N"</span>,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Geboortes / Sterftes per tijdseenheid"</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(n_vals, <span class="fu">s</span>(n_vals), <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># evenwichtspunt</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(K, <span class="fu">g</span>(K), <span class="at">pch =</span> <span class="dv">19</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co"># legenda</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>,</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"geboortes"</span>, <span class="st">"sterftes"</span>),</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>),</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -490,62 +565,50 @@ A(t)=\alpha e^{\beta t}.
 </div>
 </div>
 </div>
+<div id="exr-code_uitleg" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 4.9</strong></span> Leg in woorden uit wat bovenstaande code doet, stap voor stap: wat is <code>n_vals</code>, wat berekenen <code>g(n_vals)</code> en <code>s(n_vals)</code>, en wat laat de uiteindelijke plot zien? Relateer je antwoord aan de vergelijkingen voor <span class="math inline">\(\frac{dg}{dt}\)</span> en <span class="math inline">\(\frac{ds}{dt}\)</span> hierboven.</p>
+</div>
+<blockquote class="blockquote">
+<p>Jouw antwoord</p>
+</blockquote>
 <p>We willen nu deze processen samen nemen in één vergelijking, en werken daarbij onder de aanname van logistische groei.</p>
-<p><strong>(b)</strong> Wat wordt de uitdrukking voor de verandering per tijdseenheid <span class="math inline">\(\frac{dn}{dt}\)</span> als er wordt aangenomen dat de dichtheid <span class="math inline">\(n\)</span> logistische groei volgt? Wat is de initiële per capita groeisnelheid <span class="math inline">\(r\)</span>, en wat is de draagkracht <span class="math inline">\(K\)</span>? Relateer je antwoord ook aan bovenstaande figuur.</p>
+<div id="exr-dn_dt_afleiden" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 4.10</strong></span> Wat wordt de uitdrukking voor de verandering per tijdseenheid <span class="math inline">\(\frac{dN}{dt}\)</span> als er wordt aangenomen dat de populatiegrootte <span class="math inline">\(N\)</span> logistische groei volgt? Wat is de initiële per capita groeisnelheid <span class="math inline">\(r\)</span>, en wat is de draagkracht <span class="math inline">\(K\)</span>? Relateer je antwoord ook aan bovenstaande figuur.</p>
+</div>
 <blockquote class="blockquote">
 <p>jouw antwoord</p>
 </blockquote>
 <p>Met de gevonden parameters kunnen we een model noteren dat de populatiegrootte beschrijft als functie van tijd.</p>
-<p><strong>(c)</strong> Schrijf dit model uit. In plaats van de dichtheid over de tijd plotten, kunnen we ook de gevonden vergelijking plotten over de tijd. Dat wil zeggen, we plotten de afgeleide van de dichtheid over de tijd. Dit geeft de volgende figuur, die we eerder hebben gezien:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Differentiaalvergelijkingen_theorie_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div id="exr-model_form" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 4.11</strong></span> In bovenstaande code hebben we het evenwichtspunt gemarkeerd en <span class="math inline">\(K\)</span> genoemd. Leg uit wat er gebeurt als <span class="math inline">\(N=K\)</span> geldt en koppel dit aan je antwoord bij <a href="#exr-log_groei_eq" class="quarto-xref">Vraag&nbsp;<span>4.4</span></a>. Wat voor interpretatie heeft dit voor het per capita sterfte- en geboortecijfer? Wat gebeurt er als <span class="math inline">\(N\)</span> iets kleiner is dan <span class="math inline">\(K\)</span>? En iets groter?</p>
 </div>
+<blockquote class="blockquote">
+<p>Jouw antwoord</p>
+</blockquote>
+<div id="exr-model_aanpassen" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 4.12</strong></span> Simuleer nu het model met de gevonden waarden voor <span class="math inline">\(r\)</span> en <span class="math inline">\(K\)</span> (gebruik eerder gegeven code als voorbeeld). Bedenk een manier om aan de hand van het object <span class="math inline">\(N\)</span> (de berekende dichtheid per tijdstip) een benadering te krijgen van de waarden van <span class="math inline">\(r\)</span> en <span class="math inline">\(K\)</span>. Dat wil zeggen: bedenk dat je in een situatie zit waarin je alleen deze lijst zou hebben, en niet zou weten welke waarden van <span class="math inline">\(r\)</span> en <span class="math inline">\(K\)</span> zijn gebruikt om deze te maken. Hoe zou je deze toch kunnen schatten (tip: wanneer observeren we gedrag direct gerelateerd aan deze parameters?)</p>
 </div>
-</div>
-<p>We zien dus dat de afgeleide gelijk is aan 0 als <span class="math inline">\(n=K\)</span> geldt. Dat is ons evenwichtspunt.Wat voor interpretatie heeft dit voor het per capita sterfte- en geboortecijfer? Wat gebeurt er met de populatiegrootte als <span class="math inline">\(n=K\)</span> geldt? Wat als <span class="math inline">\(n\)</span> iets kleiner is dan <span class="math inline">\(K\)</span>? En iets groter?</p>
 <blockquote class="blockquote">
 <p>jouw antwoord</p>
 </blockquote>
-<p><strong>(d)</strong> Simuleer nu het model met de gevonden waarden voor <span class="math inline">\(r\)</span> en <span class="math inline">\(K\)</span> (gebruik eerder gegeven code als voorbeeld). Bedenk een manier om aan de hand van het object <span class="math inline">\(n\)</span> (de berekende dichtheid per tijdstip) een benadering te krijgen van de waarden van <span class="math inline">\(r\)</span> en <span class="math inline">\(K\)</span>. Dat wil zeggen: bedenk dat je in een situatie zit waarin je alleen deze lijst zou hebben, en niet zou weten welke waarden van <span class="math inline">\(r\)</span> en <span class="math inline">\(K\)</span> zijn gebruikt om deze te maken. Hoe zou je deze toch kunnen schatten (tip: wanneer observeren we gedrag direct gerelateerd aan deze parameters?)</p>
+<div id="exr-verband_gebruiken" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 4.13</strong></span> We kunnen de schatting voor <span class="math inline">\(r\)</span> wat preciezer maken. In <a href="#exr-diff-verband" class="quarto-xref">Vraag&nbsp;<span>4.3</span></a> vond je een lineair verband tussen <span class="math inline">\(\ln(N)\)</span> en <span class="math inline">\(t\)</span> voor <em>exponentiële</em> groei. Dat verband geldt hier niet exact, omdat je populatie logistisch groeit, maar zoals eerder vermeld, blijft het logistische groeimodel dicht bij het exponentiële model blijft zolang <span class="math inline">\(N/K\)</span> klein is.</p>
+<p>Gebruik daarom alleen het beginstuk van je gesimuleerde reeks uit <a href="#exr-model_aanpassen" class="quarto-xref">Vraag&nbsp;<span>4.12</span></a> (de tijdspunten waarop <span class="math inline">\(N\)</span> nog ver onder <span class="math inline">\(K\)</span> ligt), en pas daar de kennis van <a href="Regressie_theorie.html" class="quarto-xref"><span>Chapter 3</span></a> toe: bepaal met <code>lm()</code> de helling van <span class="math inline">\(\ln(N)\)</span> tegen <span class="math inline">\(t\)</span>. Komt deze schatting van <span class="math inline">\(r\)</span> in de buurt van je eerdere schatting?</p>
+</div>
 <blockquote class="blockquote">
-<p>jouw antwoord</p>
+<p>Jouw antwoord</p>
 </blockquote>
-<p><strong>(e)</strong> We kunnen de schatting voor <span class="math inline">\(r\)</span> wat preciezer maken. In Opdracht XX heb je een verband gevonden tussen de logaritme van de afhankelijke variabele en de tijd in het geval van exponentiële groei. Dit verband gaan we hier gebruiken (met hernoemde variablelen). Negeer de draagkracht <span class="math inline">\(K\)</span>, en werk dus met het exponentiële groeimodel om <span class="math inline">\(r\)</span> te schatten. Pas de kennis van HYPERLINK REGRESSIE toe om een regressielijn in R te bepalen. Komt de waarde van <span class="math inline">\(r\)</span> overeen met de waarde die je hebt berekend?</p>
-<p><strong>(f)</strong> Beschrijf waarom het toepassen van de lineaire regressie bij de vorige opgave nodig was om aan te nemen dat de populatie exponentieel groeit. Verwijs hiernaar naar HYPERLINK AANNAMES.</p>
-
-
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W119
-</script>
-<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
-<div id="exercise-loading-status" class="d-flex gap-2">
-
+<div id="exr-aannames" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 4.14</strong></span> Je hebt in de vorige opgave lineaire regressie toegepast op <span class="math inline">\(\ln(N)\)</span> tegen <span class="math inline">\(t\)</span>. Welke aanname over het groeiproces moet daarvoor gelden? Waarom is die aanname bij <a href="#exr-verband_gebruiken" class="quarto-xref">Vraag&nbsp;<span>4.13</span></a> redelijk voor het beginstuk van de data, maar niet voor de volledige reeks? Verwijs in je antwoord naar de aannames van lineaire regressie zoals besproken in <a href="bradford_statistiek.html" class="quarto-xref"><span>Appendix C</span></a>.</p>
 </div>
-<div class="spinner-grow spinner-grow-sm">
+<blockquote class="blockquote">
+<p>Jouw antwoord</p>
+</blockquote>
 
-</div>
-</div>
-<script type="vfs-file">
-W10=
-</script>
+
 </section>
 
 </main> <!-- /main -->
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W119
-</script>
-<script type="module">
-if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-window._ojs.paths.runtimeToDoc = "../..";
-window._ojs.paths.runtimeToRoot = "../..";
-window._ojs.paths.docToRoot = "";
-window._ojs.selfContained = false;
-window._ojs.runtime.interpretFromScriptTags();
-</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -948,13 +1011,13 @@ window._ojs.runtime.interpretFromScriptTags();
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Port_logpH_Theory.html" class="pagination-link" aria-label="Logaritmes en exponenten">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Logaritmes en exponenten</span></span>
+      <a href="./Regressie_theorie.html" class="pagination-link" aria-label="Lineaire regressie: vectoren en projectie.">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lineaire regressie: vectoren en projectie.</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./sepia_standaardfout_theorie.html" class="pagination-link" aria-label="Sepia: de wiskunde achter de standaardfout">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Sepia: de wiskunde achter de standaardfout</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
