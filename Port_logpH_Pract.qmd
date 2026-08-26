@@ -1,16 +1,14 @@
-
-<!-- TODO fix bug dat app heel vaak opent -->
 # pH-berekeningen: logaritmen en exponenten
 
 Dit portfolio-onderdeel is gekoppeld aan het vak *Chemie van het leven*, waarbij je veel met pH-waarden werkt. Hierbij heb je ongetwijfeld al gerekend met de logaritme, maar dat is niet de eerste keer dat je deze functie bent tegengekomen in de studie. In de vorige portfolio-opdracht kwam deze naar voren bij het bespreken van entropie. Dit is geen toeval: de logaritme is een belangrijke functie, die toepassingen heeft in meerdere contexten.
 
-We herhalen de rekenregels van de logaritme kort, zodat je deze bij de hand hebt. Vervolgens leiden we het aankomende practicum in, waarbij je tegelijkertijd oefent met coderen.
+We herhalen de rekenregels van de logaritme kort, zodat je deze bij de hand hebt. Mogelijk ken je deze al goed, maar het doel hierbij is dat we er echt een interpretatie aan geven en niet alleen gebruiken. Vervolgens leiden we het aankomende practicum in, waarbij je tegelijkertijd oefent met coderen.
 
-Net als bij de vorige portfolio-opdracht, volgt een theoretisch deel. Hierbij zul je een toepassing van de logaritme in de evolutieleer bestuderen.
+Net als bij de vorige portfolio-opdracht, volgt een theoretisch deel. Hierbij zul je een toepassing van de logaritme in het vakgebied evo-devo bestuderen.
 
 ## Logaritmen en exponenten
 
-### De exponentiële functie
+### Exponentiële functies
 
 We komen de exponentiële functie tegen als we naar vermenigvuldingsprocessen kijken. Als we het grondgetal $a$ noemen, en we willen weten wat er gebeurt als we dit $x$ keer met zichzelf vermenigvuldigen, kunnen we dit als volgt noteren: $$f(x) = a^x.$$ Zo kunnen we bijvoorbeeld de derde macht van 10 noteren:
 
@@ -18,19 +16,27 @@ We komen de exponentiële functie tegen als we naar vermenigvuldingsprocessen ki
 10^3
 ```
 
-### De logaritme
+### Logaritmes
 
 Een logaritme doet precies het omgekeerde: deze vertelt je hoeveel keer je een bepaald getal moet vermenigvuldigen om bij een ander getal uit te komen.
 
+Sommige logartimes kommen veel voor, bijvoorbeeld die met grondgetal 10. Hiervoor bestaat in R de functie `log10()`, waarbij je tussen de haakjes aangeeft van wel getal je de logartime wilt bepalen.
+
 ```{r}
-log(1000,10)
+log10(1000)
 ```
 
-Met dit voorbeeld kunnen we zien dat de genoemde functies elkaars `inverse` zijn. Als je eerst de exponent van een getal neemt en daarna de logaritme, kom je terug bij het getal waarmee je begon. Hetzelfde geldt voor wanneer je eerst de logaritme neemt en dan de exponent. Voor alle grondgetallen $a$ en machten $x$ geldt dus:
+Met dit voorbeeld kunnen we zien dat de genoemde functies voor hetzelfde grondtal $a$ elkaars `inverse` zijn. Als je eerst de exponent van een getal neemt en daarna de logaritme, kom je terug bij het getal waarmee je begon. Hetzelfde geldt voor wanneer je eerst de logaritme neemt en dan de exponent. Voor alle grondgetallen $a$ en machten $x$ geldt dus:
 
 $$a^{\log_a(x)} = x \quad \text{en} \quad \log_a(a^x)=x $$
 
-### Regenregels van machten en logaritmen
+Merk op dat een logaritme niet altijd een geheel getal oplevert:
+
+```{r}
+log10(1500)
+```
+
+### Regenregels van machten en logaritmen {#sec-rekenregels}
 
 <!-- Machten en logaritmen zijn praktisch, omdat ze verschijnselen kwantitatief beschrijven die snel toe- of afnemen, of over een enorme schaal variëren. Een macht is namelijk een compacte manier om een herhaaldelijke vermenigvuldiging te noteren. -->
 
@@ -44,6 +50,7 @@ $$a^{\log_a(x)} = x \quad \text{en} \quad \log_a(a^x)=x $$
 
 Machten en logaritmen zijn praktisch omdat ze processen beschrijven die met een vaste `factor` toe- of afnemen. Een macht is een compacte manier om een herhaalde vermenigvuldiging met diezelfde factor te noteren.
 
+- $10^0 = 1$: (zie onderstaande rekenregels)
 - $10^1 = 10$: de factor 10 één keer toegepast
 - $10^2 = 100$: de factor 10 twee keer toegepast ($10\times10$)
 - $10^3 = 1000$: de factor 10 drie keer toegepast ($10\times10\times 10$)
@@ -56,47 +63,54 @@ We kunnen ook een ander grondgetal (en dus een andere vermenigvuldigingsfactor) 
 Bij grondgetal 2 hoort de factor 2. Dit beschrijft dus een verdubbeling. Dit kom je bijvoorbeeld tegen bij een cel die zich steeds in tweeën deelt: hoeveel delingsrondes zijn nodig om van 1 naar 1024 cellen te komen?
 
 ```{r}
-log(1024, 2)
+log2(1024)
 ```
 
-In onderstaande rekenregels gebruiken we de algemene notatie $a$ en $b$ als grondgetallen, en $p$ en $q$ als machten.
+Merk op dat we hier de functie `log2()` hebben gebruikt. Deze functie bestaat omdat de logaritme met grondgetal 2 ook veelvoorkomend is. Om algemene logaritmes uit te rekenen, kunnen we de functie `log()` bepalen. Hierbij moeten we dus nog specificeren welk grondgetal we gebruiken:
+```{r}
+log(1000, 3) # logaritme van 1000 met grondgetal 3
+log(x=1000, base=3) # explicietere notatie
+```
+
+In onderstaande rekenregels gebruiken we de algemene notatie $a$ en $b$ als grondgetallen, en $x$ en $y$ als machten.
 
 ::: note
 Rekenregels voor machten
 
 Vermenigvuldiging wordt optelling
 
-:   $a^p \cdot a^q = a^{p+q}$
+:   $a^x \cdot a^y = a^{x+y}$
 
-:   $\frac{a^p}{a^q} = a^{p-q}$
+:   $\frac{a^x}{a^y} = a^{x-y}$
 
 Machtsverheffen wordt vermenigvuldigen
 
-:   $(a^p)^q = a^{pq}$
+:   $(a^x)^y = a^{xy}$
 
-:   $a^{-p} = \frac{1}{a^p}$
+:   $a^{-x} = \frac{1}{a^x}$
 
-:   $a^{\frac{p}{q}} = \sqrt[q]{10^p}$
+:   $a^{\frac{x}{y}} = \sqrt[y]{10^x}$
 
 De nulde macht is altijd 1
 
 :   $a^0 = 1$
 :::
 
+
 Hieruit volgen direct de rekenregels voor de logaritme.
 
-::: note
+::: {.note}
 Rekenregels voor logaritmen
 
 Vermenigvuldiging wordt optelling
 
-:   $\log_a(pq) = \log_a(p) + \log_a(q)$
+:   $\log_a(xy) = \log_a(x) + \log_a(y)$
 
-:   $\log_a\left(\frac{p}{q}\right) = \log_a(p) - \log_a(q)$
+:   $\log_a\left(\frac{x}{y}\right) = \log_a(x) - \log_a(y)$
 
 Machtsverheffen wordt vermenigvuldigen
 
-:   $\log_a(p^q) = q\cdot \log_a(p)$
+:   $\log_a(x^y) = y\cdot \log_a(x)$
 
 De logaritme van 1 is altijd 0
 
@@ -105,21 +119,31 @@ De logaritme van 1 is altijd 0
 
 ### De vorm van de logaritmische functie
 
-We kunnen de logaritme met basis 10 als volgt visualiseren:
+We kunnen de logaritme met basis 10 en de bijbehorende machtsfunctie als volgt visualiseren:
 
 ```{r}
-x <- seq(0.01, 10, length.out = 200) # discretisatie van de x-as
+x <- seq(-1, 5, length.out = 200) # discretisatie van de x-as
 
+par(mfrow = c(1,2)) # maak twee plots
+
+# plot log10(x)
 plot(x, log10(x), type = "l", lwd = 2,
      xlab = "x", ylab = "log10(x)")
 abline(h = 0, lty = 2) # horizontale lijn op y=0
 abline(v = 1, lty = 2) # verticale lijn op x=1
+
+
+# plot 10^x
+plot(x, 10^x, type = "l", lwd = 2,
+     xlab = "x", ylab = "10^x")
+abline(h = 1, lty = 2)
+abline(v = 0, lty = 2)
 ```
 
 ::: {#exr-grafiek_log}
 Bekijk de grafiek.
 
-- Wat gebeurt er met $\log_{10}(x)$ als $x$ steeds dichter bij 0 komt? Waarom bestaat $\log_{10}(0)$ niet?
+- Wat gebeurt er met $\log_{10}(x)$ als $x$ steeds dichter bij 0 komt? Waarom bestaat $\log_{10}(0)$ niet? Koppel dit aan de plot voor de machtsfunctie en de rekenregels van logaritmen en machten.
 - Voor welke $x$-waarden is $\log_{10}(x)$ negatief? Wat betekent dat voor de formule voor de entropie (@eq-entropie-def)  die je in het vorige portfolio-onderdeel hebt gezien? 
 :::
 
@@ -131,12 +155,10 @@ Bekijk de grafiek.
 
 De concentratie van $\ce{H^+}$ in waterige oplossingen varieert van ongeveer 1 mol/L (sterk zuur) tot $10^{-14}$ mol/L (sterk basisch). Dit is een enorm bereik van veertien ordes van grootte. We zijn in zulke situaties gewend om waardes dan af te ronden tot de dichtstbijzijnde macht van tien. Een concentratie van 0.0003 mol/L heeft bijvoorbeeld orde van grootte $10^{-4}$. Dat is handig om snel een gevoel te krijgen voor hoe klein deze concentratie is, maar de gerapporteerde waarde is wel erg grof: 0.0001 en 0.0005 mol/L krijgen zo dezelfde orde van grootte, terwijl ze een factor 5 schelen.
 
-De pH doet in feite hetzelfde als het bepalen van een orde van grootte: hij drukt de concentratie uit als een macht van tien. Een verschil is dat we de pH gewoonlijk niet afronden naar een geheel getal: de pH is de (niet-afgeronde) exponent zelf. Zo kunnen we met pH=6.34 een fijner onderscheid noteren dan "orde van grootte $10^{-6}$" zou doen.
-Op een lineaire schaal zouden kleine verschillen dus volledig wegvallen, terwijl we weten dat zulke verschillen tussen bijvoorbeeld pH-waarden 6 en 6.5 biologisch erg relevant zijn. 
+De pH doet in feite hetzelfde als het bepalen van een orde van grootte: hij drukt de concentratie uit als een macht van tien. Een verschil is dat we de pH gewoonlijk niet afronden naar een geheel getal: de pH is de (niet-afgeronde) exponent zelf. Zo kunnen we met pH=7.34 een fijner onderscheid noteren dan met orde van grootte $10^{-7}$.
+Op een lineaire schaal zouden kleine verschillen dus volledig wegvallen, terwijl we weten dat zulke verschillen tussen bijvoorbeeld pH-waarden 7 en 7.5 biologisch erg relevant zijn. 
 
-::: aside
-Vergelijk dit met de $\chi^2$-toets: ook daar schalen we een verschil $(O − E)^2$ naar een begrensd interval, waardoor we waarden kunnen vergelijken, onafhankelijk van de grootte van de absolute aantallen.
-:::
+
 
 
 De logaritme lost dit op door een vermenigvuldigingsverhouding om te zetten in een optelbaar verschil: 
@@ -178,7 +200,7 @@ Om uit de pH de concentratie te bepalen, gebruiken we de exponentiële functie: 
 Bij het eerste practicum van *Chemie van het leven* ga je twee oplossingen maken, die we A en B noemen. Hierbij moet oplossing A een 150 mL 0.20 M Na-acetaatoplossing zijn. Voor de voorbereidende opdracht in Labbuddy heb je bepaald hoeveel natriumacetaat je moest afwegen (of als je dit nog niet gedaan hebt, kun je de komende berekeningen overnemen in Labbuddy). In deze opdracht oefen je op een laagdrempelige manier met de logica achter coderen. Daarbij gebruiken we de voorbereidingsopdrachten en geven we alvast een voorproefje van het aankomende practicum. Je kunt de berekeningen die je hierbij uitvoert ook gebruiken bij het schrijven van je labjournaal.
 
 
-Zeg dat we 150 mL van een 0.2 M $\ce{HCl}$-oplossing maken.
+Zeg dat we 150 mL van een 0.2 M $\ce{HCl}$-oplossing maken. Het moleculair gewicht van $\ce{HCl}$ is 136.06 gram $\ce{mol}^{-1}$.
 
 In R kunnen we alvast wat benodigde variabelen noteren:
 
@@ -233,9 +255,13 @@ Bovenstaande berekening kun je in de Methode-sectie van je labjournaal plaatsen.
 
 Vervolgens ga je de pKz van oplossingen A en B berekenen, met behulp van de algemene formule:
 
-$$\text{pH} = \text{pKz} + \log_{10}\left(\frac{[\text{Z}^-]}{[\text{HZ}]}\right),$$
+$$\text{pH} = \text{pKz} + \log_{10}\left(\frac{[\text{Z}^-]}{[\text{HZ}]}\right),$$ {#eq-pkz}
 
 waarbij het zuur wordt aangeduid met $\text{HZ}$ en de geconjugeerde base met $\text{Z}^-$.
+
+::: {#exr-pkz}
+Bekijk @eq-pkz goed. Wat gebeurt er met de pH als de verhouding van de concentratie van het zuur ten opzichte van de concentratie van de base kleiner wordt?
+:::
 
 Stel je voor dat de pH van oplossing A gelijk is aan 7. Neem verder aan dat de concentratie van het zuur 0.2 is.
 

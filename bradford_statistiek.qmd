@@ -1,4 +1,4 @@
-# Bradford-test: statistiek, vectoren en lineaire modellen
+# Bradford-test: statistiek, vectoren en lineaire modellen {#sec-bradford}
 
 In de eerste portfolio-opdracht gebruikten we het concept van entropie om toenemende complexiteit in de biologie te duiden. In de tweede opdracht zagen we dat een rechte lijn de relatie tussen metabolische snelheid en massa goed kon beschrijven. Vandaag gebruiken we de Bradford-test om statistiek toe te passen en een ijklijn te maken. Daarbij komen beide concepten opnieuw samen.
 

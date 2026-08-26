@@ -1,4 +1,4 @@
-# Lineaire regressie: vectoren en projectie.
+# Lineaire regressie: vectoren en projectie. {#sec-regressie}
 
 In het practicum bij de Bradford-test gebruikte je de functie `lm(abs ~ conc)`. Die functie deed het werk, maar bleef een *black box*: je zag de geschatte parameters verschijnen zonder te weten wat er onder de motorkap gebeurde. In dit hoofdstuk openen we die black box.
 
@@ -183,7 +183,7 @@ Kijk nog een keer naar de figuur. De drie vectoren $\mathbf{y}$, $\hat{\mathbf{y
 
 $$\underbrace{\|\mathbf{y}\|^2}_{\text{totaal}} = \underbrace{\|\hat{\mathbf{y}}\|^2}_{\text{verklaard}} + \underbrace{\|\mathbf{y} - \hat{\mathbf{y}}\|^2}_{\text{residu}}$$
 
-met $\|\mathbf{y}\|$ de lengte van $y$. 
+met $\|\mathbf{y}\|$ de lengte van $y$.
 
 Werk je met de afwijkingen ten opzichte van het gemiddelde, dan zijn deze drie lengtes precies de bekende **kwadratensommen** uit de statistiek:
 
@@ -191,7 +191,7 @@ $$\text{SS}_{\text{tot}} = \text{SS}_{\text{reg}} + \text{SS}_{\text{res}}$$
 
 De totale variatie in je data valt uiteen in een deel dat het model verklaart en een deel dat overblijft als residu. Dat is dezelfde soort opsplitsing als de entropie-decompositie uit de eerste opdracht, nu meetkundig afgedwongen door Pythagoras. Opnieuw duikt een vertrouwde wiskundige vorm op in een nieuwe context.
 
-Uit deze opsplitsing volgt direct een maat voor hoe goed het model voorspelt, de **determinatiecoëfficiënt** of multiple R^2:
+Uit deze opsplitsing volgt direct een maat voor hoe goed het model voorspelt, de **determinatiecoëfficiënt** of multiple R\^2:
 
 $$R^2 = \frac{\text{SS}_{\text{reg}}}{\text{SS}_{\text{tot}}} = 1 - \frac{\text{SS}_{\text{res}}}{\text{SS}_{\text{tot}}}$$
 

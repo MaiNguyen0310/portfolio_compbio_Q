@@ -1,17 +1,23 @@
 project:
   type: book
+  
+format:
+  html:
+    css: styles.css
+
 
 book:
   title: "Portfolio Computationele Biologie"
   author: "Jouw naam"
   date: today
-  description: "September 2027 – Februari 2028"
+  description: "September 2026 – Februari 2027"
   chapters:
     - index.qmd
     - Port2_Theory.qmd
     - Port_logpH_Theory.qmd
     - Regressie_theorie.qmd
     - Differentiaalvergelijkingen_theorie.qmd
+    - genetic_drift.qmd
     - references.qmd
   appendices:
     - Port2_Pract.qmd
@@ -19,11 +25,7 @@ book:
     - bradford_statistiek.qmd
     - Sepia_Mantel.qmd  
 
-    
-format:
-  html:
-    css: styles.css
-
+  
 engine: knitr
 
 bibliography: references.bib
@@ -32,16 +34,20 @@ link-citations: true
 number-sections: true
 
 crossref:
+  chapters: true
   exr-prefix: "Vraag"
   eq-prefix: "Vergelijking"
   fig-prefix: "Figuur"
-  chapters: true
+  sec-prefix: "Hoofdstuk"
 
 editor: visual
 language:
   ui:
     chapter_name: ""
   crossref-exr-title: "Vraag"
+  crossref-ch-title: "Hoofdstuk"
+  crossref-sec-prefix: "Hoofdstuk"
+  crossref-sec-title: "Hoofdstuk"
 
 filters:
   - webr

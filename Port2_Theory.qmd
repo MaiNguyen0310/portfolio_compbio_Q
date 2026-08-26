@@ -1,9 +1,5 @@
----
-title: "Stochastische variabelen, kansverdelingen en entropie"
-author: ""
-format: html
-editor: visual
----
+# Stochastische variabelen, kansverdelingen en entropie {#sec-stoch}
+
 
 ## Onzekerheid.
 

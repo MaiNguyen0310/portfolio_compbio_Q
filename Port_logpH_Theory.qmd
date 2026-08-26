@@ -1,19 +1,18 @@
-
-# Logaritmes en exponenten
+# Logaritmes en exponenten {#sec-log_exp}
 
 <!-- Bij het vak *Chemie van het leven* leer je pH-berekeningen uit te voeren. Hierbij zul je in de logaritmische schaal werken. In deze portfolio-opdracht zullen we kennis maken met logaritmische berekeningen. Daarbij verken je meerdere contexten waarin de logaritme verschijnt. -->
 
 <!-- Je werkt hierbij aan de onderstaande leerdoelen. Kruis deze voor jezelf af als je ze denkt te beheersen. -->
 
 <!-- - [ ] Leerdoel X -->
+
 <!-- - [ ] Leerdoel Y -->
+
 <!-- - [ ] Leerdoel Z -->
 
-
-In de vorige portfolio-opdracht ontdekte je dat het concept van entropie in allerlei schijnblijkelijk verschillende vakgebieden opduikt, waaronder  informatietheorie, thermodynamica, sociale wetenschappen en biodiversiteit. Hierbij zagen we steeds dezelfde wiskundige vorm, telkens anders geïnterpreteerd. Dat was geen toeval.
+In de vorige portfolio-opdracht ontdekte je dat het concept van entropie in allerlei schijnblijkelijk verschillende vakgebieden opduikt, waaronder informatietheorie, thermodynamica, sociale wetenschappen en biodiversiteit. Hierbij zagen we steeds dezelfde wiskundige vorm, telkens anders geïnterpreteerd. Dat was geen toeval.
 
 In deze opdracht bekijken we een tweede voorbeeld van zo'n terugkerende vorm: de logaritme. Je kent hem al van de pH-berekeningen die je hebt uitgevoerd bij het practicum van *Chemie van het leven*. Maar dezelfde functie duikt op als je kijkt naar hoe het metabolisme van een dier samenhangt met zijn lichaamsgewicht, hoe sterk een aardbeving is, of hoe hard een geluid klinkt. Aan het eind van deze opdracht kun je zelf uitleggen waarom dat zo is.
-
 
 ## Eigenschappen van de logaritme
 
@@ -27,10 +26,9 @@ Welke van deze eigenschappen van de logaritme verwacht je nodig te hebben om in 
 
 > jouw antwoord:
 
-
 ## Evo-devo: Allometrische schaling
 
-We gaan nu kijken naar een andere context waarin logaritmes en exponenten helpen bij het begrijpen van biologische fenomenen. We duiken hierbij  weer het vakgebied Evo-Devo in. 
+We gaan nu kijken naar een andere context waarin logaritmes en exponenten helpen bij het begrijpen van biologische fenomenen. We duiken hierbij weer het vakgebied Evo-Devo in.
 
 Een interessant fenomeen binnen de evolutie is `allometrische schaling`. Dit beschrijft hoe biologische eigenschappen systematisch veranderen als de lichaamsgrootte toeneemt van soort tot soort. Wat opvalt, is dat veel kenmerken, zoals metabolismesnelheid, levensduur, loopsnelheid en breingrootte, niet linear toenemen, maar volgens een bepaalde `machtswet`. Deze disproportionele groei noemen we *allometrie*. De allometrie volgt dus een algemene machtswet, die we als volgt modelleren:
 
@@ -41,8 +39,6 @@ Hierbij staat $Y$ voor de variabele die gemeten wordt (bv. metabolismesnelheid) 
 ### De schijnbare paradox van de muis en de olifant
 
 Een muis verbrandt, per gram lichaamsweefsel, veel sneller energie dan een olifant. Tegelijkertijd verbruikt een olifant, als geheel dier, enorm veel méér energie per uur dan een muis. Beide patronen volgen uit hetzelfde verband $Y = aM^b$. Hoe kan dat?
-
-
 
 Het antwoord hier zit op dezelfde manier in *welke* grootheid je bekijkt: massa-specifiek metabolisme (per gram) en totaal metabolisme (per dier) volgen beide een machtswet in $M$, maar met tegengestelde tendens. Dat ga je hieronder zelf aantonen.
 
@@ -65,7 +61,6 @@ metabolisme = c(7.05, 2.45, 1.9, 1.8, 1.65, 1.15, 0.75,
                 0.45, 0.4,0.2, 0.15, 0.1, 0.085, 0.05) 
 ```
 
-
 ::: aside
 Een `vector` is hier een vector een geordende rij getallen met datapunten: de vector *massa* bevat veertien massawaarden, de vector *metabolisme* de bijbehorende veertien waarden voor de metabolismesnelheid. We hebben de vectoren in R gemaakt met de functie `c()`. De volgorde is essentieel: het eerste getal in `massa` hoort bij het eerste getal in `metabolisme`, enzovoort. Over vectoren leer je in het volgende portfolio-onderdeel meer.
 :::
@@ -79,7 +74,7 @@ plot(massa,metabolisme,
 ```
 
 ::: {#exr-plot_log_data}
-Bovenstaande plot ziet er anders uit dan de gegeven figuur? Los het probleem op: hoe zou je ervoor kunnen zorgen dat de data goed af te lezen wordt? Gebruik bovenstaande code als voorbeeld om een nieuwe plot te maken. 
+Bovenstaande plot ziet er anders uit dan de gegeven figuur? Los het probleem op: hoe zou je ervoor kunnen zorgen dat de data goed af te lezen wordt? Gebruik bovenstaande code als voorbeeld om een nieuwe plot te maken.
 :::
 
 ::: aside
@@ -91,7 +86,7 @@ Tip: kijk goed naar de assen in @fig-massa-metabolisme.
 ```
 
 ::: {#exr-log-log}
-Om @fig-massa-metabolisme te repliceren heb je een transformatie uitgevoerd op één van de assen. Doe hetzelfde nu voor de andere as, en plot opnieuw 
+Om @fig-massa-metabolisme te repliceren heb je een transformatie uitgevoerd op één van de assen. Doe hetzelfde nu voor de andere as, en plot opnieuw
 :::
 
 ```{r}
@@ -104,17 +99,15 @@ Als het goed is, heb je een linear verband gevonden.
 Leg nu in woorden uit waarom de gebruikte methode werkt, en relateer dat aan de machtsformule en de rekenregels die genoemd zijn in het practicum-onderdeel van deze portfolio-opdracht.
 :::
 
- > Jouw antwoord
+> Jouw antwoord
 
 We gaan nu iets beter kijken naar de betekenis van het aangetone verband. We hebben gekeken naar de massa-specifieke metabole snelheid, die aangeeft hoe snel metabolisme verloopt per eenheid massa van een bepaald weefsel. Dit meten we bijvoorbeeld als de hoeveelheid $\text{O}_2$ die verbruikt wordt per uur. Aan deze eenheid zien we dat we dit kunnen berekenen door de totale metabole intensiteit te delen door de massa.
-
 
 ::: {#exr-machtsform}
 Het totale metabolisme volgens de machtsformule $Y_{\text{totaal}} = aM^b$ verloopt, en de massa-specifieke intensiteit is gelijk aan $Y_{\text{totaal}}$ gedeeld door de massa $M$. Gebruik de rekenregels van de logaritme om een uitdrukking te vinden voor $\log(Y_{\text{specifiek}})$ in termen van $\log(M)$ en koppel dat aan de laatste plot die je gevonden hebt. Wat voor informatie over het lineaire verband kun je hieruit halen?
 :::
 
-
- > Jouw antwoord
+> Jouw antwoord
 
 Om terug te gaan naar het totale metabolisme in een dier, vermenigvuldigen we de massa en het massa-specifieke metabolisme.
 
@@ -134,20 +127,18 @@ Probeer nu een relatie te vinden tussen de massa en het totale metabolisme. Plot
 Wat kun je opmerken over het effect van een grotere massa op de totale metabole snelheid? En op de massa-specifieke metabole snelheid?
 :::
 
- > Jouw antwoord
+> Jouw antwoord
 
 ::: {#exr-exp_bepalen}
-Gebruik de rekenregels van de logaritme en je eerdere antwoorden om een waarde voor de exponent $b$ te vinden. Hint: Gebruik `lm()` op de (twee maal) getransformeerde data van het **totale** metabolisme (dus de plot van @exr-plot_metab) om een schatting voor de exponent $b$ te vinden. Vergelijk deze vervolgens met de helling die `lm()`  geeft voor de massa-specifieke intensiteit. Klopt het verschil met wat je bij @exr-machtsform had afgeleid?
+Gebruik de rekenregels van de logaritme en je eerdere antwoorden om een waarde voor de exponent $b$ te vinden. Hint: Gebruik `lm()` op de (twee maal) getransformeerde data van het **totale** metabolisme (dus de plot van @exr-plot_metab) om een schatting voor de exponent $b$ te vinden. Vergelijk deze vervolgens met de helling die `lm()` geeft voor de massa-specifieke intensiteit. Klopt het verschil met wat je bij @exr-machtsform had afgeleid?
 :::
 
+> Jouw antwoord
 
- > Jouw antwoord
- 
- 
 ::: aside
 Merk op dat je de functie **lm()** al eerder hebt gebruikt, bij het practicum-deel van dit portfolio-onderdeel.Het zou dan vast een heel belangrijke functie zijn... Bij het volgende portfolio-onderdeel staan we hierbij stil!
 :::
- 
+
 ### Terug naar de paradox
 
 ::: {#exr-exponenten}
@@ -156,10 +147,9 @@ Je vond zojuist twee exponenten: één voor het verband tussen massa en massa-sp
 
 > jouw antwoord:
 
-## Samenvattende opdracht 
+## Samenvattende opdracht
 
 Wat hier opvalt, is dat één simpele wiskundige vorm, namelijk het machtsverband $Y=aM^b$, een patroon beschrijft dat voor sterk uiteenlopende dieren en eigenschappen lijkt te gelden, van spitsmuis tot olifant. Dat zulke brede, kwantitatieve regelmatigheden in de biologie überhaupt bestaan, is opmerkelijk: de levende wereld zit vol uitzonderingen en variatie. Toch is er hier een algemene wetmatigheid te vinden. Juist de wiskunde is het gereedschap waarmee je zo'n regelmatigheid uit ruwe data kunt achterhalen. Hiervan zullen we gedurende het jaar meerdere voorbeelden zien.
-
 
 In de vorige portfolio-opdracht schreef je een eigen hypothese over hoe entropie, onzekerheid en canalisatie zouden samenhangen met onderwerpen die je dit jaar nog zou tegenkomen.
 
@@ -176,12 +166,15 @@ Lees je antwoord van toen terug.
 <!-- ### Optioneel: Fractale structuren -->
 
 <!-- De log-log-lineariteit die je hierboven gebruikte, komt niet toevallig ook terug bij fractale structuren. Dit zijn patronen die er op elke schaal ongeveer hetzelfde uitzien.  -->
-<!-- Geïnteresseerden worden uitgenodigd om [hier](evo-devo/schaling.html) meer te lezen over fractale structuren. -->
 
+<!-- Geïnteresseerden worden uitgenodigd om [hier](evo-devo/schaling.html) meer te lezen over fractale structuren. -->
 
 ## Terug naar concentraties
 
-De motivatie om de logaritme verder te onderzoeken, kwam vanuit de pH-berekeningen die we eerder hebben uitgevoerd. We hebben gezien dat de logaritme ook in andere contexten voorkomt, maar nu keren we toch nog terug naar de context van concentraties. Je bent al bekend met het begrip `diffusie`: een druppel inkt in een glas water verspreidt zich vanzelf, van een gebied met hoge concentratie naar een gebied met lage concentratie. Dat proces verloopt spontaan, zonder toevoeging van energie. Wil je het omgekeerde bereiken (namelijk de inkt weer terugconcentreren op één plek) dan kost dat wél energie.
+De motivatie om de logaritme verder te onderzoeken, kwam vanuit de pH-berekeningen die we eerder hebben uitgevoerd. We hebben gezien dat de logaritme ook in andere contexten voorkomt, maar nu keren we toch nog terug naar de context van concentraties. Dit geeft al een link met iets wat we later in het jaar zullen behandelen, maar dit deel is niet strikt noodzakelijk om de logaritme goed te begrijpen.
+
+
+Je bent al bekend met het begrip `diffusie`: een druppel inkt in een glas water verspreidt zich vanzelf, van een gebied met hoge concentratie naar een gebied met lage concentratie. Dat proces verloopt spontaan, zonder toevoeging van energie. Wil je het omgekeerde bereiken (namelijk de inkt weer terugconcentreren op één plek) dan kost dat wél energie.
 
 Hetzelfde geldt voor opgeloste deeltjes tussen twee compartimenten, bijvoorbeeld binnen en buiten een cel, of aan weerszijden van een membraan. Hoe groter het concentratieverschil dat je wilt creëren of in stand wilt houden, hoe meer energie je nodig hebt. Deze relatie wordt gegeven door:
 
@@ -191,13 +184,11 @@ waarbij $c_A$ en $c_B$ de concentraties in de twee compartimenten zijn, $R$ de g
 
 ::: aside
 De natuurljke logaritme is dezelfde functie als $\log_{10}$, alleen met een ander grondgetal, zoals je eerder al bij $\log_2$ zag.
-::: 
-
+:::
 
 $\Delta G$ noemen we de `vrije energie`: de energie die vrijkomt ($\Delta G < 0$) of nodig is ($\Delta G > 0$) om deze verplaatsing te laten plaatsvinden.
 
 ::: {#exr-red_delta-G}
-
 - Als $c_A = c_B$ geldt, wat is dan $\Delta G$ (gebruik een rekenregel van de logaritme)? Wat betekent dat, in woorden, voor de energie die nodig is om een deeltje van compartiment $A$ naar $B$ te verplaatsen als er geen concentratieverschil is?
 
 - Stel $c_A > c_B$ geldt. Is $\Delta G$ dan positief of negatief? Bedenk of dit betekent dat het proces spontaan verloopt of dat er energie toegevoegd moet worden.
@@ -209,9 +200,7 @@ $\Delta G$ noemen we de `vrije energie`: de energie die vrijkomt ($\Delta G < 0$
 
 We plaatsen dit verhaal in de context van de protonengradiënt over de mitochondriënmembraan. We beschrijven de concentratie protonen binnen en buiten de mitochondriën respectievelijk als $c_A$ en $c_B$. In mitochondriën wordt actief $\text{H}^+$ vanuit de matrix naar de intermembraanruimte gepompt, waardoor er een pH-verschil ontstaat tussen de twee compartimenten. Stel dat de matrix pH 8 heeft en de intermembraanruimte pH 7.
 
-
-:::{#exr-delta_G-code}
-
+::: {#exr-delta_G-code}
 Bereken $[\text{H}^+]$ in beide compartimenten, en gebruik dat om $\Delta G$ te berekenen voor het verplaatsen van één mol $\text{H}^+$ van de intermembraanruimte terug naar de matrix. Neem $R = 8.314~\text{J mol}^{-1}\text{K}^{-1}$ en $T = 310~\text{K}$ (lichaamstemperatuur).
 :::
 
@@ -229,7 +218,6 @@ Temp <- 310
 ```
 
 > jouw antwoord:
-
 
 ::: {#exr-int_delta_G}
 Interpreteer de uitkomst. Betekent dit dat protonen spontaan van de intermembraanruimte terug naar de matrix stromen, of dat de cel daar energie voor moet leveren? En hoe zit dat dan met de pomp die de gradiënt in de eerste plaats opbouwt?

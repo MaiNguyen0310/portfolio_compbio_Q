@@ -41,11 +41,42 @@ We zijn ons ervan bewust dat deze overgang uitdagend is. Daarom is het curriculu
 In deze contact bestaat de opbouw van het eerste jaar bestaat uit:
 
 - Portfolio-opdrachten (eerste semester)
-- Het vak Statistiek 1\
+- Het vak Statistiek 1
 - Portfolio-opdrachten (tweede semester)
 - Het vak Computationele Biologie
 
 Door deze structuur krijgen jullie de tijd om concepten te analyseren, doorgronden en begrijpen, toe te passen en uiteindelijk te beheersen.
+
+```{r, echo=F, warning=F, message=F}
+library(gt)
+
+data.frame(
+  Hoofdstuk = c("1", "2", "3", "4"),
+  Onderwerp = c("Stochastische variabelen, kansverdelingen & entropie",
+                "Logaritmes en exponenten",
+                "Lineaire regressie: vectoren en projectie",
+                "Differentiaalvergelijkingen"),
+  Practicum = c("Appendix A: Maïszaden practicum (Basisgenetica)",
+                "Appendix B: pH-berekeningen (Chemie van het Leven)",
+                "Appendix C: Bradford-test (Celfysiologie)",
+                "—"),
+  `Kernbegrippen` = c(
+    "Onzekerheid, kansverdelingen, χ²-test, entropie",
+    "Logaritme- en machtsregels, allometrische schaling, log-log-relaties",
+    "Lineaire regressie, aannames, variabelen, parameters",
+    "Lineaire groei, exponentiële groei, logistische groei, draagkracht"
+  )
+) |>
+  gt() |>
+  tab_header(title = "Portfolio-onderdelen") |>
+  cols_align(align = "left") |>
+  tab_options(
+    table.font.size = 14,
+    column_labels.font.weight = "bold",
+    table.background.color = "white"
+  ) |>
+  opt_row_striping()
+```
 
 ## Wat er van jullie verwacht wordt
 
