@@ -1,11 +1,11 @@
-# Bradford-test: statistiek, vectoren en lineaire modellen
+# Bradford-test: statistiek, vectoren en lineaire modellen {#sec-bradford}
 
 In de eerste portfolio-opdracht gebruikten we het concept van entropie om toenemende complexiteit in de biologie te duiden. In de tweede opdracht zagen we dat een rechte lijn de relatie tussen metabolische snelheid en massa goed kon beschrijven. Vandaag gebruiken we de Bradford-test om statistiek toe te passen en een ijklijn te maken. Daarbij komen beide concepten opnieuw samen.
 
 In deze les kijken we ook weer naar aannames. Een aanname is een biologische veronderstelling die nodig is om een wiskundige analyse of model te mogen gebruiken. Die aanname moet wetenschappelijk onderbouwd zijn. Voor de Bradford-test nemen we bijvoorbeeld aan dat de relatie tussen eiwitconcentratie en absorbantie binnen het gebruikte meetbereik **lineair** is en dat de **rest-term normal verdeeld** is. Daarom is het belangrijk dat monsters soms eerst worden verdund, zodat de metingen binnen het lineaire bereik van de methode vallen.
 
 ::: aside
-Aannames kwamen ook eerder terug: de $\chi^2$-verdeling gelden alleen onder specifieke aannames die je moet benoemen en controleren.
+Aannames kwamen ook eerder terug: de $\chi^2$\$\\chi\^2\$-verdeling gelden alleen onder specifieke aannames die je moet benoemen en controleren.
 :::
 
 Naast de statistiek introduceren we in deze opdracht een nieuw stuk wiskundige taal: **vectoren** en **matrices**, concepten uit de lineaire algebra. Deze taal loopt als een draad door de rest van het portfolio: je meetgegevens zijn vectoren, je dataset is een matrix, en straks blijkt dat ook het lineaire model zich in die taal laat schrijven. Zo zie je opnieuw dat één wiskundige vorm in verschillende contexten terugkeert; de interpretatie bepaalt de betekenis.
@@ -72,10 +72,8 @@ cor(abs, conc, method = "spearman")
 
 Formeel is de Pearson correlatie beschreven als,
 
-$$
-r = \frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}
-{\sqrt{\sum_{i=1}^{n}(x_i-\bar{x})^2}\sqrt{\sum_{i=1}^{n}(y_i-\bar{y})^2}}
-$$
+$$r = \frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}
+{\sqrt{\sum_{i=1}^{n}(x_i-\bar{x})^2}\sqrt{\sum_{i=1}^{n}(y_i-\bar{y})^2}}$$
 
 waarbij $x_i$ hier de gemeten concentraties en $y_i$ absorbanties zijn, en $\bar{x}$ en $\bar{y}$ hun gemiddelden.
 
@@ -102,10 +100,10 @@ $$Ab = a + b \cdot Conc$$
 
 waarbij:
 
--   $Ab$ de absorbantie is;
--   $Conc$ de concentratie is;
--   $a$ het intercept is;
--   $b$ de richtingscoëfficiënt is.
+- $Ab$ de absorbantie is;
+- $Conc$ de concentratie is;
+- $a$ het intercept is;
+- $b$ de richtingscoëfficiënt is.
 
 ## Variabele versus parameter
 
@@ -156,7 +154,7 @@ Zo zien we de dataset op twee manieren tegelijk: als één tweedimensionale data
 Je kunt data inlezen vanuit een Excel-bestand, maar in dit voorbeeld voeren we de waarden handmatig in. Elke regel maakt één datavector.
 
 ```{r}
-#| eval: false  #vervang false door true als je je eigen data invoerd
+#| eval: false  #vervang false door true als je je eigen data invoert
 
 abs <- c(...)   # vul hier de gemeten absorbanties in
 conc <- c(...)  # vul hier de bekende concentraties in
@@ -167,7 +165,7 @@ De functie `c()` is een standaardfunctie in R. De `c` staat voor *combine*: de f
 De pijl `<-` betekent dat de vector aan een naam wordt toegekend. Als je daarna `abs` aanroept, krijg je de volledige datavector met absorbanties terug.
 
 ```{r}
-#| eval: false  #vervang false door true als je je eigen data invoerd
+#| eval: false  #vervang false door true als je je eigen data invoert
 
 abs
 conc
@@ -239,9 +237,9 @@ model <- lm(abs ~ conc)
 
 Hierbij betekent:
 
--   `lm()` staat voor *linear model*;
--   `abs ~ conc` betekent dat de datavector `abs` wordt gemodelleerd als functie van de datavector `conc`;
--   `model` is het object waarin R de resultaten van de regressie opslaat.
+- `lm()` staat voor *linear model*;
+- `abs ~ conc` betekent dat de datavector `abs` wordt gemodelleerd als functie van de datavector `conc`;
+- `model` is het object waarin R de resultaten van de regressie opslaat.
 
 We kunnen de structuur en samenvatting van het model bekijken:
 
@@ -282,13 +280,15 @@ conc_onbekend
 
 In deze les hebben we de Bradford-test gebruikt als voorbeeld van statistisch modelleren. We hebben:
 
--   meetgegevens leren zien als **datavectoren** en de dataset als een **datamatrix**
--   een ijklijn gemaakt met bekende concentraties
--   gekeken naar correlatie tussen de datavectoren concentratie en absorbantie
--   de functie `cor()` gebruikt, inclusief `method = "spearman"`
--   het verschil besproken tussen variabelen (datavectoren) en parameters (parameter vectors;
--   een lineair model opgesteld met `lm(abs ~ conc)`
--   gezien hoe een onbekende concentratie uit het model kan worden geschat.
+- meetgegevens leren zien als **datavectoren** en de dataset als een **datamatrix**
+- een ijklijn gemaakt met bekende concentraties
+- gekeken naar correlatie tussen de datavectoren concentratie en absorbantie
+- de functie `cor()` gebruikt, inclusief `method = "spearman"`
+- het verschil besproken tussen variabelen (datavectoren) en parameters (parameter vectors;
+- een lineair model opgesteld met `lm(abs ~ conc)`
+- gezien hoe een onbekende concentratie uit het model kan worden geschat.
+
+TEST 
 
 Een goede ijklijn vereist niet alleen een hoge correlatie, maar ook een inhoudelijk verdedigbare aanname dat de relatie in het gebruikte meetbereik lineair is.
 
