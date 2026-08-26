@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="September 2026 – Februari 2027">
 
 <title>Appendix B — pH-berekeningen: logaritmen en exponenten – Portfolio Computationele Biologie</title>
 <style>
@@ -80,8 +81,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-12eeb4b20e9f5a2b0bfc604bfaf942bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
-<link href="site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -109,8 +108,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -199,8 +196,26 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Regressie_theorie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lineaire regressie: vectoren en projectie.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./Differentiaalvergelijkingen_theorie.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Differentiaalvergelijkingen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Differentiaalvergelijkingen</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sepia_standaardfout_theorie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Sepia: de wiskunde achter de standaardfout</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./genetic_drift.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Genetic Drift</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -233,7 +248,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./bradford_statistiek.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Bradford-test: statistiek en lineaire modellen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Bradford-test: statistiek, vectoren en lineaire modellen</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -254,17 +269,15 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#waarom-werken-we-eigenlijk-met-een-logaritmische-maat" id="toc-waarom-werken-we-eigenlijk-met-een-logaritmische-maat" class="nav-link active" data-scroll-target="#waarom-werken-we-eigenlijk-met-een-logaritmische-maat"><span class="header-section-number">B.1</span> Waarom werken we eigenlijk met een logaritmische maat?</a>
+  <li><a href="#logaritmen-en-exponenten" id="toc-logaritmen-en-exponenten" class="nav-link active" data-scroll-target="#logaritmen-en-exponenten"><span class="header-section-number">B.1</span> Logaritmen en exponenten</a>
   <ul class="collapse">
-  <li><a href="#de-exponentiële-functie" id="toc-de-exponentiële-functie" class="nav-link" data-scroll-target="#de-exponentiële-functie"><span class="header-section-number">B.1.1</span> De exponentiële functie</a></li>
-  <li><a href="#de-logaritme" id="toc-de-logaritme" class="nav-link" data-scroll-target="#de-logaritme"><span class="header-section-number">B.1.2</span> De logaritme</a></li>
-  <li><a href="#regenregels-van-machten-en-logaritmen" id="toc-regenregels-van-machten-en-logaritmen" class="nav-link" data-scroll-target="#regenregels-van-machten-en-logaritmen"><span class="header-section-number">B.1.3</span> Regenregels van machten en logaritmen</a></li>
+  <li><a href="#exponentiële-functies" id="toc-exponentiële-functies" class="nav-link" data-scroll-target="#exponentiële-functies"><span class="header-section-number">B.1.1</span> Exponentiële functies</a></li>
+  <li><a href="#logaritmes" id="toc-logaritmes" class="nav-link" data-scroll-target="#logaritmes"><span class="header-section-number">B.1.2</span> Logaritmes</a></li>
+  <li><a href="#sec-rekenregels" id="toc-sec-rekenregels" class="nav-link" data-scroll-target="#sec-rekenregels"><span class="header-section-number">B.1.3</span> Regenregels van machten en logaritmen</a></li>
+  <li><a href="#de-vorm-van-de-logaritmische-functie" id="toc-de-vorm-van-de-logaritmische-functie" class="nav-link" data-scroll-target="#de-vorm-van-de-logaritmische-functie"><span class="header-section-number">B.1.4</span> De vorm van de logaritmische functie</a></li>
   </ul></li>
-  <li><a href="#ph-berekeningen" id="toc-ph-berekeningen" class="nav-link" data-scroll-target="#ph-berekeningen"><span class="header-section-number">B.2</span> pH berekeningen</a>
-  <ul class="collapse">
-  <li><a href="#voorbeeld-ph-metingen" id="toc-voorbeeld-ph-metingen" class="nav-link" data-scroll-target="#voorbeeld-ph-metingen"><span class="header-section-number">B.2.1</span> Voorbeeld: pH metingen</a></li>
-  </ul></li>
-  <li><a href="#quizvragen" id="toc-quizvragen" class="nav-link" data-scroll-target="#quizvragen"><span class="header-section-number">B.3</span> Quizvragen</a></li>
+  <li><a href="#waarom-werken-we-voor-de-ph-eigenlijk-met-een-logaritmische-maat" id="toc-waarom-werken-we-voor-de-ph-eigenlijk-met-een-logaritmische-maat" class="nav-link" data-scroll-target="#waarom-werken-we-voor-de-ph-eigenlijk-met-een-logaritmische-maat"><span class="header-section-number">B.2</span> Waarom werken we voor de pH eigenlijk met een logaritmische maat?</a></li>
+  <li><a href="#ph-berekeningen" id="toc-ph-berekeningen" class="nav-link" data-scroll-target="#ph-berekeningen"><span class="header-section-number">B.3</span> pH berekeningen</a></li>
   <li><a href="#practicumopdracht" id="toc-practicumopdracht" class="nav-link" data-scroll-target="#practicumopdracht"><span class="header-section-number">B.4</span> Practicumopdracht</a>
   <ul class="collapse">
   <li><a href="#oplossingen-maken" id="toc-oplossingen-maken" class="nav-link" data-scroll-target="#oplossingen-maken"><span class="header-section-number">B.4.1</span> Oplossingen maken</a></li>
@@ -296,24 +309,13 @@ window.Quarto = {
 </header>
 
 
-<p>Dit portfolio-onderdeel is gekoppeld aan het vak <em>Chemie van het leven</em>, waarbij je veel met pH-waarden werkt. Hierbij heb je ongetwijfeld al gerekend met de logaritme, maar dat is niet de eerste keer dat je deze functie bent tegengekomen in de studie. In de vorige portfolio-opdracht kwam deze naar voren bij het bespreken van entropie. Dit is geen toeval: de logaritme is een belangrijke functie, die toepassingen heeft in meerdere contexten. In deze opdracht zullen we verder kennis maken met eigenschappen van de logaritme en zullen we interessante toepassingen verkennen.</p>
-<p>Net als bij de vorige portfolio-opdracht, volgt een theoretisch deel.</p>
-<section id="waarom-werken-we-eigenlijk-met-een-logaritmische-maat" class="level2 page-columns page-full" data-number="B.1">
-<h2 data-number="B.1" class="anchored" data-anchor-id="waarom-werken-we-eigenlijk-met-een-logaritmische-maat"><span class="header-section-number">B.1</span> Waarom werken we eigenlijk met een logaritmische maat?</h2>
-<p>De concentratie van <span class="math inline">\(\ce{H^+}\)</span> in waterige oplossingen varieert van ongeveer 1 mol/L (sterk zuur) tot <span class="math inline">\(10^{-14}\)</span> mol/L (sterk basisch). Dit is een enorm bereik van veertien ordes van grootte. Op een lineaire schaal zouden kleine verschillen volledig wegvallen tegen de uitschieters, terwijl we weten dat het verschil tussen bijvoorbeeld pH 6 en pH 8 biologisch erg relevant is.</p>
-<p>De logaritme lost dit op door een vermenigvuldigingsverhouding om te zetten in een optelbaar verschil: <span class="math display">\[\log(a \cdot b) = \log a + \log b.\]</span></p>
-<p>We hebben eerder gezien dat dit een gunstige eigenschap is! Eerder ging het om het optellen van entropie; nu gaat het om het schalen van data met een groot bereik.</p>
-<p>De definitie van de pH is dankzij deze eigenschap als volgt:</p>
-<p><span class="math display">\[\text{pH} = -\log_{10}[\text{H}^+]\]</span></p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>Vergelijk dit met de <span class="math inline">\(\chi^2\)</span>-toets: ook daar schalen we een verschil (O − E) naar een begrensd interval, waardoor we waarden kunnen vergelijken, onafhankelijk van de grootte van de absolute aantallen.</p>
-</div></div><p><strong>Vraag 1:</strong> Als de H⁺-concentratie met een factor 10 daalt, wat gebeurt er dan met de pH? En als de concentratie halveert (bijvoorbeeld door verdunning)? Reken beide gevallen uit en leg intuïtief uit waarom een verschil van “1 pH-eenheid” een heel andere betekenis heeft dan een verschil van “1 eenheid concentratie” (mol/Liter).</p>
-<blockquote class="blockquote">
-<p>Jouw antwoord</p>
-</blockquote>
-<section id="de-exponentiële-functie" class="level3" data-number="B.1.1">
-<h3 data-number="B.1.1" class="anchored" data-anchor-id="de-exponentiële-functie"><span class="header-section-number">B.1.1</span> De exponentiële functie</h3>
+<p>Dit portfolio-onderdeel is gekoppeld aan het vak <em>Chemie van het leven</em>, waarbij je veel met pH-waarden werkt. Hierbij heb je ongetwijfeld al gerekend met de logaritme, maar dat is niet de eerste keer dat je deze functie bent tegengekomen in de studie. In de vorige portfolio-opdracht kwam deze naar voren bij het bespreken van entropie. Dit is geen toeval: de logaritme is een belangrijke functie, die toepassingen heeft in meerdere contexten.</p>
+<p>We herhalen de rekenregels van de logaritme kort, zodat je deze bij de hand hebt. Mogelijk ken je deze al goed, maar het doel hierbij is dat we er echt een interpretatie aan geven en niet alleen gebruiken. Vervolgens leiden we het aankomende practicum in, waarbij je tegelijkertijd oefent met coderen.</p>
+<p>Net als bij de vorige portfolio-opdracht, volgt een theoretisch deel. Hierbij zul je een toepassing van de logaritme in het vakgebied evo-devo bestuderen.</p>
+<section id="logaritmen-en-exponenten" class="level2" data-number="B.1">
+<h2 data-number="B.1" class="anchored" data-anchor-id="logaritmen-en-exponenten"><span class="header-section-number">B.1</span> Logaritmen en exponenten</h2>
+<section id="exponentiële-functies" class="level3" data-number="B.1.1">
+<h3 data-number="B.1.1" class="anchored" data-anchor-id="exponentiële-functies"><span class="header-section-number">B.1.1</span> Exponentiële functies</h3>
 <p>We komen de exponentiële functie tegen als we naar vermenigvuldingsprocessen kijken. Als we het grondgetal <span class="math inline">\(a\)</span> noemen, en we willen weten wat er gebeurt als we dit <span class="math inline">\(x\)</span> keer met zichzelf vermenigvuldigen, kunnen we dit als volgt noteren: <span class="math display">\[f(x) = a^x.\]</span> Zo kunnen we bijvoorbeeld de derde macht van 10 noteren:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">^</span><span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -322,48 +324,81 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="de-logaritme" class="level3" data-number="B.1.2">
-<h3 data-number="B.1.2" class="anchored" data-anchor-id="de-logaritme"><span class="header-section-number">B.1.2</span> De logaritme</h3>
+<section id="logaritmes" class="level3" data-number="B.1.2">
+<h3 data-number="B.1.2" class="anchored" data-anchor-id="logaritmes"><span class="header-section-number">B.1.2</span> Logaritmes</h3>
 <p>Een logaritme doet precies het omgekeerde: deze vertelt je hoeveel keer je een bepaald getal moet vermenigvuldigen om bij een ander getal uit te komen.</p>
+<p>Sommige logartimes kommen veel voor, bijvoorbeeld die met grondgetal 10. Hiervoor bestaat in R de functie <code>log10()</code>, waarbij je tussen de haakjes aangeeft van wel getal je de logartime wilt bepalen.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">1000</span>,<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log10</span>(<span class="dv">1000</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
 </div>
 </div>
-<p>Met dit voorbeeld kunnen we zien dat de genoemde functies elkaars inverse zijn. Als je eerst de exponent van een getal neemt en daarna de logaritme, kom je terug bij het getal waarmee je begon. Hetzelfde geldt voor wanneer je eerst de logaritme neemt en dan de exponent. Voor alle grondgetallen <span class="math inline">\(a\)</span> en machten <span class="math inline">\(x\)</span> geldt dus:</p>
+<p>Met dit voorbeeld kunnen we zien dat de genoemde functies voor hetzelfde grondtal <span class="math inline">\(a\)</span> elkaars <code>inverse</code> zijn. Als je eerst de exponent van een getal neemt en daarna de logaritme, kom je terug bij het getal waarmee je begon. Hetzelfde geldt voor wanneer je eerst de logaritme neemt en dan de exponent. Voor alle grondgetallen <span class="math inline">\(a\)</span> en machten <span class="math inline">\(x\)</span> geldt dus:</p>
 <p><span class="math display">\[a^{\log_a(x)} = x \quad \text{en} \quad \log_a(a^x)=x \]</span></p>
+<p>Merk op dat een logaritme niet altijd een geheel getal oplevert:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log10</span>(<span class="dv">1500</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.176091</code></pre>
+</div>
+</div>
 </section>
-<section id="regenregels-van-machten-en-logaritmen" class="level3" data-number="B.1.3">
-<h3 data-number="B.1.3" class="anchored" data-anchor-id="regenregels-van-machten-en-logaritmen"><span class="header-section-number">B.1.3</span> Regenregels van machten en logaritmen</h3>
-<p>Machten en logaritmen zijn praktisch, omdat ze verschijnselen kwantitatief beschrijven die snel toe- of afnemen, of over een enorme schaal variëren. Een macht is namelijk een compacte manier om een herhaaldelijke vermenigvuldiging te noteren.</p>
+<section id="sec-rekenregels" class="level3" data-number="B.1.3">
+<h3 data-number="B.1.3" class="anchored" data-anchor-id="sec-rekenregels"><span class="header-section-number">B.1.3</span> Regenregels van machten en logaritmen</h3>
+<!-- Machten en logaritmen zijn praktisch, omdat ze verschijnselen kwantitatief beschrijven die snel toe- of afnemen, of over een enorme schaal variëren. Een macht is namelijk een compacte manier om een herhaaldelijke vermenigvuldiging te noteren. -->
+<!-- - $10^1$ is één stap omhoog in een schaal -->
+<!-- - $10^2$ is twee stappen omhoog -->
+<!-- - $10^3$ is drie stappen omhoog in een schaal -->
+<!-- - $\vdots$ -->
+<!-- Hierbij staat elke stap dus voor een factor 10. Als je een logaritme bepaalt, bereken je hoeveel stappen je omhoog bent gegaan. We kunnen de notatie $\log_{10}(1000)$ dus lezen als: "Hoeveel stappen moet ik vanaf 10 omhoog om bij 1000 te komen?". Hierdoor weten we dat $\log_{10}(1000) = 3.$ -->
+<p>Machten en logaritmen zijn praktisch omdat ze processen beschrijven die met een vaste <code>factor</code> toe- of afnemen. Een macht is een compacte manier om een herhaalde vermenigvuldiging met diezelfde factor te noteren.</p>
 <ul>
-<li><span class="math inline">\(10^1\)</span> is één stap omhoog in een schaal</li>
-<li><span class="math inline">\(10^2\)</span> is twee stappen omhoog</li>
-<li><span class="math inline">\(10^3\)</span> is drie stappen omhoog in een schaal</li>
+<li><span class="math inline">\(10^0 = 1\)</span>: (zie onderstaande rekenregels)</li>
+<li><span class="math inline">\(10^1 = 10\)</span>: de factor 10 één keer toegepast</li>
+<li><span class="math inline">\(10^2 = 100\)</span>: de factor 10 twee keer toegepast (<span class="math inline">\(10\times10\)</span>)</li>
+<li><span class="math inline">\(10^3 = 1000\)</span>: de factor 10 drie keer toegepast (<span class="math inline">\(10\times10\times 10\)</span>)</li>
 <li><span class="math inline">\(\vdots\)</span></li>
 </ul>
-<p>Hierbij staat elke stap dus voor een factor 10. Als je een logaritme bepaalt, bereken je hoeveel stappen je omhoog bent gegaan. We kunnen de notatie <span class="math inline">\(\log_{10}(1000)\)</span> dus lezen als: “Hoeveel stappen moet ik vanaf 10 omhoog om bij 1000 te komen?”. Hierdoor weten we dat <span class="math inline">\(\log_{10}(1000) = 3.\)</span></p>
-<p>We kunnen ook een ander grondgetal (en dus een andere vermenigvuldigingsfactor) gebruiken dan 10. In onderstaande rekenregels gebruiken we de algemene notatie <span class="math inline">\(a\)</span> en <span class="math inline">\(b\)</span> als grondgetallen, en <span class="math inline">\(p\)</span> en <span class="math inline">\(q\)</span> als machten.</p>
+<p>Als je een logaritme bepaalt, bereken je hoe vaak je die factor hebt toegepast. De notatie <span class="math inline">\(\log_{10}(1000)\)</span> lees je dus als: “hoe vaak moet ik de factor 10 toepassen om van 1 bij 1000 uit te komen?” Vandaar geldt <span class="math inline">\(\log_{10}(1000) = 3\)</span>.</p>
+<p>We kunnen ook een ander grondgetal (en dus een andere vermenigvuldigingsfactor) gebruiken dan 10. Bij grondgetal 2 hoort de factor 2. Dit beschrijft dus een verdubbeling. Dit kom je bijvoorbeeld tegen bij een cel die zich steeds in tweeën deelt: hoeveel delingsrondes zijn nodig om van 1 naar 1024 cellen te komen?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log2</span>(<span class="dv">1024</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10</code></pre>
+</div>
+</div>
+<p>Merk op dat we hier de functie <code>log2()</code> hebben gebruikt. Deze functie bestaat omdat de logaritme met grondgetal 2 ook veelvoorkomend is. Om algemene logaritmes uit te rekenen, kunnen we de functie <code>log()</code> bepalen. Hierbij moeten we dus nog specificeren welk grondgetal we gebruiken:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">1000</span>, <span class="dv">3</span>) <span class="co"># logaritme van 1000 met grondgetal 3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.28771</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="at">x=</span><span class="dv">1000</span>, <span class="at">base=</span><span class="dv">3</span>) <span class="co"># explicietere notatie</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.28771</code></pre>
+</div>
+</div>
+<p>In onderstaande rekenregels gebruiken we de algemene notatie <span class="math inline">\(a\)</span> en <span class="math inline">\(b\)</span> als grondgetallen, en <span class="math inline">\(x\)</span> en <span class="math inline">\(y\)</span> als machten.</p>
 <div class="note">
 <p>Rekenregels voor machten</p>
 <dl>
 <dt>Vermenigvuldiging wordt optelling</dt>
 <dd>
-<p><span class="math inline">\(a^p \cdot a^q = a^{p+q}\)</span></p>
+<p><span class="math inline">\(a^x \cdot a^y = a^{x+y}\)</span></p>
 </dd>
 <dd>
-<p><span class="math inline">\(\frac{a^p}{a^q} = a^{p-q}\)</span></p>
+<p><span class="math inline">\(\frac{a^x}{a^y} = a^{x-y}\)</span></p>
 </dd>
 <dt>Machtsverheffen wordt vermenigvuldigen</dt>
 <dd>
-<p><span class="math inline">\((a^p)^q = a^{pq}\)</span></p>
+<p><span class="math inline">\((a^x)^y = a^{xy}\)</span></p>
 </dd>
 <dd>
-<p><span class="math inline">\(a^{-p} = \frac{1}{a^p}\)</span></p>
+<p><span class="math inline">\(a^{-x} = \frac{1}{a^x}\)</span></p>
 </dd>
 <dd>
-<p><span class="math inline">\(a^{\frac{p}{q}} = \sqrt[q]{10^p}\)</span></p>
+<p><span class="math inline">\(a^{\frac{x}{y}} = \sqrt[y]{10^x}\)</span></p>
 </dd>
 <dt>De nulde macht is altijd 1</dt>
 <dd>
@@ -372,6 +407,7 @@ window.Quarto = {
 </dl>
 </div>
 <p>Hieruit volgen direct de rekenregels voor de logaritme.</p>
+<div class="note">
 <p>Rekenregels voor logaritmen</p>
 <dl>
 <dt>Vermenigvuldiging wordt optelling</dt>
@@ -387,172 +423,164 @@ window.Quarto = {
 </dd>
 <dt>De logaritme van 1 is altijd 0</dt>
 <dd>
-<p><span class="math inline">\(\log_a(1)=0\)</span></p>
+<span class="math inline">\(\log_a(1)=0\)</span>
 </dd>
 </dl>
+</div>
 </section>
-</section>
-<section id="ph-berekeningen" class="level2" data-number="B.2">
-<h2 data-number="B.2" class="anchored" data-anchor-id="ph-berekeningen"><span class="header-section-number">B.2</span> pH berekeningen</h2>
-<p>De zuurgraad van een oplossing wordt bepaald door de concentratie protonen (<span class="math inline">\([\text{H}^+]\)</span>). Deze kan sterk verschillen tussen oplossingen. Het is niet handig om met extreem grote of kleine concentraties te werken. In de praktijk wordt deze concetratie daarom op een logaritmische schaal geplaatst.</p>
-<p>De pH van een oplossing wordt als volgt gedefinieerd: <span class="math display">\[\text{pH} = -\log_{10}[\text{H}^+]\]</span> Hiermee wordt een enorm concentratiebereik teruggebracht tot een schaal van ongeveer 0 tot 14.</p>
-<p>Om uit de pH de concentratie te bepalen, gebruiken we de exponentiële functie: <span class="math display">\[[\text{H}^+] = 10^{-\text{pH}}\]</span></p>
-<section id="voorbeeld-ph-metingen" class="level3" data-number="B.2.1">
-<h3 data-number="B.2.1" class="anchored" data-anchor-id="voorbeeld-ph-metingen"><span class="header-section-number">B.2.1</span> Voorbeeld: pH metingen</h3>
-<p>Stel dat een oplossing pH 3 heeft. Dan geldt: <span class="math display">\[[\text{H}^+] = 10^{-3} = 0.001 ~\text{mol/L}.\]</span> Als de pH daalt naar 2, volgt: <span class="math display">\[[\text{H}^+] = 10^{-2} = 0.01 ~\text{mol/L}.\]</span> De concentratie wordt dus 10× groter, omdat exponentiële en logaritmische functies elkaars inverse zijn.</p>
-</section>
-</section>
-<section id="quizvragen" class="level2" data-number="B.3">
-<h2 data-number="B.3" class="anchored" data-anchor-id="quizvragen"><span class="header-section-number">B.3</span> Quizvragen</h2>
-<p>Test je begrip door de volgende vragen te beantwoorden.</p>
+<section id="de-vorm-van-de-logaritmische-functie" class="level3" data-number="B.1.4">
+<h3 data-number="B.1.4" class="anchored" data-anchor-id="de-vorm-van-de-logaritmische-functie"><span class="header-section-number">B.1.4</span> De vorm van de logaritmische functie</h3>
+<p>We kunnen de logaritme met basis 10 en de bijbehorende machtsfunctie als volgt visualiseren:</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">5</span>, <span class="at">length.out =</span> <span class="dv">200</span>) <span class="co"># discretisatie van de x-as</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="co"># maak twee plots</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># plot log10(x)</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="fu">log10</span>(x), <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"x"</span>, <span class="at">ylab =</span> <span class="st">"log10(x)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in xy.coords(x, y, xlabel, ylabel, log): NaNs produced</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">2</span>) <span class="co"># horizontale lijn op y=0</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">1</span>, <span class="at">lty =</span> <span class="dv">2</span>) <span class="co"># verticale lijn op x=1</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># plot 10^x</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="dv">10</span><span class="sc">^</span>x, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"x"</span>, <span class="at">ylab =</span> <span class="st">"10^x"</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">1</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<iframe src="https://mai-nguyen0310.shinyapps.io/shiny_log/" width="100%" height="400" frameborder="0"></iframe>
+<div>
+<figure class="figure">
+<p><img src="Port_logpH_Pract_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
+</div>
+<div id="exr-grafiek_log" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag B.1</strong></span> Bekijk de grafiek.</p>
+<ul>
+<li>Wat gebeurt er met <span class="math inline">\(\log_{10}(x)\)</span> als <span class="math inline">\(x\)</span> steeds dichter bij 0 komt? Waarom bestaat <span class="math inline">\(\log_{10}(0)\)</span> niet? Koppel dit aan de plot voor de machtsfunctie en de rekenregels van logaritmen en machten.</li>
+<li>Voor welke <span class="math inline">\(x\)</span>-waarden is <span class="math inline">\(\log_{10}(x)\)</span> negatief? Wat betekent dat voor de formule voor de entropie (<a href="Port2_Theory.html#eq-entropie-def" class="quarto-xref">Vergelijking&nbsp;<span>1.1</span></a>) die je in het vorige portfolio-onderdeel hebt gezien?</li>
+</ul>
+</div>
+<blockquote class="blockquote">
+<p>jouw antwoord:</p>
+</blockquote>
+</section>
+</section>
+<section id="waarom-werken-we-voor-de-ph-eigenlijk-met-een-logaritmische-maat" class="level2 page-columns page-full" data-number="B.2">
+<h2 data-number="B.2" class="anchored" data-anchor-id="waarom-werken-we-voor-de-ph-eigenlijk-met-een-logaritmische-maat"><span class="header-section-number">B.2</span> Waarom werken we voor de pH eigenlijk met een logaritmische maat?</h2>
+<p>De concentratie van <span class="math inline">\(\ce{H^+}\)</span> in waterige oplossingen varieert van ongeveer 1 mol/L (sterk zuur) tot <span class="math inline">\(10^{-14}\)</span> mol/L (sterk basisch). Dit is een enorm bereik van veertien ordes van grootte. We zijn in zulke situaties gewend om waardes dan af te ronden tot de dichtstbijzijnde macht van tien. Een concentratie van 0.0003 mol/L heeft bijvoorbeeld orde van grootte <span class="math inline">\(10^{-4}\)</span>. Dat is handig om snel een gevoel te krijgen voor hoe klein deze concentratie is, maar de gerapporteerde waarde is wel erg grof: 0.0001 en 0.0005 mol/L krijgen zo dezelfde orde van grootte, terwijl ze een factor 5 schelen.</p>
+<p>De pH doet in feite hetzelfde als het bepalen van een orde van grootte: hij drukt de concentratie uit als een macht van tien. Een verschil is dat we de pH gewoonlijk niet afronden naar een geheel getal: de pH is de (niet-afgeronde) exponent zelf. Zo kunnen we met pH=7.34 een fijner onderscheid noteren dan met orde van grootte <span class="math inline">\(10^{-7}\)</span>. Op een lineaire schaal zouden kleine verschillen dus volledig wegvallen, terwijl we weten dat zulke verschillen tussen bijvoorbeeld pH-waarden 7 en 7.5 biologisch erg relevant zijn.</p>
+<p>De logaritme lost dit op door een vermenigvuldigingsverhouding om te zetten in een optelbaar verschil: <span class="math display">\[\log(a \cdot b) = \log a + \log b.\]</span></p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>We hebben bij het vorige portfolio-onderdeel ook gezien dat dit een gunstige eigenschap is! Eerder ging het om het optellen van entropie; nu gaat het om het schalen van data met een groot bereik.</p>
+</div></div><p>De definitie van de pH is dankzij deze eigenschap als volgt:</p>
+<p><span class="math display">\[\text{pH} = -\log_{10}[\text{H}^+]\]</span></p>
+<div id="exr-pH_redenering" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag B.2</strong></span> Als de H⁺-concentratie met een factor 10 daalt, wat gebeurt er dan met de pH? En als de concentratie halveert (bijvoorbeeld door verdunning)? Reken beide gevallen uit en leg intuïtief uit waarom een verschil van “1 pH-eenheid” een heel andere betekenis heeft dan een verschil van “1 eenheid concentratie” (mol/Liter).</p>
+</div>
+<blockquote class="blockquote">
+<p>Jouw antwoord</p>
+</blockquote>
+</section>
+<section id="ph-berekeningen" class="level2" data-number="B.3">
+<h2 data-number="B.3" class="anchored" data-anchor-id="ph-berekeningen"><span class="header-section-number">B.3</span> pH berekeningen</h2>
+<p>De zuurgraad van een oplossing wordt bepaald door de concentratie protonen (<span class="math inline">\([\text{H}^+]\)</span>). Deze kan sterk verschillen tussen oplossingen. Het is niet handig om met extreem grote of kleine concentraties te werken. In de praktijk wordt deze concentratie daarom, zoals besproken, op een logaritmische schaal geplaatst.</p>
+<p>De pH van een oplossing wordt als volgt gedefinieerd: <span class="math display">\[\text{pH} = -\log_{10}[\text{H}^+].\]</span></p>
+<p>Om uit de pH de concentratie te bepalen, gebruiken we de exponentiële functie: <span class="math display">\[[\text{H}^+] = 10^{-\text{pH}}\]</span></p>
+<!-- ### Voorbeeld: pH metingen -->
+<!-- Stel dat een oplossing pH 3 heeft. Dan geldt: $$[\text{H}^+] = 10^{-3} = 0.001 ~\text{mol/L}.$$ Als de pH daalt naar 2, volgt: $$[\text{H}^+] = 10^{-2} = 0.01 ~\text{mol/L}.$$ De concentratie wordt dus 10× groter, omdat exponentiële en logaritmische functies elkaars inverse zijn. -->
 </section>
 <section id="practicumopdracht" class="level2 page-columns page-full" data-number="B.4">
 <h2 data-number="B.4" class="anchored" data-anchor-id="practicumopdracht"><span class="header-section-number">B.4</span> Practicumopdracht</h2>
 <section id="oplossingen-maken" class="level3" data-number="B.4.1">
 <h3 data-number="B.4.1" class="anchored" data-anchor-id="oplossingen-maken"><span class="header-section-number">B.4.1</span> Oplossingen maken</h3>
-<p>Bij het eerste practicum van <em>Chemie van het leven</em> ga je twee oplossingen maken, die we A en B noemen. Hierbij moet oplossing A een 150 mL 0.20 M Na-acetaatoplossing zijn. Voor de voorbereidende opdracht in Labbuddy heb je bepaald hoeveel natriumacetaat je moest afwegen (of als je dit nog niet gedaan hebt, kun je de komende berekeningen overnemen in Labbuddy). In deze opdracht oefen je op een laagdrempelige manier met de logica achter coderen. Je kunt de berekeningen die je hierbij uitvoert ook gebruiken bij het schrijven van je labjournaal.</p>
+<p>Bij het eerste practicum van <em>Chemie van het leven</em> ga je twee oplossingen maken, die we A en B noemen. Hierbij moet oplossing A een 150 mL 0.20 M Na-acetaatoplossing zijn. Voor de voorbereidende opdracht in Labbuddy heb je bepaald hoeveel natriumacetaat je moest afwegen (of als je dit nog niet gedaan hebt, kun je de komende berekeningen overnemen in Labbuddy). In deze opdracht oefen je op een laagdrempelige manier met de logica achter coderen. Daarbij gebruiken we de voorbereidingsopdrachten en geven we alvast een voorproefje van het aankomende practicum. Je kunt de berekeningen die je hierbij uitvoert ook gebruiken bij het schrijven van je labjournaal.</p>
+<p>Zeg dat we 150 mL van een 0.2 M <span class="math inline">\(\ce{HCl}\)</span>-oplossing maken. Het moleculair gewicht van <span class="math inline">\(\ce{HCl}\)</span> is 136.06 gram <span class="math inline">\(\ce{mol}^{-1}\)</span>.</p>
+<p>In R kunnen we alvast wat benodigde variabelen noteren:</p>
 <div class="cell">
-<div>
-<div id="webr-1" class="exercise-cell">
-
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>vol_gewenst <span class="ot">&lt;-</span> <span class="dv">150</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>conc_gewenst <span class="ot">&lt;-</span> <span class="fl">0.20</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>MW <span class="ot">&lt;-</span> <span class="fl">136.08</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<script type="webr-1-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoidm9sX2dld2Vuc3QgPC0gMTUwXG5jb25jX2dld2Vuc3QgPC0gMC4yMFxuTVcgPC0gMTM2LjA4In0=
-</script>
-</div>
-</div>
-<p>Bereken de benodigde massa.</p>
+<p>De pijl <code>&lt;-</code> wijst een naam toe aan hetgeen rechts van de pijl. We kunnen nu deze namen gebruiken voor verdere berekeningen. Als we bijvoorbeeld <code>vol_gewenst</code> aanroepen, vinden we de toegewezen waarde terug:</p>
 <div class="cell">
-<div>
-<div id="webr-2" class="exercise-cell">
-
-</div>
-<script type="webr-2-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoibWFzc2Ffbm9kaWcgPC0gX19fX19fICMgdnVsIGRlIGJlcmVrZW5pbmcgaW5cbm1hc3NhX25vZGlnIn0=
-</script>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>vol_gewenst</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 150</code></pre>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div id="exr-massa" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag B.3</strong></span> Bereken de benodigde massa.</p>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Oplossing
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>massa_nodig <span class="ot">&lt;-</span> (vol_gewenst <span class="sc">/</span> <span class="dv">1000</span> <span class="sc">*</span> conc_gewenst) <span class="sc">*</span> MW</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>massa_nodig</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<p>In de praktijk is het lastig om een massa zo precies af te wegen. De massa die je afweegt zit er waarschijnlijk wel bij in de buurt, maar is het niet helemaal. In het vervolg van deze opgave gaan we ervanuit dat het afwegen niet perfect heeft plaatsgevonden, en we nemen aan dat de afgewogen massa afkomstig is uit een normaalverdeling met als gemiddelde de echte massa en een kleine standaarddeviatie.</p>
 <div class="cell">
-<div>
-<div id="webr-3" class="exercise-cell">
-
-</div>
-<script type="webr-3-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoibWFzc2FfZ2V3b2dlbiA8LSBybm9ybSgxLCBtZWFuID0gbWFzc2Ffbm9kaWcsIHNkID0gMC4wNSlcbm1hc3NhX2dld29nZW4ifQ==
-</script>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>massa_nodig <span class="ot">&lt;-</span> <span class="dv">0</span> <span class="co"># vervang met je berekening!</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>massa_nodig <span class="co"># print je antwoord</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
 </div>
 </div>
-<p><strong>Vraag 2:</strong> Denk terug aan de vorige portfolio-opdracht over verdelingen. Bedenk waarom bovenstaande benadering van de afgewogen massa redelijk is.</p>
+<p>In de praktijk is het lastig om een massa zo precies af te wegen. De massa die je afweegt, zit waarschijnlijk wel in de buurt van de benodigde hoeveelheid. In het vervolg van deze opgave gaan we ervanuit dat het afwegen niet perfect heeft plaatsgevonden, en we nemen aan dat de afgewogen massa getrokken is uit een normaalverdeling met als gemiddelde de echte massa en een kleine standaarddeviatie.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>massa_gewogen <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> massa_nodig, <span class="at">sd =</span> <span class="fl">0.05</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>massa_gewogen</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.01465112</code></pre>
+</div>
+</div>
+<div id="exr-massa_gw" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag B.4</strong></span> Denk terug aan de vorige portfolio-opdracht over verdelingen. Bedenk waarom bovenstaande benadering van de afgewogen massa redelijk is.</p>
+</div>
 <blockquote class="blockquote">
 <p>Jouw antwoord</p>
 </blockquote>
-<p>Hoe kun je het volume demiwater schalen om alsnog de juiste concentratie te verkrijgen?</p>
+<div id="exr-volume" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag B.5</strong></span> Hoe kun je het volume demiwater schalen om alsnog de juiste concentratie te verkrijgen?</p>
+</div>
 <div class="cell">
-<div>
-<div id="webr-4" class="exercise-cell">
-
-</div>
-<script type="webr-4-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiIyB2dWwgYWFuIGhvZSBqZSB2b2xfYWFuZ2VwYXN0IGJlcmVrZW50XG52b2xfYWFuZ2VwYXN0IDwtIF9fX19fX1xucm91bmQodm9sX2FhbmdlcGFzdCwgMikifQ==
-</script>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Oplossing
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>vol_aangepast <span class="ot">&lt;-</span> vol_gewenst <span class="sc">*</span> (massa_gewogen <span class="sc">/</span> massa_nodig)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(vol_aangepast, <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>vol_aangepast <span class="ot">&lt;-</span> <span class="dv">0</span> <span class="co"># vervang met je berekening!</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(vol_aangepast, <span class="dv">2</span>) <span class="co"># print de uitkomst met 2 decimalen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
 </div>
 </div>
 <p>Bovenstaande berekening kun je in de Methode-sectie van je labjournaal plaatsen.</p>
 </section>
 <section id="pkz-bepalen-met-één-punt" class="level3" data-number="B.4.2">
 <h3 data-number="B.4.2" class="anchored" data-anchor-id="pkz-bepalen-met-één-punt"><span class="header-section-number">B.4.2</span> pKz bepalen met één punt</h3>
-<p>Vervolgens ga je de pKz van oplossingen A en B berekend, met behulp van de algemene formule:</p>
-<p><span class="math display">\[\text{pH} = \text{pKz} + \log_{10}\left(\frac{[\text{Z}^-]}{[\text{HZ}]}\right),\]</span></p>
+<p>Vervolgens ga je de pKz van oplossingen A en B berekenen, met behulp van de algemene formule:</p>
+<p><span id="eq-pkz"><span class="math display">\[\text{pH} = \text{pKz} + \log_{10}\left(\frac{[\text{Z}^-]}{[\text{HZ}]}\right), \tag{B.1}\]</span></span></p>
 <p>waarbij het zuur wordt aangeduid met <span class="math inline">\(\text{HZ}\)</span> en de geconjugeerde base met <span class="math inline">\(\text{Z}^-\)</span>.</p>
+<div id="exr-pkz" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag B.6</strong></span> Bekijk <a href="#eq-pkz" class="quarto-xref">Vergelijking&nbsp;<span>B.1</span></a> goed. Wat gebeurt er met de pH als de verhouding van de concentratie van het zuur ten opzichte van de concentratie van de base kleiner wordt?</p>
+</div>
 <p>Stel je voor dat de pH van oplossing A gelijk is aan 7. Neem verder aan dat de concentratie van het zuur 0.2 is.</p>
 <div class="cell">
-<div>
-<div id="webr-5" class="exercise-cell">
-
-</div>
-<script type="webr-5-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoicEhfQSA8LSA3XG5aX0EgPC0gMC4yIn0=
-</script>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>pH_A <span class="ot">&lt;-</span> <span class="dv">7</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>Z_A <span class="ot">&lt;-</span> <span class="fl">0.2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>De concentratie van de geconjugeerde base kan dan worden bepaald via</p>
-<p><span class="math display">\[[HZ]=[\ce{OH^-}]=10^{-(14-pH)}.\]</span> Deze algemene formule kunnen we als volgt coderen:</p>
+<p><span class="math display">\[[\ce{HZ}]=[\ce{OH^-}]=10^{-(14-pH)}.\]</span> Deze algemene formule kunnen we als volgt coderen:</p>
 <div class="cell">
-<div>
-<div id="webr-6" class="exercise-cell">
-
-</div>
-<script type="webr-6-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiSFpfQSA8LSAxMF4oLSgxNCAtIHBIX0EpKSJ9
-</script>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>HZ_A <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span>(<span class="sc">-</span>(<span class="dv">14</span> <span class="sc">-</span> pH_A))</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>HZ_A</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1e-07</code></pre>
 </div>
 </div>
-<p>Codeer nu zelf de algemene uitdrukking die je gebruikt om de pKz van oplossing A te bepalen.</p>
+<div id="exr-pkz" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag B.7</strong></span> Codeer nu zelf de algemene uitdrukking die je gebruikt om de pKz van oplossing A te bepalen.</p>
+</div>
 <div class="cell">
-<div>
-<div id="webr-7" class="exercise-cell">
-
-</div>
-<script type="webr-7-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoicEt6X0EgPC0gIyB2dWwgaGllciBhYW4hXG5wS3pfQSJ9
-</script>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Oplossing
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pKz_A <span class="ot">&lt;-</span> pH_A <span class="sc">-</span> <span class="fu">log</span>(Z_A <span class="sc">/</span> HZ_A, <span class="dv">10</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>pKz_A</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>pKz_A <span class="ot">&lt;-</span> <span class="dv">0</span> <span class="co"># vervang met je berekening!</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>pKz_A</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
 </div>
 </div>
 </section>
@@ -560,41 +588,58 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoicEt6X0EgPC0gIyB2dWwgaGll
 <h3 data-number="B.4.3" class="anchored" data-anchor-id="pkz-bepalen-met-een-lijn"><span class="header-section-number">B.4.3</span> pKz bepalen met een lijn</h3>
 <p>Je hebt de pKz nu berekend uit één meting. Maar bekijk de formule eens goed:</p>
 <p><span class="math display">\[\text{pH} = \text{pKz} + \log_{10}\left(\frac{[\text{Z}^-]}{[\text{HZ}]}\right)\]</span></p>
-<p><strong>Vraag 3:</strong> Als je <span class="math inline">\(x = \log_{10}([\text{Z}^-]/[\text{HZ}])\)</span> noemt, welke bekende vorm (<span class="math inline">\(y = ax + b\)</span>) herken je dan in deze formule? Wat stellen <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> en <span class="math inline">\(y\)</span> hier voor? Welke waarden verwacht je dat deze aannemen?</p>
+<div id="exr-pH_lineaire_reg" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag B.8</strong></span> Als je <span class="math inline">\(x = \log_{10}([\text{Z}^-]/[\text{HZ}])\)</span> noemt, welke bekende vorm (<span class="math inline">\(y = a + bx\)</span>) herken je dan in deze formule? Wat stellen <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> en <span class="math inline">\(y\)</span> hier voor? Welke waarden verwacht je dat deze aannemen?</p>
+</div>
 <blockquote class="blockquote">
 <p>Jouw antwoord</p>
 </blockquote>
-<p><strong>Vraag 4:</strong> Leg in eigen woorden uit waarom dit verband inzichtelijk is. Koppel de formule aan het doel en de methode van het practicum: wat verander je? Wat meet je? En wat voor inzichten geeft het verband?</p>
+<div id="exr-lin_interpretatie" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag B.9</strong></span> Leg in eigen woorden uit waarom dit verband inzichtelijk is. Koppel de formule aan het doel en de methode van het practicum: wat verander je? Wat meet je? En wat voor inzichten geeft het verband?</p>
+</div>
 <blockquote class="blockquote">
 <p>Jouw antwoord</p>
 </blockquote>
 <p>Stel dat je op verschillende momenten tijdens het toevoegen van HCl de pH had genoteerd. Je kunt dan het verband tussen <span class="math inline">\(x\)</span> en <span class="math inline">\(y\)</span> plotten. Dit kan er bijvoorbeeld zo uitzien:</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>ratio <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="fl">0.5</span>, <span class="fl">0.25</span>)          <span class="co"># [Z-]/[HZ] op vijf momenten</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>pH_gemeten <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">5.4</span>, <span class="fl">5.1</span>, <span class="fl">4.7</span>, <span class="fl">4.5</span>, <span class="fl">4.1</span>)   <span class="co"># fictieve metingen</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">log10</span>(ratio)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, pH_gemeten, <span class="at">xlab =</span> <span class="st">"log10([Z-]/[HZ])"</span>, <span class="at">ylab =</span> <span class="st">"pH"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
 <div>
-<div id="webr-8" class="exercise-cell">
-
-</div>
-<script type="webr-8-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoicmF0aW8gPC0gYyg0LCAyLCAxLCAwLjUsIDAuMjUpICAgICAgICAgICMgW1otXS9bSFpdIG9wIHZpamYgbW9tZW50ZW5cbnBIX2dlbWV0ZW4gPC0gYyg1LjQsIDUuMSwgNC43LCA0LjUsIDQuMSkgICAjIGZpY3RpZXZlIG1ldGluZ2VuXG5cbnggPC0gbG9nMTAocmF0aW8pXG5cbnBsb3QoeCwgcEhfZ2VtZXRlbiwgeGxhYiA9IFwibG9nMTAoW1otXS9bSFpdKVwiLCB5bGFiID0gXCJwSFwiKSJ9
-</script>
+<figure class="figure">
+<p><img src="Port_logpH_Pract_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
-<p>We hebben dit verband benaderd met de functie <span class="math inline">\(y=ax + b\)</span> voor onbekende waarden van <span class="math inline">\(a\)</span> en <span class="math inline">\(b\)</span>. De functie lm() bepaalt de meest waarschijnlijke waarden voor deze parameters. Hierover leer je meer in een latere portfolio-opdracht.</p>
+</div>
+<p>We hebben dit verband benaderd met de functie <span class="math inline">\(y= a + bx\)</span> voor onbekende waarden van <span class="math inline">\(a\)</span> en <span class="math inline">\(b\)</span>. De functie bepaalt de meest waarschijnlijke waarden voor deze parameters. Hierover leer je meer in een latere portfolio-opdracht.</p>
+<p>We gebruiken deze functie en plotten de lijn met de parameterwaarden die hieruit komen.</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(pH_gemeten <span class="sc">~</span> x)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, pH_gemeten, <span class="at">xlab =</span> <span class="st">"log10([Z-]/[HZ])"</span>, <span class="at">ylab =</span> <span class="st">"pH"</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
 <div>
-<div id="webr-9" class="exercise-cell">
-
-</div>
-<script type="webr-9-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoibW9kZWwgPC0gbG0ocEhfZ2VtZXRlbiB+IHgpXG5cbnBsb3QoeCwgcEhfZ2VtZXRlbiwgeGxhYiA9IFwibG9nMTAoW1otXS9bSFpdKVwiLCB5bGFiID0gXCJwSFwiKVxuYWJsaW5lKG1vZGVsKSJ9
-</script>
+<figure class="figure">
+<p><img src="Port_logpH_Pract_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
-<p><strong>Vraag 5:</strong> Waarom geeft het schatten van de pKz uit een lijn door meerdere punten waarschijnlijk een betrouwbaardere waarde dan het berekenen van de pKz uit slechts één meting?</p>
+</div>
+<div id="exr-pKz_lijn" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag B.10</strong></span> Waarom geeft het schatten van de pKz uit een lijn door meerdere punten waarschijnlijk een betrouwbaardere waarde dan het berekenen van de pKz uit slechts één meting?</p>
+</div>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p>Denk aan het statistiekportfolio! Wat was bij de vorige opdracht de meerwaarde van een grotere steekproefgrootte?</p>
-</div></div><p><strong>Vraag 6:</strong> Je hebt nu nog een nuttige eigenschap van de logaritme gezien. Beschrijf deze eigenschap in eigen woorden, en leg uit hoe we deze kunnen toepassen in practica.</p>
+</div></div><div id="exr-eig_log" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag B.11</strong></span> Je hebt nu nog een nuttige eigenschap van de logaritme gezien. Beschrijf deze eigenschap in eigen woorden, en leg uit hoe we deze kunnen toepassen in practica.</p>
+</div>
 <!-- Zoals in de introductie van dit portfolio beschreven, zullen onderdelen uit dit portfolio gekoppeld worden aan practicumopdrachten. Voor dit portfolio-onderdeel hoef je nog niet zelf een hoofdstuk toe te voegen aan het portfoliobestand, zoals dat later wel zal moeten. Met deze app oefen je op een laagdrempelige manier met de logica achter coderen. Je kunt de berekeningen die je hierbij uitvoert ook gebruiken bij het schrijven van je labjournaal. -->
 <!-- # ```{r, echo = FALSE} -->
 <!-- # # Verander hier niks aan! -->
@@ -603,38 +648,10 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoibW9kZWwgPC0gbG0ocEhfZ2Vt
 <!-- # ``` -->
 
 
-<script type="webr-data">
-eyJvcHRpb25zIjp7ImJhc2VVcmwiOiJodHRwczovL3dlYnIuci13YXNtLm9yZy92MC42LjAvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsiZXZhbHVhdGUiLCJrbml0ciIsImh0bWx0b29scyJdLCJyZXBvcyI6W119LCJyZW5kZXJfZGYiOiJkZWZhdWx0In0=
-</script>
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC05IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV85O1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItOSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzkgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici05LWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItOS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV85ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl85LCB7fSk7XG4ifSx7ImNlbGxOYW1lIjoid2Vici13aWRnZXQtOCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfODtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLTgiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF93ZWJyX2VkaXRvcl84ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItOC1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKHsgaWQ6IGB3ZWJyLTgtY29udGVudHNgIH0sIGJsb2NrLmF0dHIpO1xuICBjb25zdCBlZGl0b3IgPSBuZXcgV2ViUkV4ZXJjaXNlRWRpdG9yKHdlYlJPanMud2ViUlByb21pc2UsIGJsb2NrLmNvZGUsIG9wdGlvbnMpO1xuXG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxuX3dlYnJfdmFsdWVfOCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfOCwge30pO1xuIn0seyJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTciLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzc7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici03IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfNyA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTctY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici03LWNvbnRlbnRzYCB9LCBibG9jay5hdHRyKTtcbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl93ZWJyX3ZhbHVlXzcgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzcsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC02IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV82O1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItNiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzYgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici02LWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItNi1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV82ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl82LCB7fSk7XG4ifSx7ImNlbGxOYW1lIjoid2Vici13aWRnZXQtNSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfNTtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLTUiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF93ZWJyX2VkaXRvcl81ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItNS1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKHsgaWQ6IGB3ZWJyLTUtY29udGVudHNgIH0sIGJsb2NrLmF0dHIpO1xuICBjb25zdCBlZGl0b3IgPSBuZXcgV2ViUkV4ZXJjaXNlRWRpdG9yKHdlYlJPanMud2ViUlByb21pc2UsIGJsb2NrLmNvZGUsIG9wdGlvbnMpO1xuXG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxuX3dlYnJfdmFsdWVfNSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfNSwge30pO1xuIn0seyJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTQiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzQ7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici00IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfNCA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTQtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici00LWNvbnRlbnRzYCB9LCBibG9jay5hdHRyKTtcbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl93ZWJyX3ZhbHVlXzQgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzQsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0zIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8zO1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItMyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzMgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici0zLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItMy1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8zID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8zLCB7fSk7XG4ifSx7ImNlbGxOYW1lIjoid2Vici13aWRnZXQtMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMjtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLTIiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF93ZWJyX2VkaXRvcl8yID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMi1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKHsgaWQ6IGB3ZWJyLTItY29udGVudHNgIH0sIGJsb2NrLmF0dHIpO1xuICBjb25zdCBlZGl0b3IgPSBuZXcgV2ViUkV4ZXJjaXNlRWRpdG9yKHdlYlJPanMud2ViUlByb21pc2UsIGJsb2NrLmNvZGUsIG9wdGlvbnMpO1xuXG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxuX3dlYnJfdmFsdWVfMiA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMiwge30pO1xuIn0seyJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTEiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzE7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfMSA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTEtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xLWNvbnRlbnRzYCB9LCBibG9jay5hdHRyKTtcbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl93ZWJyX3ZhbHVlXzEgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzEsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXByZWx1ZGUiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ3ZWJST2pzID0ge1xuICBjb25zdCB7IFdlYlIsIENoYW5uZWxUeXBlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lLldlYlI7XG4gIGNvbnN0IHtcbiAgICBXZWJSRXZhbHVhdG9yLFxuICAgIFdlYlJFbnZpcm9ubWVudE1hbmFnZXIsXG4gICAgc2V0dXBSLFxuICAgIGI2NERlY29kZSxcbiAgICBjb2xsYXBzZVBhdGhcbiAgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG5cbiAgY29uc3Qgc3RhdHVzQ29udGFpbmVyID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJleGVyY2lzZS1sb2FkaW5nLXN0YXR1c1wiKTtcbiAgY29uc3QgaW5kaWNhdG9yQ29udGFpbmVyID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJleGVyY2lzZS1sb2FkaW5nLWluZGljYXRvclwiKTtcbiAgaW5kaWNhdG9yQ29udGFpbmVyLmNsYXNzTGlzdC5yZW1vdmUoXCJkLW5vbmVcIik7XG5cbiAgbGV0IHN0YXR1c1RleHQgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiZGl2XCIpXG4gIHN0YXR1c1RleHQuY2xhc3NMaXN0ID0gXCJleGVyY2lzZS1sb2FkaW5nLWRldGFpbHNcIjtcbiAgc3RhdHVzVGV4dCA9IHN0YXR1c0NvbnRhaW5lci5hcHBlbmRDaGlsZChzdGF0dXNUZXh0KTtcbiAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBJbml0aWFsaXNlYDtcblxuICAvLyBIb2lzdCBpbmRpY2F0b3Igb3V0IGZyb20gZmluYWwgc2xpZGUgd2hlbiBydW5uaW5nIHVuZGVyIHJldmVhbFxuICBjb25zdCByZXZlYWxTdGF0dXMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnJldmVhbCAuZXhlcmNpc2UtbG9hZGluZy1pbmRpY2F0b3JcIik7XG4gIGlmIChyZXZlYWxTdGF0dXMpIHtcbiAgICByZXZlYWxTdGF0dXMucmVtb3ZlKCk7XG4gICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5yZXZlYWwgPiAuc2xpZGVzXCIpLmFwcGVuZENoaWxkKHJldmVhbFN0YXR1cyk7XG4gIH1cblxuICAvLyBNYWtlIGFueSByZXZlYWwgc2xpZGVzIHdpdGggbGl2ZSBjZWxscyBzY3JvbGxhYmxlXG4gIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoXCIucmV2ZWFsIC5leGVyY2lzZS1jZWxsXCIpLmZvckVhY2goKGVsKSA9PiB7XG4gICAgZWwuY2xvc2VzdCgnc2VjdGlvbi5zbGlkZScpLmNsYXNzTGlzdC5hZGQoXCJzY3JvbGxhYmxlXCIpO1xuICB9KVxuXG4gIC8vIHdlYlIgc3VwcGxlbWVudGFsIGRhdGEgYW5kIG9wdGlvbnNcbiAgY29uc3QgZGF0YUNvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici1kYXRhXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgZGF0YSA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKGRhdGFDb250ZW50KSk7XG5cbiAgLy8gR3JhYiBsaXN0IG9mIHJlc291cmNlcyB0byBiZSBkb3dubG9hZGVkXG4gIGNvbnN0IGZpbGVzQ29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ2ZnMtZmlsZVxcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGZpbGVzID0gSlNPTi5wYXJzZShiNjREZWNvZGUoZmlsZXNDb250ZW50KSk7XG5cbiAgLy8gSW5pdGlhbGlzZSB3ZWJSIGFuZCBzZXR1cCBmb3IgUiBjb2RlIGV2YWx1YXRpb25cbiAgbGV0IHdlYlJQcm9taXNlID0gKGFzeW5jICh3ZWJSKSA9PiB7XG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyB3ZWJSYDtcbiAgICBhd2FpdCB3ZWJSLmluaXQoKTtcblxuICAgIC8vIEluc3RhbGwgcHJvdmlkZWQgbGlzdCBvZiBwYWNrYWdlc1xuICAgIC8vIEVuc3VyZSB3ZWJSIGRlZmF1bHQgcmVwbyBpcyBpbmNsdWRlZFxuICAgIGRhdGEucGFja2FnZXMucmVwb3MucHVzaChcImh0dHBzOi8vcmVwby5yLXdhc20ub3JnXCIpXG4gICAgYXdhaXQgZGF0YS5wYWNrYWdlcy5wa2dzLm1hcCgocGtnKSA9PiAoKSA9PiB7XG4gICAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHBhY2thZ2U6ICR7cGtnfWA7XG4gICAgICByZXR1cm4gd2ViUi5ldmFsUlZvaWQoYFxuICAgICAgICB3ZWJyOjppbnN0YWxsKHBrZywgcmVwb3MgPSByZXBvcylcbiAgICAgICAgbGlicmFyeShwa2csIGNoYXJhY3Rlci5vbmx5ID0gVFJVRSlcbiAgICAgIGAsIHsgZW52OiB7XG4gICAgICAgIHBrZzogcGtnLFxuICAgICAgICByZXBvczogZGF0YS5wYWNrYWdlcy5yZXBvcyxcbiAgICAgIH19KTtcbiAgICB9KS5yZWR1Y2UoKGN1ciwgbmV4dCkgPT4gY3VyLnRoZW4obmV4dCksIFByb21pc2UucmVzb2x2ZSgpKTtcblxuICAgIC8vIERvd25sb2FkIGFuZCBpbnN0YWxsIHJlc291cmNlc1xuICAgIGF3YWl0IGZpbGVzLm1hcCgoZmlsZSkgPT4gYXN5bmMgKCkgPT4ge1xuICAgICAgY29uc3QgbmFtZSA9IGZpbGUuc3Vic3RyaW5nKGZpbGUubGFzdEluZGV4T2YoJy8nKSArIDEpO1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyByZXNvdXJjZTogJHtuYW1lfWA7XG4gICAgICBjb25zdCByZXNwb25zZSA9IGF3YWl0IGZldGNoKGZpbGUpO1xuICAgICAgaWYgKCFyZXNwb25zZS5vaykge1xuICAgICAgICB0aHJvdyBuZXcgRXJyb3IoYENhbid0IGRvd25sb2FkIFxcYCR7ZmlsZX1cXGAuIEVycm9yICR7cmVzcG9uc2Uuc3RhdHVzfTogXCIke3Jlc3BvbnNlLnN0YXR1c1RleHR9XCIuYCk7XG4gICAgICB9XG4gICAgICBjb25zdCBkYXRhID0gYXdhaXQgcmVzcG9uc2UuYXJyYXlCdWZmZXIoKTtcblxuICAgICAgLy8gU3RvcmUgVVJMcyBpbiB0aGUgY3dkIHdpdGhvdXQgYW55IHN1YmRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGlmIChmaWxlLmluY2x1ZGVzKFwiOi8vXCIpKSB7XG4gICAgICAgIGZpbGUgPSBuYW1lO1xuICAgICAgfVxuXG4gICAgICAvLyBDb2xsYXBzZSBoaWdoZXIgZGlyZWN0b3J5IHN0cnVjdHVyZVxuICAgICAgZmlsZSA9IGNvbGxhcHNlUGF0aChmaWxlKTtcblxuICAgICAgLy8gQ3JlYXRlIGRpcmVjdG9yeSB0cmVlLCBpZ25vcmluZyBcImRpcmVjdG9yeSBleGlzdHNcIiBWRlMgZXJyb3JzXG4gICAgICBjb25zdCBwYXJ0cyA9IGZpbGUuc3BsaXQoJy8nKS5zbGljZSgwLCAtMSk7XG4gICAgICBsZXQgcGF0aCA9ICcnO1xuICAgICAgd2hpbGUgKHBhcnRzLmxlbmd0aCA+IDApIHtcbiAgICAgICAgcGF0aCArPSBwYXJ0cy5zaGlmdCgpICsgJy8nO1xuICAgICAgICBjb25zdCBhbmFseXNpcyA9IGF3YWl0IHdlYlIuRlMuYW5hbHl6ZVBhdGgocGF0aCk7XG4gICAgICAgIGlmICghYW5hbHlzaXMuZXhpc3RzKSB7XG4gICAgICAgICAgdHJ5IHtcbiAgICAgICAgICAgIGF3YWl0IHdlYlIuRlMubWtkaXIocGF0aCk7XG4gICAgICAgICAgfSBjYXRjaCAoZSkge1xuICAgICAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBGaWxlc3lzdGVtIEVycm9yOiBcIiR7ZS5tZXNzYWdlfVwiLmApO1xuICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgfVxuXG4gICAgICAvLyBXcml0ZSB0aGlzIGZpbGUgdG8gdGhlIFZGU1xuICAgICAgcmV0dXJuIGF3YWl0IHdlYlIuRlMud3JpdGVGaWxlKGZpbGUsIG5ldyBVaW50OEFycmF5KGRhdGEpKTtcbiAgICB9KS5yZWR1Y2UoKGN1ciwgbmV4dCkgPT4gY3VyLnRoZW4obmV4dCksIFByb21pc2UucmVzb2x2ZSgpKTtcblxuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgSW5zdGFsbGluZyB3ZWJSIHNoaW1zYDtcbiAgICBhd2FpdCB3ZWJSLmV2YWxSVm9pZChgd2Vicjo6c2hpbV9pbnN0YWxsKClgKTtcblxuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgV2ViUiBlbnZpcm9ubWVudCBzZXR1cGA7XG4gICAgYXdhaXQgc2V0dXBSKHdlYlIsIGRhdGEpO1xuXG4gICAgc3RhdHVzVGV4dC5yZW1vdmUoKTtcbiAgICBpZiAoc3RhdHVzQ29udGFpbmVyLmNoaWxkcmVuLmxlbmd0aCA9PSAwKSB7XG4gICAgICBzdGF0dXNDb250YWluZXIucGFyZW50Tm9kZS5yZW1vdmUoKTtcbiAgICB9XG4gICAgcmV0dXJuIHdlYlI7XG4gIH0pKG5ldyBXZWJSKGRhdGEub3B0aW9ucykpO1xuXG4gIC8vIEtlZXAgdHJhY2sgb2YgaW5pdGlhbCBPSlMgYmxvY2sgcmVuZGVyXG4gIGNvbnN0IHJlbmRlcmVkT2pzID0ge307XG5cbiAgY29uc3QgcHJvY2VzcyA9IGFzeW5jIChjb250ZXh0LCBpbnB1dHMpID0+IHtcbiAgICBjb25zdCB3ZWJSID0gYXdhaXQgd2ViUlByb21pc2U7XG4gICAgY29uc3QgZXZhbHVhdG9yID0gbmV3IFdlYlJFdmFsdWF0b3Iod2ViUiwgY29udGV4dClcbiAgICBhd2FpdCBldmFsdWF0b3IucHJvY2VzcyhpbnB1dHMpO1xuICAgIHJldHVybiBldmFsdWF0b3IuY29udGFpbmVyO1xuICB9XG5cbiAgcmV0dXJuIHtcbiAgICBwcm9jZXNzLFxuICAgIHdlYlJQcm9taXNlLFxuICAgIHJlbmRlcmVkT2pzLFxuICB9O1xufVxuIn1dfQ==
-</script>
-<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
-<div id="exercise-loading-status" class="d-flex gap-2">
-
-</div>
-<div class="spinner-grow spinner-grow-sm">
-
-</div>
-</div>
-<script type="vfs-file">
-W10=
-</script>
 </section>
 </section>
 
 </main> <!-- /main -->
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W119
-</script>
-<script type="module">
-if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-window._ojs.paths.runtimeToDoc = "../..";
-window._ojs.paths.runtimeToRoot = "../..";
-window._ojs.paths.docToRoot = "";
-window._ojs.selfContained = false;
-window._ojs.runtime.interpretFromScriptTags();
-</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1042,8 +1059,8 @@ window._ojs.runtime.interpretFromScriptTags();
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./bradford_statistiek.html" class="pagination-link" aria-label="Bradford-test: statistiek en lineaire modellen">
-        <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Bradford-test: statistiek en lineaire modellen</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./bradford_statistiek.html" class="pagination-link" aria-label="Bradford-test: statistiek, vectoren en lineaire modellen">
+        <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Bradford-test: statistiek, vectoren en lineaire modellen</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

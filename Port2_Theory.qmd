@@ -1,9 +1,5 @@
----
-title: "Stochastische variabelen, kansverdelingen en entropie"
-author: ""
-format: html
-editor: visual
----
+# Stochastische variabelen, kansverdelingen en entropie {#sec-stoch}
+
 
 ## Onzekerheid.
 
@@ -23,7 +19,9 @@ Jullie hebben de resultaten van jullie metingen ingevoerd in het online formulie
 # code die een histogram geeft van de chi^2 waarden
 ```
 
-**Vraag 1:** Leg uit waarom niet alle $\chi^2$-waarden dezelfde waarde hebben.
+::: {#exr-chi2_waarden}
+Leg uit waarom niet alle $\chi^2$-waarden dezelfde waarde hebben.
+:::
 
 **Jouw antwoord:**
 
@@ -59,7 +57,8 @@ Er bestaan verschillen maten in de statistiek welke de hoeveelheid onzekerheid k
 
 De entropie van een discrete kansverdeling zoals voor biodiversiteit en positie-specifieke entropie wordt gedefinieerd als:
 
-$$H(p) = -\sum_i p_i \log(p_i)$$
+
+$$H(p) = -\sum_i p_i \log(p_i)$$ {#eq-entropie-def}
 
 waarbij $p_i$ de kans is op uitkomst $i$.
 
@@ -69,7 +68,9 @@ Een hoge entropie wijst op grote onzekerheid. Dit treedt op wanneer de kansen re
 
 Een lage entropie wijst op minder onzekerheid. Dit treedt op wanneer kansen geconcentreerd zijn rond één of enkele uitkomsten. Bijvoorbeeld een oneerlijke dobbelsteen met een grotere kans op een 6.
 
-**Vraag 2:** Leg uit dat we voor concepten als maten van verrast zijn of onverwacht, entropie als maat zou kunnen fungeren.
+::: {#exr-entropie_uitleg}
+Leg uit dat we voor concepten als maten van verrast zijn of onverwacht, entropie als maat zou kunnen fungeren.
+:::
 
 **Jouw antwoord:**
 
@@ -81,11 +82,15 @@ De betekenis van entropie hangt af van het toepassingsgebied:
 2.  in de **natuurkunde**, met name de thermodynamica, is entropie een maat voor wanorde en bepaald daarme via de weten van de tgheormdynamica de richting van een process;
 3.  in de **sociale wetenschappen** en economie kan entropie worden gebruikt als maat voor economische of sociale ongelijkheid.
 
-**Vraag 3:** Leg uit waarom zou entropie een maat zijn voor kunnen zijn voor ongelijkheid in punt 3. Wordt de waarden van de entropie groter of kleiner bij ongelijkheid?
+::: {#exr-entropie_sociaal}
+Leg uit waarom zou entropie een maat zijn voor kunnen zijn voor ongelijkheid in punt 3. Wordt de waarden van de entropie groter of kleiner bij ongelijkheid?
+:::
 
 **Jouw antwoord:**
 
-**Vraag 4**: Leg uit waarom zou entropie dan een maat zijn voor biodiversiteit? Heeft een hogere biodiversiteit een kleinere of grotere entropie?
+::: {#exr-entropie_biodiv}
+Leg uit waarom zou entropie dan een maat zijn voor biodiversiteit? Heeft een hogere biodiversiteit een kleinere of grotere entropie?
+:::
 
 **Jouw antwoord:**
 
@@ -109,23 +114,33 @@ soort 6:   A  T  G  A  A  G  T
 
 Bekijk de kolommen (posities) van boven naar beneden, niet de rijen. Elke kolom vertelt hoe gevarieerd die positie is over de zes soorten.
 
-**Vraag 5:** Op welke posities staat bij alle soorten dezelfde bouwsteen? En op welke positie verschillen de soorten het sterkst? Beschrijf in woorden.
+::: {#exr-tabel_pos}
+Op welke posities staat bij alle soorten dezelfde bouwsteen? En op welke positie verschillen de soorten het sterkst? Beschrijf in woorden.
+:::
 
 > jouw antwoord:
 
-**Vraag 6:** Stel je sluit je ogen en iemand wijst een willekeurige soort aan. Bij welke positie kun je met zekerheid voorspellen welke bouwsteen daar staat, nog vóór je kijkt? Bij welke positie is dat vrijwel onmogelijk? Koppel je antwoord aan het begrip *verrassing*.
+::: {#exr-tabel_verassing}
+Stel je sluit je ogen en iemand wijst een willekeurige soort aan. Bij welke positie kun je met zekerheid voorspellen welke bouwsteen daar staat, nog vóór je kijkt? Bij welke positie is dat vrijwel onmogelijk? Koppel je antwoord aan het begrip *verrassing*.
+:::
 
 > jouw antwoord:
 
-**Vraag 7:** Leg uit welke positie de hoogste entropie heeft en welke de laagste. Gebruik daarbij dat entropie alleen afhangt van hoe de bouwstenen over de soorten verdeeld zijn — niet van wélke bouwsteen het is.
+::: {#exr-tabel_entropie}
+Leg uit welke positie de hoogste entropie heeft en welke de laagste. Gebruik daarbij dat entropie alleen afhangt van hoe de bouwstenen over de soorten verdeeld zijn — niet van wélke bouwsteen het is.
+:::
 
 > jouw antwoord:
 
-**Vraag 8:** Een positie die bij alle soorten identiek is, is door de evolutie heen nauwelijks veranderd. Bedenk een biologische reden waarom juist die posities niet mogen veranderen, terwijl andere posities vrij kunnen variëren.
+::: {#exr-pos_ident}
+Een positie die bij alle soorten identiek is, is door de evolutie heen nauwelijks veranderd. Bedenk een biologische reden waarom juist die posities niet mogen veranderen, terwijl andere posities vrij kunnen variëren.
+:::
 
 > jouw antwoord:
 
-**Vraag 9 (evo-devo):** De genen die de vroege ontwikkeling van een lichaam sturen, behoren tot de meest geconserveerde in het hele dierenrijk: dieren die honderden miljoenen jaren geleden een gemeenschappelijke voorouder deelden, hebben op die posities nog steeds dezelfde bouwstenen. Wat zegt lage entropie op die posities over het belang van die genen voor de ontwikkeling? En waarom is lage entropie hier een spoor van diepe verwantschap tussen soorten?
+::: {#exr-entropie_evo}
+De genen die de vroege ontwikkeling van een lichaam sturen, behoren tot de meest geconserveerde in het hele dierenrijk: dieren die honderden miljoenen jaren geleden een gemeenschappelijke voorouder deelden, hebben op die posities nog steeds dezelfde bouwstenen. Wat zegt lage entropie op die posities over het belang van die genen voor de ontwikkeling? En waarom is lage entropie hier een spoor van diepe verwantschap tussen soorten?
+:::
 
 > jouw antwoord:
 
@@ -167,7 +182,9 @@ Er is dus geen paradox: het gaat om twee verschillende termen, die onafhankelijk
 
 **Canalisatie** is het vermogen van de ontwikkeling om, ondanks variatie in genotype of omgeving, steeds hetzelfde fenotype voort te brengen.
 
-**Vraag 10:** Welke van de twee termen wordt beïnvloed door canalisatie, en welke door het ontstaan van nieuwe soorten? Kan $𝐻(fenotype)=𝐻(soort)+𝐻(fenotype∣soort)$ gelijk blijven terwijl beide termen veranderen?
+::: {#exr-entropie_canal}
+Welke van de twee termen wordt beïnvloed door canalisatie, en welke door het ontstaan van nieuwe soorten? Kan $𝐻(fenotype)=𝐻(soort)+𝐻(fenotype∣soort)$ gelijk blijven terwijl beide termen veranderen?
+:::
 
 **Jouw antwoord:**
 

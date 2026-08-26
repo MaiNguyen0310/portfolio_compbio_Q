@@ -1,10 +1,10 @@
 # Het portfolio {.unnumbered}
 
-Welkom aan de universiteit. Jullie stappen een nieuwe fase binnen, een omgeving waarin kennis niet alleen wordt overgedragen, maar voortdurend wordt bevraagd, verdiept, vernieuwd en uitgebreid. Hier gaat het niet alleen om leren wat bekend is, zoals op de middelbare school, maar om zelfstandig denken, vragen stellen en nieuwe verbanden leggen. Je ontwikkelt niet alleen kennis, maar ook een manier van kijken: kritisch, analytisch en onderzoekend.
+Welkom aan de universiteit. Jullie stappen een nieuwe fase binnen, een omgeving waarin kennis niet alleen wordt overgedragen, maar voortdurend wordt onderzocht, bevraagd, verdiept, vernieuwd en uitgebreid. Hier gaat het niet alleen om leren wat bekend is, zoals op de middelbare school, maar om zelfstandig denken, vragen stellen en nieuwe verbanden leggen. Je ontwikkelt niet alleen kennis, maar ook een manier van kijken: kritisch, analytisch en onderzoekend.
 
-Dat maakt deze fase zowel inspirerend als uitdagend. Je krijgt meer vrijheid om je eigen pad te vormen, je interesses te volgen en je stem te ontwikkelen binnen een vakgebied. Tegelijk vraagt dat iets van je: nieuwsgierigheid, discipline, zelfstandigheid en verantwoordelijkheid voor je eigen leerproces en je medestudenten.
+Dat maakt deze fase zowel inspirerend als uitdagend. Je krijgt meer vrijheid om je eigen pad te vormen, je interesses te volgen en nieuwe te ontdekken en je stem te ontwikkelen binnen een vakgebied. Tegelijk vraagt dat iets van je: nieuwsgierigheid, discipline, zelfstandigheid en verantwoordelijkheid voor je eigen leerproces en je medestudenten.
 
-Zie deze periode niet alleen als een studie, maar als het begin van een academische houding, een manier van denken en werken die je vormt, ongeacht waar je daarna terechtkomt.
+Zie deze periode niet alleen als een studie, maar als het begin van de ontwikkeling van een academische houding, een manier van denken en werken die je vormt, ongeacht waar je daarna terechtkomt.
 
 De opdrachten in deze wiskunde, informatica en statistiek portfolio vormen een essentieel fundament binnen die academische vorming. Wiskunde, statistiek en informatica zijn daarbij geen bijzaken, maar basisinstrumenten van de moderne biologie. Ze stellen je in staat data te analyseren, patronen te herkennen en onderliggende structuren te doorgronden. Wie deze vaardigheden ontwikkelt, legt de basis om niet alleen kennis te volgen, maar ook nieuwe inzichten te ontdekken en bij te dragen aan de wetenschap en maatschappij.
 
@@ -13,39 +13,80 @@ De opdrachten in deze wiskunde, informatica en statistiek portfolio vormen een e
 Binnen de levenswetenschappen spelen kwantitatieve en computationele methoden een steeds belangrijkere rol. Denk bijvoorbeeld aan:
 
 - Statistische analyse van experimentele data: het ontwerpen, analyseren en kritisch interpreteren van experimenten, zodat resultaten betrouwbaar zijn en betekenisvolle conclusies kunnen worden getrokken.
-- Bio-informatica voor het analyseren van grootschalige biologische datasets (zoals DNA, RNA en eiwitten), waarbij met behulp van computationele methoden patronen en verbanden in complexe gegevens worden onderzocht.
+- Bio-informatica voor het analyseren van grootschalige biologische databases (genomics, metabolomics, microbiomics, ...), waarbij met behulp van computationele methoden patronen en verbanden in complexe gegevens worden onderzocht.
 - Systeembiologie voor het integreren van complexe biologische processen: het modelleren en begrijpen van interacties tussen componenten op verschillende afstand en tijdschalen binnen de biologie om het gedrag van het geheel te doorgronden.
 
-Dit zijn precies de domeinen waarin hedendaagse doorbraken plaatsvinden.
+Dit zijn precies de domeinen waarin veel hedendaagse doorbraken plaatsvinden.
 
 ## Werken met echte complexiteit
 
-In de bio-informatica worden grote hoeveelheden data geanalyseerd, zoals genomische en metabolomische datasets. Dit vereist niet alleen technische vaardigheden, maar ook een analytische manier van denken.
+In de bio-informatica worden grote hoeveelheden data geanalyseerd, zoals genomische en metabolomische datasets. Dit vereist niet alleen technische vaardigheden, maar ook een analytische manier van denken. Een script in R of Python schrijven en uitvoeren is namelijk niet genoeg: de computer voert elke analyse gehoorzaam uit, ook een analyse die statistisch niet klopt. Om te beoordelen of een uitkomst betrouwbaar is, moet je de onderliggende wiskunde en statistiek begrijpen, en vooral de aannamen die daaraan gekoppeld zijn. Je hoeft die wiskunde niet te beheersen zoals een wiskundige dat doet, maar wel goed genoeg om te weten wat je met een methode wel en niet mag doen.
 
-Daarnaast worden ook ecologische en evolutionaire systemen bestudeerd, vaak met behulp van computationele modellen. Jullie leren dus niet alleen technieken, maar ook hoe je complexe systemen begrijpt en beschrijft.
+Dat inzicht is des te belangrijker omdat biologische systemen zich vaak gedragen als een black box: we zien wat erin gaat en wat eruit komt, maar de binnenkant, en de daaruit voortvloeiende data, is te complex om volledig te overzien. Een model is daarom altijd een vereenvoudiging, we vangen een complex systeem in een eenvoudige vorm die we wel kunnen begrijpen, terwijl we de volle complexiteit nooit helemaal kunnen zien of ervaren. Die vereenvoudiging is de kracht van modelleren, maar ook de valkuil: een model is alleen betrouwbaar zolang de statistische en wiskundige aannamen erachter redelijk zijn. Wie de aannamen kent, weet waar het model ophoudt en de werkelijkheid begint.
+
+Daarnaast worden ook ecologische en evolutionaire systemen bestudeerd, vaak met behulp van computationele modellen. Daarbij zal jullie iets opvallen dat als rode draad door dit portfolio loopt: van de kleinste moleculaire schaal tot grote ruimte- en tijdschalen keren dezelfde wiskundige bouwstenen terug, telkens anders geïnterpreteerd. Jullie leren dus niet alleen technieken, maar ook hoe je complexe systemen begrijpt en beschrijft vanuit een abstracte taal.
 
 ## Systeembiologie en modellering
 
-Systeembiologie probeert verschillende informatieniveaus te integreren in formele modellen. Dit vraagt:
+Systeembiologie probeert verschillende informatieniveaus te integreren in formele modellen, gebruikmakend van deze abstracte taal. Waar een enkel experiment vaak één component belicht, gaat het hier om het samenspel: hoe genen, eiwitten en cellen en organismen en omgeving in de ecologie, samen een gedrag voortbrengen dat je uit de losse onderdelen niet kunt afleiden. Om dit goed te beheersen vraagt dit:
 
 - Abstract en logisch denken
 - Het kunnen werken met wiskundige structuren
 - Het interpreteren van modellen en simulaties
 
-Dit zijn vaardigheden die kenmerkend zijn voor het moderne academisch denken.
+Dit zijn vaardigheden die kenmerkend zijn voor het moderne academisch denken. Maar ook buiten de biologie zijn ze belangrijk en onderscheidend: wie een probleem kan terugbrengen tot zijn essentie, aannamen kan expliciteren en modellen kritisch kan lezen, heeft een manier van denken die in vrijwel elk vakgebied waardevol is.
 
 ## Hoe jullie dit gaan leren
 
 We zijn ons ervan bewust dat deze overgang uitdagend is. Daarom is het curriculum bewust opgebouwd in stappen, waarbij herhaling en stapsgewijze verdieping centraal staan.
 
-In deze contact bestaat de opbouw van het eerste jaar bestaat uit:
+In deze context bestaat de opbouw van het eerste jaar bestaat uit:
 
 - Portfolio-opdrachten (eerste semester)
-- Het vak Statistiek 1\
+- Het vak Statistiek 1
 - Portfolio-opdrachten (tweede semester)
 - Het vak Computationele Biologie
 
 Door deze structuur krijgen jullie de tijd om concepten te analyseren, doorgronden en begrijpen, toe te passen en uiteindelijk te beheersen.
+
+```{r, echo=F, warning=F, message=F}
+library(gt)
+
+data.frame(
+  Hoofdstuk = c("1", "2", "3", "4", "5", "6"),
+  Onderwerp = c("Stochastische variabelen, kansverdelingen & entropie",
+                "Logaritmes en exponenten",
+                "Lineaire regressie: vectoren en projectie",
+                "Differentiaalvergelijkingen",
+                "Wiskunde van de standaardfout",
+                "Gentetische drift"),
+  Practicum = c("Appendix A: Maïszaden practicum (Basisgenetica)",
+                "Appendix B: pH-berekeningen (Chemie van het Leven)",
+                "Appendix C: Bradford-test (Celfysiologie)",
+                "—",
+                "Appendix D: Sepia mantel en de t-test",
+                "_"),
+  `Kernbegrippen` = c(
+    "Onzekerheid, kansverdelingen, χ²-test, entropie",
+    "Logaritme- en machtsregels, allometrische schaling, log-log-relaties",
+    "Lineaire regressie, aannames, variabelen, parameters",
+    "Lineaire groei, exponentiële groei, logistische groei, draagkracht",
+    "Standaardfout, variantie-optelling, (co)variantiematrix",
+    "Stochastische variabelen, binomiale verdeling, verwachting en variantie, drift versus selectie"
+  )
+) |>
+  gt() |>
+  tab_header(title = "Portfolio-onderdelen") |>
+  cols_align(align = "left") |>
+  tab_options(
+    table.font.size = 14,
+    column_labels.font.weight = "bold",
+    table.background.color = "white"
+  ) |>
+  opt_row_striping()
+```
+
+Daarbij introduceren we R in de hoofdstukken 1 en 2 als een rekenmachine, en in hoofdstuk 3 als gereedschap voor een statistische analyse. In deze hoofdstukken is de R-code vaak al gegeven, of hoeven jullie hem alleen aan te passen. De hoofdstukken 4 tot en met 6 volgen na de cursus Statistiek 1; vanaf dat punt gaan we ervan uit dat jullie voldoende R beheersen om zelf code te schrijven.
 
 ## Wat er van jullie verwacht wordt
 
@@ -61,8 +102,8 @@ Dit is geen passieve studie: het is een actieve ontwikkeling richting academisch
 
 Binnen de beschikbare tijd kunnen we deze onderwerpen maar tot een bepaalde diepgang behandelen. Merk je dat je nieuwsgierig bent naar meer, of dat een onderwerp je echt heeft gegrepen? Dan nodigen we je van harte uit om deel te nemen aan het portfolio-ontwikkelproject.
 
-In dit project gaan we samen de diepte in: er is ruimte om verder te verkennen, vragen te stellen en ideeën uit te wisselen. We organiseren hiervoor bijeenkomsten van één à twee uur, voorafgaande aan de LBC-tabbeurt in de fusie. Na afloop is er ruimte om informeel door te praten.
+In dit project gaan we samen de diepte in: er is ruimte om verder te verkennen, vragen te stellen en ideeën uit te wisselen. We organiseren hiervoor bijeenkomsten van één uur, voorafgaande aan de LBC-tabbeurt in de fusie. Na afloop is er ruimte om informeel door te praten in de fusie.
 
 Voor dit project worden geen studiepunten toegekend, deelname komt dus volledig voort uit je eigen interesse en motivatie om je verder te verdiepen.
 
-Lijkt je dit interessant? Meld je dan aan via: …
+Lijkt je dit interessant? Meld je dan aan via: TBA

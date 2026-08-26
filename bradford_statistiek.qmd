@@ -1,4 +1,4 @@
-# Bradford-test: statistiek, vectoren en lineaire modellen
+# Bradford-test: statistiek, vectoren en lineaire modellen {#sec-bradford}
 
 In de eerste portfolio-opdracht gebruikten we het concept van entropie om toenemende complexiteit in de biologie te duiden. In de tweede opdracht zagen we dat een rechte lijn de relatie tussen metabolische snelheid en massa goed kon beschrijven. Vandaag gebruiken we de Bradford-test om statistiek toe te passen en een ijklijn te maken. Daarbij komen beide concepten opnieuw samen.
 
@@ -72,10 +72,7 @@ cor(abs, conc, method = "spearman")
 
 Formeel is de Pearson correlatie beschreven als,
 
-$$
-r = \frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}
-{\sqrt{\sum_{i=1}^{n}(x_i-\bar{x})^2}\sqrt{\sum_{i=1}^{n}(y_i-\bar{y})^2}}
-$$
+$$r = \frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^{n}(x_i-\bar{x})^2}\sqrt{\sum_{i=1}^{n}(y_i-\bar{y})^2}}$$
 
 waarbij $x_i$ hier de gemeten concentraties en $y_i$ absorbanties zijn, en $\bar{x}$ en $\bar{y}$ hun gemiddelden.
 
@@ -239,9 +236,9 @@ model <- lm(abs ~ conc)
 
 Hierbij betekent:
 
--   `lm()` staat voor *linear model*;
--   `abs ~ conc` betekent dat de datavector `abs` wordt gemodelleerd als functie van de datavector `conc`;
--   `model` is het object waarin R de resultaten van de regressie opslaat.
+- `lm()` staat voor *linear model*;
+- `abs ~ conc` betekent dat de datavector `abs` wordt gemodelleerd als functie van de datavector `conc`;
+- `model` is het object waarin R de resultaten van de regressie opslaat.
 
 We kunnen de structuur en samenvatting van het model bekijken:
 
@@ -282,13 +279,13 @@ conc_onbekend
 
 In deze les hebben we de Bradford-test gebruikt als voorbeeld van statistisch modelleren. We hebben:
 
--   meetgegevens leren zien als **datavectoren** en de dataset als een **datamatrix**
--   een ijklijn gemaakt met bekende concentraties
--   gekeken naar correlatie tussen de datavectoren concentratie en absorbantie
--   de functie `cor()` gebruikt, inclusief `method = "spearman"`
--   het verschil besproken tussen variabelen (datavectoren) en parameters (parameter vectors;
--   een lineair model opgesteld met `lm(abs ~ conc)`
--   gezien hoe een onbekende concentratie uit het model kan worden geschat.
+- meetgegevens leren zien als **datavectoren** en de dataset als een **datamatrix**
+- een ijklijn gemaakt met bekende concentraties
+- gekeken naar correlatie tussen de datavectoren concentratie en absorbantie
+- de functie `cor()` gebruikt, inclusief `method = "spearman"`
+- het verschil besproken tussen variabelen (datavectoren) en parameters (parameter vectors;
+- een lineair model opgesteld met `lm(abs ~ conc)`
+- gezien hoe een onbekende concentratie uit het model kan worden geschat.
 
 Een goede ijklijn vereist niet alleen een hoge correlatie, maar ook een inhoudelijk verdedigbare aanname dat de relatie in het gebruikte meetbereik lineair is.
 
