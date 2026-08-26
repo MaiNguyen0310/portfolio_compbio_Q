@@ -288,6 +288,7 @@ In deze les hebben we de Bradford-test gebruikt als voorbeeld van statistisch mo
 - een lineair model opgesteld met `lm(abs ~ conc)`
 - gezien hoe een onbekende concentratie uit het model kan worden geschat.
 
+
 Een goede ijklijn vereist niet alleen een hoge correlatie, maar ook een inhoudelijk verdedigbare aanname dat de relatie in het gebruikte meetbereik lineair is.
 
 In het theoretische deel dat bij deze opdracht hoort, gaan we dieper in op de lineaire regressie zelf. We schrijven het lineaire model dan volledig in de taal van vectoren en matrices, en zien hoe diezelfde wiskunde opduikt in de evo-devo, wanneer we verbanden tussen vorm en grootte over soorten heen willen beschrijven.
