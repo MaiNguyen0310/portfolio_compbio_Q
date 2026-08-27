@@ -77,7 +77,7 @@ gendrift <- function(p1, N_pop, N_gen, N_sim){
 ```
 
 ::: {#exr-gendrift_functie}
-Leg bovenstaande code in woorden uit
+Leg bovenstaande code in woorden uit.
 :::
 
 We kunnen deze functie bijvoorbeeld als volgt gebruiken:
