@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -77,7 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-12eeb4b20e9f5a2b0bfc604bfaf942bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -247,7 +247,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bradford_statistiek.html" class="sidebar-item-text sidebar-link">
+  <a href="./Bradford_statistiek.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Bradford-test: statistiek, vectoren en lineaire modellen</span></span></a>
   </div>
 </li>
@@ -314,7 +314,7 @@ window.Quarto = {
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>freq <span class="ot">&lt;-</span> <span class="fu">c</span>(p0,p1)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>freq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.3576753 0.6423247</code></pre>
+<pre><code>[1] 0.6472749 0.3527251</code></pre>
 </div>
 </div>
 <p>Om het principe van genetic drift in één generatietijdseenheid van deze populatie te simuleren, bedenken we het volgende:</p>
@@ -344,7 +344,7 @@ window.Quarto = {
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>freq_nieuw <span class="ot">&lt;-</span> <span class="fu">c</span>(p0_nieuw, p1_nieuw)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>freq_nieuw</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.3615 0.6385</code></pre>
+<pre><code>[1] 0.636 0.364</code></pre>
 </div>
 </div>
 <p>Het verschil ten opzichte van de frequenties in de vorige populatie kunnen we zien door de vectoren van elkaar af te trekken:</p>
@@ -352,7 +352,7 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>gen_verschil <span class="ot">&lt;-</span> freq_nieuw <span class="sc">-</span> freq</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>gen_verschil</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1]  0.003824707 -0.003824707</code></pre>
+<pre><code>[1] -0.01127488  0.01127488</code></pre>
 </div>
 </div>
 <p>Deze simulatie geeft slechts een beperkt beeld van de mogelijkheden weer: het gaan om één populatie en we bekijken één generatietijd. Voor een andere populatie zou de uitkomst van het random samplen heel anders kunnen zijn. Bovendien is het resultaat ook anders als we de code voor dezelfde populatie opnieuw runnen. Ook zouden we geïnteresseerd kunnen zijn in het effect van genetic drift op de langere termijn. We kunnen dus, met dezelfde logica als bovenstaand, een <code>functie</code> bouwen die dit voor een willekeurig aantal populaties en generaties bijhoudt en de simulaties meerdere keren uitvoert:</p>
@@ -380,17 +380,17 @@ window.Quarto = {
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>out</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           [,1]      [,2]      [,3]      [,4]      [,5]
- [1,] 0.6423247 0.6423247 0.6423247 0.6423247 0.6423247
- [2,] 0.6800000 0.7000000 0.6300000 0.6400000 0.6950000
- [3,] 0.6350000 0.6850000 0.6350000 0.6500000 0.7200000
- [4,] 0.7200000 0.7300000 0.6600000 0.6250000 0.7200000
- [5,] 0.7900000 0.7450000 0.6950000 0.6300000 0.7550000
- [6,] 0.7600000 0.7550000 0.6550000 0.6500000 0.7800000
- [7,] 0.7950000 0.7000000 0.6500000 0.6600000 0.7700000
- [8,] 0.8150000 0.7350000 0.6100000 0.7300000 0.8000000
- [9,] 0.8350000 0.7850000 0.6100000 0.7600000 0.8700000
-[10,] 0.8100000 0.7700000 0.5400000 0.7700000 0.8350000
-[11,] 0.8400000 0.7800000 0.5250000 0.8050000 0.8400000</code></pre>
+ [1,] 0.3527251 0.3527251 0.3527251 0.3527251 0.3527251
+ [2,] 0.3250000 0.3950000 0.3400000 0.3550000 0.3200000
+ [3,] 0.3350000 0.3800000 0.3250000 0.4300000 0.2950000
+ [4,] 0.3300000 0.3800000 0.3100000 0.4950000 0.2600000
+ [5,] 0.2950000 0.3600000 0.4150000 0.4600000 0.2400000
+ [6,] 0.2800000 0.3650000 0.4150000 0.4400000 0.1900000
+ [7,] 0.2900000 0.3450000 0.4100000 0.4000000 0.2000000
+ [8,] 0.2500000 0.3750000 0.4200000 0.4350000 0.2050000
+ [9,] 0.2600000 0.3700000 0.4050000 0.4350000 0.2050000
+[10,] 0.2900000 0.3700000 0.3950000 0.4150000 0.2450000
+[11,] 0.2850000 0.3500000 0.3950000 0.3850000 0.2750000</code></pre>
 </div>
 </div>
 <p>We krijgen dus een matrix waarin we de frequentie van allel 1 over de generaties heen (rijen) zien voor elke populatie (kolommen).</p>

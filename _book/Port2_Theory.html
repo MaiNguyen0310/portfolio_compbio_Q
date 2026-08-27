@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -77,7 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-12eeb4b20e9f5a2b0bfc604bfaf942bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -247,7 +247,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bradford_statistiek.html" class="sidebar-item-text sidebar-link">
+  <a href="./Bradford_statistiek.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Bradford-test: statistiek, vectoren en lineaire modellen</span></span></a>
   </div>
 </li>
@@ -313,7 +313,7 @@ window.Quarto = {
 
 <section id="onzekerheid." class="level2 page-columns page-full" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="onzekerheid."><span class="header-section-number">1.1</span> Onzekerheid.</h2>
-<p>In het praktische gedeelte bij deze opdracht wordt de stelling geponeerd dat in de empirische wetenschap we geen zekerheid ten aanzien van een hypothese kunnen krijgen. Dit is niet volledig correct. Denk aan het bekende voorbeeld van de zwarte zwaan. Stel dat we uitsluitend witte zwanen waarnemen. Daaruit kunnen we <strong>niet</strong> afleiden dat álle zwanen wit zijn; er kan immers een anders gekleurde zwaan bestaan die we simpelweg nog niet hebben gezien. De hypothese blijft dus onzeker, hoeveel witte zwanen we ook tellen. Maar één enkele niet-witte zwaan volstaat om haar te weerleggen, en de onzekerheid ten aanzien van de hypothese verdwijnt. Dit is het geval voor logische hypotheses.</p>
+<p>In het praktische gedeelte bij deze opdracht wordt de stelling geponeerd dat in de empirische wetenschap we geen zekerheid ten aanzien van een hypothese kunnen krijgen. Dit is niet volledig correct. Denk aan het bekende voorbeeld van de zwarte zwaan. Stel dat we uitsluitend witte zwanen waarnemen. Daaruit kunnen we <strong>niet</strong> afleiden dat alle zwanen wit zijn; er kan immers een anders gekleurde zwaan bestaan die we simpelweg nog niet hebben waargenomen. De hypothese blijft dus onzeker, hoeveel witte zwanen we ook tellen. Maar één enkele niet-witte zwaan volstaat om haar te weerleggen, en de onzekerheid ten aanzien van de hypothese verdwijnt, we kunnen haar ontkennen. Dit is het geval voor logische hypotheses.</p>
 <p>Het maïsexperiment is fundamenteel anders, omdat de hypothese zelf een kansuitspraak is; een 3:1-kansverdeling verbiedt geen enkele uitkomst, maar maakt sommige aannemelijker dan andere. Zelfs als de hypothese klopt, is de waargenomen verhouding door toeval bijna nooit exact 3:1, zoals we zagen. Eén afwijking weerlegt hier dus niets; de vraag is of de afwijking groter is dan we redelijkerwijs aan toeval kunnen toeschrijven. De logica verschuift van zekerheid naar kans en waarschijnlijkheid, en de onzekerheid blijft altijd bestaan.</p>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
@@ -326,40 +326,48 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code die een histogram geeft van de chi^2 waarden</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="exr-chi2_waarden" class="theorem exercise">
-<p><span class="theorem-title"><strong>Vraag 1.1</strong></span> Leg uit waarom niet alle <span class="math inline">\(\chi^2\)</span>-waarden dezelfde waarde hebben.</p>
+<p><span class="theorem-title"><strong>Vraag 1.1</strong></span> Stel dat maïs zich precies aan de verwachte 3:1-verdeling houdt, dus dat, <span class="math inline">\(H_0\)</span>, waar is. Verwacht je dan dat alle studenten dezelfde <span class="math inline">\(\chi^2\)</span>-waarden, vinden, of nog steeds verschillende? Met andere woorden: ontstaat er ook onder <span class="math inline">\(H_0\)</span> een verdeling van <span class="math inline">\(\chi^2\)</span>-waarden? Zo ja, dan is dat een special verdeling. Waarom wat wat zou een goede naam zijn voor die specifieke belangrijk verdeling?</p>
 </div>
 <p><strong>Jouw antwoord:</strong></p>
-<p>Wat deze verdeling laat zien, is een voorbeeld van een stochastische variabele: een grootheid waarvan de waarde door toeval wordt bepaald. Ze heeft drie kenmerkende eigenschappen:</p>
-<ul>
+<p>Wat onze waargenomen verdeling laat zien, is een voorbeeld van een stochastische variabele: een grootheid waarvan de waarde door toeval wordt bepaald. Ze heeft drie kenmerkende eigenschappen:</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Biologie zit vol met toeval en variatie; het is een essentiële eigenschap van het leven zelf. Juist doordat de onderliggende grootheden stochastisch zijn, ontstaat de variatie die we bv als genetische diversiteit en biodiversiteit herkennen.</p>
+</div></div><ul>
 <li>ze wordt gekarakteriseerd door een kansverdeling;</li>
 <li>haar concrete waarde, of realisatie, is pas bekend na uitvoering van een experiment of meting;</li>
 <li>ze drukt inherente onzekerheid uit.</li>
 </ul>
 <p>De <span class="math inline">\(\chi^2\)</span>-waarde voldoet aan alle drie: ze ligt pas vast na het tellen en berekenen (2), verschilt van student tot student door toeval in de steekproef (3), en volgt daarmee een kansverdeling (1). Er is dus onzekerheid over welke <span class="math inline">\(\chi^2\)</span>-waarde een meting oplevert.</p>
-<p>Dit is bovendien geen toeval, maar een noodzakelijk gevolg: <span class="math inline">\(\chi^2\)</span>is een functie van stochastische variabelen, zoals het aantal zaden, en is daardoor zelf ook een stochastische variabele, die dus per definitie een eigen kansverdeling bezit. Wiskundigen hebben die <span class="math inline">\(\chi^2\)</span>-verdeling onder bepaalde aannamen kunnen afleiden:</p>
+<p>Dit is bovendien geen toeval, maar een noodzakelijk gevolg: <span class="math inline">\(\chi^2\)</span>is een functie van stochastische variabelen, zoals het aantal zaden, en is daardoor zelf ook een stochastische variabele, die dus per definitie een eigen kansverdeling bezit. Wiskundigen hebben die <span class="math inline">\(\chi^2\)</span>-verdeling onder bepaalde <strong>aannamen</strong> kunnen afleiden:</p>
 <p><span class="math display">\[f(x; k) = \frac{1}{2^{k/2}\,\Gamma(k/2)}\, x^{k/2 - 1} e^{-x/2}, \quad x &gt; 0\]</span></p>
-<p>Dit is een ingewikkelde functie die jullie niet uit je hoofd hoeven te kennen. Het belangrijke deel is de zinsnede <code>onder bepaalde aannamen</code>. We zullen later zien dat we bij statistische toetsen en wiskundige modellen die aannamen expliciet moeten benoemen en controleren.</p>
+<p>Dit is een ingewikkelde functie die jullie niet uit je hoofd hoeven te kennen. Het belangrijke deel is de zinsnede <em>onder bepaalde aannamen</em>. Een cruciale aanname bv is dat <span class="math inline">\(H_0\)</span> correct is. Dat lijkt merkwaardig, we willen <span class="math inline">\(H_0\)</span> juist toetsen, en toch nemen we haar even als waar aan. Maar precies dat is de geniale zet: alleen door een concrete hypothese als “precies <span class="math inline">\(3:1\)</span>” aan te nemen, kunnen we exact uitrekenen hoe onwaarschijnlijk onze data zouden zijn als <span class="math inline">\(H_0\)</span> klopt. Het alternatief, “er is een afwijking”, is te vaag om mee te rekenen: het kan oneindig veel vormen aannemen. Door <span class="math inline">\(H_0\)</span> als vertrekpunt te nemen, krijgen we een rekenbaar model, en daar komt de <span class="math inline">\(\chi^2\)</span>-verdeling vandaan. We komen hier later dit jaar in Statistiek 1 op terug.</p>
+<p>Meer algemeen geldt dat we bij statistische toetsen en wiskundige modellen aannamen altijd expliciet moeten benoemen en controleren.</p>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>De wetenschap kan niet zonder aannamen: alleen onder bepaalde condities kunnen we een theorie of model formuleren. Van die aannamen moet je je altijd bewust zijn.</p>
-</div></div><p>Deze onzekerheid wordt nog beter voelbaar bij de p-waarde, die op haar beurt een functie van de stochatische variabele <span class="math inline">\(\chi^2\)</span> is. Hieronder zie je de verdeling van de p-waarden over de groepen.</p>
+<p>De wetenschap kan niet zonder <strong>aannamen</strong>: alleen onder bepaalde condities kunnen we een theorie of model formuleren. Van die aannamen moet je je altijd bewust zijn.</p>
+</div></div><p>Deze onzekerheid wordt nog beter voelbaar bij de p-waarde waarmee we het behouden van <span class="math inline">\(H_O\)</span> op baseren, die op haar beurt een functie van de stochatische variabele <span class="math inline">\(\chi^2\)</span> is. Hieronder zie je de verdeling van de p-waarden over de groepen.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code die een histrogram geeft van de p waarden</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Nemen we een kritieke waarde van 0.05 om de nulhypothese te verwerpen, dan blijkt iets opmerkelijks: ook de conclusie, verwerpen of niet, wordt bepaald door een stochastische variabele. Of een student de nulhypothese verwerpt, hangt af van een p-waarde die zelf door toeval varieert. Daarmee erft ook de uitspraak over de hypothese die onzekerheid. Een tweede opmerkelijk gevolg is dat zelfs wanneer de 3:1-hypothese correct is, sommige groepen haar toch zal verwerpen, puur door toeval in de steekproef; bv als ze teveel rode of gele hebben gemeten. Dit noemen we later een type-I-fout; voor nu is het genoeg om te zien dat de onzekerheid zich overerft tot in de conclusie zelf.</p>
+<div id="exr-p_waarden" class="theorem exercise">
+<p><span class="theorem-title"><strong>Vraag 1.2</strong></span> Als de p-waarde zelf ook een stochastische variabele is, wat betekent dat dan voor onze uitspraak over <span class="math inline">\(H_0\)</span>?</p>
+</div>
+<p>Antwoord:</p>
+<p>Nemen een kritieke waarde van 0.05 waarbij we de nulhypothese te verwerpen, dan blijkt iets opmerkelijks: ook de conclusie, verwerpen of niet, wordt bepaald door een stochastische variabele. Of een student de nulhypothese verwerpt, hangt af van een p-waarde die zelf door toeval varieert. Daarmee erft ook de uitspraak over de hypothese die onzekerheid. Een tweede opmerkelijk gevolg is dat zelfs wanneer de 3:1-hypothese correct is, sommige groepen haar toch zal verwerpen, puur door toeval in de steekproef; bv als ze teveel rode of gele hebben gemeten. Dit noemen we later een type-I-fout en we weten precies the kans daarop. Voor nu is het genoeg om te zien dat de onzekerheid zich overerft tot in de conclusie zelf.</p>
 </section>
 <section id="maat-voor-onzekerheid-entropie." class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="maat-voor-onzekerheid-entropie."><span class="header-section-number">1.3</span> Maat voor onzekerheid: Entropie.</h2>
-<p>Er bestaan verschillen maten in de statistiek welke de hoeveelheid onzekerheid kunnen duiden. Later in het jaar komen we bijvoorbeeld de standaard fout (SE) tegen. Nu wil ik kijken naar een zeer belangrijke wetenschappelijke maat, namelijk <code>entropie.</code> Entropie kan worden opgevat als een maat voor onzekerheid, willekeurigheid of wanorde en zoals we zullen zien ook biodiversiteit en positie-specifieke entropie in moleculaire biologie, is alleen gebaseerd op de kansverdeling.</p>
+<p>Er bestaan verschillende maten in de statistiek welke de hoeveelheid onzekerheid kunnen duiden. Later in het jaar komen we bijvoorbeeld de standaard fout (SE) tegen. Nu wil ik kijken naar een andere zeer belangrijke wetenschappelijke maat voor onzekerheid, namelijk <code>entropie.</code> Entropie kan worden opgevat naast een maat voor onzekerheid, ook als willekeurigheid of wanorde en zoals we zullen zien ook biodiversiteit en positie-specifieke entropie in moleculaire biologie, en is alleen gebaseerd op de kansverdeling.</p>
 <p>De entropie van een discrete kansverdeling zoals voor biodiversiteit en positie-specifieke entropie wordt gedefinieerd als:</p>
 <p><span id="eq-entropie-def"><span class="math display">\[H(p) = -\sum_i p_i \log(p_i) \tag{1.1}\]</span></span></p>
 <p>waarbij <span class="math inline">\(p_i\)</span> de kans is op uitkomst <span class="math inline">\(i\)</span>.</p>
 <section id="interpretatie" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="interpretatie"><span class="header-section-number">1.3.1</span> Interpretatie</h3>
 <p>Een hoge entropie wijst op grote onzekerheid. Dit treedt op wanneer de kansen relatief gelijk verdeeld zijn over de mogelijke uitkomsten zoals de eerlijk dobbelsteen.</p>
-<p>Een lage entropie wijst op minder onzekerheid. Dit treedt op wanneer kansen geconcentreerd zijn rond één of enkele uitkomsten. Bijvoorbeeld een oneerlijke dobbelsteen met een grotere kans op een 6.</p>
+<p>Een lagere entropie wijst op minder onzekerheid. Dit treedt op wanneer kansen geconcentreerd zijn rond één of enkele uitkomsten. Bijvoorbeeld een oneerlijke dobbelsteen met een grotere kans op een 6; we zijn minder verrast als we een 6 gooien, de uitkomst is meer voorspelbaar</p>
 <div id="exr-entropie_uitleg" class="theorem exercise">
-<p><span class="theorem-title"><strong>Vraag 1.2</strong></span> Leg uit dat we voor concepten als maten van verrast zijn of onverwacht, entropie als maat zou kunnen fungeren.</p>
+<p><span class="theorem-title"><strong>Vraag 1.3</strong></span> Leg uit waarom bij een meer voorspelbare uitkomst de entropie afneemt.</p>
 </div>
 <p><strong>Jouw antwoord:</strong></p>
 </section>
@@ -368,15 +376,15 @@ window.Quarto = {
 <p>De betekenis van entropie hangt af van het toepassingsgebied:</p>
 <ol type="1">
 <li>in de <strong>informatietheorie</strong> is entropie een maat voor informatie-inhoud;</li>
-<li>in de <strong>natuurkunde</strong>, met name de thermodynamica, is entropie een maat voor wanorde en bepaald daarme via de weten van de tgheormdynamica de richting van een process;</li>
+<li>in de <strong>natuurkunde</strong>, met name de thermodynamica, is entropie een maat voor wanorde en bepaald via de weten van de thermodynamica de richting van een proces dat streeft naar wanorde;</li>
 <li>in de <strong>sociale wetenschappen</strong> en economie kan entropie worden gebruikt als maat voor economische of sociale ongelijkheid.</li>
 </ol>
 <div id="exr-entropie_sociaal" class="theorem exercise">
-<p><span class="theorem-title"><strong>Vraag 1.3</strong></span> Leg uit waarom zou entropie een maat zijn voor kunnen zijn voor ongelijkheid in punt 3. Wordt de waarden van de entropie groter of kleiner bij ongelijkheid?</p>
+<p><span class="theorem-title"><strong>Vraag 1.4</strong></span> Leg uit waarom zou entropie een maat zijn voor kunnen zijn voor ongelijkheid in punt 3. Wordt de waarden van de entropie groter of kleiner bij ongelijkheid?</p>
 </div>
 <p><strong>Jouw antwoord:</strong></p>
 <div id="exr-entropie_biodiv" class="theorem exercise">
-<p><span class="theorem-title"><strong>Vraag 1.4</strong></span> Leg uit waarom zou entropie dan een maat zijn voor biodiversiteit? Heeft een hogere biodiversiteit een kleinere of grotere entropie?</p>
+<p><span class="theorem-title"><strong>Vraag 1.5</strong></span> Leg uit waarom zou entropie dan een maat zijn voor biodiversiteit? Heeft een hogere biodiversiteit een kleinere of grotere entropie?</p>
 </div>
 <p><strong>Jouw antwoord:</strong></p>
 </section>
@@ -396,31 +404,31 @@ soort 5:   A  T  G  C  A  T  T
 soort 6:   A  T  G  A  A  G  T</code></pre>
 <p>Bekijk de kolommen (posities) van boven naar beneden, niet de rijen. Elke kolom vertelt hoe gevarieerd die positie is over de zes soorten.</p>
 <div id="exr-tabel_pos" class="theorem exercise">
-<p><span class="theorem-title"><strong>Vraag 1.5</strong></span> Op welke posities staat bij alle soorten dezelfde bouwsteen? En op welke positie verschillen de soorten het sterkst? Beschrijf in woorden.</p>
+<p><span class="theorem-title"><strong>Vraag 1.6</strong></span> Op welke posities staat bij alle soorten dezelfde bouwsteen? En op welke positie verschillen de soorten het sterkst? Beschrijf in woorden.</p>
 </div>
 <blockquote class="blockquote">
 <p>jouw antwoord:</p>
 </blockquote>
 <div id="exr-tabel_verassing" class="theorem exercise">
-<p><span class="theorem-title"><strong>Vraag 1.6</strong></span> Stel je sluit je ogen en iemand wijst een willekeurige soort aan. Bij welke positie kun je met zekerheid voorspellen welke bouwsteen daar staat, nog vóór je kijkt? Bij welke positie is dat vrijwel onmogelijk? Koppel je antwoord aan het begrip <em>verrassing</em>.</p>
+<p><span class="theorem-title"><strong>Vraag 1.7</strong></span> Stel je sluit je ogen en iemand wijst een willekeurige soort aan. Bij welke positie kun je met zekerheid voorspellen welke bouwsteen daar staat, nog vóór je kijkt? Bij welke positie is dat vrijwel onmogelijk? Koppel je antwoord aan het begrip <em>voorspelbaar</em>.</p>
 </div>
 <blockquote class="blockquote">
 <p>jouw antwoord:</p>
 </blockquote>
 <div id="exr-tabel_entropie" class="theorem exercise">
-<p><span class="theorem-title"><strong>Vraag 1.7</strong></span> Leg uit welke positie de hoogste entropie heeft en welke de laagste. Gebruik daarbij dat entropie alleen afhangt van hoe de bouwstenen over de soorten verdeeld zijn — niet van wélke bouwsteen het is.</p>
+<p><span class="theorem-title"><strong>Vraag 1.8</strong></span> Leg uit welke positie de hoogste entropie heeft en welke de laagste. Gebruik daarbij dat entropie alleen afhangt van hoe de bouwstenen over de soorten verdeeld zijn, niet van welke bouwsteen het is.</p>
 </div>
 <blockquote class="blockquote">
 <p>jouw antwoord:</p>
 </blockquote>
 <div id="exr-pos_ident" class="theorem exercise">
-<p><span class="theorem-title"><strong>Vraag 1.8</strong></span> Een positie die bij alle soorten identiek is, is door de evolutie heen nauwelijks veranderd. Bedenk een biologische reden waarom juist die posities niet mogen veranderen, terwijl andere posities vrij kunnen variëren.</p>
+<p><span class="theorem-title"><strong>Vraag 1.9</strong></span> Een positie die bij alle soorten identiek is, is door de evolutie heen nauwelijks veranderd. Bedenk een biologische reden waarom juist die posities niet mogen veranderen, terwijl andere posities vrij kunnen variëren.</p>
 </div>
 <blockquote class="blockquote">
 <p>jouw antwoord:</p>
 </blockquote>
 <div id="exr-entropie_evo" class="theorem exercise">
-<p><span class="theorem-title"><strong>Vraag 1.9</strong></span> De genen die de vroege ontwikkeling van een lichaam sturen, behoren tot de meest geconserveerde in het hele dierenrijk: dieren die honderden miljoenen jaren geleden een gemeenschappelijke voorouder deelden, hebben op die posities nog steeds dezelfde bouwstenen. Wat zegt lage entropie op die posities over het belang van die genen voor de ontwikkeling? En waarom is lage entropie hier een spoor van diepe verwantschap tussen soorten?</p>
+<p><span class="theorem-title"><strong>Vraag 1.10</strong></span> De genen die de vroege ontwikkeling van een lichaam sturen, behoren tot de meest geconserveerde in het hele dierenrijk: dieren die honderden miljoenen jaren geleden een gemeenschappelijke voorouder deelden, hebben op die posities nog steeds dezelfde bouwstenen. Wat zegt lage entropie op die posities over het belang van die genen voor de ontwikkeling? En waarom is lage entropie hier een spoor van diepe verwantschap tussen soorten?</p>
 </div>
 <blockquote class="blockquote">
 <p>jouw antwoord:</p>
@@ -430,14 +438,14 @@ soort 6:   A  T  G  A  A  G  T</code></pre>
 <h3 data-number="1.4.2" class="anchored" data-anchor-id="entropie-is-optelbaar"><span class="header-section-number">1.4.2</span> Entropie is optelbaar</h3>
 <p>Er is iets vreemds aan de levende wereld. Aan de ene kant wordt ze steeds complexer, histories een groei in biodiversiteit, een rijkdom aan vorm en functie. Aan de andere kant herkennen we juist heldere structuur: soorten, genera en families laten zich netjes onderscheiden. Meer variatie en meer ordening tegelijk; dat lijkt een tegenspraak.</p>
 <p>Om die schijnbare tegenspraak te ontleden, gebruiken we een belangrijke eigenschap van de logaritme:</p>
-<p><span class="math display">\[\log(A \times B) = \log(A) + \log(B)\]</span></p>
+<p><span id="eq-optelbaar-def"><span class="math display">\[\log(A \times B) = \log(A) + \log(B) \tag{1.2}\]</span></span></p>
 <p>De logaritme maakt van een vermenigvuldiging een optelling. Dat is precies wat we nodig hebben, want kansen worden vermenigvuldigd, terwijl entropie een <em>som</em> is. De logaritme is de brug tussen die twee: hij vertaalt het vermenigvuldigen van kansen naar het optellen van termen, en maakt zo het somteken (<span class="math inline">\(\sum\)</span>) in de entropie mogelijk.</p>
 </section>
 </section>
 <section id="surprisal-informatie-als--logp" class="level2 page-columns page-full" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="surprisal-informatie-als--logp"><span class="header-section-number">1.5</span> Surprisal: informatie als <span class="math inline">\(-\log(p)\)</span></h2>
 <p>De grootheid <span class="math inline">\(-\log(p)\)</span> heeft een eigen naam: <em>informatie</em>, ook wel <em>surprisal</em> (verrassing). Een onwaarschijnlijke uitkomst (kleine <span class="math inline">\(p\)</span>) levert veel informatie op; een vrijwel zekere uitkomst (grote <span class="math inline">\(p\)</span>) weinig. De entropie</p>
-<p><span class="math display">\[H(X) = -\sum_i p_i \log(p_i)\]</span></p>
+<p><span id="eq-entropie2-def"><span class="math display">\[H(X) = -\sum_i p_i \log(p_i) \tag{1.3}\]</span></span></p>
 <p>is dan niets anders dan het gemiddelde van die informatie over alle uitkomsten, de <em>verwachtingswaarde</em> van de surprisal. Vandaar de naam <em>informatie-entropie</em>, of kortweg weer <em>informatie</em>.</p>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
@@ -445,22 +453,24 @@ soort 6:   A  T  G  A  A  G  T</code></pre>
 </div></div><section id="de-complexiteit-van-de-natuur-valt-uiteen-in-twee-vragen" class="level3" data-number="1.5.1">
 <h3 data-number="1.5.1" class="anchored" data-anchor-id="de-complexiteit-van-de-natuur-valt-uiteen-in-twee-vragen"><span class="header-section-number">1.5.1</span> De Complexiteit van de natuur valt uiteen in twee vragen</h3>
 <p>Dankzij de logaritme kunnen we de entropie <em>ontleden</em>. Meet je de vorm van een willekeurig organisme in de biosfeer, dan valt de onzekerheid over die vorm uiteen in twee vragen: <em>welke soort is dit?</em> en <em>hoe ziet dit individu eruit, gegeven die soort?</em> In formulevorm:</p>
-<p><span class="math display">\[H(\text{fenotype}) = H(\text{soort}) + H(\text{fenotype} \mid \text{soort})\]</span></p>
+<p><span id="eq-ontleden-def"><span class="math display">\[H(\text{fenotype}) = H(\text{soort}) + H(\text{fenotype} \mid \text{soort}) \tag{1.4}\]</span></span></p>
 <p>Deze opsplitsing lost de schijnbare tegenspraak op.</p>
 <p><em>Binnen</em> een soort daalt de entropie. De ontwikkeling is gebufferd: veel verschillende genotypen leiden tot hetzelfde fenotype, zodat de vorm binnen een soort weinig varieert. De rechterterm, <span class="math inline">\(H(\text{fenotype} \mid \text{soort})\)</span>, wordt daardoor kleiner.</p>
 <p><em>Tussen</em> soorten stijgt de entropie. Er komen soorten bij, de biodiversiteit groeit, en de linkerterm <span class="math inline">\(H(\text{soort})\)</span> wordt groter.</p>
 <p>Er is dus geen paradox: het gaat om twee verschillende termen, die onafhankelijk van elkaar kunnen bewegen. Sterker nog, de twee versterken elkaar. Juist doordat de vorm binnen een soort strak gebufferd is, worden soorten scherpe, telbare eenheden — en pas over zulke eenheden kun je überhaupt sommeren om biodiversiteit te meten.</p>
 <p><strong>Canalisatie</strong> is het vermogen van de ontwikkeling om, ondanks variatie in genotype of omgeving, steeds hetzelfde fenotype voort te brengen.</p>
 <div id="exr-entropie_canal" class="theorem exercise">
-<p><span class="theorem-title"><strong>Vraag 1.10</strong></span> Welke van de twee termen wordt beïnvloed door canalisatie, en welke door het ontstaan van nieuwe soorten? Kan <span class="math inline">\(𝐻(fenotype)=𝐻(soort)+𝐻(fenotype∣soort)\)</span> gelijk blijven terwijl beide termen veranderen?</p>
+<p><span class="theorem-title"><strong>Vraag 1.11</strong></span> Welke van de twee termen wordt beïnvloed door canalisatie, en welke door het ontstaan van nieuwe soorten? Kan <span class="math inline">\(𝐻(fenotype)=𝐻(soort)+𝐻(fenotype∣soort)\)</span> gelijk blijven terwijl beide termen veranderen?</p>
 </div>
 <p><strong>Jouw antwoord:</strong></p>
+<p>Al deze vragen illustreren dat een relatief eenvoudige functie zoals entropie on veel theoretische inzichten kunnen verschaffen, zowel kwalitatief and kwantitatief, die ander niet of erg moeilijk is. Dat geld niet alleen voor de biologie, maar ook voor de andere wetenschappelijke disciplines.</p>
+<p>In dit theoretische deel stond de interpretatie centraal; code en wiskunde hebben we bewust op de achtergrond gehouden en conceptueel begrip voorop. In de komende delen keren die juist terug, en gaan we meer rekenen en met wiskundige regels werken</p>
 </section>
 </section>
 <section id="slotopdracht-jouw-eigen-synthese" class="level2 page-columns page-full" data-number="1.6">
 <h2 data-number="1.6" class="anchored" data-anchor-id="slotopdracht-jouw-eigen-synthese"><span class="header-section-number">1.6</span> Slotopdracht: jouw eigen synthese</h2>
 <p>Deze laatste opdracht is anders dan de vorige. Er is geen goed of fout antwoord, mogelijk alleen slecht geformuleerd, en je hoeft niets te berekenen. We vragen je om terug te kijken op alles wat in deze portfolio-opdracht langskwam, zowel het practicum als het theoretische deel, en er in je eigen woorden een samenhangend verhaal van te maken.</p>
-<p>Belangrijk: dit is een <em>momentopname</em>. De hypothesen en verbanden die je nu formuleert, mag je gedurende het jaar vrij aanpassen, verwerpen of uitbreiden naarmate je nieuwe onderwerpen tegenkomt, bijvoorbeeld na nieuwe inzichten met allometrische schaling in de komende colleges. Je legt hier dus geen eindantwoord vast, maar je huidige denken. Durf daarom te speculeren.</p>
+<p>Belangrijk: dit is een <em>momentopname</em>. De hypothesen en verbanden die je nu zlef formuleert, mag je gedurende het jaar vrij aanpassen, verwerpen of uitbreiden naarmate je nieuwe kennis opdoet, bijvoorbeeld na nieuwe inzichten met allometrische schaling in de komende colleges. Je legt hier dus geen eindantwoord vast, maar je huidige denken. Durf daarom te speculeren. We helpen je een beetje met een set vragen.</p>
 <p><strong>Vraag 1 — Rode draad.</strong> Vat in je eigen woorden samen welke theoretische elementen vandaag zijn langsgekomen, en hoe ze met elkaar samenhangen. Denk aan de begrippen die telkens terugkeerden: de nulhypothese en het verwerpen daarvan, de <span class="math inline">\(\chi^2\)</span>-toets en de p-waarde, stochastische variabelen en hun verdeling, surprisal en entropie, en de opsplitsing van entropie in canalisatie en biodiversiteit. Probeer niet elk begrip los te beschrijven, maar te laten zien hoe ze in elkaar grijpen.</p>
 <blockquote class="blockquote">
 <p>jouw antwoord:</p>
@@ -469,7 +479,7 @@ soort 6:   A  T  G  A  A  G  T</code></pre>
 <blockquote class="blockquote">
 <p>jouw antwoord:</p>
 </blockquote>
-<p><strong>Vraag 3 — Onzekerheid als rode draad.</strong> Het centrale thema van deze opdracht was onzekerheid. We zagen dat de uitkomst van een meting, de waarde van een toetsgrootheid, en zelfs de conclusie van een test allemaal met onzekerheid behept zijn. Verwoord in je eigen woorden waarom onzekerheid onlosmakelijk verbonden is met het overgrote deel van de biologische wetenschap. Ga daarbij een stap verder: is onzekerheid in de biologie enkel een beperking van onze metingen, of een wezenlijke eigenschap van het leven zelf, dat immers voortkomt uit toeval en variatie?</p>
+<p><strong>Vraag 3 — Onzekerheid als rode draad.</strong> Het centrale thema van deze opdracht was ook onzekerheid. We zagen dat de uitkomst van een meting, de waarde van een toetsgrootheid, en zelfs de conclusie van een test allemaal met onzekerheid behept zijn. Verwoord in je eigen woorden waarom onzekerheid onlosmakelijk verbonden is met het overgrote deel van de biologische wetenschap. Ga daarbij een stap verder: is onzekerheid in de biologie enkel een beperking van onze metingen, of een wezenlijke eigenschap van het leven zelf, dat immers voortkomt uit toeval en variatie?</p>
 <blockquote class="blockquote">
 <p>jouw antwoord:</p>
 </blockquote>
@@ -478,11 +488,35 @@ soort 6:   A  T  G  A  A  G  T</code></pre>
 <p>jouw antwoord:</p>
 </blockquote>
 
-
-
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>Bewaar je antwoorden goed. Aan het eind van het jaar kijk je hierop terug en zie je hoe je denken zich heeft ontwikkeld.</p>
-</div></div></section>
+<p>Als je klaar bent kan je deze file plaatsen in je persoonlijke locker in Brightspace</p>
+</div></div><div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Voor de honoursclass: entropie als brug tussen wiskunde en natuurkunde
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We hebben entropie tot nu toe gebruikt als een maat voor onzekerheid, opgebouwd uit kansen. Maar dezelfde formule, <span class="math inline">\(H = -\sum_i p_i \log(p_i)\)</span>, duikt op in verrassend veel verder van elkaar liggende hoeken van de wetenschap — en dat is geen toeval.</p>
+<p>In het honoursonderdeel graven we dieper. Een paar vragen die we gaan verkennen:</p>
+<ul>
+<li><p><strong>Waarom juist deze formule?</strong> Entropie is niet zomaar één van de vele mogelijke maten voor onzekerheid. Onder een handvol redelijke eisen — bijvoorbeeld dat onafhankelijke gebeurtenissen optelbare informatie geven — is <span class="math inline">\(-\sum p_i \log p_i\)</span> de <em>enige</em> die overblijft. We leiden dat zelf af.</p></li>
+<li><p><strong>De brug naar de natuurkunde.</strong> Dezelfde grootheid die wij op zaadverhoudingen loslaten, bepaalt in de thermodynamica de richting van de tijd: de entropie van een gesloten systeem neemt toe. We bekijken hoe Boltzmanns <span class="math inline">\(S = k \log W\)</span> en Shannons <span class="math inline">\(H\)</span> in wezen dezelfde vergelijking zijn, en wat dat betekent.</p></li>
+<li><p><strong>Continue verdelingen.</strong> Tot nu toe telden we discrete uitkomsten. Wat gebeurt er als de variabele continu wordt? Dan wordt de som een integraal, <span class="math inline">\(h(X) = -\int f(x)\log f(x)\,dx\)</span>, en blijkt de normale verdeling een bijzondere eigenschap te hebben: van alle verdelingen met een gegeven variantie heeft zij de hoogste entropie.</p></li>
+<li><p><strong>Maximale entropie als principe.</strong> Als je niets weet behalve een paar constraints, welke kansverdeling moet je dan kiezen? Het antwoord — die met de hoogste entropie — blijkt een verrassend krachtig recept, van statistische fysica tot machine learning.</p></li>
+</ul>
+<p>Wie hiermee verder wil, krijgt een glimp van hoe één wiskundige vorm de taal van onzekerheid, informatie én de tweede hoofdwet van de thermodynamica tegelijk spreekt.</p>
+</div>
+</div>
+</div>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

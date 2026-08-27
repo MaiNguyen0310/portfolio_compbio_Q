@@ -98,7 +98,8 @@ Dit traject vraagt actieve deelname. Verwacht wordt dat jullie:
 
 Dit is geen passieve studie: het is een actieve ontwikkeling richting academisch niveau.
 
-## Wil je meer weten?
+::: {.callout-tip collapse="true"}
+## Verdieping (honours)
 
 Binnen de beschikbare tijd kunnen we deze onderwerpen maar tot een bepaalde diepgang behandelen. Merk je dat je nieuwsgierig bent naar meer, of dat een onderwerp je echt heeft gegrepen? Dan nodigen we je van harte uit om deel te nemen aan het portfolio-ontwikkelproject.
 
@@ -107,3 +108,4 @@ In dit project gaan we samen de diepte in: er is ruimte om verder te verkennen, 
 Voor dit project worden geen studiepunten toegekend, deelname komt dus volledig voort uit je eigen interesse en motivatie om je verder te verdiepen.
 
 Lijkt je dit interessant? Meld je dan aan via: TBA
+:::
