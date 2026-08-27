@@ -90,7 +90,7 @@ out
 We krijgen dus een matrix waarin we de frequentie van allel 1 over de generaties heen (rijen) zien voor elke populatie (kolommen).
 
 ::: {#exr-gendrift_plot}
-Maak een figuur waarin voor elke populatie de frequentie van allel 1 over tijd wordt weergegeven. Gebruik de functie `matplot()`
+Maak een figuur waarin voor elke populatie de frequentie van allel 1 over tijd wordt weergegeven. Gebruik de functie `matplot()`.
 :::
 
 ```{r}
