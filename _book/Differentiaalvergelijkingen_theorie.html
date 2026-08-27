@@ -382,10 +382,10 @@ window.Quarto = {
 <section id="logistische-groei" class="level2 page-columns page-full" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="logistische-groei"><span class="header-section-number">4.2</span> Logistische groei</h2>
 <p>We zien in de grafiek voor exponentiële groei dat de populatiegrootte in vijf tijdheden van 100 tot meer dan <span class="math inline">\(10^5\)</span> is gegroeid. Dat is een enorme toename, en het is niet realistisch dat een gebied die groei aan kan. Doordat de ruimte en de hoeveelheid voedsel beperkt is, onstaat er competitie. Hierdoor is er een bovengrens voor het totaal aantal dieren in de populatie. We noemen deze grens ook wel de <em>draagkracht</em> en noteren deze als <span class="math inline">\(K\)</span>. De groei van de populatie wordt dan afhankelijk van de verhouding tussen de populatiegrootte en de draagkracht. Dit zien we in de volgende uitdrukking:</p>
-<p><span class="math display">\[\begin{align}
+<p><span id="eq-log_groei"><span class="math display">\[\begin{align}
   \frac{dN}{dt} &amp; = rN\left(1-\frac{N}{K}\right)
 \\ &amp; = rN-r\frac{N^2}{K}
-\end{align}\]</span> {#eq-log_groei}</p>
+\end{align} \tag{4.4}\]</span></span></p>
 <p>Via <a href="https://mai-nguyen0310.shinyapps.io/Computational_Biology/">deze app</a> kun je het logistische groeimodel simuleren om een intuïtie te ontwikkelen voor hoe dit werkt. Hier laten we ook enkele voorbeelden zien.</p>
 <p>Net zoals bij de exponentiële groei kunnen we de groeisnelheid uitzetten tegen de populatiegrootte:</p>
 <div class="cell">
@@ -397,9 +397,9 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Merk op dat deze paraboolvorm ook af te leiden is uit de kwadratische term in <span class="quarto-unresolved-ref">?eq-log_groei</span>.</p>
+<p>Merk op dat deze paraboolvorm ook af te leiden is uit de kwadratische term in <a href="#eq-log_groei" class="quarto-xref">Vergelijking&nbsp;<span>4.4</span></a>.</p>
 <div id="exr-log_groei_eq" class="theorem exercise">
-<p><span class="theorem-title"><strong>Vraag 4.4</strong></span> In bovenstaande plot is het punt <span class="math inline">\((K,0)\)</span> expliciet genoteerd. Waarom is dit een interessant punt? Bedenk wat het betekent dat de grafiek de lijn <span class="math inline">\(dN/dt=0\)</span> snijdt (en dus wat het betekent als <span class="math inline">\(dN/dt &gt;0\)</span> of <span class="math inline">\(dN/dt &lt;0\)</span> geldt).</p>
+<p><span class="theorem-title"><strong>Vraag 4.4</strong></span> In bovenstaande plot is het punt <span class="math inline">\((K,0)\)</span>$(K,0)$ expliciet genoteerd. Waarom is dit een interessant punt? Bedenk wat het betekent dat de grafiek de lijn <span class="math inline">\(dN/dt=0\)</span> snijdt (en dus wat het betekent als <span class="math inline">\(dN/dt &gt;0\)</span> of <span class="math inline">\(dN/dt &lt;0\)</span> geldt).</p>
 </div>
 <blockquote class="blockquote">
 <p>Jouw antwoord</p>
@@ -591,7 +591,7 @@ A(t)=\alpha e^{\beta t}.
 </blockquote>
 <div id="exr-verband_gebruiken" class="theorem exercise">
 <p><span class="theorem-title"><strong>Vraag 4.13</strong></span> We kunnen de schatting voor <span class="math inline">\(r\)</span> wat preciezer maken. In <a href="#exr-diff-verband" class="quarto-xref">Vraag&nbsp;<span>4.3</span></a> vond je een lineair verband tussen <span class="math inline">\(\ln(N)\)</span> en <span class="math inline">\(t\)</span> voor <em>exponentiële</em> groei. Dat verband geldt hier niet exact, omdat je populatie logistisch groeit, maar zoals eerder vermeld, blijft het logistische groeimodel dicht bij het exponentiële model blijft zolang <span class="math inline">\(N/K\)</span> klein is.</p>
-<p>Gebruik daarom alleen het beginstuk van je gesimuleerde reeks uit <a href="#exr-model_aanpassen" class="quarto-xref">Vraag&nbsp;<span>4.12</span></a> (de tijdspunten waarop <span class="math inline">\(N\)</span> nog ver onder <span class="math inline">\(K\)</span> ligt), en pas daar de kennis van <a href="Regressie_theorie.html" class="quarto-xref"><span>Chapter 3</span></a> toe: bepaal met <code>lm()</code> de helling van <span class="math inline">\(\ln(N)\)</span> tegen <span class="math inline">\(t\)</span>. Komt deze schatting van <span class="math inline">\(r\)</span> in de buurt van je eerdere schatting?</p>
+<p>Gebruik daarom alleen het beginstuk van je gesimuleerde reeks uit <a href="#exr-model_aanpassen" class="quarto-xref">Vraag&nbsp;<span>4.12</span></a> (de tijdspunten waarop <span class="math inline">\(N\)</span> nog ver onder <span class="math inline">\(K\)</span> ligt), en pas daar de kennis van <span class="quarto-unresolved-ref">?sec-regressie</span> toe: bepaal met <code>lm()</code> de helling van <span class="math inline">\(\ln(N)\)</span> tegen <span class="math inline">\(t\)</span>. Komt deze schatting van <span class="math inline">\(r\)</span> in de buurt van je eerdere schatting?</p>
 </div>
 <blockquote class="blockquote">
 <p>Jouw antwoord</p>

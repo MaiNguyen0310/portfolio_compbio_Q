@@ -104,8 +104,7 @@ We zien in de grafiek voor exponentiële groei dat de populatiegrootte in vijf t
 $$\begin{align}
   \frac{dN}{dt} & = rN\left(1-\frac{N}{K}\right)
 \\ & = rN-r\frac{N^2}{K}
-\end{align}$$
- {#eq-log_groei}
+\end{align}$$ {#eq-log_groei}
 
 Via [deze app](https://mai-nguyen0310.shinyapps.io/Computational_Biology/) kun je het logistische groeimodel simuleren om een intuïtie te ontwikkelen voor hoe dit werkt. Hier laten we ook enkele voorbeelden zien.
 
@@ -139,7 +138,7 @@ text(K, max(dNdt)*0.1, labels = "(K,0)", pos = 4)
 Merk op dat deze paraboolvorm ook af te leiden is uit de kwadratische term in @eq-log_groei.
 
 ::: {#exr-log_groei_eq}
-In bovenstaande plot is het punt $(K,0)$ expliciet genoteerd. Waarom is dit een interessant punt? Bedenk wat het betekent dat de grafiek de lijn $dN/dt=0$ snijdt (en dus wat het betekent als $dN/dt >0$ of $dN/dt <0$ geldt).
+In bovenstaande plot is het punt $(K,0)$\$(K,0)\$ expliciet genoteerd. Waarom is dit een interessant punt? Bedenk wat het betekent dat de grafiek de lijn $dN/dt=0$ snijdt (en dus wat het betekent als $dN/dt >0$ of $dN/dt <0$ geldt).
 :::
 
 > Jouw antwoord
