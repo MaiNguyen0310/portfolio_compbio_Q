@@ -81,6 +81,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-12eeb4b20e9f5a2b0bfc604bfaf942bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -108,6 +110,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -139,7 +143,6 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar floating slimcontent quarto-light">
@@ -247,7 +250,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bradford_statistiek.html" class="sidebar-item-text sidebar-link">
+  <a href="./Bradford_statistiek.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Bradford-test: statistiek, vectoren en lineaire modellen</span></span></a>
   </div>
 </li>
@@ -382,12 +385,10 @@ window.Quarto = {
 <section id="logistische-groei" class="level2 page-columns page-full" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="logistische-groei"><span class="header-section-number">4.2</span> Logistische groei</h2>
 <p>We zien in de grafiek voor exponentiële groei dat de populatiegrootte in vijf tijdheden van 100 tot meer dan <span class="math inline">\(10^5\)</span> is gegroeid. Dat is een enorme toename, en het is niet realistisch dat een gebied die groei aan kan. Doordat de ruimte en de hoeveelheid voedsel beperkt is, onstaat er competitie. Hierdoor is er een bovengrens voor het totaal aantal dieren in de populatie. We noemen deze grens ook wel de <em>draagkracht</em> en noteren deze als <span class="math inline">\(K\)</span>. De groei van de populatie wordt dan afhankelijk van de verhouding tussen de populatiegrootte en de draagkracht. Dit zien we in de volgende uitdrukking:</p>
-<p><span id="eq-log_groei"><span class="math display">\[
-\begin{align}
+<p><span class="math display">\[\begin{align}
   \frac{dN}{dt} &amp; = rN\left(1-\frac{N}{K}\right)
 \\ &amp; = rN-r\frac{N^2}{K}
-\end{align}
-\tag{4.4}\]</span></span></p>
+\end{align}\]</span> {#eq-log_groei}</p>
 <p>Via <a href="https://mai-nguyen0310.shinyapps.io/Computational_Biology/">deze app</a> kun je het logistische groeimodel simuleren om een intuïtie te ontwikkelen voor hoe dit werkt. Hier laten we ook enkele voorbeelden zien.</p>
 <p>Net zoals bij de exponentiële groei kunnen we de groeisnelheid uitzetten tegen de populatiegrootte:</p>
 <div class="cell">
@@ -399,7 +400,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Merk op dat deze paraboolvorm ook af te leiden is uit de kwadratische term in <a href="#eq-log_groei" class="quarto-xref">Vergelijking&nbsp;<span>4.4</span></a>.</p>
+<p>Merk op dat deze paraboolvorm ook af te leiden is uit de kwadratische term in <span class="quarto-unresolved-ref">?eq-log_groei</span>.</p>
 <div id="exr-log_groei_eq" class="theorem exercise">
 <p><span class="theorem-title"><strong>Vraag 4.4</strong></span> In bovenstaande plot is het punt <span class="math inline">\((K,0)\)</span> expliciet genoteerd. Waarom is dit een interessant punt? Bedenk wat het betekent dat de grafiek de lijn <span class="math inline">\(dN/dt=0\)</span> snijdt (en dus wat het betekent als <span class="math inline">\(dN/dt &gt;0\)</span> of <span class="math inline">\(dN/dt &lt;0\)</span> geldt).</p>
 </div>
@@ -599,16 +600,41 @@ A(t)=\alpha e^{\beta t}.
 <p>Jouw antwoord</p>
 </blockquote>
 <div id="exr-aannames" class="theorem exercise">
-<p><span class="theorem-title"><strong>Vraag 4.14</strong></span> Je hebt in de vorige opgave lineaire regressie toegepast op <span class="math inline">\(\ln(N)\)</span> tegen <span class="math inline">\(t\)</span>. Welke aanname over het groeiproces moet daarvoor gelden? Waarom is die aanname bij <a href="#exr-verband_gebruiken" class="quarto-xref">Vraag&nbsp;<span>4.13</span></a> redelijk voor het beginstuk van de data, maar niet voor de volledige reeks? Verwijs in je antwoord naar de aannames van lineaire regressie zoals besproken in <a href="bradford_statistiek.html" class="quarto-xref"><span>Appendix C</span></a>.</p>
+<p><span class="theorem-title"><strong>Vraag 4.14</strong></span> Je hebt in de vorige opgave lineaire regressie toegepast op <span class="math inline">\(\ln(N)\)</span> tegen <span class="math inline">\(t\)</span>. Welke aanname over het groeiproces moet daarvoor gelden? Waarom is die aanname bij <a href="#exr-verband_gebruiken" class="quarto-xref">Vraag&nbsp;<span>4.13</span></a> redelijk voor het beginstuk van de data, maar niet voor de volledige reeks? Verwijs in je antwoord naar de aannames van lineaire regressie zoals besproken in <a href="Bradford_statistiek.html" class="quarto-xref"><span>Appendix C</span></a>.</p>
 </div>
 <blockquote class="blockquote">
 <p>Jouw antwoord</p>
 </blockquote>
 
 
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
 </section>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
