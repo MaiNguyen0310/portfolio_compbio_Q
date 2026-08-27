@@ -1,6 +1,6 @@
 # Differentiaalvergelijkingen
 
-Stel je weet van een bepaalde populatie maar één ding: elk individu krijgt gemiddeld 2 nakomelingen per jaar. Verder heb je geen informatie uit tellingen of tussentijdse metingen. Toch kun je, met alleen deze regel en een startaantal, de populatiegrootte op elk moment in de toekomst redelijk voorspellen. 
+Stel je weet van een bepaalde populatie maar één ding: elk individu krijgt gemiddeld 2 nakomelingen per jaar. Verder heb je geen informatie uit tellingen of tussentijdse metingen. Toch kun je, met alleen deze regel en een startaantal, de populatiegrootte op elk moment in de toekomst redelijk voorspellen.
 
 Dat is de kern van een `differentiaalvergelijking`: een vergelijking die niet een grootheid (in dit geval populatiegrootte) zelf beschrijft, maar hoe die *verandert*. Een differentiaalvergelijking heeft de volgende algemene vorm:
 
@@ -21,17 +21,17 @@ $$\frac{dN}{dt} = 2N(t), \quad N(0)=100.$$
 Hierin zien we dat hoe meer individuen er zijn, hoe meer nakomelingen er bijkomen en dus hoe groter de groeisnelheid van de populatie wordt. In dit geval hebben we `exponentiële groei` gemodelleerd, waarbij elk individu dus per tijdseenheid 2 nakomelingen krijgt. We kunnen aantonen dat dit inderdaad een exponentiële groeifunctie beschrijft door de differentiaalvergelijking op te lossen.
 
 ::: aside
-Merk op dat we dit scenario al eerder kort aan bod hebben zien komen, in  @sec-rekenregels. Daarbij redeneerden we de andere kant op door op basis van de huidige populatiegrootte het aantal verstreken generaties te bepalen.
+Merk op dat we dit scenario al eerder kort aan bod hebben zien komen, in @sec-rekenregels. Daarbij redeneerden we de andere kant op door op basis van de huidige populatiegrootte het aantal verstreken generaties te bepalen.
 :::
 
-::: {#exr-diff_diff} 
+::: {#exr-diff_diff}
 Merk op dat exponentiële groei gemodelleerd wordt met de functie $N(t)=Ce^{rt}$, waarbij $r$ en $C$ constantes zijn. Bepaal de afgeleide van deze functie en laat daarmee zien dat deze oplossing inderdaad hoort bij de differentiaalvergelijking $\frac{dN}{dt}=rN(t)$.
 :::
 
 > Jouw antwoord
 
 ::: aside
-Als je toevallig bekend bent met de syntax van $\LaTeX$, kun je deze gebruiken om je antwoord te geven. Zo niet, doe dit dan op papier; zodra de antwoorden online komen, kun je je uitwerking controleren. 
+Als je toevallig bekend bent met de syntax van $\LaTeX$, kun je deze gebruiken om je antwoord te geven. Zo niet, doe dit dan op papier; zodra de antwoorden online komen, kun je je uitwerking controleren.
 :::
 
 We kunnen bekijken hoe de groeisnelheid afhangt van de huidige populatiegrootte. We vinden dan de volgende grafiek:
@@ -52,7 +52,6 @@ plot(N_vals, dNdt, type = "l", lwd = 2,
      xaxt = "n")
 ```
 
-
 Merk op dat dit laat zien wat we eerder in woorden hadden geconcludeerd: hoe groter de populatie, hoe groter de groeisnelheid.
 
 In plaats van de groeisnelheid $dN/dt$ als functie van $N$, kunnen we ook $N$ als functie van de tijd $t$ plotten. Hiervoor maken we gebruik van numerieke integratie, en in het bijzonder de methode van Euler.
@@ -61,15 +60,11 @@ In plaats van de groeisnelheid $dN/dt$ als functie van $N$, kunnen we ook $N$ al
 
 Voor $\frac{dN}{dt}=rN$ vonden we, zoals je in @exr-diff_diff liet zien, een exacte formule voor $N(t)$. Dat lukt niet altijd: voor veel differentiaalvergelijkingen bestaat er geen nette uitdrukking voor $N(t)$. Toch kunnen we de vergelijking dan nog steeds gebruiken om $N$ te *benaderen*, met een simpel idee: we kennen op elk moment de groeisnelheid $\frac{dN}{dt}$, dus we kunnen een klein stapje vooruit zetten door de huidige waarde op te tellen bij (stapgrootte × groeisnelheid):
 
-
 $$N(t+dt) \approx N(t) + dt \cdot \left.\frac{dN}{dt}\right|_{N(t)}.$$ {#eq-euler}
 
-In dit geval wordt dat dus 
-$$N(t+dt) \approx N(t) + dt \cdot rN(t).$$ {#eq-euler-exp}
+In dit geval wordt dat dus $$N(t+dt) \approx N(t) + dt \cdot rN(t).$$ {#eq-euler-exp}
 
-Dit is `Euler-integratie` of de `methode van Euler`. Als je  dit vaak genoeg doet, kun je voor elk tijdspunt de waarde van $N(t)$ benaderen. Hoe kleiner je de stapgrootte `dt` is, hoe nauwkeuriger de benadering, maar ook hoe meer rekenstappen nodig zijn.
-
-
+Dit is `Euler-integratie` of de `methode van Euler`. Als je dit vaak genoeg doet, kun je voor elk tijdspunt de waarde van $N(t)$ benaderen. Hoe kleiner je de stapgrootte `dt` is, hoe nauwkeuriger de benadering, maar ook hoe meer rekenstappen nodig zijn.
 
 ```{r}
 dt <- 0.1 # tijdstappen voor berekeningen en plotten
@@ -86,7 +81,7 @@ for(i in 1:(length(t)-1)){
 plot(t,N, type = 'l')
 ```
 
-::: {#exr-diff_graf} 
+::: {#exr-diff_graf}
 Verklaar de laatste twee grafieken op basis van de differentiaalvergelijking en relateer ze aan elkaar.
 :::
 
@@ -106,12 +101,11 @@ Dit is dezelfde truc als bij @exr-plot_log_data uit @sec-log_exp: een exponentie
 
 We zien in de grafiek voor exponentiële groei dat de populatiegrootte in vijf tijdheden van 100 tot meer dan $10^5$ is gegroeid. Dat is een enorme toename, en het is niet realistisch dat een gebied die groei aan kan. Doordat de ruimte en de hoeveelheid voedsel beperkt is, onstaat er competitie. Hierdoor is er een bovengrens voor het totaal aantal dieren in de populatie. We noemen deze grens ook wel de *draagkracht* en noteren deze als $K$. De groei van de populatie wordt dan afhankelijk van de verhouding tussen de populatiegrootte en de draagkracht. Dit zien we in de volgende uitdrukking:
 
-$$
-\begin{align}
+$$\begin{align}
   \frac{dN}{dt} & = rN\left(1-\frac{N}{K}\right)
 \\ & = rN-r\frac{N^2}{K}
-\end{align}
-$$ {#eq-log_groei}
+\end{align}$$
+ {#eq-log_groei}
 
 Via [deze app](https://mai-nguyen0310.shinyapps.io/Computational_Biology/) kun je het logistische groeimodel simuleren om een intuïtie te ontwikkelen voor hoe dit werkt. Hier laten we ook enkele voorbeelden zien.
 
@@ -142,15 +136,15 @@ points(K, 0, pch = 19, col = "red")
 text(K, max(dNdt)*0.1, labels = "(K,0)", pos = 4)
 ```
 
-Merk op dat deze paraboolvorm ook af te leiden is uit de kwadratische term in @eq-log_groei. 
+Merk op dat deze paraboolvorm ook af te leiden is uit de kwadratische term in @eq-log_groei.
 
 ::: {#exr-log_groei_eq}
 In bovenstaande plot is het punt $(K,0)$ expliciet genoteerd. Waarom is dit een interessant punt? Bedenk wat het betekent dat de grafiek de lijn $dN/dt=0$ snijdt (en dus wat het betekent als $dN/dt >0$ of $dN/dt <0$ geldt).
 :::
 
-> Jouw antwoord 
+> Jouw antwoord
 
-:::{#exr-oorsprong}
+::: {#exr-oorsprong}
 De grafiek gaat ook door het punt $(0,0)$. Hoe interpreteren we dit punt, en waarom is het verloop van de grafiek rondom dit punt logsich?
 :::
 
@@ -179,7 +173,6 @@ Merk op dat een deel van deze grafiek erg lijkt op die van de exponentiële groe
 ::: aside
 Denk ook terug aan @eq-pkz voor het berekenen van de pKz in het tweede portfolio-onderdeel. Daar ging het om de ratio $\frac{[\text{Z}^-]}{[\text{HZ}]}$, en hier bepaalt de ratio $\frac{N}{K}$ het gedrag van het systeem.
 :::
-
 
 Na een tijdje zien we geen verandering meer in de populatiegrootte. Dit betekent dat er netto geen groei is. We spreken dan van een `evenwicht`.
 
@@ -221,7 +214,6 @@ text(2.4, max(N)*0.9, "Geen groei")
 We laten nu de populatiegrootte starten boven de draagkracht. Bedenk waarom het verloop van de volgende grafiek nu logisch is.
 :::
 
-
 ```{r}
 N[1] <- 1.1*K # start op 1.1 maal de draagkracht
 for(i in 1:(length(t)-1)){
@@ -259,11 +251,9 @@ Hoe kunnen we ervoor zorgen dat de dalende trend uit de tabel gevolgd wordt door
 
 We kunnen de draagkracht en groeisnelheid ook afleiden uit andere observaties.
 
-
 We beschrijven een populatie met dichtheid $n$ (exacte eenheden laten we buiten beschouwing) en observeren dat de het aantal geboortes $g$ en sterftes $s$ in de populatie dichtheidsafhankelijk is. We hebben hiervoor de vergelijkingen \begin{equation}
 \frac{dg}{dt} = 1 + 0.04n, \quad \frac{ds}{dt} = 0.45 + 0.06n.
 \end{equation}
-
 
 ::: {#exr-int_g_s}
 Interpreteer deze vergelijkingen. Wat betekent het dat het aantal geboortes en sterftes afhankelijk is van de dichtheid? Geef een mogelijke context waarin dit voor kan komen.
@@ -281,7 +271,7 @@ s <- function(n) {
     }
 ```
 
-We hebben hier de functies `g` en `s` gedefinieerd, met `function(n) ...`.  Een functie neemt een input (hier de dichtheid `n`) en geeft daar volgens een vaste regel (bij `g` bijvoorbeeld $1+0.04n$) een output bij. Het voordeel van een R-functie is dat je deze kunt hergebruiken voor elke waarde van `n`, zonder de berekening opnieuw uit te typen.
+We hebben hier de functies `g` en `s` gedefinieerd, met `function(n) ...`. Een functie neemt een input (hier de dichtheid `n`) en geeft daar volgens een vaste regel (bij `g` bijvoorbeeld $1+0.04n$) een output bij. Het voordeel van een R-functie is dat je deze kunt hergebruiken voor elke waarde van `n`, zonder de berekening opnieuw uit te typen.
 
 ```{r}
 # evenwichtspunt
@@ -335,10 +325,7 @@ In bovenstaande code hebben we het evenwichtspunt gemarkeerd en $K$ genoemd. Leg
 Simuleer nu het model met de gevonden waarden voor $r$ en $K$ (gebruik eerder gegeven code als voorbeeld). Bedenk een manier om aan de hand van het object $N$ (de berekende dichtheid per tijdstip) een benadering te krijgen van de waarden van $r$ en $K$. Dat wil zeggen: bedenk dat je in een situatie zit waarin je alleen deze lijst zou hebben, en niet zou weten welke waarden van $r$ en $K$ zijn gebruikt om deze te maken. Hoe zou je deze toch kunnen schatten (tip: wanneer observeren we gedrag direct gerelateerd aan deze parameters?)
 :::
 
-
-
 > jouw antwoord
-
 
 ::: {#exr-verband_gebruiken}
 We kunnen de schatting voor $r$ wat preciezer maken. In @exr-diff-verband vond je een lineair verband tussen $\ln(N)$ en $t$ voor *exponentiële* groei. Dat verband geldt hier niet exact, omdat je populatie logistisch groeit, maar zoals eerder vermeld, blijft het logistische groeimodel dicht bij het exponentiële model blijft zolang $N/K$ klein is.
@@ -348,10 +335,8 @@ Gebruik daarom alleen het beginstuk van je gesimuleerde reeks uit @exr-model_aan
 
 > Jouw antwoord
 
-
 ::: {#exr-aannames}
 Je hebt in de vorige opgave lineaire regressie toegepast op $\ln(N)$ tegen $t$. Welke aanname over het groeiproces moet daarvoor gelden? Waarom is die aanname bij @exr-verband_gebruiken redelijk voor het beginstuk van de data, maar niet voor de volledige reeks? Verwijs in je antwoord naar de aannames van lineaire regressie zoals besproken in @sec-bradford.
 :::
 
 > Jouw antwoord
-
