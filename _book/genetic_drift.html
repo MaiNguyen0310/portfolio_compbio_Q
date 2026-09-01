@@ -314,7 +314,7 @@ window.Quarto = {
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>freq <span class="ot">&lt;-</span> <span class="fu">c</span>(p0,p1)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>freq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.6398124 0.3601876</code></pre>
+<pre><code>[1] 0.5796738 0.4203262</code></pre>
 </div>
 </div>
 <p>Om het principe van genetic drift in één generatietijdseenheid van deze populatie te simuleren, bedenken we het volgende:</p>
@@ -344,7 +344,7 @@ window.Quarto = {
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>freq_nieuw <span class="ot">&lt;-</span> <span class="fu">c</span>(p0_nieuw, p1_nieuw)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>freq_nieuw</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.649 0.351</code></pre>
+<pre><code>[1] 0.58 0.42</code></pre>
 </div>
 </div>
 <p>Het verschil ten opzichte van de frequenties in de vorige populatie kunnen we zien door de vectoren van elkaar af te trekken:</p>
@@ -352,7 +352,7 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>gen_verschil <span class="ot">&lt;-</span> freq_nieuw <span class="sc">-</span> freq</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>gen_verschil</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1]  0.009187584 -0.009187584</code></pre>
+<pre><code>[1]  0.0003261654 -0.0003261654</code></pre>
 </div>
 </div>
 <p>Deze simulatie geeft slechts een beperkt beeld van de mogelijkheden weer: het gaan om één populatie en we bekijken één generatietijd. Voor een andere populatie zou de uitkomst van het random samplen heel anders kunnen zijn. Bovendien is het resultaat ook anders als we de code voor dezelfde populatie opnieuw runnen. Ook zouden we geïnteresseerd kunnen zijn in het effect van genetic drift op de langere termijn. We kunnen dus, met dezelfde logica als bovenstaand, een <code>functie</code> bouwen die dit voor een willekeurig aantal populaties en generaties bijhoudt en de simulaties meerdere keren uitvoert:</p>
@@ -380,22 +380,22 @@ window.Quarto = {
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>out</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           [,1]      [,2]      [,3]      [,4]      [,5]
- [1,] 0.3601876 0.3601876 0.3601876 0.3601876 0.3601876
- [2,] 0.3900000 0.3850000 0.3350000 0.3200000 0.4200000
- [3,] 0.4000000 0.3750000 0.3150000 0.3300000 0.4300000
- [4,] 0.4000000 0.3450000 0.3000000 0.2850000 0.4350000
- [5,] 0.3500000 0.3850000 0.2450000 0.2950000 0.4600000
- [6,] 0.3750000 0.4200000 0.2650000 0.2950000 0.4250000
- [7,] 0.4100000 0.4600000 0.2150000 0.2450000 0.4800000
- [8,] 0.4500000 0.4800000 0.2100000 0.2400000 0.4600000
- [9,] 0.4550000 0.4450000 0.2150000 0.2700000 0.5000000
-[10,] 0.4450000 0.4150000 0.1850000 0.2800000 0.4800000
-[11,] 0.4200000 0.3750000 0.2150000 0.2350000 0.4900000</code></pre>
+ [1,] 0.4203262 0.4203262 0.4203262 0.4203262 0.4203262
+ [2,] 0.3950000 0.4200000 0.3900000 0.4350000 0.4250000
+ [3,] 0.4000000 0.4600000 0.4100000 0.4200000 0.4600000
+ [4,] 0.3850000 0.4600000 0.4100000 0.4300000 0.4500000
+ [5,] 0.4400000 0.4800000 0.4300000 0.4500000 0.4250000
+ [6,] 0.4850000 0.5250000 0.5150000 0.4400000 0.3850000
+ [7,] 0.4450000 0.5100000 0.5300000 0.4100000 0.3950000
+ [8,] 0.4650000 0.5050000 0.5600000 0.4250000 0.4750000
+ [9,] 0.4600000 0.5250000 0.5400000 0.3550000 0.4800000
+[10,] 0.4950000 0.5250000 0.5250000 0.3450000 0.4450000
+[11,] 0.4200000 0.5550000 0.4900000 0.3950000 0.5050000</code></pre>
 </div>
 </div>
 <p>We krijgen dus een matrix waarin we de frequentie van allel 1 over de generaties heen (rijen) zien voor elke populatie (kolommen).</p>
 <div id="exr-gendrift_plot" class="theorem exercise">
-<p><span class="theorem-title"><strong>Vraag 6.2</strong></span> Maak een figuur waarin voor elke populatie de frequentie van allel 1 over tijd wordt weergegeven. Gebruik de functie <code>matplot()</code></p>
+<p><span class="theorem-title"><strong>Vraag 6.2</strong></span> Maak een figuur waarin voor elke populatie de frequentie van allel 1 over tijd wordt weergegeven. Gebruik de functie <code>matplot()</code>.</p>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Jouw antwoord</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -432,7 +432,7 @@ window.Quarto = {
 <p>In onze context: elke allel-trekking is een “poging” met kans <span class="math inline">\(p_1\)</span> op allel 1, en er zijn <span class="math inline">\(n=2N\)</span> onafhankelijke trekkingen per generatie (één per allel-kopie in de populatie). Het aantal kopieën van allel 1 in de nieuwe generatie, dat we <code>sum(out)</code> noemen, is dus een stochastische variabele die <span class="math inline">\(\text{Binom}(2N, p_1)\)</span> volgt.</p>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>Vergelijk dit met wat je helemaal aan het begin van het jaar hebt gezien, in <a href="Port2_Theory.html" class="quarto-xref"><span>Chapter 1</span></a> en <a href="Port2_Pract.html" class="quarto-xref"><span>Appendix A</span></a>: het aantal kopieën van allel 1 heeft, net als de <span class="math inline">\(\chi^2\)</span>-waarde daar, alle drie de kenmerken van een stochastische variabele, namelijk: een kansverdeling, een waarde die pas na “uitvoering van het experiment” (hier het samplen van een generatie) vaststaat, en inherente onzekerheid. De onderliggende verdeling is anders, omdat het achterliggende stochastische proces anders is.</p>
+<p>Vergelijk dit met wat je helemaal aan het begin van het jaar hebt gezien, in <span class="quarto-unresolved-ref">?sec-stoch</span> en <span class="quarto-unresolved-ref">?sec-mais</span>: het aantal kopieën van allel 1 heeft, net als de <span class="math inline">\(\chi^2\)</span>-waarde daar, alle drie de kenmerken van een stochastische variabele, namelijk: een kansverdeling, een waarde die pas na “uitvoering van het experiment” (hier het samplen van een generatie) vaststaat, en inherente onzekerheid. De onderliggende verdeling is anders, omdat het achterliggende stochastische proces anders is.</p>
 </div></div><p>Omdat er <span class="math inline">\(2N+1\)</span> mogelijke uitkomsten zijn voor het aantal kopieën allel 1 (van 0 tot <span class="math inline">\(2N\)</span>), zijn er ook precies <span class="math inline">\(2N+1\)</span> mogelijke waarden voor de nieuwe allelfrequentie: <span class="math inline">\(0, \frac{1}{2N}, \frac{2}{2N}, \ldots, \frac{2N-1}{2N}, 1\)</span>. Het samenstellen van een nieuwe generatie komt dus neer op het trekken van één enkele waarde uit deze <span class="math inline">\(2N+1\)</span> mogelijkheden, met kansen die door de binomiale verdeling worden bepaald.</p>
 <div id="exr-drift_binomiaal" class="theorem exercise">
 <p><span class="theorem-title"><strong>Vraag 6.4</strong></span> Je weet dat <span class="math inline">\(X = \text{sum(out)} \sim \text{Binom}(2N, p_1)\)</span>, met variantie <span class="math inline">\(\text{Var}(X) = np(1-p)\)</span> (met <span class="math inline">\(n=2N\)</span>, <span class="math inline">\(p=p_1\)</span>).</p>

@@ -1,12 +1,12 @@
 # Het portfolio {.unnumbered}
 
-Welkom aan de universiteit. Jullie stappen een nieuwe fase binnen, een omgeving waarin kennis niet alleen wordt overgedragen, maar voortdurend wordt onderzocht, bevraagd, verdiept, vernieuwd en uitgebreid. Hier gaat het niet alleen om leren wat bekend is, zoals op de middelbare school, maar om zelfstandig denken, vragen stellen en nieuwe verbanden leggen. Je ontwikkelt niet alleen kennis, maar ook een manier van kijken: kritisch, analytisch en onderzoekend.
+Welkom aan de universiteit. Jullie stappen een nieuwe fase binnen, een omgeving waarin kennis niet alleen wordt overgedragen, maar voortdurend wordt onderzocht, bevraagd, verdiept, vernieuwd en uitgebreid. Hier gaat het niet alleen om leren wat bekend is, zoals op de middelbare school, maar om zelfstandig denken, vragen stellen en nieuwe verbanden leggen. Je ontwikkelt niet alleen kennis, maar ook een manier van kijken naar ded wereld: kritisch, analytisch en onderzoekend.
 
-Dat maakt deze fase zowel inspirerend als uitdagend. Je krijgt meer vrijheid om je eigen pad te vormen, je interesses te volgen en nieuwe te ontdekken en je stem te ontwikkelen binnen een vakgebied. Tegelijk vraagt dat iets van je: nieuwsgierigheid, discipline, zelfstandigheid en verantwoordelijkheid voor je eigen leerproces en je medestudenten.
+Dat maakt deze fase zowel inspirerend als uitdagend. Je krijgt meer vrijheid om je eigen pad te vormen, je interesses te volgen en nieuwe te ontdekken, en een visie te ontwikkelen binnen een vakgebied. Tegelijk vraagt dat iets van je: nieuwsgierigheid, discipline, zelfstandigheid en verantwoordelijkheid voor je eigen leerproces en dat van je medestudenten.
 
 Zie deze periode niet alleen als een studie, maar als het begin van de ontwikkeling van een academische houding, een manier van denken en werken die je vormt, ongeacht waar je daarna terechtkomt.
 
-De opdrachten in deze wiskunde, informatica en statistiek portfolio vormen een essentieel fundament binnen die academische vorming. Wiskunde, statistiek en informatica zijn daarbij geen bijzaken, maar basisinstrumenten van de moderne biologie. Ze stellen je in staat data te analyseren, patronen te herkennen en onderliggende structuren te doorgronden. Wie deze vaardigheden ontwikkelt, legt de basis om niet alleen kennis te volgen, maar ook nieuwe inzichten te ontdekken en bij te dragen aan de wetenschap en maatschappij.
+De opdrachten in deze wiskunde, statistiek en informatica portfolio vormen een essentieel fundament binnen die academische vorming. Wiskunde, statistiek en informatica zijn daarbij geen bijzaken, maar basisinstrumenten en perspectief van de moderne biologie. Ze stellen je in staat data te analyseren, patronen te herkennen en onderliggende structuren te doorgronden. Wie deze vaardigheden ontwikkelt, legt de basis om niet alleen kennis te volgen, maar ook nieuwe inzichten te ontdekken en bij te dragen aan de wetenschap en maatschappij.
 
 ## Waarom dit belangrijk is
 
@@ -14,13 +14,17 @@ Binnen de levenswetenschappen spelen kwantitatieve en computationele methoden ee
 
 - Statistische analyse van experimentele data: het ontwerpen, analyseren en kritisch interpreteren van experimenten, zodat resultaten betrouwbaar zijn en betekenisvolle conclusies kunnen worden getrokken.
 - Bio-informatica voor het analyseren van grootschalige biologische databases (genomics, metabolomics, microbiomics, ...), waarbij met behulp van computationele methoden patronen en verbanden in complexe gegevens worden onderzocht.
-- Systeembiologie voor het integreren van complexe biologische processen: het modelleren en begrijpen van interacties tussen componenten op verschillende afstand en tijdschalen binnen de biologie om het gedrag van het geheel te doorgronden.
+- Systeembiologie voor het integreren van complexe biologische processen: het modelleren en begrijpen van interacties tussen componenten op verschillende lengte- en tijdschalen binnen de biologie om het gedrag van het geheel te doorgronden.
 
 Dit zijn precies de domeinen waarin veel hedendaagse doorbraken plaatsvinden.
 
 ## Werken met echte complexiteit
 
-In de bio-informatica worden grote hoeveelheden data geanalyseerd, zoals genomische en metabolomische datasets. Dit vereist niet alleen technische vaardigheden, maar ook een analytische manier van denken. Een script in R of Python schrijven en uitvoeren is namelijk niet genoeg: de computer voert elke analyse gehoorzaam uit, ook een analyse die statistisch niet klopt. Om te beoordelen of een uitkomst betrouwbaar is, moet je de onderliggende wiskunde en statistiek begrijpen, en vooral de aannamen die daaraan gekoppeld zijn. Je hoeft die wiskunde niet te beheersen zoals een wiskundige dat doet, maar wel goed genoeg om te weten wat je met een methode wel en niet mag doen.
+In de bio-informatica worden grote hoeveelheden data geanalyseerd, zoals genomische en metabolomische datasets, en met de systeenm biologie worden de gevonden verbanden als hypothesis geintegreren. Dit vereist niet alleen technische vaardigheden, maar ook een analytische manier van denken. Een script in R of Python schrijven en uitvoeren is namelijk niet genoeg: de computer voert elke analyse gehoorzaam uit, ook een analyse die statistisch, fysische-chemische of biologisch niet klopt. Om te beoordelen of een uitkomst betrouwbaar is, moet je de onderliggende wiskunde en statistiek begrijpen, en vooral de **aannamen** die daaraan gekoppeld zijn. Je hoeft die wiskunde niet te beheersen zoals een wiskundige of statisticus dat kan, maar wel goed genoeg om te weten wat je met een methode wel en niet mag doen.
+
+::: column-margin
+Aanames zijn fundamenteel in de wetenschap en spelen een belangrijk rol in ontdenkkingen. 
+:::
 
 Dat inzicht is des te belangrijker omdat biologische systemen zich vaak gedragen als een black box: we zien wat erin gaat en wat eruit komt, maar de binnenkant, en de daaruit voortvloeiende data, is te complex om volledig te overzien. Een model is daarom altijd een vereenvoudiging, we vangen een complex systeem in een eenvoudige vorm die we wel kunnen begrijpen, terwijl we de volle complexiteit nooit helemaal kunnen zien of ervaren. Die vereenvoudiging is de kracht van modelleren, maar ook de valkuil: een model is alleen betrouwbaar zolang de statistische en wiskundige aannamen erachter redelijk zijn. Wie de aannamen kent, weet waar het model ophoudt en de werkelijkheid begint.
 
