@@ -329,7 +329,7 @@ Simuleer nu het model met de gevonden waarden voor $r$ en $K$ (gebruik eerder ge
 ::: {#exr-verband_gebruiken}
 We kunnen de schatting voor $r$ wat preciezer maken. In @exr-diff-verband vond je een lineair verband tussen $\ln(N)$ en $t$ voor *exponentiële* groei. Dat verband geldt hier niet exact, omdat je populatie logistisch groeit, maar zoals eerder vermeld, blijft het logistische groeimodel dicht bij het exponentiële model blijft zolang $N/K$ klein is.
 
-Gebruik daarom alleen het beginstuk van je gesimuleerde reeks uit @exr-model_aanpassen (de tijdspunten waarop $N$ nog ver onder $K$ ligt), en pas daar de kennis van @sec-regressie toe: bepaal met `lm()` de helling van $\ln(N)$ tegen $t$. Komt deze schatting van $r$ in de buurt van je eerdere schatting?
+Gebruik daarom alleen het beginstuk van je gesimuleerde reeks uit @exr-model_aanpassen (de tijdspunten waarop $N$ nog ver onder $K$ ligt), en pas daar je kennis van lineaire regressie toe: bepaal met `lm()` de helling van $\ln(N)$ tegen $t$. Komt deze schatting van $r$ in de buurt van je eerdere schatting?
 :::
 
 > Jouw antwoord
