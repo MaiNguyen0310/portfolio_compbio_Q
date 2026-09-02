@@ -19,7 +19,7 @@ Jullie hebben de resultaten van jullie metingen ingevoerd in het online formulie
 ```
 
 ::: {#exr-chi2_waarden}
-Stel dat maïs zich precies aan de verwachte 3:1-verdeling houdt, dus dat, $H_0$, waar is. Verwacht je dan dat alle studenten dezelfde $\chi^2$-waarden, vinden, of nog steeds verschillende? Met andere woorden: ontstaat er ook onder $H_0$  een verdeling van $\chi^2$-waarden? Zo ja, dan is dat een special verdeling. Waarom wat wat zou een goede naam zijn voor die specifieke belangrijk verdeling?
+Stel dat maïs zich precies aan de verwachte 3:1-verdeling houdt, dus dat $H_0$ waar is. Verwacht je dan dat alle studenten dezelfde $\chi^2$-waarden vinden, of nog steeds verschillende? Met andere woorden: ontstaat er ook onder $H_0$ een verdeling van $\chi^2$-waarden? Zo ja, dan is dat een speciale verdeling. Waarom zou een goede naam voor die specifieke verdeling zijn?
 :::
 
 **Jouw antwoord:**
@@ -60,9 +60,9 @@ Als de p-waarde zelf ook een stochastische variabele is, wat betekent dat dan vo
 
 Antwoord:
 
+Nemen een kritieke waarde van 0.05 waarbij we de nulhypothese verwerpen, dan blijkt iets opmerkelijks: ook de conclusie, verwerpen of niet, wordt bepaald door een stochastische variabele. Of een student de nulhypothese verwerpt, hangt af van een p-waarde die zelf door toeval varieert. Daarmee erf ook de uitspraak over de hypothese onzekerheid. Een tweede opmerkelijk gevolg is dat zelfs wanneer de 3:1-hypothese correct is, sommige groepen haar toch zullen verwerpen, puur door toeval in de steekproef; bijvoorbeeld als ze teveel rode of gele korrels hebben gemeten. Dit noemen we later een type-I-fout en we weten precies de kans daarop. Voor nu is het genoeg om te zien dat de onzekerheid zich overerft tot in de conclusie zelf.
 
-
-
+## Maat voor onzekerheid: Entropie.
 Nemen een kritieke waarde van 0.05 waarbij we de nulhypothese te verwerpen, dan blijkt iets opmerkelijks: ook de conclusie, verwerpen of niet, wordt bepaald door een stochastische variabele. Of een student de nulhypothese verwerpt, hangt af van een p-waarde die zelf door toeval varieert. Daarmee erft ook de uitspraak over de hypothese die onzekerheid. Een tweede opmerkelijk gevolg is dat zelfs wanneer de 3:1-hypothese correct is, sommige groepen haar toch zal verwerpen, puur door toeval in de steekproef; bv als ze teveel rode of gele hebben gemeten. Dit noemen we later een type-I-fout en we weten precies the kans daarop. Voor nu is het genoeg om te zien dat de onzekerheid zich overerft tot in de conclusie zelf.
 
 ## Maat voor onzekerheid: Entropie.
@@ -92,7 +92,7 @@ Leg uit waarom bij een meer voorspelbare uitkomst de entropie afneemt.
 De betekenis van entropie hangt af van het toepassingsgebied:
 
 1.  in de **informatietheorie** is entropie een maat voor informatie-inhoud;
-2.  in de **natuurkunde**, met name de thermodynamica, is entropie een maat voor wanorde en bepaald  via de weten van de thermodynamica de richting van een proces dat streeft naar wanorde;
+2. in de **natuurkunde**, met name de thermodynamica, is entropie een maat voor wanorde en bepaald via de wetten van de thermodynamica, die de richting van een proces bepalen dat streeft naar wanorde;
 3.  in de **sociale wetenschappen** en economie kan entropie worden gebruikt als maat voor economische of sociale ongelijkheid.
 
 ::: {#exr-entropie_sociaal}
@@ -201,7 +201,7 @@ Welke van de twee termen wordt beïnvloed door canalisatie, en welke door het on
 
 **Jouw antwoord:**
 
-Al deze vragen illustreren dat een relatief eenvoudige functie zoals entropie on veel theoretische inzichten kunnen verschaffen, zowel kwalitatief and kwantitatief, die ander niet of erg moeilijk is. Dat geld niet alleen voor de biologie, maar ook voor de andere wetenschappelijke disciplines. 
+Al deze vragen illustreren dat een relatief eenvoudige functie zoals entropie ons veel theoretische inzichten kan verschaffen, zowel kwalitatief als kwantitatief, die anders niet of erg moeilijk zijn. Dat geldt niet alleen voor de biologie, maar ook voor andere wetenschappelijke disciplines.
 
 In dit theoretische deel stond de interpretatie centraal; code en wiskunde hebben we bewust op de achtergrond gehouden en conceptueel begrip voorop. In de komende delen keren die juist terug, en gaan we meer rekenen en met wiskundige regels werken
 
@@ -228,7 +228,7 @@ Belangrijk: dit is een *momentopname*. De hypothesen en verbanden die je nu zlef
 > jouw antwoord:
 
 ::: aside
-Als je klaar bent kan je deze file plaatsen in je persoonlijke locker in Brightspace 
+Als je klaar bent, kun je deze file plaatsen in je persoonlijke locker in Brightspace
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -238,13 +238,13 @@ We hebben entropie tot nu toe gebruikt als een maat voor onzekerheid, opgebouwd 
 
 In het honoursonderdeel graven we dieper. Een paar vragen die we gaan verkennen:
 
--   **Waarom juist deze formule?** Entropie is niet zomaar één van de vele mogelijke maten voor onzekerheid. Onder een handvol redelijke eisen — bijvoorbeeld dat onafhankelijke gebeurtenissen optelbare informatie geven — is $-\sum p_i \log p_i$ de *enige* die overblijft. We leiden dat zelf af.
+- Waarom juist deze formule? Entropie is niet zomaar één van de vele mogelijke maten voor onzekerheid. Onder een handvol redelijke eisen — bijvoorbeeld dat onafhankelijke gebeurtenissen optelbare informatie geven — is $-\sum p_i \log p_i$ de *enige* die overblijft. We leiden dat zelf af.
 
--   **De brug naar de natuurkunde.** Dezelfde grootheid die wij op zaadverhoudingen loslaten, bepaalt in de thermodynamica de richting van de tijd: de entropie van een gesloten systeem neemt toe. We bekijken hoe Boltzmanns $S = k \log W$ en Shannons $H$ in wezen dezelfde vergelijking zijn, en wat dat betekent.
+- De brug naar de natuurkunde. Dezelfde grootheid die wij op zaadverhoudingen loslaten, bepaalt in de thermodynamica de richting van de tijd: de entropie van een gesloten systeem neemt toe. We bekijken hoe Boltzmanns $S = k \log W$ en Shannons $H$ in wezen dezelfde vergelijking zijn, en wat dat betekent.
 
--   **Continue verdelingen.** Tot nu toe telden we discrete uitkomsten. Wat gebeurt er als de variabele continu wordt? Dan wordt de som een integraal, $h(X) = -\int f(x)\log f(x)\,dx$, en blijkt de normale verdeling een bijzondere eigenschap te hebben: van alle verdelingen met een gegeven variantie heeft zij de hoogste entropie.
+- Continue verdelingen. Tot nu toe telden we discrete uitkomsten. Wat gebeurt er als de variabele continu wordt? Dan wordt de som een integraal, $h(X) = -\int f(x)\log f(x)\,dx$, en blijkt de normale verdeling een bijzondere eigenschap te hebben: van alle verdelingen met een gegeven variantie heeft zij de hoogste entropie.
 
--   **Maximale entropie als principe.** Als je niets weet behalve een paar constraints, welke kansverdeling moet je dan kiezen? Het antwoord — die met de hoogste entropie — blijkt een verrassend krachtig recept, van statistische fysica tot machine learning.
+- Maximale entropie als principe. Als je niets weet behalve een paar constraints, welke kansverdeling moet je dan kiezen? Het antwoord — die met de hoogste entropie — blijkt een verrassend krachtig recept, van statistische fysica tot machine learning.
 
 Wie hiermee verder wil, krijgt een glimp van hoe één wiskundige vorm de taal van onzekerheid, informatie én de tweede hoofdwet van de thermodynamica tegelijk spreekt.
 :::

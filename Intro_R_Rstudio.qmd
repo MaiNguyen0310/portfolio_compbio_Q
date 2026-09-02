@@ -1,0 +1,152 @@
+---
+title: "R demo"
+author: "en wat meer"
+format: 
+  html:
+    toc: true 
+---
+
+# Intro van
+
+## R en quarto markdown
+
+### en nog een beetje meer.
+
+We beginne met een stukje tekst alsof we in een simpele MS-Word omgeving zitten.
+
+De `#, ##, ###` voor Intro hierboven, is een voorbeeld van een markdown syntax voor een titel H1, H2, H3, Hoofd-, sub-, en Sub-subkop. Daarnaaste hebben we **vetgedrukt**, *italic* en [onderstreept]{.underline}, ~~doorgestreept~~ en [rood]{style="color: blue;"} en `meer`.
+
+Je kan die markup met de hand doen of in de visual editor. Maar complexe struseren als een tabel:
+
+::: {.callout-warning title="Mijn Eigen Titel"}
+Een belangrijke waarschuwing
+:::
+
+of en tabel
+
+| Kolom 1 | Kolom 2 | Kolom 3 |
+|---------|---------|---------|
+| rij 1   | a       | A       |
+| rij 2   | b       | B       |
+| rij 3   | c       | C       |
+
+[Biology at the tap](https://www.facebook.com/botleiden/?locale=nl_NL)
+
+Maar dat is niet waarvoor we R en Rstudio gebruiken.
+
+## R en Rstudio
+
+Het programma R bevat alle statistische, computationele (logische) en wiskundige functions waarvan we vandaag maar een heel klein deel zullen zien. 
+
+Rstudio is een UI (User Interface) om makkelijker met R te kunnen werken zoals we gaan zien. R studio maakt het mogelijk om tekst zoals hierboven te combineren met stukken (chunk) code voor ebrekingen zoals hieronder:
+
+```{r}
+1+1             # zet cursor achter fromule en druk op crtl-enter (WIN)of option-enter voor (MAC)
+2*3             # berekn alles in een keer met driekhoekje racht bover in chuck. 
+2/4
+log(10)
+exp(log(10))
+sin(0.5*pi)
+```
+
+ 
+We kunne r dus gebruiken als een luxe rekenmachine zoals de voorbeelden aangeven zolang we binnen de grensen van de chuck zitten
+
+::: {.callout-warning title="Hoofdletter gevoelig"}
+De functie Sin of Exp bestaan niet in R en resulteert in een foutmelding, als deze demo nu laat zien. 
+:::
+
+Je kan met 1 getale werken maar ook met meerder en met variabele. Bekijk de code hieronder en voorspel wat er gebeurt.
+
+```{r}
+a = 1
+b = 2
+
+a + b
+```
+
+
+Maar we kunnen ook meerdere getallen in een variabel stoppen in wat we een data vector noemen. Voorspel weer wat de uitkomst van de berekeningen zijn. 
+
+```{r}
+X <- c(1, 3, 5, 7, 9, 11, 13, 15)  # merk op dat spacies het beter leesbaar maken. 
+Y<-c(0,2,4,6,8,10,12,14)
+
+X + Y                              # vector somatie
+10 * Y                             # Scalaire vermenigvuldiging.
+X[3]
+sum(Y)
+prod(X)
+log10(Y)
+
+cbind(X,Y)
+
+Mijn_First_Data <- data.frame("Eerste kolom" = X, "Tweede kolom" = Y)
+Mijn_First_Data[2,1]
+```
+
+
+Nu wat meer statistiek voorstel wat de functie doet
+
+```{r}
+mean(Y)
+sd(Y)
+
+summary(Mijn_First_Data)
+
+plot(X, Y)
+plot(Y ~ X)
+abline(-1, 1)
+```
+
+
+Een voldige ANOVA analyse
+
+```{r}
+data("chickwts")
+
+summary(chickwts)
+plot(chickwts$weight ~chickwts$feed)
+Model <- lm(chickwts$weight ~chickwts$feed)
+car::qqPlot(residuals(Model))
+car::residualPlot(Model)
+car::influenceIndexPlot(Model)
+summary.aov(Model)
+```
+
+of more fabcy plot:
+
+```{r}
+library(ggplot2)
+ggplot(data = chickwts, aes(feed, weight)) + 
+  geom_boxplot() + 
+  geom_point(alpha = 0.4, colour = "blue", size  = 3) +
+  labs(x = "Voeding", y =  "Gewicht in gram")
+```
+
+
+```{r}
+#| eval: false
+#| include: false
+library(plotly)
+
+# Maak een interactieve boxplot van het gewicht per voertype
+interactieve_plot <- plot_ly(
+  data = chickwts, 
+  x = ~feed, 
+  y = ~weight, 
+  type = "box", 
+  color = ~feed
+) %>%
+  layout(
+    title = "Kuikengewicht per voersupplement (chickwts)",
+    xaxis = list(title = "Type voer"),
+    yaxis = list(title = "Gewicht na 6 weken (in gram)")
+  )
+
+# Toon de plot
+interactieve_plot
+```
+
+
+

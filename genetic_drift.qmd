@@ -77,7 +77,7 @@ gendrift <- function(p1, N_pop, N_gen, N_sim){
 ```
 
 ::: {#exr-gendrift_functie}
-Leg bovenstaande code in woorden uit
+Leg bovenstaande code in woorden uit.
 :::
 
 We kunnen deze functie bijvoorbeeld als volgt gebruiken:
@@ -90,7 +90,7 @@ out
 We krijgen dus een matrix waarin we de frequentie van allel 1 over de generaties heen (rijen) zien voor elke populatie (kolommen).
 
 ::: {#exr-gendrift_plot}
-Maak een figuur waarin voor elke populatie de frequentie van allel 1 over tijd wordt weergegeven. Gebruik de functie `matplot()`
+Maak een figuur waarin voor elke populatie de frequentie van allel 1 over tijd wordt weergegeven. Gebruik de functie `matplot()`.
 :::
 
 ```{r}
@@ -188,3 +188,6 @@ matplot(klein, ylim = c(0,1),
 matplot(groot, ylim = c(0,1), 
         type = "l", lty = 1, main = "N = 100")
 ```
+
+
+

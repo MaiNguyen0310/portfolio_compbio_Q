@@ -1,12 +1,12 @@
 # Het portfolio {.unnumbered}
 
-Welkom aan de universiteit. Jullie stappen een nieuwe fase binnen, een omgeving waarin kennis niet alleen wordt overgedragen, maar voortdurend wordt onderzocht, bevraagd, verdiept, vernieuwd en uitgebreid. Hier gaat het niet alleen om leren wat bekend is, zoals op de middelbare school, maar om zelfstandig denken, vragen stellen en nieuwe verbanden leggen. Je ontwikkelt niet alleen kennis, maar ook een manier van kijken: kritisch, analytisch en onderzoekend.
+Welkom aan de universiteit. Jullie stappen een nieuwe fase binnen, een omgeving waarin kennis niet alleen wordt overgedragen, maar voortdurend wordt onderzocht, bevraagd, verdiept, vernieuwd en uitgebreid. Hier gaat het niet alleen om leren wat bekend is, zoals op de middelbare school, maar om zelfstandig denken, vragen stellen en nieuwe verbanden leggen. Je ontwikkelt niet alleen kennis, maar ook een manier van kijken naar ded wereld: kritisch, analytisch en onderzoekend.
 
-Dat maakt deze fase zowel inspirerend als uitdagend. Je krijgt meer vrijheid om je eigen pad te vormen, je interesses te volgen en nieuwe te ontdekken en je stem te ontwikkelen binnen een vakgebied. Tegelijk vraagt dat iets van je: nieuwsgierigheid, discipline, zelfstandigheid en verantwoordelijkheid voor je eigen leerproces en je medestudenten.
+Dat maakt deze fase zowel inspirerend als uitdagend. Je krijgt meer vrijheid om je eigen pad te vormen, je interesses te volgen en nieuwe te ontdekken, en een visie te ontwikkelen binnen een vakgebied. Tegelijk vraagt dat iets van je: nieuwsgierigheid, discipline, zelfstandigheid en verantwoordelijkheid voor je eigen leerproces en dat van je medestudenten.
 
 Zie deze periode niet alleen als een studie, maar als het begin van de ontwikkeling van een academische houding, een manier van denken en werken die je vormt, ongeacht waar je daarna terechtkomt.
 
-De opdrachten in deze wiskunde, informatica en statistiek portfolio vormen een essentieel fundament binnen die academische vorming. Wiskunde, statistiek en informatica zijn daarbij geen bijzaken, maar basisinstrumenten van de moderne biologie. Ze stellen je in staat data te analyseren, patronen te herkennen en onderliggende structuren te doorgronden. Wie deze vaardigheden ontwikkelt, legt de basis om niet alleen kennis te volgen, maar ook nieuwe inzichten te ontdekken en bij te dragen aan de wetenschap en maatschappij.
+De opdrachten in deze wiskunde, statistiek en informatica portfolio vormen een essentieel fundament binnen die academische vorming. Wiskunde, statistiek en informatica zijn daarbij geen bijzaken, maar basisinstrumenten en perspectief van de moderne biologie. Ze stellen je in staat data te analyseren, patronen te herkennen en onderliggende structuren te doorgronden. Wie deze vaardigheden ontwikkelt, legt de basis om niet alleen kennis te volgen, maar ook nieuwe inzichten te ontdekken en bij te dragen aan de wetenschap en maatschappij.
 
 ## Waarom dit belangrijk is
 
@@ -14,13 +14,17 @@ Binnen de levenswetenschappen spelen kwantitatieve en computationele methoden ee
 
 - Statistische analyse van experimentele data: het ontwerpen, analyseren en kritisch interpreteren van experimenten, zodat resultaten betrouwbaar zijn en betekenisvolle conclusies kunnen worden getrokken.
 - Bio-informatica voor het analyseren van grootschalige biologische databases (genomics, metabolomics, microbiomics, ...), waarbij met behulp van computationele methoden patronen en verbanden in complexe gegevens worden onderzocht.
-- Systeembiologie voor het integreren van complexe biologische processen: het modelleren en begrijpen van interacties tussen componenten op verschillende afstand en tijdschalen binnen de biologie om het gedrag van het geheel te doorgronden.
+- Systeembiologie voor het integreren van complexe biologische processen: het modelleren en begrijpen van interacties tussen componenten op verschillende lengte- en tijdschalen binnen de biologie om het gedrag van het geheel te doorgronden.
 
 Dit zijn precies de domeinen waarin veel hedendaagse doorbraken plaatsvinden.
 
 ## Werken met echte complexiteit
 
-In de bio-informatica worden grote hoeveelheden data geanalyseerd, zoals genomische en metabolomische datasets. Dit vereist niet alleen technische vaardigheden, maar ook een analytische manier van denken. Een script in R of Python schrijven en uitvoeren is namelijk niet genoeg: de computer voert elke analyse gehoorzaam uit, ook een analyse die statistisch niet klopt. Om te beoordelen of een uitkomst betrouwbaar is, moet je de onderliggende wiskunde en statistiek begrijpen, en vooral de aannamen die daaraan gekoppeld zijn. Je hoeft die wiskunde niet te beheersen zoals een wiskundige dat doet, maar wel goed genoeg om te weten wat je met een methode wel en niet mag doen.
+In de bio-informatica worden grote hoeveelheden data geanalyseerd, zoals genomische en metabolomische datasets, en met de systeenm biologie worden de gevonden verbanden als hypothesis geintegreren. Dit vereist niet alleen technische vaardigheden, maar ook een analytische manier van denken. Een script in R of Python schrijven en uitvoeren is namelijk niet genoeg: de computer voert elke analyse gehoorzaam uit, ook een analyse die statistisch, fysische-chemische of biologisch niet klopt. Om te beoordelen of een uitkomst betrouwbaar is, moet je de onderliggende wiskunde en statistiek begrijpen, en vooral de **aannamen** die daaraan gekoppeld zijn. Je hoeft die wiskunde niet te beheersen zoals een wiskundige of statisticus dat kan, maar wel goed genoeg om te weten wat je met een methode wel en niet mag doen.
+
+::: column-margin
+Aannames zijn fundamenteel in de wetenschap. Ken ze, want je moet steeds controleren of ze in de gegeven context kloppen.
+:::
 
 Dat inzicht is des te belangrijker omdat biologische systemen zich vaak gedragen als een black box: we zien wat erin gaat en wat eruit komt, maar de binnenkant, en de daaruit voortvloeiende data, is te complex om volledig te overzien. Een model is daarom altijd een vereenvoudiging, we vangen een complex systeem in een eenvoudige vorm die we wel kunnen begrijpen, terwijl we de volle complexiteit nooit helemaal kunnen zien of ervaren. Die vereenvoudiging is de kracht van modelleren, maar ook de valkuil: een model is alleen betrouwbaar zolang de statistische en wiskundige aannamen erachter redelijk zijn. Wie de aannamen kent, weet waar het model ophoudt en de werkelijkheid begint.
 
@@ -86,7 +90,9 @@ data.frame(
   opt_row_striping()
 ```
 
-Daarbij introduceren we R in de hoofdstukken 1 en 2 als een rekenmachine, en in hoofdstuk 3 als gereedschap voor een statistische analyse. In deze hoofdstukken is de R-code vaak al gegeven, of hoeven jullie hem alleen aan te passen. De hoofdstukken 4 tot en met 6 volgen na de cursus Statistiek 1; vanaf dat punt gaan we ervan uit dat jullie voldoende R beheersen om zelf code te schrijven.
+De eerste twee hoofdstukken zijn theoretischer van aard en bekijken hoe wiskunde kan worden ingezet binnen de biologie. Daarna komt het accent meer op de statistiek en wiskunde te liggen.
+
+Daarnaast introduceren we stap voor stap R als computationele interface. In de hoofdstukken 1 en 2 gebruiken we R als rekenmachine, en in hoofdstuk 3 als gereedschap voor een statistische analyse. In deze hoofdstukken is de R-code vaak al gegeven, of hoeven jullie hem alleen aan te passen. De hoofdstukken 4 tot en met 6 volgen na de cursus Statistiek 1; vanaf dat punt gaan we ervan uit dat jullie voldoende R beheersen om zelf code te schrijven.
 
 ## Wat er van jullie verwacht wordt
 
@@ -98,6 +104,24 @@ Dit traject vraagt actieve deelname. Verwacht wordt dat jullie:
 
 Dit is geen passieve studie: het is een actieve ontwikkeling richting academisch niveau.
 
+## Hoe is deze handout gemaakt en hoe gebruiken we  LLM?
+
+Deze handout is deels geschreven met behulp van grote taalmodellen (large language models, LLM's), en ik laat het aan het oordeel van de lezer of dit gerechtvaardigd en verantwoord was; mijn redenen en de voorzorgsmaatregelen die ik heb toegepast, staan hieronder. Daarnaast ga ik graag met jullie de discussie aan of, en zo ja hoe, je deze taalmodellen het beste kunt inzetten bij je eigen ontwikkeling tot academicus. 
+
+#### De workflow.
+
+* De collegesheets en aantekeningen van voorgaande jaren, plus aanvullende handgeschreven en elektronische notities over narratief opbouw, zijn geüpload naar Claude AI van Anthropic.
+* Claude is gevraagd trouw te blijven aan de inhoud en het narratief van het cursusmateriaal, en deze handout uit te schrijven.
+Vervolgens heb ik de handout bewerkt tot de huidige versie.
+
+Er bestaan terechte kritiekpunten op deze manier van produceren. Eén betreft de impact op het milieu, vanwege de energie- en waterintensieve datacentra. Een tweede is dat het de productieketen van wetenschappelijk en educatief materiaal versnelt, wat het gebruik van LLM's verder vergroot. 
+
+Desondanks heb ik ervoor gekozen dit te doen als experiment en om de discussie met jullie aan te gaan. In de wetenschap en het academisch onderwijs zijn we zelf nog aan het uitzoeken hoe we deze modellen het beste kunnen inzetten om onze doelen te realiseren en ons materiaal te verbeteren. Voor mij is dat het uitgangspunt: een LLM is een hulpmiddel bij de ontwikkeling van mijn eigen lesmateriaal, geen orakel dat je klakkeloos volgt. Dat betekent kritisch controleren, herschrijven, en zelf de inhoudelijke keuzes maken. Daarnaast werk ik met een beperkt aantal prompts per dag, wat mij dwingt bij iedere stap na te denken en alles goed te formuleren. Dit stimuleert een actieve cognitieve houding,  hou ik controle over het proces, en vermindert de ecologische voetafdruk. 
+
+Ik wil daarom duidelijk zijn over waar de verantwoordelijkheid ligt: de statistische inhoud, de R-code en de redeneringen zijn allemaal door mij gecontroleerd. Het taalmodel heeft geholpen met formulering en structuur, maar werd niet behandeld als een autoriteit op het gebied van statistiek en wiskunde. Eventuele resterende fouten zijn de mijne. 
+
+
+
 ::: {.callout-tip collapse="true"}
 ## Verdieping (honours)
 
@@ -107,5 +131,5 @@ In dit project gaan we samen de diepte in: er is ruimte om verder te verkennen, 
 
 Voor dit project worden geen studiepunten toegekend, deelname komt dus volledig voort uit je eigen interesse en motivatie om je verder te verdiepen.
 
-Lijkt je dit interessant? Meld je dan aan via: TBA
+Lijkt je dit interessant? Meld je dan aan via h.g.j.van.mil@math.leidenuniv.nl met als subject "Deelnamen portfolio ontwikkelgroep" 
 :::
