@@ -173,7 +173,6 @@ Lees je antwoord van toen terug.
 
 De motivatie om de logaritme verder te onderzoeken, kwam vanuit de pH-berekeningen die we eerder hebben uitgevoerd. We hebben gezien dat de logaritme ook in andere contexten voorkomt, maar nu keren we toch nog terug naar de context van concentraties. Dit geeft al een link met iets wat we later in het jaar zullen behandelen, maar dit deel is niet strikt noodzakelijk om de logaritme goed te begrijpen.
 
-
 Je bent al bekend met het begrip `diffusie`: een druppel inkt in een glas water verspreidt zich vanzelf, van een gebied met hoge concentratie naar een gebied met lage concentratie. Dat proces verloopt spontaan, zonder toevoeging van energie. Wil je het omgekeerde bereiken (namelijk de inkt weer terugconcentreren op één plek) dan kost dat wél energie.
 
 Hetzelfde geldt voor opgeloste deeltjes tussen twee compartimenten, bijvoorbeeld binnen en buiten een cel, of aan weerszijden van een membraan. Hoe groter het concentratieverschil dat je wilt creëren of in stand wilt houden, hoe meer energie je nodig hebt. Deze relatie wordt gegeven door:
