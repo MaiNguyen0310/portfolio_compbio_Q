@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,7 +69,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./meta-populaties.html" rel="next">
 <link href="./sepia_standaardfout_theorie.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -77,7 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-12eeb4b20e9f5a2b0bfc604bfaf942bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -220,6 +220,12 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./meta-populaties.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Metapopulaties: drift, migratie en kolonisatie</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -282,7 +288,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Genetic Drift</span></h1>
+<h1 class="title"><span id="sec-gen_drift" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Genetic Drift</span></span></h1>
 </div>
 
 
@@ -299,6 +305,7 @@ window.Quarto = {
 </header>
 
 
+<p><em>[Dit portfolio-onderdeel is nog niet af; deze tekst dient slechts als placeholder]</em></p>
 <p>Bij het vak <em>Evolutiebiologie 1</em> ben je het Hardy-Weinberg model tegenkomen, dat condities beschrijft waarin de genetische samenstelling van een populatie niet verandert. Hierbij heb je ook al besproken dat geen enkele populatie daadwerkelijk voldoet aan deze condities. In het bijzonder is een voorwaarde voor een Hardy-Weinberg equilibrium dat de populatie oneindig groot is. In de werkelijkheid fluctueren allelfrequenties binnen een populatie door random sampling. Dit noemen we <code>genetic drift</code>. Dit vermindert de genetische variatie binnen een populatie, waarbij kleine populaties gevoeliger zijn voor deze random effecten dan grote populaties.</p>
 <section id="een-model-voor-genetic-drift" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="een-model-voor-genetic-drift"><span class="header-section-number">6.1</span> Een model voor genetic drift</h2>
@@ -314,7 +321,7 @@ window.Quarto = {
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>freq <span class="ot">&lt;-</span> <span class="fu">c</span>(p0,p1)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>freq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.6455527 0.3544473</code></pre>
+<pre><code>[1] 0.548808 0.451192</code></pre>
 </div>
 </div>
 <p>Om het principe van genetic drift in één generatietijdseenheid van deze populatie te simuleren, bedenken we het volgende:</p>
@@ -344,7 +351,7 @@ window.Quarto = {
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>freq_nieuw <span class="ot">&lt;-</span> <span class="fu">c</span>(p0_nieuw, p1_nieuw)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>freq_nieuw</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.6415 0.3585</code></pre>
+<pre><code>[1] 0.5515 0.4485</code></pre>
 </div>
 </div>
 <p>Het verschil ten opzichte van de frequenties in de vorige populatie kunnen we zien door de vectoren van elkaar af te trekken:</p>
@@ -352,7 +359,7 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>gen_verschil <span class="ot">&lt;-</span> freq_nieuw <span class="sc">-</span> freq</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>gen_verschil</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.00405274  0.00405274</code></pre>
+<pre><code>[1]  0.002691959 -0.002691959</code></pre>
 </div>
 </div>
 <p>Deze simulatie geeft slechts een beperkt beeld van de mogelijkheden weer: het gaan om één populatie en we bekijken één generatietijd. Voor een andere populatie zou de uitkomst van het random samplen heel anders kunnen zijn. Bovendien is het resultaat ook anders als we de code voor dezelfde populatie opnieuw runnen. Ook zouden we geïnteresseerd kunnen zijn in het effect van genetic drift op de langere termijn. We kunnen dus, met dezelfde logica als bovenstaand, een <code>functie</code> bouwen die dit voor een willekeurig aantal populaties en generaties bijhoudt en de simulaties meerdere keren uitvoert:</p>
@@ -379,18 +386,18 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">gendrift</span>(p1,<span class="dv">100</span>,<span class="dv">10</span>,<span class="dv">5</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>out</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>           [,1]      [,2]      [,3]      [,4]      [,5]
- [1,] 0.3544473 0.3544473 0.3544473 0.3544473 0.3544473
- [2,] 0.3550000 0.3450000 0.3750000 0.3450000 0.3050000
- [3,] 0.4050000 0.3500000 0.3700000 0.3300000 0.2850000
- [4,] 0.3750000 0.3200000 0.3300000 0.3700000 0.2650000
- [5,] 0.3400000 0.3050000 0.3050000 0.3600000 0.2750000
- [6,] 0.3600000 0.2950000 0.2450000 0.3450000 0.3200000
- [7,] 0.3750000 0.2650000 0.2600000 0.4150000 0.3150000
- [8,] 0.4050000 0.2750000 0.2600000 0.4150000 0.3500000
- [9,] 0.3850000 0.2150000 0.2550000 0.3800000 0.3300000
-[10,] 0.3750000 0.1600000 0.2500000 0.3550000 0.2750000
-[11,] 0.3450000 0.1450000 0.2900000 0.3000000 0.2400000</code></pre>
+<pre><code>          [,1]     [,2]     [,3]     [,4]     [,5]
+ [1,] 0.451192 0.451192 0.451192 0.451192 0.451192
+ [2,] 0.435000 0.505000 0.395000 0.490000 0.450000
+ [3,] 0.450000 0.500000 0.385000 0.450000 0.475000
+ [4,] 0.480000 0.500000 0.415000 0.440000 0.470000
+ [5,] 0.465000 0.510000 0.360000 0.485000 0.465000
+ [6,] 0.500000 0.475000 0.390000 0.535000 0.405000
+ [7,] 0.440000 0.515000 0.390000 0.570000 0.390000
+ [8,] 0.425000 0.595000 0.390000 0.590000 0.435000
+ [9,] 0.390000 0.600000 0.335000 0.605000 0.475000
+[10,] 0.395000 0.615000 0.295000 0.605000 0.505000
+[11,] 0.365000 0.630000 0.330000 0.600000 0.495000</code></pre>
 </div>
 </div>
 <p>We krijgen dus een matrix waarin we de frequentie van allel 1 over de generaties heen (rijen) zien voor elke populatie (kolommen).</p>
@@ -903,8 +910,8 @@ window.Quarto = {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./meta-populaties.html" class="pagination-link" aria-label="Metapopulaties: drift, migratie en kolonisatie">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Metapopulaties: drift, migratie en kolonisatie</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

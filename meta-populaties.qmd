@@ -1,0 +1,125 @@
+# Metapopulaties: drift, migratie en kolonisatie
+
+*[Dit portfolio-onderdeel is nog niet af; deze tekst dient slechts als placeholder]*
+
+  
+In @sec-gen_drift heb je al gezien dat drift in een enkele populatie tot verlies van gentische variatie leidt. Dit verlies was definitief: een verdwenen allel keerde niet meer terug in de populatie. In de praktijk weten we dat dit niet altijd gebeurt. In dit portfolio-onderdeel bekijken we wat er gebeurt als meerdere  populaties met elkaar verbonden zijn en allelen uitwisselen.
+
+## Drift binnen één patch
+
+Voordat we die verbindingen toevoegen, herhalen we hoe we in
+@sec-gen_drift gesampled hebben. De context verandert een beetje: in plaats van twee allelen van één gen, bekijken we nu twee fenotypes binnen een populatie/patch. Een nieuwe generatie ontstaat door willekeurig, met teruglegging, individuen uit de huidige generatie te trekken.
+
+We halen inspiratie uit de code die aan het begin van het vorige portfolio-onderdeel gegeven is:
+
+```{r}
+J <- 10 # patchgrootte
+
+# start: evenveel fenotype 1 als 2
+patch <- rep(c(1, 2), each = J/2) 
+patch
+
+# één generatie drift
+patch <- sample(patch, J, replace = TRUE) 
+patch
+```
+
+::: {#exr-drift_herkennen}
+Vergelijk deze code met de simulatie bij @sec-gen_drift. Welk onderdeel van die simulatie komt hier op dezelfde manier terug, en wat is het enige wat verandert?
+:::
+
+> jouw antwoord:
+
+## Migratie tussen patches
+
+Tot nu toe beschreven we elke patch een geïsoleerd eiland: wat er in de ene patch gebeurt, heeft geen enkele invloed op een andere. In de werkelijkheid trekken individuen vaak tussen populaties. Denk bijvoorbeeld aan zaadverspreiding, of dieren die tussen leefgebieden bewegen. Zulke migratie verandert de samenstelling van een patch op twee manieren tegelijk:
+
+- Er komen individuen bij (die nieuwe fenotypen kunnen introduceren)
+- Individuen verlaten de populatie (waardoor de populatie fenotypen kan verliezen).
+
+We introduceren hiervoor een migratieparameter $m$: de kans dat een individu in een generatie naar een andere patch verhuist. Om een gevoel te krijgen voor wat $m$ doet, bouwen we dit in stappen op.
+
+### Twee patches, één richting
+
+*(placeholder:  voorbeeld met precies twee patches en eenrichtingsmigratie, om het effect van $m$ zichtbaar te maken)*
+
+```{r}
+J <- 20 # startgrootte van elke patch
+N_jaar <- 30 # aantal jaar
+m <- 0.05 # migratiekans per individu, per generatie, alleen van A naar B
+
+# Initiële verdelingen
+patch_A <- rep(c(1, 2), each = J/2)
+patch_B <- rep(c(1, 2), each = J/2)
+
+# Vectoren om frequenties in op te slaan
+freq1_A <- numeric(N_jaar)
+freq1_B <- numeric(N_jaar)
+freq1_A[1] <- mean(patch_A == 1)
+freq1_B[1] <- mean(patch_B == 1)
+
+for (i in 2:N_jaar) {
+  # drift binnen elke patch afzonderlijk
+  patch_A <- sample(patch_A, length(patch_A), replace = TRUE)
+  patch_B <- sample(patch_B, length(patch_B), replace = TRUE)
+  
+  # migratie: elk individu in patch A heeft kans m om naar patch B te verhuizen
+  migreert   <- runif(length(patch_A)) < m
+  migranten  <- patch_A[migreert] # van A naar B
+  patch_A    <- patch_A[!migreert] # blijven in A
+  patch_B    <- c(patch_B, migranten) # toevoeging aan B
+  
+  freq1_A[i] <- if (length(patch_A) > 0) mean(patch_A == 1) else NA # nieuwe frequentie berekenen voor populatie A (indien niet uitgestorven)
+  freq1_B[i] <- mean(patch_B == 1) # nieuwe frequentie berekenen voor populatie B
+}
+
+# plot met frequentie van fenotype 1 voor populatie A
+plot(1:N_jaar, freq1_A, type = "l", col = "blue", 
+     ylim = c(0, 1),
+     xlab = "generatie", ylab = "frequentie fenotype 1")
+# toevoeging plot voor populatie B
+lines(1:N_jaar, freq1_B, col = "red")
+# legenda
+legend("topright", 
+       legend = c("patch A", "patch B"),
+       col = c("blue", "red"), lty = 1)
+```
+
+::: {#exr-migratie_eenrichting}
+Patch A verliest door migratie steeds individuen, patch B krijgt ze erbij. Wat verwacht je dat er op de lange termijn gebeurt met de frequenties in beide patches, als $m$ constant blijft? Verhoog `m` in de code naar bijvoorbeeld 0.2 en controleer je verwachting.
+:::
+
+> jouw antwoord:
+
+### Willekeurig veel patches
+
+*(placeholder: de volledige metapop-functie, in stukken opgebouwd)*
+
+
+## Het Levins-metapopulatiemodel
+
+Tot nu toe keken we naar de samenstelling ván een patch. We zoomen nu uit naar een grover niveau: in plaats van individuen binnen een patch, bekijken we hele patches, die simpelweg `bezet` of `leeg` zijn. Denk aan een landschap met veel geschikte plekken voor een plantensoort, waarvan er op elk moment een fractie $p$ bezet is.
+
+Een bezette patch kan een lege patch koloniseren, met snelheid afhankelijk van een kolonisatiecoëfficiënt $c$; een bezette patch kan ook uitsterven (bijvoorbeeld door een plaag), met snelheid $e$. Dit geeft de volgende vergelijking voor de verandering van $p$ in de tijd:
+
+$$\frac{dp}{dt} = cp(1-p) - ep$$ {#eq-levins}
+
+::: {#exr-levins_herkennen}
+Vergelijk @eq-levins met de logistische groeivergelijking uit @sec-diffvgl. Welke vorm herken je terug, en welke term is hier nieuw ten opzichte van dat model?
+:::
+
+> jouw antwoord:
+
+Net als bij logistische groei bestaat er een evenwicht: een waarde $p^*$ waarvoor $\frac{dp}{dt}=0$ geldt. Door dit uit te rekenen vind je $p^* = 1-\frac{e}{c}$.
+
+::: {#exr-levins_evenwicht}
+Bereken zelf dat $p^*=1-e/c$ inderdaad volgt uit $dp/dt=0$. Onder welke voorwaarde aan $e$ en $c$ heeft dit evenwicht een interpretatie? Wat zou het betekenen als niet aan die voorwaarde is voldaan?
+:::
+
+> jouw antwoord:
+
+::: {#exr-levins_voorspelling}
+Stel $c=0.3$ en $e=0.1$. Voorspel, zonder te simuleren: convergeert $p$ naar $p^*$ vanuit een beginwaarde van 0.1? En vanuit 0.9? Simuleer daarna beide gevallen en vergelijk met je voorspelling.
+:::
+
+> Jouw antwoord:

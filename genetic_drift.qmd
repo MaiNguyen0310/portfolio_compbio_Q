@@ -1,4 +1,6 @@
-# Genetic Drift
+# Genetic Drift {#sec-gen_drift}
+
+*[Dit portfolio-onderdeel is nog niet af; deze tekst dient slechts als placeholder]*
 
 Bij het vak *Evolutiebiologie 1* ben je het Hardy-Weinberg model tegenkomen, dat condities beschrijft waarin de genetische samenstelling van een populatie niet verandert. Hierbij heb je ook al besproken dat geen enkele populatie daadwerkelijk voldoet aan deze condities. In het bijzonder is een voorwaarde voor een Hardy-Weinberg equilibrium dat de populatie oneindig groot is. In de werkelijkheid fluctueren allelfrequenties binnen een populatie door random sampling. Dit noemen we `genetic drift`. Dit vermindert de genetische variatie binnen een populatie, waarbij kleine populaties gevoeliger zijn voor deze random effecten dan grote populaties.
 

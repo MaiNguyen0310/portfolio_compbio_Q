@@ -1,4 +1,4 @@
-# Differentiaalvergelijkingen
+# Differentiaalvergelijkingen {#sec-diffvgl}
 
 Stel je weet van een bepaalde populatie maar één ding: elk individu krijgt gemiddeld 2 nakomelingen per jaar. Verder heb je geen informatie uit tellingen of tussentijdse metingen. Toch kun je, met alleen deze regel en een startaantal, de populatiegrootte op elk moment in de toekomst redelijk voorspellen.
 
@@ -54,7 +54,7 @@ plot(N_vals, dNdt, type = "l", lwd = 2,
 
 Merk op dat dit laat zien wat we eerder in woorden hadden geconcludeerd: hoe groter de populatie, hoe groter de groeisnelheid.
 
-In plaats van de groeisnelheid $dN/dt$ als functie van $N$, kunnen we ook $N$ als functie van de tijd $t$ plotten. Hiervoor maken we gebruik van numerieke integratie, en in het bijzonder de methode van Euler.
+In plaats van de groeisnelheid $dN/dt$\$dN/dt\$ als functie van $N$, kunnen we ook $N$ als functie van de tijd $t$ plotten. Hiervoor maken we gebruik van numerieke integratie, en in het bijzonder de methode van Euler.
 
 ### De methode van Euler
 

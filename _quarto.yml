@@ -19,6 +19,7 @@ book:
     - Differentiaalvergelijkingen_theorie.qmd
     - sepia_standaardfout_theorie.qmd
     - genetic_drift.qmd
+    - meta-populaties.qmd
     - references.qmd
   appendices:
     - Port2_Pract.qmd
@@ -48,7 +49,6 @@ language:
   crossref-exr-title: "Vraag"
   crossref-ch-title: "Hoofdstuk"
   crossref-sec-prefix: "Hoofdstuk"
-  crossref-sec-title: "Hoofdstuk"
 
 filters:
   - webr

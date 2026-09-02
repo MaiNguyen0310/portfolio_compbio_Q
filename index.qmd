@@ -57,26 +57,29 @@ Door deze structuur krijgen jullie de tijd om concepten te analyseren, doorgrond
 library(gt)
 
 data.frame(
-  Hoofdstuk = c("1", "2", "3", "4", "5", "6"),
+  Hoofdstuk = c("1", "2", "3", "4", "5", "6", "7"),
   Onderwerp = c("Stochastische variabelen, kansverdelingen & entropie",
                 "Logaritmes en exponenten",
                 "Lineaire regressie: vectoren en projectie",
                 "Differentiaalvergelijkingen",
                 "Wiskunde van de standaardfout",
-                "Gentetische drift"),
+                "Genetische drift",
+                "Meta-populaties"),
   Practicum = c("Appendix A: Maïszaden practicum (Basisgenetica)",
                 "Appendix B: pH-berekeningen (Chemie van het Leven)",
                 "Appendix C: Bradford-test (Celfysiologie)",
                 "—",
                 "Appendix D: Sepia mantel en de t-test",
-                "_"),
+                "_",
+                "-"),
   `Kernbegrippen` = c(
     "Onzekerheid, kansverdelingen, χ²-test, entropie",
     "Logaritme- en machtsregels, allometrische schaling, log-log-relaties",
     "Lineaire regressie, aannames, variabelen, parameters",
     "Lineaire groei, exponentiële groei, logistische groei, draagkracht",
     "Standaardfout, variantie-optelling, (co)variantiematrix",
-    "Stochastische variabelen, binomiale verdeling, verwachting en variantie, drift versus selectie"
+    "Stochastische variabelen, binomiale verdeling, verwachting en variantie, drift versus selectie",
+    "Levins-metapopulatiemodel"
   )
 ) |>
   gt() |>
@@ -104,23 +107,20 @@ Dit traject vraagt actieve deelname. Verwacht wordt dat jullie:
 
 Dit is geen passieve studie: het is een actieve ontwikkeling richting academisch niveau.
 
-## Hoe is deze handout gemaakt en hoe gebruiken we  LLM?
+## Hoe is deze handout gemaakt en hoe gebruiken we LLM?
 
-Deze handout is deels geschreven met behulp van grote taalmodellen (large language models, LLM's), en ik laat het aan het oordeel van de lezer of dit gerechtvaardigd en verantwoord was; mijn redenen en de voorzorgsmaatregelen die ik heb toegepast, staan hieronder. Daarnaast ga ik graag met jullie de discussie aan of, en zo ja hoe, je deze taalmodellen het beste kunt inzetten bij je eigen ontwikkeling tot academicus. 
+Deze handout is deels geschreven met behulp van grote taalmodellen (large language models, LLM's), en ik laat het aan het oordeel van de lezer of dit gerechtvaardigd en verantwoord was; mijn redenen en de voorzorgsmaatregelen die ik heb toegepast, staan hieronder. Daarnaast ga ik graag met jullie de discussie aan of, en zo ja hoe, je deze taalmodellen het beste kunt inzetten bij je eigen ontwikkeling tot academicus.
 
 #### De workflow.
 
-* De collegesheets en aantekeningen van voorgaande jaren, plus aanvullende handgeschreven en elektronische notities over narratief opbouw, zijn geüpload naar Claude AI van Anthropic.
-* Claude is gevraagd trouw te blijven aan de inhoud en het narratief van het cursusmateriaal, en deze handout uit te schrijven.
-Vervolgens heb ik de handout bewerkt tot de huidige versie.
+- De collegesheets en aantekeningen van voorgaande jaren, plus aanvullende handgeschreven en elektronische notities over narratief opbouw, zijn geüpload naar Claude AI van Anthropic.
+- Claude is gevraagd trouw te blijven aan de inhoud en het narratief van het cursusmateriaal, en deze handout uit te schrijven. Vervolgens heb ik de handout bewerkt tot de huidige versie.
 
-Er bestaan terechte kritiekpunten op deze manier van produceren. Eén betreft de impact op het milieu, vanwege de energie- en waterintensieve datacentra. Een tweede is dat het de productieketen van wetenschappelijk en educatief materiaal versnelt, wat het gebruik van LLM's verder vergroot. 
+Er bestaan terechte kritiekpunten op deze manier van produceren. Eén betreft de impact op het milieu, vanwege de energie- en waterintensieve datacentra. Een tweede is dat het de productieketen van wetenschappelijk en educatief materiaal versnelt, wat het gebruik van LLM's verder vergroot.
 
-Desondanks heb ik ervoor gekozen dit te doen als experiment en om de discussie met jullie aan te gaan. In de wetenschap en het academisch onderwijs zijn we zelf nog aan het uitzoeken hoe we deze modellen het beste kunnen inzetten om onze doelen te realiseren en ons materiaal te verbeteren. Voor mij is dat het uitgangspunt: een LLM is een hulpmiddel bij de ontwikkeling van mijn eigen lesmateriaal, geen orakel dat je klakkeloos volgt. Dat betekent kritisch controleren, herschrijven, en zelf de inhoudelijke keuzes maken. Daarnaast werk ik met een beperkt aantal prompts per dag, wat mij dwingt bij iedere stap na te denken en alles goed te formuleren. Dit stimuleert een actieve cognitieve houding,  hou ik controle over het proces, en vermindert de ecologische voetafdruk. 
+Desondanks heb ik ervoor gekozen dit te doen als experiment en om de discussie met jullie aan te gaan. In de wetenschap en het academisch onderwijs zijn we zelf nog aan het uitzoeken hoe we deze modellen het beste kunnen inzetten om onze doelen te realiseren en ons materiaal te verbeteren. Voor mij is dat het uitgangspunt: een LLM is een hulpmiddel bij de ontwikkeling van mijn eigen lesmateriaal, geen orakel dat je klakkeloos volgt. Dat betekent kritisch controleren, herschrijven, en zelf de inhoudelijke keuzes maken. Daarnaast werk ik met een beperkt aantal prompts per dag, wat mij dwingt bij iedere stap na te denken en alles goed te formuleren. Dit stimuleert een actieve cognitieve houding, hou ik controle over het proces, en vermindert de ecologische voetafdruk.
 
-Ik wil daarom duidelijk zijn over waar de verantwoordelijkheid ligt: de statistische inhoud, de R-code en de redeneringen zijn allemaal door mij gecontroleerd. Het taalmodel heeft geholpen met formulering en structuur, maar werd niet behandeld als een autoriteit op het gebied van statistiek en wiskunde. Eventuele resterende fouten zijn de mijne. 
-
-
+Ik wil daarom duidelijk zijn over waar de verantwoordelijkheid ligt: de statistische inhoud, de R-code en de redeneringen zijn allemaal door mij gecontroleerd. Het taalmodel heeft geholpen met formulering en structuur, maar werd niet behandeld als een autoriteit op het gebied van statistiek en wiskunde. Eventuele resterende fouten zijn de mijne.
 
 ::: {.callout-tip collapse="true"}
 ## Verdieping (honours)
@@ -131,5 +131,5 @@ In dit project gaan we samen de diepte in: er is ruimte om verder te verkennen, 
 
 Voor dit project worden geen studiepunten toegekend, deelname komt dus volledig voort uit je eigen interesse en motivatie om je verder te verdiepen.
 
-Lijkt je dit interessant? Meld je dan aan via h.g.j.van.mil@math.leidenuniv.nl met als subject "Deelnamen portfolio ontwikkelgroep" 
+Lijkt je dit interessant? Meld je dan aan via h.g.j.van.mil\@math.leidenuniv.nl met als subject "Deelnamen portfolio ontwikkelgroep"
 :::
