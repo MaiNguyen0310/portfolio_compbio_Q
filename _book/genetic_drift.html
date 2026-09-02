@@ -321,7 +321,7 @@ window.Quarto = {
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>freq <span class="ot">&lt;-</span> <span class="fu">c</span>(p0,p1)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>freq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.548808 0.451192</code></pre>
+<pre><code>[1] 0.6516381 0.3483619</code></pre>
 </div>
 </div>
 <p>Om het principe van genetic drift in één generatietijdseenheid van deze populatie te simuleren, bedenken we het volgende:</p>
@@ -351,7 +351,7 @@ window.Quarto = {
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>freq_nieuw <span class="ot">&lt;-</span> <span class="fu">c</span>(p0_nieuw, p1_nieuw)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>freq_nieuw</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.5515 0.4485</code></pre>
+<pre><code>[1] 0.657 0.343</code></pre>
 </div>
 </div>
 <p>Het verschil ten opzichte van de frequenties in de vorige populatie kunnen we zien door de vectoren van elkaar af te trekken:</p>
@@ -359,7 +359,7 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>gen_verschil <span class="ot">&lt;-</span> freq_nieuw <span class="sc">-</span> freq</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>gen_verschil</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1]  0.002691959 -0.002691959</code></pre>
+<pre><code>[1]  0.005361933 -0.005361933</code></pre>
 </div>
 </div>
 <p>Deze simulatie geeft slechts een beperkt beeld van de mogelijkheden weer: het gaan om één populatie en we bekijken één generatietijd. Voor een andere populatie zou de uitkomst van het random samplen heel anders kunnen zijn. Bovendien is het resultaat ook anders als we de code voor dezelfde populatie opnieuw runnen. Ook zouden we geïnteresseerd kunnen zijn in het effect van genetic drift op de langere termijn. We kunnen dus, met dezelfde logica als bovenstaand, een <code>functie</code> bouwen die dit voor een willekeurig aantal populaties en generaties bijhoudt en de simulaties meerdere keren uitvoert:</p>
@@ -386,18 +386,18 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">gendrift</span>(p1,<span class="dv">100</span>,<span class="dv">10</span>,<span class="dv">5</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>out</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>          [,1]     [,2]     [,3]     [,4]     [,5]
- [1,] 0.451192 0.451192 0.451192 0.451192 0.451192
- [2,] 0.435000 0.505000 0.395000 0.490000 0.450000
- [3,] 0.450000 0.500000 0.385000 0.450000 0.475000
- [4,] 0.480000 0.500000 0.415000 0.440000 0.470000
- [5,] 0.465000 0.510000 0.360000 0.485000 0.465000
- [6,] 0.500000 0.475000 0.390000 0.535000 0.405000
- [7,] 0.440000 0.515000 0.390000 0.570000 0.390000
- [8,] 0.425000 0.595000 0.390000 0.590000 0.435000
- [9,] 0.390000 0.600000 0.335000 0.605000 0.475000
-[10,] 0.395000 0.615000 0.295000 0.605000 0.505000
-[11,] 0.365000 0.630000 0.330000 0.600000 0.495000</code></pre>
+<pre><code>           [,1]      [,2]      [,3]      [,4]      [,5]
+ [1,] 0.3483619 0.3483619 0.3483619 0.3483619 0.3483619
+ [2,] 0.3800000 0.3700000 0.3700000 0.3900000 0.3600000
+ [3,] 0.3350000 0.4450000 0.3500000 0.3900000 0.4200000
+ [4,] 0.3900000 0.4300000 0.4000000 0.4750000 0.4450000
+ [5,] 0.4050000 0.3900000 0.3900000 0.4650000 0.4600000
+ [6,] 0.4100000 0.3550000 0.4050000 0.4650000 0.4600000
+ [7,] 0.3650000 0.3600000 0.4050000 0.4950000 0.5250000
+ [8,] 0.3650000 0.3700000 0.4450000 0.4700000 0.5400000
+ [9,] 0.3600000 0.3200000 0.4700000 0.4250000 0.5550000
+[10,] 0.3400000 0.3450000 0.4800000 0.4650000 0.5600000
+[11,] 0.3500000 0.3500000 0.5000000 0.4100000 0.5800000</code></pre>
 </div>
 </div>
 <p>We krijgen dus een matrix waarin we de frequentie van allel 1 over de generaties heen (rijen) zien voor elke populatie (kolommen).</p>

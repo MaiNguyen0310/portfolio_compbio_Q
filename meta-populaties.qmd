@@ -1,9 +1,9 @@
 # Metapopulaties: drift, migratie en kolonisatie
 
-*[Dit portfolio-onderdeel is nog niet af; deze tekst dient slechts als placeholder]*
+*[Dit portfolio-onderdeel is nog niet af; deze tekst dient  als placeholder]*
 
   
-In @sec-gen_drift heb je al gezien dat drift in een enkele populatie tot verlies van gentische variatie leidt. Dit verlies was definitief: een verdwenen allel keerde niet meer terug in de populatie. In de praktijk weten we dat dit niet altijd gebeurt. In dit portfolio-onderdeel bekijken we wat er gebeurt als meerdere  populaties met elkaar verbonden zijn en allelen uitwisselen.
+In @sec-gen_drift heb je al gezien dat genetische drift in een enkele populatie tot verlies van gentische variatie leidt. Dit verlies was definitief: een verdwenen allel keerde niet meer terug in de populatie. In de praktijk weten we dat dit niet altijd gebeurt. In dit portfolio-onderdeel bekijken we wat er gebeurt als meerdere  populaties met elkaar verbonden zijn en allelen uitwisselen.
 
 ## Drift binnen één patch
 
@@ -105,7 +105,7 @@ Een bezette patch kan een lege patch koloniseren, met snelheid afhankelijk van e
 $$\frac{dp}{dt} = cp(1-p) - ep$$ {#eq-levins}
 
 ::: {#exr-levins_herkennen}
-Vergelijk @eq-levins met de logistische groeivergelijking uit @sec-diffvgl. Welke vorm herken je terug, en welke term is hier nieuw ten opzichte van dat model?
+Vergelijk @eq-levins met de logistische groeivergelijking. Welke vorm herken je terug, en welke term is hier nieuw ten opzichte van dat model?
 :::
 
 > jouw antwoord:
