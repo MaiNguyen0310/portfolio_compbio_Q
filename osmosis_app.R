@@ -1,199 +1,91 @@
 library(shiny)
 
-source("osmosis_text.R")
-source("osmosis_misc.R")
-
 ui <- fluidPage(
-  
-  
-  titlePanel("Transmembraan transport"),
-  p(intro_text),
+  tags$head(
+    tags$meta(charset = "UTF-8"),
+    tags$style(HTML("
+      body { background:#f4f7f9; color:#263746; font-family:Arial,sans-serif; }
+      .container-fluid { max-width:1180px; }
+      .well, .info { background:white; border:1px solid #dce5eb; border-radius:12px; padding:16px; }
+      .info { margin-top:14px; }
+      #osmosis-canvas { width:100%; max-width:760px; margin:0 auto; }
+      #osmosis-canvas canvas { display:block; max-width:100%; height:auto !important; }
+      .btn-primary { background:#397c9b; border-color:#397c9b; }
+      .hint { color:#687d8b; font-size:13px; }
+    ")),
+    tags$script(src = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"),
+    tags$script(src = "simulation.js")
+  ),
+  titlePanel("Osmose: watertransport door een membraan"),
+  p("Onderzoek hoe water zich verplaatst tussen twee oplossingen met verschillende concentraties. Water kan door het membraan; opgeloste-stofdeeltjes kunnen dat alleen als je die optie inschakelt."),
+  div(class = "info",
+      p("Water stroomt netto van een hogere naar een lagere waterpotentiaal. Een hogere concentratie opgeloste stof maakt de osmotische potentiaal negatiever. Temperatuur beïnvloedt de osmotische potentiaal en de snelheid van de deeltjes in deze animatie.")
+
+  ),
   sidebarLayout(
-    
     sidebarPanel(
-      
-      uiOutput("permeability_ui"),
-      
-      sliderInput(
-        "n",
-        "Aantal moleculen",
-        min = 10,
-        max = 100,
-        value = 50
-      ),
-    
-  selectInput("type_transport", 
-              "Type transport", 
-              list("Diffusie", 
-                   "Actief transport",
-                    "Cotransport",
-                   "Symport",
-                   "Antiport"),
-              multiple = FALSE,
-              selectize = TRUE),
-  tags$script(HTML(js)),
-  uiOutput("transporter_ui"),
-    
-  selectInput("type_moleculen", 
-              "Type moleculen", 
-              c("Kalium", "Natrium", "Glucose"),
-              selected = "Glucose",
-              multiple = TRUE,
-              selectize = FALSE)
-  ),
-  
+      class = "well", width = 3,
+      h4("Instellingen"),
+      sliderInput("c_inside", "Concentratie links (mol/L)", min = 0, max = 1, value = 0.6, step = 0.05),
+      sliderInput("c_outside", "Concentratie rechts (mol/L)", min = 0, max = 1, value = 0.4, step = 0.05),
+      sliderInput("temperature", "Temperatuur (°C)", min = 0, max = 50, value = 25, step = 1),
+      checkboxInput("water_permeable", "Water kan door het membraan", TRUE),
+      checkboxInput("solute_permeable", "Opgeloste stof kan door het membraan", FALSE),
+      actionButton("reset", "Reset", class = "btn-primary", width = "100%")
+    ),
     mainPanel(
-      # Load the p5.js library from a CDN
-      tags$head(
-        tags$script(src = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js")
-      ),
-      
-      # This div is where p5.js will place the canvas
-      tags$div(id = "canvas_container"),
-      
-      # Load our own JavaScript animation
-      tags$script(src = "simulation.js")
-      
+      width = 9,
+      div(id = "osmosis-canvas"),
+      div(class = "info", strong("Wat gebeurt er? "), textOutput("osmosis_explanation", inline = TRUE)),
+      div(class = "info",
+          strong("Waterpotentiaal (kPa)"),
+          tableOutput("osmosis_values")
+      )
     )
-    
-  ),
-  
-  div(class = "footer",
-      p(footer_text, style = "font-size:80%")),
-  
+  )
 )
 
-server <- function(input, output, session){
-  output$permeability_ui <- renderUI({
-    
-    req(input$type_moleculen)
-    
-    tags$table(
-      class = "table table-sm",
-      tags$thead(
-        tags$tr(
-          tags$th("Molecuul"),
-          tags$th("Permeabel")
-        )
-      ),
-      tags$tbody(
-        
-        lapply(input$type_moleculen, function(mol){
-          
-          tags$tr(
-            
-            tags$td(mol),
-            
-            tags$td(
-              checkboxInput(
-                paste0("perm_", mol),
-                label = NULL,
-                value = TRUE,
-                width = NULL
-              )
-            )
-            
-          )
-          
-        })
-        
-      )
-    )
-    
-  })
-  
-  
-  output$transporter_ui <- renderUI({
-    
-    transporters <- c(
-      "GLUT",
-      "Na_channel",
-      "K_channel",
-      "NaK_pump"
-    )
-    
-    tags$table(
-      class = "table table-sm",
-      tags$thead(
-        tags$tr(
-          tags$th("Transporter"),
-          tags$th("Aanwezig")
-        )
-      ),
-      tags$tbody(
-        
-        lapply(transporters, function(tp){
-          
-          tags$tr(
-            
-            tags$td(tp),
-            
-            tags$td(
-              checkboxInput(
-                paste0("trans_", tp),
-                label = NULL,
-                value = FALSE
-              )
-            )
-            
-          )
-          
-        })
-        
-      )
-    )
-    
-  })
-  
-  observe({
-    
-    req(input$type_moleculen)
-    
-    permeability <- setNames(
-      
-      lapply(input$type_moleculen, function(mol){
-        
-        input[[paste0("perm_", mol)]]
-        
-      }),
-      
-      input$type_moleculen
-      
-    )
-    
-    transporter_present <- list(
-      
-      GLUT      = input$trans_GLUT,
-      Na_channel = input$trans_Na_channel,
-      K_channel  = input$trans_K_channel,
-      NaK_pump   = input$trans_NaK_pump
-      
-    )
-    
-    session$sendCustomMessage(
-      
-      "parameters",
-      
-      list(
-        
-        n = input$n,
-        transport_type = input$type_transport,
-        molecule_type = input$type_moleculen,
-        
-        permeable = permeability,
-        
-        transporters = transporter_present
-        
-      )
-      
-    )
-    
-  })
-    
+server <- function(input, output, session) {
+  observeEvent(
+    list(input$c_inside, input$c_outside, input$temperature,
+         input$water_permeable, input$solute_permeable, input$reset),
+    {
+      session$sendCustomMessage("osmosis_parameters", list(
+        c_left = input$c_inside,
+        c_right = input$c_outside,
+        temp_c = input$temperature,
+        water_permeable = input$water_permeable,
+        solute_permeable = input$solute_permeable,
+        reset = input$reset
+      ))
+    },
     ignoreInit = FALSE
+  )
   
+  output$osmosis_explanation <- renderText({
+    req(input$live_state)
+    s <- input$live_state
+    if (!isTRUE(input$water_permeable)) {
+      "Water kan niet door het membraan: er is geen netto watertransport."
+    } else if (isTRUE(input$solute_permeable)) {
+      "Beide stoffen kunnen passeren; het concentratieverschil verdwijnt geleidelijk."
+    } else if (abs(s$delta_psi) < 0.5) {
+      "Evenwicht: de waterpotentialen zijn vrijwel gelijk; er is geen netto transport."
+    } else if (s$delta_psi > 0) {
+      "Water stroomt netto van links (hogere Ψw) naar rechts (lagere Ψw)."
+    } else {
+      "Water stroomt netto van rechts (hogere Ψw) naar links (lagere Ψw)."
+    }
+  })
+  
+  output$osmosis_values <- renderTable({
+    req(input$live_state)
+    s <- input$live_state
+    data.frame(
+      Grootheid = c("Ψw links", "Ψw rechts", "Verschil (links − rechts)"),
+      Waarde = sprintf("%.2f kPa", c(s$psi_left, s$psi_right, s$delta_psi))
+    )
+  }, striped = TRUE, bordered = FALSE, spacing = "s")
 }
-
-
 
 shinyApp(ui, server)
